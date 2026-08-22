@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#070b12">
+<title>RIFTSHIFT — Official Site</title>
+<meta name="description" content="RIFTSHIFT is a high-speed arena roguelite. Download the desktop build or publicly test the latest browser version online.">
+<meta name="keywords" content="RIFTSHIFT, roguelite, arena shooter, browser game, indie game, free game, railgun, action roguelite">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta property="og:title" content="RIFTSHIFT — Official Site">
+<meta property="og:description" content="Enter the rift. Build your class. Break the arena. Download RIFTSHIFT or test it in your browser.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="assets/RIFTSHIFT_ICON.png">
+<link rel="icon" href="assets/RIFTSHIFT_ICON.png">
+<style>
+:root{
+  --bg:#060910;--panel:#0d121c;--panel2:#111927;--line:rgba(255,255,255,.08);
+  --muted:#8692a5;--text:#eef5ff;--cyan:#75e9ff;--blue:#7589ff;--purple:#a878ff;
+  --green:#65e49a;--amber:#ffd166;--red:#ff677e;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;background:var(--bg)}
+body{margin:0;color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:
+radial-gradient(circle at 80% -10%,rgba(97,91,255,.17),transparent 28%),
+radial-gradient(circle at 10% 20%,rgba(117,233,255,.08),transparent 24%),
+var(--bg);overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:100;background:
+repeating-linear-gradient(180deg,rgba(255,255,255,.012) 0 1px,transparent 1px 4px),
+radial-gradient(circle at 50% 30%,transparent 0 40%,rgba(0,0,0,.34) 100%);mix-blend-mode:screen;opacity:.48}
+a{color:inherit;text-decoration:none}
+button{font:inherit}
+.wrap{width:min(1180px,calc(100% - 40px));margin:auto}
+.eyebrow{font-size:10px;letter-spacing:.22em;font-weight:950;color:var(--cyan)}
+.nav{position:fixed;z-index:80;top:0;left:0;right:0;border-bottom:1px solid rgba(255,255,255,.055);background:rgba(5,8,13,.72);backdrop-filter:blur(18px)}
+.navin{height:68px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:1000;letter-spacing:-.04em}
+.brand img{width:30px;height:30px;border-radius:7px}
+.brand span:last-child{color:var(--cyan)}
+.navlinks{display:flex;gap:22px;align-items:center;color:#9da9ba;font-size:11px;font-weight:800}
+.navlinks a:hover{color:#fff}
+.navbtn{border:1px solid rgba(117,233,255,.28);background:rgba(117,233,255,.06);color:#dffaff;padding:10px 14px;border-radius:9px;font-size:10px;font-weight:950;letter-spacing:.08em}
+.hero{min-height:760px;padding:150px 0 90px;display:flex;align-items:center;position:relative}
+.heroGrid{display:grid;grid-template-columns:1.04fr .96fr;gap:60px;align-items:center}
+.hero h1{font-size:clamp(70px,10vw,132px);line-height:.75;letter-spacing:-.085em;margin:15px 0 30px;font-weight:1000}
+.hero h1 .rift{color:#f7f9ff}.hero h1 .shift{color:var(--cyan);text-shadow:0 0 55px rgba(117,233,255,.24)}
+.heroLead{font-size:16px;line-height:1.75;color:#a5b1c2;max-width:610px;margin:0 0 28px}
+.actions{display:flex;flex-wrap:wrap;gap:10px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:14px 18px;border-radius:10px;border:1px solid var(--line);font-size:10px;font-weight:950;letter-spacing:.1em;cursor:pointer;transition:.16s ease}
+.btn.primary{background:linear-gradient(135deg,#75e9ff,#768cff);color:#061019;border-color:transparent;box-shadow:0 10px 35px rgba(117,233,255,.16)}
+.btn.secondary{background:rgba(255,255,255,.035);color:#dce6f4}
+.btn:hover{transform:translateY(-2px);filter:brightness(1.08)}
+.heroMeta{display:flex;gap:28px;margin-top:28px;color:#68758a;font-size:9px;font-weight:900;letter-spacing:.12em}
+.heroMeta b{display:block;color:#dce6f4;font-size:15px;letter-spacing:0;margin-bottom:3px}
+.heroVisual{min-height:500px;position:relative;display:grid;place-items:center}
+.rift{position:absolute;width:min(420px,80vw);aspect-ratio:1;border-radius:50%;background:
+radial-gradient(circle,rgba(255,255,255,.9) 0 1%,rgba(117,233,255,.85) 2%,rgba(94,104,255,.3) 8%,rgba(98,61,210,.18) 20%,transparent 58%);
+box-shadow:0 0 100px rgba(117,108,255,.17);animation:pulse 4.4s ease-in-out infinite}
+.rift:before,.rift:after{content:"";position:absolute;inset:8%;border:2px solid rgba(117,233,255,.26);border-radius:50%;filter:drop-shadow(0 0 12px rgba(117,233,255,.25));animation:spin 12s linear infinite}
+.rift:after{inset:18%;border-color:rgba(166,119,255,.28);animation-direction:reverse;animation-duration:8s}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes pulse{50%{transform:scale(1.04);filter:brightness(1.16)}}
+.weaponCard{position:relative;z-index:2;width:88%;border:1px solid rgba(117,233,255,.16);border-radius:18px;padding:22px;background:linear-gradient(180deg,rgba(13,21,33,.82),rgba(8,13,21,.9));backdrop-filter:blur(8px);box-shadow:0 30px 80px rgba(0,0,0,.45)}
+.weaponTop{display:flex;justify-content:space-between;color:#738198;font-size:9px;font-weight:900;letter-spacing:.12em}
+.weaponArt{height:180px;display:grid;place-items:center;position:relative}
+.rail{width:80%;height:28px;background:linear-gradient(180deg,#557284,#223643);border:1px solid #8ef3ff;border-radius:8px;box-shadow:0 0 22px rgba(117,233,255,.13);position:relative}
+.rail:before{content:"";position:absolute;left:18%;top:-14px;width:34%;height:12px;border-radius:8px;background:#1e3342;border:1px solid #75e9ff}
+.rail:after{content:"";position:absolute;right:-26%;top:8px;width:32%;height:8px;background:#bdf7ff;box-shadow:0 0 26px #75e9ff}
+.weaponName{font-size:28px;font-weight:1000;letter-spacing:-.03em}.weaponName span{color:var(--cyan)}
+.section{padding:100px 0;border-top:1px solid rgba(255,255,255,.045)}
+.sectionHead{display:flex;justify-content:space-between;align-items:end;gap:40px;margin-bottom:34px}
+.section h2{font-size:clamp(38px,5vw,64px);letter-spacing:-.055em;margin:8px 0 0;line-height:.95}
+.sectionIntro{max-width:520px;color:#8896aa;font-size:12px;line-height:1.7}
+.featureGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.card{border:1px solid rgba(255,255,255,.07);background:linear-gradient(180deg,rgba(17,25,39,.82),rgba(9,14,23,.88));border-radius:14px;padding:20px;min-height:190px;position:relative;overflow:hidden}
+.card:after{content:"";position:absolute;width:120px;height:120px;border-radius:50%;right:-50px;top:-50px;background:radial-gradient(circle,rgba(117,233,255,.08),transparent 65%)}
+.cardIcon{font-size:22px;color:var(--cyan);margin-bottom:32px}.card h3{font-size:17px;margin:0 0 8px}.card p{margin:0;color:#8290a4;line-height:1.65;font-size:11px}
+.classes{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
+.classCard{border:1px solid rgba(255,255,255,.07);border-radius:13px;padding:16px;background:#0b111b;min-height:225px}
+.classIcon{font-size:28px;height:72px;display:flex;align-items:center;color:var(--cyan)}.classRole{font-size:8px;color:#6e7b8f;letter-spacing:.12em;font-weight:950}.classCard h3{margin:5px 0 8px;font-size:18px}.classCard p{font-size:10px;color:#8491a4;line-height:1.55;margin:0}.classWeapon{font-size:8px;color:#c8d6e7;border-top:1px solid rgba(255,255,255,.06);margin-top:14px;padding-top:10px;font-weight:900}
+.bossGrid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.boss{min-height:250px;background:#0b111b;border:1px solid rgba(255,255,255,.07);border-radius:14px;padding:18px;position:relative;overflow:hidden}
+.bossOrb{width:86px;height:86px;border-radius:50%;margin:10px auto 28px;border:2px solid currentColor;box-shadow:0 0 28px currentColor;opacity:.8;position:relative}
+.bossOrb:after{content:"";position:absolute;inset:25%;border:2px solid currentColor;transform:rotate(45deg)}
+.boss h3{font-size:16px;margin:0}.boss p{font-size:10px;line-height:1.55;color:#8491a4}.pink{color:#ff5d9b}.orange{color:#ff795d}.violet{color:#9c7cff}.ice{color:#70e6ff}
+.downloadBand{padding:28px;border:1px solid rgba(117,233,255,.16);border-radius:18px;background:linear-gradient(120deg,rgba(117,233,255,.06),rgba(117,124,255,.06) 45%,rgba(10,15,24,.92));display:grid;grid-template-columns:1fr auto;gap:28px;align-items:center}
+.downloadBand h3{font-size:28px;margin:0 0 7px}.downloadBand p{margin:0;color:#8593a7;font-size:11px;line-height:1.7}
+.version{display:inline-flex;margin-top:12px;padding:5px 8px;border-radius:999px;border:1px solid rgba(101,228,154,.2);color:#7fe8a5;background:rgba(101,228,154,.045);font-size:8px;font-weight:950;letter-spacing:.12em}
+.playShell{border:1px solid rgba(117,233,255,.14);border-radius:18px;overflow:hidden;background:#04070d;box-shadow:0 35px 100px rgba(0,0,0,.45)}
+.playTop{height:54px;padding:0 14px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(255,255,255,.06);background:#0b111b}
+.playTitle{display:flex;align-items:center;gap:9px;font-size:9px;font-weight:950;letter-spacing:.12em}.liveDot{width:7px;height:7px;border-radius:50%;background:#65e49a;box-shadow:0 0 10px #65e49a}
+.playTools{display:flex;gap:7px}.miniBtn{border:1px solid rgba(255,255,255,.09);background:#111927;color:#9faec2;border-radius:7px;padding:8px 10px;font-size:8px;font-weight:900;cursor:pointer}
+.gameViewport{aspect-ratio:16/9;position:relative;background:
+radial-gradient(circle at 50% 50%,rgba(117,233,255,.08),transparent 28%),#03060b;display:grid;place-items:center}
+#gameFrame{position:absolute;inset:0;width:100%;height:100%;border:0;background:#03060b;display:none}
+.testGate{text-align:center;max-width:480px;padding:28px;position:relative;z-index:1}.testGate .big{font-size:36px;font-weight:1000;letter-spacing:-.04em;margin:7px 0}.testGate p{font-size:11px;color:#8492a6;line-height:1.65}
+.changelog{display:grid;grid-template-columns:.3fr .7fr;gap:20px}.changeVersion{font-size:40px;font-weight:1000;letter-spacing:-.05em;color:var(--cyan)}
+.changeList{display:grid;gap:8px}.changeItem{display:flex;gap:12px;border-bottom:1px solid rgba(255,255,255,.055);padding:10px 0;color:#94a0b2;font-size:11px;line-height:1.55}.tag{flex:0 0 auto;font-size:8px;font-weight:950;color:#dce8f7;background:#111927;border:1px solid rgba(255,255,255,.07);border-radius:5px;padding:4px 6px;height:max-content}
+.faq{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.faq .card{min-height:140px}
+footer{border-top:1px solid rgba(255,255,255,.05);padding:34px 0 50px;color:#68758a;font-size:9px}
+.foot{display:flex;justify-content:space-between;gap:20px;align-items:center}.foot b{color:#dbe6f5}
+@media(max-width:950px){
+  .heroGrid{grid-template-columns:1fr}.heroVisual{min-height:390px}.featureGrid{grid-template-columns:1fr 1fr}.classes{grid-template-columns:1fr 1fr}.bossGrid{grid-template-columns:1fr 1fr}.navlinks a:not(.navbtn){display:none}
+}
+@media(max-width:620px){
+  .wrap{width:min(100% - 24px,1180px)}.hero{padding-top:120px}.hero h1{font-size:74px}.featureGrid,.classes,.bossGrid,.faq{grid-template-columns:1fr}.sectionHead{display:block}.sectionIntro{margin-top:15px}.downloadBand{grid-template-columns:1fr}.downloadBand .btn{width:100%}.gameViewport{aspect-ratio:9/16;max-height:75vh}.heroMeta{gap:16px}.changelog{grid-template-columns:1fr}.foot{display:block}.foot div+div{margin-top:12px}
+}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"VideoGame","name":"RIFTSHIFT","gamePlatform":["Web Browser","Windows"],"genre":["Roguelite","Action","Arena Shooter"],"applicationCategory":"Game"}
+</script>
+</head>
+<body>
+<nav class="nav">
+  <div class="wrap navin">
+    <a class="brand" href="#top"><img src="assets/RIFTSHIFT_ICON.png" alt=""><span>RIFT</span><span>SHIFT</span></a>
+    <div class="navlinks">
+      <a href="#features">FEATURES</a><a href="#classes">CLASSES</a><a href="#bosses">BOSSES</a><a href="#download">DOWNLOAD</a>
+      <a href="#play" class="navbtn">PLAY TEST</a>
+    </div>
+  </div>
+</nav>
+
+<main id="top">
+<section class="hero">
+  <div class="wrap heroGrid">
+    <div>
+      <div class="eyebrow">ENTER // ADAPT // SURVIVE</div>
+      <h1><span class="rift">RIFT</span><br><span class="shift">SHIFT</span></h1>
+      <p class="heroLead">A high-speed arena roguelite built around aggressive movement, escalating enemy pressure, evolving weapons, randomized encounters, and bosses that refuse to let you stand still.</p>
+      <div class="actions">
+        <a class="btn primary" href="downloads/RIFTSHIFT_V16_DESKTOP.zip" download>DOWNLOAD WINDOWS BUILD ↓</a>
+        <a class="btn secondary" href="#play">PUBLIC BROWSER TEST →</a>
+      </div>
+      <div class="heroMeta">
+        <div><b>V16</b>LATEST BUILD</div><div><b>5</b>PUBLIC CLASSES</div><div><b>4 + 4</b>BOSSES / MINI-BOSSES</div>
+      </div>
+    </div>
+    <div class="heroVisual">
+      <div class="rift"></div>
+      <div class="weaponCard">
+        <div class="weaponTop"><span>FEATURED LOADOUT</span><span>CONDUIT // ENERGY</span></div>
+        <div class="weaponArt"><div class="rail"></div></div>
+        <div class="weaponName">C-11 <span>RAIL LANCE</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="features" class="section">
+  <div class="wrap">
+    <div class="sectionHead"><div><div class="eyebrow">COMBAT SYSTEMS</div><h2>BUILT FOR REPLAYABILITY.</h2></div><p class="sectionIntro">Every run combines procedural arenas, randomized objectives, evolving loadouts, elite modifiers, optional challenges, and increasingly hostile rift conditions.</p></div>
+    <div class="featureGrid">
+      <article class="card"><div class="cardIcon">⌁</div><h3>Procedural Arenas</h3><p>Generated combat spaces with cover, hazards, elevated decks, stairs, vents, cables, rifts, environmental lighting, and unique arena dressing.</p></article>
+      <article class="card"><div class="cardIcon">▲</div><h3>Build Evolution</h3><p>Stack class upgrades, rare effects, one-of-one Legendaries, alternate arsenals, and transformative weapon evolutions as a run escalates.</p></article>
+      <article class="card"><div class="cardIcon">✦</div><h3>Rift Contracts</h3><p>Opt into dangerous run modifiers for better rewards. No Dash, accelerated deployments, fragile armor, and more.</p></article>
+      <article class="card"><div class="cardIcon">☇</div><h3>Energy Abilities</h3><p>Each class carries a unique Energy-powered ability, from emergency recovery to railgun electrical control and saturation strikes.</p></article>
+      <article class="card"><div class="cardIcon">!</div><h3>Elite Pressure</h3><p>Armored, Volatile, Phase, Vampiric, Overclocked, and Commander enemies force constant adjustments instead of one solved strategy.</p></article>
+      <article class="card"><div class="cardIcon">∞</div><h3>Endless Escalation</h3><p>Boss modifiers, Rage phases, mini-bosses, rare arena events, procedural objectives, and steadily rising wave pressure keep long runs dangerous.</p></article>
+    </div>
+  </div>
+</section>
+
+<section id="classes" class="section">
+  <div class="wrap">
+    <div class="sectionHead"><div><div class="eyebrow">OPERATIVE ARCHETYPES</div><h2>CHOOSE YOUR FAILURE MODE.</h2></div><p class="sectionIntro">Five public classes play differently from the first trigger pull. Their weapons, stats, upgrades, Legendaries, abilities, and evolutions push each run in a different direction.</p></div>
+    <div class="classes">
+      <article class="classCard"><div class="classIcon">✚</div><div class="classRole">SURVIVOR // ADAPTIVE</div><h3>Survivor</h3><p>Durable, fast, self-sustaining and flexible. The safest entry point without becoming passive.</p><div class="classWeapon">STARTING WEAPON // COMPACT SMG</div></article>
+      <article class="classCard"><div class="classIcon">⌖</div><div class="classRole">RIFLEMAN // PRECISION</div><h3>Rifleman</h3><p>High projectile velocity, strong crit scaling, rail rounds, and focused burst damage.</p><div class="classWeapon">STARTING WEAPON // PRECISION RIFLE</div></article>
+      <article class="classCard"><div class="classIcon">▣</div><div class="classRole">SOLDIER // DEFENSE</div><h3>Soldier</h3><p>Armor, controlled burst fire, Aegis mitigation, and reliable frontline pressure.</p><div class="classWeapon">STARTING WEAPON // SERVICE CARBINE</div></article>
+      <article class="classCard"><div class="classIcon">✹</div><div class="classRole">EXPLOSIVE // AREA CONTROL</div><h3>Explosive</h3><p>Slow heavy projectiles, massive blast zones, cluster evolutions, and violent screen-clearing abilities.</p><div class="classWeapon">STARTING WEAPON // GRENADE LAUNCHER</div></article>
+      <article class="classCard"><div class="classIcon">ϟ</div><div class="classRole">CONDUIT // ENERGY</div><h3>Conduit</h3><p>A huge piercing rail beam, oversized Energy reserves, and Line Current electrical crowd control.</p><div class="classWeapon">STARTING WEAPON // C-11 RAIL LANCE</div></article>
+    </div>
+  </div>
+</section>
+
+<section id="bosses" class="section">
+  <div class="wrap">
+    <div class="sectionHead"><div><div class="eyebrow">RIFT SIGNATURES</div><h2>THE ARENA FIGHTS BACK.</h2></div><p class="sectionIntro">V16 rebuilt every major boss around mechanics rather than inflated health. Later fights can gain modifiers, enter Rage, and overlap attacks.</p></div>
+    <div class="bossGrid">
+      <article class="boss pink"><div class="bossOrb"></div><h3>RIFT WARDEN</h3><p>Rotating laser arrays, radial safe-gap barrages, and pylons that reduce incoming damage until destroyed.</p></article>
+      <article class="boss orange"><div class="bossOrb"></div><h3>VOID DEVOURER</h3><p>Vacuum pulls, close-range detonation, persistent void pools, and increasing minion pressure.</p></article>
+      <article class="boss violet"><div class="bossOrb"></div><h3>NULL ARTILLERY</h3><p>Mortar target zones, deployable turrets, cannon spreads, and sustained bullet-hell pressure.</p></article>
+      <article class="boss ice"><div class="bossOrb"></div><h3>PHASE SPECTER</h3><p>Aggressive teleporting, hostile false clones, delayed shots, and a Rage-state clone swarm.</p></article>
+    </div>
+  </div>
+</section>
+
+<section id="download" class="section">
+  <div class="wrap">
+    <div class="downloadBand">
+      <div><div class="eyebrow">DESKTOP APPLICATION</div><h3>Run RIFTSHIFT as an app.</h3><p>Download the packaged Windows desktop build. The desktop release includes the game shell and supports the existing in-app update path.</p><span class="version">LATEST // 16.0.0</span></div>
+      <a class="btn primary" href="downloads/RIFTSHIFT_V16_DESKTOP.zip" download>DOWNLOAD V16 ↓</a>
+    </div>
+  </div>
+</section>
+
+<section id="play" class="section">
+  <div class="wrap">
+    <div class="sectionHead"><div><div class="eyebrow">PUBLIC TEST CHANNEL</div><h2>PLAY IT HERE.</h2></div><p class="sectionIntro">The latest public browser build is hosted directly inside the site. No install is required. Your browser may ask you to click once before audio can initialize.</p></div>
+    <div id="playShell" class="playShell">
+      <div class="playTop"><div class="playTitle"><span class="liveDot"></span>RIFTSHIFT V16 // PUBLIC BROWSER TEST</div><div class="playTools"><button id="fullBtn" class="miniBtn">FULLSCREEN</button><a href="play/" target="_blank" rel="noopener" class="miniBtn">OPEN STANDALONE ↗</a></div></div>
+      <div class="gameViewport">
+        <div id="testGate" class="testGate"><div class="eyebrow">LIVE BUILD // V16</div><div class="big">INITIALIZE TEST</div><p>The game will load inside this page. Desktop controls: WASD to move, mouse to aim/fire, Space to Dash, Q for ability, E for Overdrive.</p><button id="loadGame" class="btn primary">LOAD RIFTSHIFT</button></div>
+        <iframe id="gameFrame" title="RIFTSHIFT browser test" allow="fullscreen; autoplay"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="sectionHead"><div><div class="eyebrow">LATEST RELEASE</div><h2>V16 // BOSS & ENCOUNTER UPDATE</h2></div></div>
+    <div class="changelog">
+      <div class="changeVersion">16.0.0</div>
+      <div class="changeList">
+        <div class="changeItem"><span class="tag">BOSSES</span><span>All four major bosses gained harder mechanics, stronger pressure, and Rage states below 15% HP.</span></div>
+        <div class="changeItem"><span class="tag">MODIFIERS</span><span>Frenzied, Armored, Mirrored, Vampiric, and Overloaded boss variants begin appearing in deeper runs.</span></div>
+        <div class="changeItem"><span class="tag">MINI-BOSSES</span><span>Rift Knight, Siege Walker, Arc Sentinel, and Mimic Core now interrupt selected non-boss waves.</span></div>
+        <div class="changeItem"><span class="tag">CONTRACTS</span><span>Optional Rift Contracts add challenge conditions in exchange for Scrap, rerolls, and guaranteed Epic upgrade rarity.</span></div>
+        <div class="changeItem"><span class="tag">EVENTS</span><span>Blackout Protocol, Rift Storm, and Redline Breach introduce rare arena-wide run events.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="sectionHead"><div><div class="eyebrow">FAQ</div><h2>BEFORE YOU ENTER.</h2></div></div>
+    <div class="faq">
+      <article class="card"><h3>Is the browser build the full game?</h3><p>The public tester runs the current V16 HTML build. The desktop download packages the game as an application and is the recommended way to play it outside a browser tab.</p></article>
+      <article class="card"><h3>Does progression save?</h3><p>Browser progress is stored locally by the browser. Clearing site data or switching browsers/devices can remove that local profile.</p></article>
+      <article class="card"><h3>Can I play on mobile?</h3><p>The browser build includes touch controls, responsive UI, and optional mobile aim assist. Desktop remains the most complete control experience.</p></article>
+      <article class="card"><h3>Will the site stay updated?</h3><p>The website package keeps a separate <code>play/</code> build and root updater payload, so future releases can update the public tester and desktop updater independently.</p></article>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer><div class="wrap foot"><div><b>RIFTSHIFT</b> // OFFICIAL PROJECT SITE</div><div>PUBLIC TEST BUILD 16.0.0</div></div></footer>
+
+<script>
+const loadBtn=document.getElementById("loadGame");
+const frame=document.getElementById("gameFrame");
+const gate=document.getElementById("testGate");
+const shell=document.getElementById("playShell");
+let loaded=false;
+loadBtn.addEventListener("click",()=>{
+  if(!loaded){frame.src="play/";loaded=true}
+  gate.style.display="none";frame.style.display="block";
+});
+document.getElementById("fullBtn").addEventListener("click",async()=>{
+  try{
+    if(!document.fullscreenElement)await shell.requestFullscreen();
+    else await document.exitFullscreen();
+  }catch(e){}
+});
+</script>
+</body>
+</html>
