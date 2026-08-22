@@ -1,6 +1,6 @@
 {
-  "version": "18.1.0",
+  "version": "18.2.0",
   "gameUrl": "https://raw.githubusercontent.com/C0SMIC58/RIFTSHIFT/main/RIFTSHIFT_LATEST.html",
-  "sha256": "ba04e40c327a453ef7c5d88c7deece355988bbd9dddb4d73f9265805281674cd",
-  "notes": "V18.1: announcer voice quality pass \u2014 natural voice ranking, selectable system voices, tactical/natural/synthetic styles, improved pacing/pronunciation, voice preview, cleaner radio processing."
+  "sha256": "e4493cc3b0206a48f27e581c86db739e85a2fcf2d18c9241f235d8ba8de6372a",
+  "notes": "V18.2: RIFTCORE VOX pre-rendered announcer replaces system TTS by default; fully rebuilt cinematic RIFTCORE Engine startup splash and menu crossfade."
 }
