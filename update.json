@@ -1,6 +1,6 @@
 {
-  "version": "8.0.0",
+  "version": "9.0.0",
   "gameUrl": "https://raw.githubusercontent.com/C0SMIC58/RIFTSHIFT/main/RIFTSHIFT_LATEST.html",
-  "sha256": "9fbaa9bf7df4deb8879ba5fdd991fb1330a776f92d67a0aede4c37baaee09550",
-  "notes": "V8: improved enemy navigation, stair avoidance, maxed-upgrade filtering, and desktop auto-updates."
+  "sha256": "7b91c5e82ab1001d4597026dda95a5262995a07679f636a57cfd8015a2814d2d",
+  "notes": "V9 Arsenal Update: Field Armory, 12 weapon evolutions, elite modifiers, randomized objectives, four phased bosses, rarity/Legendary augments, run archive, Rift Core unlocks, alternate arsenals, chroma progression, and settings."
 }
