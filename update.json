@@ -1,6 +1,6 @@
 {
-  "version": "10.0.0",
+  "version": "11.0.0",
   "gameUrl": "https://raw.githubusercontent.com/C0SMIC58/RIFTSHIFT/main/RIFTSHIFT_LATEST.html",
-  "sha256": "e6b1107244f6c905a9d5c3a6ca3acb62c370949f9aba902dfb02ba5ff8a51eb6",
-  "notes": "V10: Energy class abilities, unique boss forms, maxed-upgrade fix, update-loop fix, and 1.5x louder music."
+  "sha256": "689e9f313af5ecb0a8804d4bdd07ba77d617d72a9f5c81866ec2fdf7f0d3ea92",
+  "notes": "V11: unlockable Conduit railgun class, Line Current ability, mobile touch controls, and searchable GitHub Pages build."
 }

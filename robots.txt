@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://c0smic58.github.io/RIFTSHIFT/sitemap.xml
