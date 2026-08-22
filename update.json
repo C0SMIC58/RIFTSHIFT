@@ -1,6 +1,6 @@
 {
-  "version": "15.0.0",
+  "version": "16.0.0",
   "gameUrl": "https://raw.githubusercontent.com/C0SMIC58/RIFTSHIFT/main/RIFTSHIFT_LATEST.html",
-  "sha256": "05ddafd4736dff61f352463c6865c5f79fe510615ecfc4f03ce745992c7bb8d2",
-  "notes": "V15: environmental lighting, detailed arena materials, enemy/boss telegraphs, animated weapon internals, boss intros, and post-processing-style combat FX."
+  "sha256": "52f5a46710a6aa8ad453687d4a5f098f832f05484c116f7c2b065ac8e2c5cfa0",
+  "notes": "V16: harder multi-mechanic bosses, rage states, boss modifiers, four mini-bosses, Rift Contracts, and rare arena events."
 }

@@ -231,6 +231,18 @@ canvas{display:block}
 .classCard,.upCard,.v9Card,.settingRow{box-shadow:inset 0 1px 0 rgba(255,255,255,.02)}
 .primary,.secondary,.metaButton{transition:transform .12s ease,border-color .12s ease,background .12s ease,filter .12s ease}
 .primary:active,.secondary:active,.metaButton:active{transform:translateY(1px) scale(.992)}
+
+#contractModal{display:none;position:fixed;inset:0;z-index:165;align-items:center;justify-content:center;background:rgba(2,5,10,.72);backdrop-filter:blur(8px);pointer-events:auto}
+#contractModal.show{display:flex}
+.contractBox{width:min(620px,91vw);background:linear-gradient(180deg,#151c2b,#0b1019);border:1px solid rgba(179,119,255,.34);border-radius:18px;padding:24px;box-shadow:0 30px 90px rgba(0,0,0,.58),0 0 45px rgba(132,85,255,.08)}
+.contractKicker{font-size:8px;letter-spacing:.2em;color:#a476ff;font-weight:950}.contractName{font-size:32px;font-weight:1000;letter-spacing:-.035em;margin:5px 0 8px}
+.contractDesc{font-size:11px;line-height:1.65;color:#aab7ca}.contractRisk{margin:15px 0 6px;padding:11px;border:1px solid rgba(255,105,120,.16);background:rgba(255,75,95,.045);border-radius:10px;font-size:9px;color:#ff9aa6;letter-spacing:.05em}
+.contractReward{padding:11px;border:1px solid rgba(101,228,154,.16);background:rgba(71,210,130,.045);border-radius:10px;font-size:9px;color:#8cf0b1;letter-spacing:.05em}
+.contractActions{display:flex;gap:9px;justify-content:flex-end;margin-top:18px}
+#eventBanner{position:fixed;top:100px;left:50%;transform:translateX(-50%);z-index:58;display:none;pointer-events:none;text-align:center;padding:9px 16px;border:1px solid rgba(255,255,255,.1);background:rgba(5,9,15,.74);backdrop-filter:blur(6px);border-radius:10px}
+#eventBanner.show{display:block;animation:eventIn .28s ease-out}
+#eventBanner b{display:block;font-size:9px;letter-spacing:.16em;color:#ffd166}#eventBanner span{font-size:8px;color:#8290a5}
+@keyframes eventIn{from{opacity:0;transform:translate(-50%,-8px)}to{opacity:1;transform:translate(-50%,0)}}
 @media(max-width:850px){.adminGrid{grid-template-columns:1fr 1fr}}
 @media(max-width:850px){.v9Grid{grid-template-columns:1fr 1fr}.settingsGrid{grid-template-columns:1fr}.historyRow{grid-template-columns:1fr 1fr 1fr}.historyRow span:nth-child(n+4){display:none}}
 @media(max-width:850px){.classes{grid-template-columns:1fr 1fr}.classCard{min-height:340px}.upCards{grid-template-columns:1fr}.upCard{min-height:155px}.classTop{align-items:flex-start;flex-direction:column}}
@@ -260,7 +272,7 @@ COMBAT KERNEL....WAITING</div>
     <div class="frontTop"><span>RIFTSHIFT // COMBAT OPERATING SYSTEM</span><span class="live">● RIFT LINK STABLE</span></div>
     <div class="frontGrid">
       <div class="commandPane">
-        <div class="brandCode">FIELD TERMINAL / RS-15</div>
+        <div class="brandCode">FIELD TERMINAL / RS-16</div>
         <h1 class="brandMain"><span class="rift">RIFT</span><span class="shift">SHIFT</span></h1>
         <div class="brandSlash"></div>
         <p class="commandCopy">Pick an operative class. Enter a new procedural combat site every run. Build a focused upgrade stack, use elevation and cover, and survive until the rift overwhelms you.</p>
@@ -285,7 +297,7 @@ COMBAT KERNEL....WAITING</div>
         <div class="telemetry">
           <div><b>4</b><span>CLASS CORES</span></div>
           <div><b>∞</b><span>RUN SEEDS</span></div>
-          <div><b>V15</b><span>BUILD</span></div>
+          <div><b>V16</b><span>BUILD</span></div>
         </div>
         <div id="menuTrack">SOUNDTRACK // NULL VECTOR</div>
       </div>
@@ -333,7 +345,19 @@ COMBAT KERNEL....WAITING</div>
   </div>
   <div id="bottomRight"><div id="weaponName">WEAPON</div><div id="dashText">DASH READY</div><div id="overText">E • OVERDRIVE</div><div id="abilityText">Q • CLASS ABILITY</div><div id="trackName">♪ KINETIC BREACH</div></div>
   <div id="message"></div><div id="toast"></div>
-</section><div id="mobileControls"><div id="movePad"><div id="moveKnob"></div></div><div class="mobileActions"><button id="mobFire" class="mobileBtn">FIRE</button><button id="mobDash" class="mobileBtn">DASH</button><button id="mobAbility" class="mobileBtn">ABILITY</button><button id="mobOver" class="mobileBtn">OVER</button></div><button id="mobPause" class="mobileBtn">Ⅱ</button></div>
+</section>
+<div id="eventBanner"><b id="eventName">RIFT EVENT</b><span id="eventText"></span></div>
+<div id="contractModal">
+  <div class="contractBox">
+    <div class="contractKicker">OPTIONAL RIFT CONTRACT</div>
+    <div id="contractName" class="contractName">CONTRACT</div>
+    <div id="contractDesc" class="contractDesc"></div>
+    <div id="contractRisk" class="contractRisk"></div>
+    <div id="contractReward" class="contractReward"></div>
+    <div class="contractActions"><button id="contractDecline" class="secondary" type="button">DECLINE</button><button id="contractAccept" class="primary" type="button">ACCEPT CONTRACT</button></div>
+  </div>
+</div>
+<div id="mobileControls"><div id="movePad"><div id="moveKnob"></div></div><div class="mobileActions"><button id="mobFire" class="mobileBtn">FIRE</button><button id="mobDash" class="mobileBtn">DASH</button><button id="mobAbility" class="mobileBtn">ABILITY</button><button id="mobOver" class="mobileBtn">OVER</button></div><button id="mobPause" class="mobileBtn">Ⅱ</button></div>
 
 <section id="pause" class="screen"><div class="panel"><div class="titleKicker">RIFTSHIFT</div><h2>PAUSED</h2><button id="resumeBtn" class="primary">RESUME</button><button id="pauseSettingsBtn" class="secondary">SETTINGS</button><button id="restartBtn" class="secondary">RESTART RUN</button><button id="quitBtn" class="secondary">MAIN MENU</button></div></section>
 
@@ -524,7 +548,36 @@ const ARMORY_ITEMS=[
  {id:"fieldmed",icon:"✚",name:"FIELD MEDKIT",cost:28,desc:"Restore 45 HP immediately."},{id:"tempered",icon:"✦",name:"TEMPERED AMMO",cost:54,desc:"+8% weapon damage for the run."},{id:"servo",icon:"➜",name:"SERVO KIT",cost:45,desc:"+6% movement speed."},{id:"plate",icon:"⬢",name:"ARMOR INSERT",cost:62,desc:"+5% permanent armor."},{id:"reroll",icon:"↻",name:"AUGMENT REROLL",cost:36,desc:"+1 level-up reroll token."},{id:"crit",icon:"!",name:"TARGETING LENS",cost:52,desc:"+6% critical chance."},{id:"vital",icon:"♥",name:"VITAL FRAME",cost:58,desc:"+12 max HP and heal 18."},{id:"overcharge",icon:"▲",name:"CORE CHARGE",cost:32,desc:"Fill Overdrive immediately."},{id:"drone",icon:"◇",name:"SALVAGED DRONE",cost:78,desc:"Deploy another combat drone."},{id:"velocity",icon:"➤",name:"ACCELERATOR RAIL",cost:47,desc:"+12% projectile speed."},{id:"repair",icon:"⌂",name:"FIELD SERVICE",cost:42,desc:"+0.5 HP/sec regeneration."},{id:"magnet",icon:"◎",name:"RIFT VACUUM",cost:38,desc:"+45 XP collection radius."}
 ];
 const ELITE_DEFS={armored:{name:"ARMORED",color:"#b8c1d0"},volatile:{name:"VOLATILE",color:"#ff875f"},phase:{name:"PHASE",color:"#b083ff"},vampiric:{name:"VAMPIRIC",color:"#ff657e"},overclocked:{name:"OVERCLOCKED",color:"#72efff"},commander:{name:"COMMANDER",color:"#ffd166"}};
-const BOSS_DEFS=[{id:"warden",name:"RIFT WARDEN",color:"#ff5d9b",hp:1,speed:62},{id:"devourer",name:"VOID DEVOURER",color:"#ff795d",hp:1.15,speed:78},{id:"artillery",name:"NULL ARTILLERY",color:"#9c7cff",hp:1.08,speed:42},{id:"specter",name:"PHASE SPECTER",color:"#70e6ff",hp:.95,speed:70}];
+const BOSS_DEFS=[
+ {id:"warden",name:"RIFT WARDEN",color:"#ff5d9b",hp:1.15,speed:67},
+ {id:"devourer",name:"VOID DEVOURER",color:"#ff795d",hp:1.28,speed:83},
+ {id:"artillery",name:"NULL ARTILLERY",color:"#9c7cff",hp:1.22,speed:46},
+ {id:"specter",name:"PHASE SPECTER",color:"#70e6ff",hp:1.08,speed:76}
+];
+const BOSS_MODIFIERS=[
+ {id:"frenzied",name:"FRENZIED",color:"#ff786e"},
+ {id:"armored",name:"ARMORED",color:"#c7d2df"},
+ {id:"mirrored",name:"MIRRORED",color:"#d58cff"},
+ {id:"vampiric",name:"VAMPIRIC",color:"#ff5d85"},
+ {id:"overloaded",name:"OVERLOADED",color:"#75e9ff"}
+];
+const MINIBOSS_DEFS=[
+ {id:"knight",name:"RIFT KNIGHT",color:"#ff7189",hp:1.05,speed:92},
+ {id:"siege",name:"SIEGE WALKER",color:"#ffb05e",hp:1.32,speed:48},
+ {id:"sentinel",name:"ARC SENTINEL",color:"#75e9ff",hp:.94,speed:75},
+ {id:"mimic",name:"MIMIC CORE",color:"#c784ff",hp:.88,speed:82}
+];
+const CONTRACT_DEFS=[
+ {id:"nodash",name:"GROUNDLOCK",desc:"Clear the next wave without using Dash.",risk:"Dash once and the contract immediately fails.",reward:"45 Scrap + next upgrade is guaranteed Epic.",scrap:45,epic:1},
+ {id:"overclock",name:"HOSTILE OVERCLOCK",desc:"Enemies in the next wave are significantly faster and hit harder.",risk:"+30% enemy speed and +15% enemy damage.",reward:"60 Scrap + 1 reroll.",scrap:60,rerolls:1},
+ {id:"fragile",name:"GLASS CIRCUIT",desc:"Your armor bus is destabilized for the next wave.",risk:"You take 35% more incoming damage.",reward:"70 Scrap + next upgrade is guaranteed Epic.",scrap:70,epic:1},
+ {id:"redline",name:"REDLINE QUOTA",desc:"The rift opens faster. Survive an accelerated enemy deployment.",risk:"Spawn cadence is 35% faster for the whole wave.",reward:"55 Scrap + 1 reroll.",scrap:55,rerolls:1}
+];
+const ARENA_EVENTS=[
+ {id:"blackout",name:"BLACKOUT PROTOCOL",text:"Visibility collapsed. Hostile signatures remain luminous.",reward:18},
+ {id:"riftstorm",name:"RIFT STORM",text:"Temporary hazard tears are opening across the arena.",reward:28},
+ {id:"breach",name:"REDLINE BREACH",text:"The rift is feeding hostiles extra kinetic energy.",reward:32}
+];
 const CLASS_ABILITIES={
  survivor:{name:"EMERGENCY STIM",cost:45,desc:"Heal 30 HP and gain a 5s movement/fire-rate surge."},
  rifleman:{name:"FOCUS LOCK",cost:55,desc:"For 5s gain +35% crit chance and every 3rd shot becomes a rail round."},
@@ -1231,7 +1284,7 @@ function newGame(){
       rallyHeal:0,shockKill:0,overDamage:0,stability:0,shrapnel:0,aftershock:0,proximity:0,implosion:0,doubleBlast:0,clusterCount:0
     },
     bullets:[],enemyBullets:[],enemies:[],particles:[],orbs:[],texts:[],blasts:[],delayedBlasts:[],energyLines:[],railImpacts:[],spawnFx:[],drones:0,droneCd:0,upgradeLevels:{},maxedUpgradeIds:new Set(),scrap:0,rerolls:1,bossKills:0,objective:null,evolution:null,evolutionOffered:false,weaponName:def.weapon,armoryStock:[],armoryPurchased:new Set(),
-    wave:1,spawnTimer:.65,spawned:0,waveTarget:pendingChallenge?22:(pendingChaos?18:12),kills:0,score:0,combo:0,comboTimer:0,waveDamageTaken:0,railMuzzle:0,weaponKick:0,muzzleFlash:0,weaponHeat:0,phasePulse:0,bossIntro:null,
+    wave:1,spawnTimer:.65,spawned:0,waveTarget:pendingChallenge?22:(pendingChaos?18:12),kills:0,score:0,combo:0,comboTimer:0,waveDamageTaken:0,railMuzzle:0,weaponKick:0,muzzleFlash:0,weaponHeat:0,phasePulse:0,bossIntro:null,bossHazards:[],enemyStrikes:[],specterClones:[],contract:null,contractOffer:null,arenaEvent:null,guaranteedEpic:0,miniboss:null,
     level:1,xp:0,xpNeed:50,boss:null,nextWaveDelay:0,map:null
   };
   if(G.classId==="conduit"){G.player.pierce=base.pierce||4;G.player.maxEnergy=base.maxEnergy||160;G.player.energy=G.player.maxEnergy;G.player.energyRegen=base.energyRegen||10;G.player.currentWidth=24;G.player.currentShock=.8;G.player.currentDamageMult=1;G.player.currentChains=0;G.player.railEnergyGain=0;G.player.projectileSize=1.55;}
@@ -1289,6 +1342,7 @@ function activateClassAbility(){
 }
 function dash(){
   const p=G.player;if(p.dashCd>0)return;
+  if(G.contract?.id==="nodash"&&!G.contract.failed)failContract("DASH USED");
   let dx=(keys.KeyD?1:0)-(keys.KeyA?1:0)+mobile.moveX,dy=(keys.KeyS?1:0)-(keys.KeyW?1:0)+mobile.moveY;
   if(!dx&&!dy){const a=Math.atan2(mouse.y-p.y,mouse.x-p.x);dx=Math.cos(a);dy=Math.sin(a);}
   const l=Math.hypot(dx,dy)||1,force=720*p.dashDistance;
@@ -1353,16 +1407,144 @@ function spawnEnemy(type=null,x=null,y=null,forcedElite=null){
   const base=1+(w-1)*.105*(G.chaos?1.2:1);
   const defs={chaser:{r:16,hp:46*base,speed:98+w*2,color:"#ff6978",damage:16,score:90},charger:{r:19,hp:76*base,speed:73,color:"#ffae55",damage:24,score:145,chargeCd:rand(.7,1.5),charge:0},shooter:{r:17,hp:62*base,speed:62,color:"#a476ff",damage:14,score:170,shootCd:rand(.5,1.35)},splitter:{r:20,hp:102*base,speed:71,color:"#61df98",damage:18,score:215},brute:{r:25,hp:185*base,speed:54,color:"#e65a62",damage:32,score:300}};
   const e={...defs[type],...pos,type,maxHp:defs[type].hp,vx:0,vy:0,hit:0,slow:0,anim:rand(0,TAU),floor:0,elevation:0,platformId:null,isEnemy:true,stairRoute:null,routeStuck:0,routeLastDist:Infinity};
+  if(G.contract?.id==="overclock"&&!G.contract.failed){e.speed*=1.3;e.damage*=1.15;}
+  if(G.arenaEvent?.id==="breach"){e.speed*=1.25;e.damage*=1.08;e.maxHp*=1.08;e.hp=e.maxHp;}
   applyElite(e,forcedElite);G.enemies.push(e);G.spawnFx.push({x:pos.x,y:pos.y,r:e.r,color:e.eliteColor||e.color,life:.42,max:.42,floor:e.floor??0});sfx.spawn(pos.x);return e;
 }
 function spawnMini(x,y){
   const base=1+(G.wave-1)*.09;
   G.enemies.push({x,y,r:9,hp:24*base,maxHp:24*base,speed:150,color:"#84f0ae",damage:10,score:50,type:"mini",vx:0,vy:0,hit:0,slow:0,anim:rand(0,TAU),floor:0,elevation:0,platformId:null,isEnemy:true,stairRoute:null,routeStuck:0,routeLastDist:Infinity});
 }
+
+function rollBossModifiers(wave){
+  let count=wave>=35?2:wave>=20?1:0;
+  const pool=shuffle([...BOSS_MODIFIERS]),out=[];
+  while(count-->0&&pool.length)out.push(pool.pop());
+  return out;
+}
+function bossHas(e,id){return !!e?.bossMods?.some(m=>m.id===id)}
+function bossCooldown(e,base){
+  let m=e?.rage?.72:1;if(bossHas(e,"frenzied"))m*=.78;return Math.max(.18,base*m);
+}
+function applyBossModifiers(e,mods){
+  e.bossMods=mods||[];
+  if(bossHas(e,"frenzied"))e.speed*=1.2;
+  if(bossHas(e,"armored"))e.bossArmor=.2;
+  if(bossHas(e,"vampiric"))e.vampiricBoss=true;
+  if(bossHas(e,"overloaded")){e.bossBulletScale=1.35;e.damage*=1.12;}
+}
+function spawnBossPylon(owner){
+  if(!owner||G.enemies.filter(q=>q.type==="pylon"&&q.ownerBoss===owner).length>=4)return;
+  for(let i=0;i<2;i++){
+    const a=rand(0,TAU),d=rand(100,155),x=clamp(owner.x+Math.cos(a)*d,55,W-55),y=clamp(owner.y+Math.sin(a)*d,55,H-55);
+    const e={x,y,r:15,hp:120+G.wave*11,maxHp:120+G.wave*11,speed:0,color:"#ff7eb0",damage:0,score:180,type:"pylon",ownerBoss:owner,vx:0,vy:0,hit:0,slow:0,anim:0,floor:0,elevation:0,isEnemy:true};
+    G.enemies.push(e);G.spawnFx.push({x,y,r:15,color:e.color,life:.38,max:.38,floor:0});
+  }
+}
+function spawnBossTurret(owner){
+  if(!owner||G.enemies.filter(q=>q.type==="turret"&&q.ownerBoss===owner).length>=3)return;
+  const a=rand(0,TAU),d=rand(115,190),x=clamp(owner.x+Math.cos(a)*d,45,W-45),y=clamp(owner.y+Math.sin(a)*d,45,H-45);
+  G.enemies.push({x,y,r:17,hp:145+G.wave*12,maxHp:145+G.wave*12,speed:0,color:"#a68aff",damage:11,score:220,type:"turret",ownerBoss:owner,shootCd:.65,vx:0,vy:0,hit:0,slow:0,anim:0,floor:0,elevation:0,isEnemy:true});
+}
+function spawnMiniBoss(){
+  const def=MINIBOSS_DEFS[(Math.floor((G.wave-3)/5))%MINIBOSS_DEFS.length],pos=spawnPoint(),scale=1+(G.wave-3)*.09;
+  const e={x:pos.x,y:pos.y,r:31,hp:440*scale*def.hp,maxHp:440*scale*def.hp,speed:def.speed,color:def.color,damage:23+G.wave*.7,score:950,type:"miniboss",miniBossKind:def.id,miniBossName:def.name,shootCd:.65,burstCd:2.1,specialCd:2.5,vx:0,vy:0,hit:0,slow:0,anim:0,floor:0,elevation:0,isEnemy:true,stairRoute:null,routeStuck:0,routeLastDist:Infinity};
+  G.miniboss=e;G.enemies.push(e);G.spawnFx.push({x:e.x,y:e.y,r:e.r,color:e.color,life:.62,max:.62,floor:0,boss:true});msg(`${def.name} // MINI-BOSS`,1.35);sfx.boss();
+}
+function showEventBanner(ev){
+  if(!ev){$("eventBanner").classList.remove("show");return}
+  $("eventName").textContent=ev.name;$("eventText").textContent=ev.text;$("eventBanner").classList.remove("show");void $("eventBanner").offsetWidth;$("eventBanner").classList.add("show");
+  setTimeout(()=>{if(G?.arenaEvent===ev)$("eventBanner").classList.remove("show")},2600);
+}
+function rollArenaEvent(){
+  G.arenaEvent=null;G.map.hazards=G.map.hazards.filter(h=>!h.eventHazard);
+  if(G.wave<2||G.wave%5===0||Math.random()>.28)return;
+  const ev={...ARENA_EVENTS[Math.floor(Math.random()*ARENA_EVENTS.length)]};G.arenaEvent=ev;showEventBanner(ev);msg(`RIFT EVENT // ${ev.name}`,1.35);
+  if(ev.id==="riftstorm"){
+    for(let i=0;i<4;i++){const q=randomObjectivePoint();G.map.hazards.push({x:q.x,y:q.y,r:34+rand(0,15),phase:rand(0,TAU),eventHazard:true});}
+  }
+}
+function offerRiftContract(){
+  if(G.wave<4||G.wave%4!==0||G.wave%5===0)return false;
+  const def={...CONTRACT_DEFS[Math.floor(Math.random()*CONTRACT_DEFS.length)]};G.contractOffer=def;
+  $("contractName").textContent=def.name;$("contractDesc").textContent=def.desc;$("contractRisk").textContent="RISK // "+def.risk;$("contractReward").textContent="REWARD // "+def.reward;
+  $("contractModal").classList.add("show");G.paused=true;setMobileGameActive(false);return true;
+}
+function acceptContract(){
+  if(!G?.contractOffer)return;G.contract={...G.contractOffer,failed:false};G.contractOffer=null;$("contractModal").classList.remove("show");G.paused=false;setMobileGameActive(true);toast(`CONTRACT ACCEPTED // ${G.contract.name}`);G.last=performance.now();requestAnimationFrame(loop);
+}
+function declineContract(){
+  if(!G?.contractOffer)return;G.contractOffer=null;$("contractModal").classList.remove("show");G.paused=false;setMobileGameActive(true);toast("CONTRACT DECLINED");G.last=performance.now();requestAnimationFrame(loop);
+}
+function failContract(reason="CONTRACT FAILED"){
+  if(!G?.contract||G.contract.failed)return;G.contract.failed=true;toast(`${reason} // ${G.contract.name}`);
+}
+function resolveContract(){
+  const c=G.contract;if(!c)return;
+  if(!c.failed){
+    const scrap=Math.round(c.scrap*(G.scrapMultiplier||1));G.scrap+=scrap;G.rerolls+=(c.rerolls||0);G.guaranteedEpic+=(c.epic||0);toast(`CONTRACT COMPLETE // +${scrap} SCRAP${c.epic?" + EPIC":""}`);sfx.level();
+  }
+  G.contract=null;
+}
+function resolveArenaEvent(){
+  const ev=G.arenaEvent;if(!ev)return;
+  const reward=Math.round(ev.reward*(G.scrapMultiplier||1));G.scrap+=reward;toast(`${ev.name} SURVIVED // +${reward} SCRAP`);G.arenaEvent=null;G.map.hazards=G.map.hazards.filter(h=>!h.eventHazard);showEventBanner(null);
+}
+function addBossHazard(x,y,r,damage,life,color="#8b56ff"){G.bossHazards.push({x,y,r,damage,life,max:life,color,tick:0,floor:0});}
+function addEnemyStrike(x,y,r,damage,delay,color="#9c7cff"){G.enemyStrikes.push({x:clamp(x,r+12,W-r-12),y:clamp(y,r+12,H-r-12),r,damage,t:delay,max:delay,color,floor:0});}
+function updateBossHazards(dt){
+  for(let i=G.bossHazards.length-1;i>=0;i--){
+    const h=G.bossHazards[i];h.life-=dt;h.tick-=dt;
+    if(h.tick<=0&&Math.hypot(G.player.x-h.x,G.player.y-h.y)<h.r+G.player.r){h.tick=.3;hurtPlayer(h.damage);}
+    if(h.life<=0)G.bossHazards.splice(i,1);
+  }
+  for(let i=G.enemyStrikes.length-1;i>=0;i--){
+    const q=G.enemyStrikes[i];q.t-=dt;
+    if(q.t<=0){enemyExplosion(q.x,q.y,q.r,q.damage,q.floor);G.enemyStrikes.splice(i,1);}
+  }
+  for(let i=G.specterClones.length-1;i>=0;i--){
+    const c=G.specterClones[i];c.life-=dt;c.shotCd-=dt;
+    if(c.shotCd<=0){c.shotCd=.75;const a=Math.atan2(G.player.y-c.y,G.player.x-c.x);G.enemyBullets.push({x:c.x,y:c.y,vx:Math.cos(a)*360,vy:Math.sin(a)*360,r:5,life:2.3,damage:10+G.wave*.22,floor:0,cloneShot:true});}
+    if(c.life<=0)G.specterClones.splice(i,1);
+  }
+}
+function triggerBossRage(e,p){
+  if(e.rage||e.hp/e.maxHp>.15)return;
+  e.rage=true;e.speed*=1.15;G.phasePulse=1;G.flash=Math.max(G.flash,.28);msg(`${e.bossName} // RAGE`,1.6);sfx.boss();
+  if(e.bossKind==="warden"){e.laserTime=2.2;e.laserAngle=Math.atan2(p.y-e.y,p.x-e.x);e.laserCount=4;}
+  else if(e.bossKind==="devourer"){e.vacuumTime=2.2;e.vacuumDetonated=false;}
+  else if(e.bossKind==="artillery"){for(let i=0;i<8;i++)addEnemyStrike(p.x+rand(-145,145),p.y+rand(-145,145),48,24,.48+i*.07,e.color);}
+  else if(e.bossKind==="specter"){for(let i=0;i<7;i++){const a=i/7*TAU,d=rand(90,175);G.specterClones.push({x:clamp(p.x+Math.cos(a)*d,25,W-25),y:clamp(p.y+Math.sin(a)*d,25,H-25),life:3.2,max:3.2,shotCd:rand(.1,.55),color:e.color});}}
+}
+function updateBossAdvanced(e,p,dt){
+  triggerBossRage(e,p);
+  e.laserCd=(e.laserCd??bossCooldown(e,4.8))-dt;e.vacuumCd=(e.vacuumCd??bossCooldown(e,5.3))-dt;e.mortarCd=(e.mortarCd??bossCooldown(e,3.8))-dt;e.turretCd=(e.turretCd??bossCooldown(e,6.5))-dt;e.cloneCd=(e.cloneCd??bossCooldown(e,4.2))-dt;
+
+  if(e.bossKind==="warden"){
+    const pylons=G.enemies.filter(q=>q.type==="pylon"&&q.ownerBoss===e).length;e.pylonBuff=pylons;
+    if(e.laserCd<=0){e.laserCd=bossCooldown(e,5.4-.35*e.bossPhase);e.laserTime=1.45+(e.rage?.45:0);e.laserAngle=Math.atan2(p.y-e.y,p.x-e.x);e.laserCount=e.rage?4:e.bossPhase>=3?3:2;}
+    if(e.laserTime>0){
+      e.laserTime-=dt;e.laserAngle+=dt*(1.25+e.bossPhase*.22);e.laserTick=(e.laserTick||0)-dt;
+      if(e.laserTick<=0){e.laserTick=.18;for(let i=0;i<e.laserCount;i++){const a=e.laserAngle+i/e.laserCount*TAU,ex=e.x+Math.cos(a)*900,ey=e.y+Math.sin(a)*900;if(pointSegmentDistance(p.x,p.y,e.x,e.y,ex,ey)<15+p.r)hurtPlayer(12+e.bossPhase*2);}}
+    }
+    if(e.bossPhase>=2&&e.specialCd<=0){e.specialCd=bossCooldown(e,7.2);spawnBossPylon(e);}
+  }else if(e.bossKind==="devourer"){
+    if(e.vacuumCd<=0){e.vacuumCd=bossCooldown(e,5.7-.25*e.bossPhase);e.vacuumTime=1.65+(e.bossPhase-1)*.18;e.vacuumDetonated=false;}
+    if(e.vacuumTime>0){
+      e.vacuumTime-=dt;const a=Math.atan2(e.y-p.y,e.x-p.x),pull=(115+e.bossPhase*25)*dt;moveEntity(p,Math.cos(a)*pull,Math.sin(a)*pull);
+      if(e.vacuumTime<=0&&!e.vacuumDetonated){e.vacuumDetonated=true;enemyExplosion(e.x,e.y,95+e.bossPhase*10,22+e.bossPhase*3,0);for(let i=0;i<2+e.bossPhase;i++){const aa=rand(0,TAU),dd=rand(70,155);addBossHazard(clamp(e.x+Math.cos(aa)*dd,40,W-40),clamp(e.y+Math.sin(aa)*dd,40,H-40),32+e.bossPhase*4,6+e.bossPhase,5.5,e.color);}}
+    }
+  }else if(e.bossKind==="artillery"){
+    if(e.mortarCd<=0){e.mortarCd=bossCooldown(e,4.1-.28*e.bossPhase);const count=3+e.bossPhase+(e.rage?2:0);for(let i=0;i<count;i++)addEnemyStrike(p.x+rand(-125,125),p.y+rand(-125,125),42+e.bossPhase*3,20+e.bossPhase*3,.85+i*.08,e.color);}
+    if(e.bossPhase>=2&&e.turretCd<=0){e.turretCd=bossCooldown(e,7.4);spawnBossTurret(e);}
+  }else if(e.bossKind==="specter"){
+    if(e.cloneCd<=0){e.cloneCd=bossCooldown(e,4.5-.28*e.bossPhase);const count=2+e.bossPhase+(e.rage?2:0);for(let i=0;i<count;i++){const a=i/count*TAU+rand(-.18,.18),d=rand(95,180);G.specterClones.push({x:clamp(p.x+Math.cos(a)*d,25,W-25),y:clamp(p.y+Math.sin(a)*d,25,H-25),life:2.5+e.bossPhase*.25,max:3.2,shotCd:rand(.2,.65),color:e.color});}}
+  }
+}
 function spawnBoss(){
-  const p=spawnPoint(),scale=1+(G.wave/5-1)*.26,index=(Math.floor(G.wave/5)-1)%BOSS_DEFS.length,bd=BOSS_DEFS[index];
-  G.boss={x:p.x,y:p.y,r:50,hp:1050*scale*bd.hp,maxHp:1050*scale*bd.hp,speed:bd.speed,color:bd.color,damage:28,type:"boss",bossKind:bd.id,bossName:bd.name,bossPhase:1,score:3000,shootCd:.9,burstCd:2.7,specialCd:2.2,introTimer:2.55,vx:0,vy:0,hit:0,slow:0,anim:0,floor:0,elevation:0,platformId:null,isEnemy:true,stairRoute:null,routeStuck:0,routeLastDist:Infinity};G.bossIntro={name:bd.name,kind:bd.id,color:bd.color,t:2.55,max:2.55};
-  G.enemies.push(G.boss);G.spawnFx.push({x:p.x,y:p.y,r:50,color:bd.color,life:.8,max:.8,floor:0,boss:true});$("bossWrap").style.display="block";$("bossName").textContent=bd.name;sfx.boss();sfx.setMusic("boss");msg(`${bd.name} // PHASE I`,1.8);
+  const p=spawnPoint(),scale=1+(G.wave/5-1)*.29,index=(Math.floor(G.wave/5)-1)%BOSS_DEFS.length,bd=BOSS_DEFS[index],mods=rollBossModifiers(G.wave);
+  G.boss={x:p.x,y:p.y,r:50,hp:1125*scale*bd.hp,maxHp:1125*scale*bd.hp,speed:bd.speed,color:bd.color,damage:30,type:"boss",bossKind:bd.id,bossName:bd.name,bossPhase:1,score:3400,shootCd:.8,burstCd:2.35,specialCd:1.9,introTimer:2.55,vx:0,vy:0,hit:0,slow:0,anim:0,floor:0,elevation:0,platformId:null,isEnemy:true,stairRoute:null,routeStuck:0,routeLastDist:Infinity};applyBossModifiers(G.boss,mods);G.bossIntro={name:bd.name,kind:bd.id,color:bd.color,t:2.55,max:2.55,mods:mods.map(m=>m.name)};
+  G.enemies.push(G.boss);G.spawnFx.push({x:p.x,y:p.y,r:50,color:bd.color,life:.8,max:.8,floor:0,boss:true});$("bossWrap").style.display="block";$("bossName").textContent=mods.length?`${bd.name} // ${mods.map(m=>m.name).join(" + ")}`:bd.name;sfx.boss();sfx.setMusic("boss");msg(`${bd.name} // PHASE I`,1.8);
 }
 function explode(x,y,radius,damage,cluster=false,secondary=false,blastFloor=G.player.floor){
   const scale=radius/76;
@@ -1387,7 +1569,7 @@ function explode(x,y,radius,damage,cluster=false,secondary=false,blastFloor=G.pl
     const e=G.enemies[j],d=dist({x,y},e);
     if(e.type==="boss"&&(e.introTimer||0)>0)continue;
     if((e.floor??0)===(blastFloor??0)&&d<radius+e.r){
-      const fall=1-clamp(d/(radius+e.r),0,.78);let dmg=damage*(.50+.72*fall);if(e.eliteArmor)dmg*=1-e.eliteArmor;
+      const fall=1-clamp(d/(radius+e.r),0,.78);let dmg=damage*(.50+.72*fall);if(e.eliteArmor)dmg*=1-e.eliteArmor;if(e.bossArmor)dmg*=1-e.bossArmor;if(e.type==="boss"&&e.pylonBuff)dmg*=1/(1+e.pylonBuff*.16);
       e.hp-=dmg;e.hit=.13;
       if(G.player.explosionSlow)e.slow=Math.max(e.slow,G.player.explosionSlowTime||1.4);
       if(G.player.implosion){const ia=Math.atan2(y-e.y,x-e.x),pull=(G.player.implosion||0)*fall;moveEntity(e,Math.cos(ia)*pull,Math.sin(ia)*pull);}
@@ -1410,11 +1592,13 @@ function explode(x,y,radius,damage,cluster=false,secondary=false,blastFloor=G.pl
 function bulletObstacle(b){return G.map.obstacles.some(o=>(o.floor??0)===(b.floor??0)&&circleRect(b.x,b.y,b.r,o))}
 
 function shootEnemy(e,a,speed,damage){
-  G.enemyBullets.push({x:e.x+Math.cos(a)*e.r,y:e.y+Math.sin(a)*e.r,vx:Math.cos(a)*speed,vy:Math.sin(a)*speed,r:5,life:2.6,damage,floor:e.floor??0});
+  const scale=e?.bossBulletScale||1,boost=bossHas(e,"overloaded")?1.18:1;
+  G.enemyBullets.push({x:e.x+Math.cos(a)*e.r,y:e.y+Math.sin(a)*e.r,vx:Math.cos(a)*speed,vy:Math.sin(a)*speed,r:5*scale,life:2.6,damage:damage*boost,floor:e.floor??0,source:e});
+  if(e?.type==="boss"&&bossHas(e,"mirrored")&&Math.random()<.28){const ma=a+Math.PI;G.enemyBullets.push({x:e.x+Math.cos(ma)*e.r,y:e.y+Math.sin(ma)*e.r,vx:Math.cos(ma)*speed*.9,vy:Math.sin(ma)*speed*.9,r:4.5,life:2.4,damage:damage*.72,floor:e.floor??0,source:e,mirrored:true});}
   sfx.enemyShot(e.x);
 }
 function hurtPlayer(raw){
-  const p=G.player;if(ownerAuth&&adminState.god){p.invuln=.08;return}if(p.invuln>0)return;
+  const p=G.player;if(G.contract?.id==="fragile"&&!G.contract.failed)raw*=1.35;if(ownerAuth&&adminState.god){p.invuln=.08;return}if(p.invuln>0)return;
   if(p.luckyDodge&&Math.random()<p.luckyDodge){p.invuln=.22;floatText(p.x,p.y-24,"DODGE","#9fffc0",13);sfx.dash();return;}
   const tempArmor=(p.postDashArmor>0?p.dashArmorStrength:0)+(p.aegisTime>0?p.aegisStrength:0)+(p.abilityAegisTime>0?.35:0)+(p.legendBastion&&p.overActive>0?.3:0);
   const dmg=raw*(1-clamp(p.armor+tempArmor,0,.78));p.hp-=dmg;G.waveDamageTaken=(G.waveDamageTaken||0)+dmg;p.invuln=.45;p.lastHit=G.time;G.shake=13;sfx.hurt();
@@ -1425,15 +1609,16 @@ function hurtPlayer(raw){
 function enemyExplosion(x,y,radius,damage,floor){G.blasts.push({x,y,radius,life:.35,max:.35,floor,color:"#ff705a"});sfx.explosion(x,radius);if((G.player.floor??0)===(floor??0)&&Math.hypot(G.player.x-x,G.player.y-y)<radius+G.player.r)hurtPlayer(damage)}
 function killEnemy(e,index){
   G.enemies.splice(index,1);G.kills++;G.combo++;G.comboTimer=2.5;const mult=1+Math.min(G.combo,20)*.045,pts=Math.round(e.score*mult*(G.scoreMultiplier||1));G.score+=pts;
-  const scrapBase=e.type==="boss"?65:e.eliteKind?10:e.type==="brute"?5:2;G.scrap+=Math.round(scrapBase*(G.scrapMultiplier||1));G.player.over=clamp(G.player.over+8*G.player.overMult,0,100);G.player.energy=clamp(G.player.energy+(e.type==="boss"?35:e.eliteKind?16:9),0,G.player.maxEnergy);
+  const scrapBase=e.type==="boss"?80:e.type==="miniboss"?32:e.type==="pylon"||e.type==="turret"?8:e.eliteKind?10:e.type==="brute"?5:2;G.scrap+=Math.round(scrapBase*(G.scrapMultiplier||1));G.player.over=clamp(G.player.over+8*G.player.overMult,0,100);G.player.energy=clamp(G.player.energy+(e.type==="boss"?35:e.type==="miniboss"?26:e.eliteKind?16:9),0,G.player.maxEnergy);
   if(G.player.lifesteal>0)G.player.hp=clamp(G.player.hp+G.player.lifesteal,0,G.player.maxHp);if(G.player.lastStandLegend&&G.player.hp/G.player.maxHp<.25)G.player.hp=clamp(G.player.hp+5,0,G.player.maxHp);
   if(G.player.scroungeChance&&Math.random()<G.player.scroungeChance)G.player.hp=clamp(G.player.hp+(G.player.scroungeHeal||5),0,G.player.maxHp);
   if(G.player.shockKill){for(let j=G.enemies.length-1;j>=0;j--){const q=G.enemies[j];if((q.floor??0)===(e.floor??0)&&dist(e,q)<92){q.hp=Math.max(1,q.hp-G.player.damage*G.player.shockKill);q.hit=.08}}}
   if(G.player.chain>0&&Math.random()<G.player.chain)explode(e.x,e.y,55,G.player.damage*.65,false);if(e.volatile)setTimeout(()=>{if(G&&G.running)enemyExplosion(e.x,e.y,70,18,e.floor)},90);
-  for(let i=0;i<(e.type==="boss"?38:e.eliteKind?20:13);i++)particle(e.x,e.y,rand(-200,200),rand(-200,200),rand(2,e.type==="boss"?9:5),e.eliteColor||e.color,rand(.35,.78));
-  spawnOrb(e.x,e.y,e.type==="boss"?80:e.eliteKind?25:e.type==="brute"?24:e.type==="splitter"?18:e.type==="shooter"?14:e.type==="charger"?12:9);floatText(e.x,e.y-e.r-8,"+"+pts,"#ffd166",14);sfx.kill(e.x);
+  for(let i=0;i<(e.type==="boss"?42:e.type==="miniboss"?30:e.eliteKind?20:13);i++)particle(e.x,e.y,rand(-200,200),rand(-200,200),rand(2,e.type==="boss"?9:5),e.eliteColor||e.color,rand(.35,.78));
+  spawnOrb(e.x,e.y,e.type==="boss"?90:e.type==="miniboss"?48:e.eliteKind?25:e.type==="brute"?24:e.type==="splitter"?18:e.type==="shooter"?14:e.type==="charger"?12:9);floatText(e.x,e.y-e.r-8,"+"+pts,"#ffd166",14);sfx.kill(e.x);
   $("combo").textContent=`COMBO x${G.combo}`;$("combo").style.opacity=G.combo>1?1:0;if([5,10,20,30].includes(G.combo)){const el=$("combo");el.classList.remove("comboBurst");void el.offsetWidth;el.classList.add("comboBurst");toast(`COMBO x${G.combo} // PRESSURE RISING`);if(G.combo>=20)G.player.energy=clamp(G.player.energy+12,0,G.player.maxEnergy);}if(e.type==="splitter"){spawnMini(e.x-8,e.y);spawnMini(e.x+8,e.y)}
-  if(e.type==="boss"){G.boss=null;G.bossKills++;$("bossWrap").style.display="none";G.shake=12;G.flash=.3;sfx.setMusic(G.player.overActive>0?"overdrive":G.wave>=7?"danger":"combat");msg(`${e.bossName||"BOSS"} DOWN // +65 SCRAP`,1.5);unlockAchievement("first_boss","FIRST BOSS");if(G.bossKills>=4)unlockAchievement("boss_cycle","BOSS CYCLE")}
+  if(e.type==="miniboss"){G.miniboss=null;G.guaranteedEpic++;G.rerolls++;G.scrap+=Math.round(20*(G.scrapMultiplier||1));msg(`${e.miniBossName||"MINI-BOSS"} DOWN // EPIC CACHE`,1.45);sfx.level();}
+  if(e.type==="boss"){G.enemies=G.enemies.filter(q=>q.ownerBoss!==e);G.boss=null;G.bossKills++;G.bossHazards=[];G.enemyStrikes=[];G.specterClones=[];$("bossWrap").style.display="none";G.shake=12;G.flash=.3;sfx.setMusic(G.player.overActive>0?"overdrive":G.wave>=7?"danger":"combat");msg(`${e.bossName||"BOSS"} DOWN // +65 SCRAP`,1.5);unlockAchievement("first_boss","FIRST BOSS");if(G.bossKills>=4)unlockAchievement("boss_cycle","BOSS CYCLE")}
   if(G.kills>=100)unlockAchievement("hundred_kills","100 KILLS");
 }
 function gainXP(a){
@@ -1483,11 +1668,16 @@ function renderArmory(){$("armoryScrap").textContent=`${G.scrap} SCRAP`;$("armor
 function buyArmory(id){const it=ARMORY_ITEMS.find(x=>x.id===id);if(!it||G.armoryPurchased.has(id))return;const c=scaledArmoryCost(it);if(G.scrap<c)return;G.scrap-=c;G.armoryPurchased.add(id);const p=G.player;
  if(id==="fieldmed")p.hp=clamp(p.hp+45,0,p.maxHp);if(id==="tempered")p.damage*=1.08;if(id==="servo")p.speed*=1.06;if(id==="plate")p.armor+=.05;if(id==="reroll")G.rerolls++;if(id==="crit")p.crit=clamp(p.crit+.06,0,.92);if(id==="vital"){p.maxHp+=12;p.hp=clamp(p.hp+18,0,p.maxHp)}if(id==="overcharge")p.over=100;if(id==="drone")G.drones=Math.min(8,G.drones+1);if(id==="velocity")p.projectileSpeed*=1.12;if(id==="repair")p.regen+=.5;if(id==="magnet")p.magnet+=45;sfx.level();renderArmory();updateHUD()}
 function showArmory(){G.choosing=true;showOnly("armory");rollArmoryStock();sfx.setMusic("menu")}
-function finishWave(){const r=Math.round((12+G.wave*3)*(G.scrapMultiplier||1));G.scrap+=r;if((G.waveDamageTaken||0)<=.001&&G.wave>1){const flawless=Math.round((8+G.wave*1.5)*(G.scrapMultiplier||1));G.scrap+=flawless;toast(`FLAWLESS WAVE // +${r+flawless} SCRAP`);sfx.level();}else toast(`WAVE CLEAR // +${r} SCRAP`);if(G.wave%3===0){showArmory();return}nextWave()}
+function finishWave(){resolveContract();resolveArenaEvent();const r=Math.round((12+G.wave*3)*(G.scrapMultiplier||1));G.scrap+=r;if((G.waveDamageTaken||0)<=.001&&G.wave>1){const flawless=Math.round((8+G.wave*1.5)*(G.scrapMultiplier||1));G.scrap+=flawless;toast(`FLAWLESS WAVE // +${r+flawless} SCRAP`);sfx.level();}else toast(`WAVE CLEAR // +${r} SCRAP`);if(G.wave%3===0){showArmory();return}nextWave()}
 function nextWave(){
   G.wave++;G.waveDamageTaken=0;if(G.player.waveHeal||G.player.rallyHeal)G.player.hp=clamp(G.player.hp+(G.player.waveHeal||0)+(G.player.rallyHeal||0),0,G.player.maxHp);
-  G.spawned=0;G.waveTarget=Math.round((12+G.wave*2.2)*(G.chaos?1.35:1)*(G.challenge?1.22:1));G.spawnTimer=.8;G.objective=null;$("objectiveHUD").style.display="none";
-  if(G.wave%5===0){G.spawned=G.waveTarget;spawnBoss()}else{setupWaveObjective();sfx.setMusic(G.wave>=7?"danger":"combat");msg("WAVE "+G.wave,1.2)}
+  G.spawned=0;G.waveTarget=Math.round((12+G.wave*2.2)*(G.chaos?1.35:1)*(G.challenge?1.22:1));G.spawnTimer=.8;G.objective=null;G.bossHazards=[];G.enemyStrikes=[];G.specterClones=[];G.miniboss=null;$("objectiveHUD").style.display="none";
+  if(G.wave%5===0){G.spawned=G.waveTarget;G.arenaEvent=null;spawnBoss()}
+  else{
+    rollArenaEvent();setupWaveObjective();sfx.setMusic(G.wave>=7?"danger":"combat");msg("WAVE "+G.wave,1.2);
+    if(G.wave>=3&&G.wave%5===3)spawnMiniBoss();
+    const offeredWave=G.wave;setTimeout(()=>{if(G&&G.running&&G.wave===offeredWave&&G.wave%4===0&&G.wave%5!==0)offerRiftContract()},180);
+  }
 }
 function allUpgradeDefs(){
   return [...COMMON_UPGRADES,...Object.values(CLASS_UPGRADES).flat(),...Object.values(LEGENDARY_UPGRADES).flat()];
@@ -1552,6 +1742,11 @@ function chooseUpgrade(){
   if(legends.length&&G.wave>=4&&Math.random()<(G.challenge?.14:.08)&&picks.length){
     const candidates=shuffle([...legends]).filter(u=>!isUpgradeMaxed(u)&&!picks.some(p=>p.u.id===u.id));
     if(candidates.length)picks[Math.floor(Math.random()*picks.length)]={u:candidates[0],rarity:"legendary"};
+  }
+
+  if(G.guaranteedEpic>0&&picks.length){
+    const options=picks.map((p,i)=>({p,i})).filter(x=>x.p.rarity!=="legendary");
+    if(options.length){const q=options[Math.floor(Math.random()*options.length)];picks[q.i]={...q.p,rarity:"epic"};G.guaranteedEpic--;}
   }
 
   // Final hard filter + refill. Maxed IDs cannot be rendered.
@@ -1708,7 +1903,7 @@ function update(dt){
   const wasOver=p.overActive>0;p.overActive=Math.max(0,p.overActive-dt);
   if(wasOver&&p.overActive<=0)sfx.setMusic(G.boss?"boss":G.wave>=7?"danger":"combat");
 
-  updateObjective(dt);
+  updateObjective(dt);updateBossHazards(dt);
   if(p.focus){p.focusTimer=Math.max(0,p.focusTimer-dt);if(p.focusTimer<=0)p.focusStack=0;}
   if(G.comboTimer>0){G.comboTimer-=dt;if(G.comboTimer<=0){G.combo=0;$("combo").style.opacity=0;}}
   if(p.regen>0&&G.time-(p.lastHit||0)>3)p.hp=clamp(p.hp+p.regen*dt,0,p.maxHp);
@@ -1739,7 +1934,11 @@ function update(dt){
   if(!G.boss){
     G.spawnTimer-=dt;
     if(G.spawned<G.waveTarget&&G.spawnTimer<=0){
-      spawnEnemy();G.spawned++;G.spawnTimer=Math.max(.14,.76-G.wave*.032)*(G.chaos?.62:1);
+      spawnEnemy();G.spawned++;
+      let cadence=Math.max(.14,.76-G.wave*.032)*(G.chaos?.62:1);
+      if(G.contract?.id==="redline"&&!G.contract.failed)cadence*=.65;
+      if(G.arenaEvent?.id==="breach")cadence*=.72;
+      G.spawnTimer=cadence;
     }
     if(G.spawned>=G.waveTarget&&G.enemies.length===0&&objectiveResolved()){
       G.nextWaveDelay+=dt;if(G.nextWaveDelay>1.1){finishWave();G.nextWaveDelay=0;}
@@ -1761,7 +1960,7 @@ function update(dt){
       if(e.type==="boss"&&(e.introTimer||0)>0)continue;
       if((b.floor??0)===(e.floor??0)&&dist(b,e)<b.r+e.r){
         if(b.explosive){detonate=true;break;}
-        let dmg=b.damage*(b.crit?2:1);if(e.eliteArmor)dmg*=1-e.eliteArmor;
+        let dmg=b.damage*(b.crit?2:1);if(e.eliteArmor)dmg*=1-e.eliteArmor;if(e.bossArmor)dmg*=1-e.bossArmor;if(e.type==="boss"&&e.pylonBuff)dmg*=1/(1+e.pylonBuff*.16);
         if(e.vulnTime>0)dmg*=1+(e.vulnPower||0);
         if(p.executeBonus&&e.hp/e.maxHp<.35)dmg*=1+p.executeBonus;
         if(G.classId==="rifleman"&&p.focus){p.focusStack=clamp(p.focusStack+.04,0,p.focusMax||.35);p.focusTimer=1;dmg*=1+p.focusStack;}
@@ -1784,7 +1983,7 @@ function update(dt){
   for(let i=G.enemyBullets.length-1;i>=0;i--){
     const b=G.enemyBullets[i];b.x+=b.vx*dt;b.y+=b.vy*dt;b.life-=dt;
     if(bulletObstacle(b)){G.enemyBullets.splice(i,1);continue;}
-    if((b.floor??0)===(p.floor??0)&&dist(b,p)<b.r+p.r){hurtPlayer(b.damage);G.enemyBullets.splice(i,1);continue;}
+    if((b.floor??0)===(p.floor??0)&&dist(b,p)<b.r+p.r){hurtPlayer(b.damage);if(b.source?.vampiricBoss)b.source.hp=clamp(b.source.hp+b.damage*2.2,0,b.source.maxHp);G.enemyBullets.splice(i,1);continue;}
     if(b.life<=0||b.x<-40||b.x>W+40||b.y<-40||b.y>H+40)G.enemyBullets.splice(i,1);
   }
 
@@ -1806,15 +2005,25 @@ function update(dt){
       if(e.charge>0)e.charge-=dt;
       else if(e.chargeCd<=0&&d<390){e.charge=.34;e.chargeCd=2.2;e.vx=Math.cos(a)*430;e.vy=Math.sin(a)*430;}
       else{e.vx=Math.cos(a)*e.speed*sm;e.vy=Math.sin(a)*e.speed*sm;}
+    }else if(e.type==="pylon"){
+      e.vx=0;e.vy=0;
+    }else if(e.type==="turret"){
+      e.vx=0;e.vy=0;e.shootCd-=dt;if(e.shootCd<=0){e.shootCd=.72;const pa=Math.atan2(p.y-e.y,p.x-e.x);for(let q=-1;q<=1;q++)shootEnemy(e,pa+q*.14,330,10+G.wave*.18);}
+    }else if(e.type==="miniboss"){
+      e.shootCd-=dt;e.burstCd-=dt;e.specialCd-=dt;const pa=Math.atan2(p.y-e.y,p.x-e.x);
+      if(e.miniBossKind==="knight"){e.vx=Math.cos(a)*e.speed*sm;e.vy=Math.sin(a)*e.speed*sm;if(e.shootCd<=0){e.shootCd=.72;for(let q=-1;q<=1;q++)shootEnemy(e,pa+q*.2,360,12+G.wave*.2);}}
+      else if(e.miniBossKind==="siege"){e.vx=Math.cos(a)*e.speed*.45*sm;e.vy=Math.sin(a)*e.speed*.45*sm;if(e.burstCd<=0){e.burstCd=2.1;for(let q=0;q<14;q++)shootEnemy(e,q/14*TAU,190+q%2*75,11+G.wave*.22);}}
+      else if(e.miniBossKind==="sentinel"){const orbit=pa+Math.PI/2;e.vx=Math.cos(orbit)*e.speed*.9*sm;e.vy=Math.sin(orbit)*e.speed*.9*sm;if(e.shootCd<=0){e.shootCd=.58;for(let q=-2;q<=2;q++)shootEnemy(e,pa+q*.11,385,10+G.wave*.2);}}
+      else{e.vx=Math.cos(a)*e.speed*.78*sm;e.vy=Math.sin(a)*e.speed*.78*sm;if(e.specialCd<=0){e.specialCd=2.1;for(let tries=0;tries<8;tries++){const aa=rand(0,TAU),dd=rand(90,165),nx=p.x+Math.cos(aa)*dd,ny=p.y+Math.sin(aa)*dd;if(canOccupy(e,nx,ny)){e.x=nx;e.y=ny;break}}for(let q=-1;q<=1;q++)shootEnemy(e,Math.atan2(p.y-e.y,p.x-e.x)+q*.18,430,13+G.wave*.2);}}
     }else if(e.type==="boss"){
       if((e.introTimer||0)>0){e.introTimer-=dt;e.vx=0;e.vy=0;}
       else{
       const hpRatio=e.hp/e.maxHp,newPhase=hpRatio<=.35?3:hpRatio<=.7?2:1;if(newPhase>e.bossPhase){e.bossPhase=newPhase;msg(`${e.bossName} // PHASE ${["I","II","III"][newPhase-1]}`,1.4);G.flash=.2;G.phasePulse=.72;sfx.boss()}
-      e.shootCd-=dt;e.burstCd-=dt;e.specialCd-=dt;const pa=Math.atan2(p.y-e.y,p.x-e.x);
-      if(e.bossKind==="warden"){e.vx=Math.cos(a)*e.speed*(1+(e.bossPhase-1)*.1)*sm;e.vy=Math.sin(a)*e.speed*(1+(e.bossPhase-1)*.1)*sm;if(e.shootCd<=0&&(e.floor??0)===(p.floor??0)){e.shootCd=.95-.12*e.bossPhase;for(let q=-1;q<=1;q++)shootEnemy(e,pa+q*.16,340+25*e.bossPhase,10+e.bossPhase)}if(e.burstCd<=0){e.burstCd=3.1-.3*e.bossPhase;for(let q=0;q<12+e.bossPhase*4;q++)shootEnemy(e,q/(12+e.bossPhase*4)*TAU,225+20*e.bossPhase,9+e.bossPhase)}}
-      else if(e.bossKind==="devourer"){e.vx=Math.cos(a)*e.speed*sm;e.vy=Math.sin(a)*e.speed*sm;if(e.specialCd<=0){e.specialCd=2.8-.35*e.bossPhase;for(let n=0;n<e.bossPhase;n++)spawnMini(e.x+rand(-24,24),e.y+rand(-24,24));for(let q=0;q<8+e.bossPhase*2;q++)shootEnemy(e,q/(8+e.bossPhase*2)*TAU,190,12)}}
-      else if(e.bossKind==="artillery"){e.vx=Math.cos(a)*e.speed*.42*sm;e.vy=Math.sin(a)*e.speed*.42*sm;if(e.shootCd<=0){e.shootCd=.72;for(let q=-2;q<=2;q++)shootEnemy(e,pa+q*.13,390,10)}if(e.burstCd<=0){e.burstCd=2.6-.2*e.bossPhase;for(let q=0;q<10;q++)shootEnemy(e,q/10*TAU,140+q%2*90,13)}}
-      else{e.vx=Math.cos(a)*e.speed*.75*sm;e.vy=Math.sin(a)*e.speed*.75*sm;if(e.specialCd<=0){e.specialCd=2.4-.3*e.bossPhase;for(let tries=0;tries<10;tries++){const aa=rand(0,TAU),dd=rand(120,230),nx=p.x+Math.cos(aa)*dd,ny=p.y+Math.sin(aa)*dd;if(canOccupy(e,nx,ny)){e.x=nx;e.y=ny;break}}for(let q=-1;q<=1;q++)shootEnemy(e,Math.atan2(p.y-e.y,p.x-e.x)+q*.22,420,12)}}
+      e.shootCd-=dt;e.burstCd-=dt;e.specialCd-=dt;const pa=Math.atan2(p.y-e.y,p.x-e.x);updateBossAdvanced(e,p,dt);
+      if(e.bossKind==="warden"){e.vx=Math.cos(a)*e.speed*(1+(e.bossPhase-1)*.12)*sm;e.vy=Math.sin(a)*e.speed*(1+(e.bossPhase-1)*.12)*sm;if(e.shootCd<=0&&(e.floor??0)===(p.floor??0)){e.shootCd=bossCooldown(e,.82-.08*e.bossPhase);for(let q=-2;q<=2;q++)shootEnemy(e,pa+q*.13,360+28*e.bossPhase,11+e.bossPhase)}if(e.burstCd<=0){e.burstCd=bossCooldown(e,2.65-.22*e.bossPhase);const n=16+e.bossPhase*5,gap=Math.floor(Math.random()*n);for(let q=0;q<n;q++){if(Math.abs(q-gap)<=1)continue;shootEnemy(e,q/n*TAU,245+22*e.bossPhase,10+e.bossPhase)}}}
+      else if(e.bossKind==="devourer"){e.vx=Math.cos(a)*e.speed*(1+(e.bossPhase-1)*.07)*sm;e.vy=Math.sin(a)*e.speed*(1+(e.bossPhase-1)*.07)*sm;if(e.specialCd<=0){e.specialCd=bossCooldown(e,2.45-.22*e.bossPhase);for(let n=0;n<e.bossPhase+1;n++)spawnMini(e.x+rand(-28,28),e.y+rand(-28,28));for(let q=0;q<10+e.bossPhase*3;q++)shootEnemy(e,q/(10+e.bossPhase*3)*TAU,210+e.bossPhase*8,12+e.bossPhase)}}
+      else if(e.bossKind==="artillery"){e.vx=Math.cos(a)*e.speed*.46*sm;e.vy=Math.sin(a)*e.speed*.46*sm;if(e.shootCd<=0){e.shootCd=bossCooldown(e,.62);for(let q=-3;q<=3;q++)shootEnemy(e,pa+q*.105,420+e.bossPhase*15,10+e.bossPhase)}if(e.burstCd<=0){e.burstCd=bossCooldown(e,2.25-.15*e.bossPhase);for(let q=0;q<14;q++)shootEnemy(e,q/14*TAU,155+q%2*105,13+e.bossPhase)}}
+      else{e.vx=Math.cos(a)*e.speed*.82*sm;e.vy=Math.sin(a)*e.speed*.82*sm;if(e.specialCd<=0){e.specialCd=bossCooldown(e,2.05-.2*e.bossPhase);const oldX=e.x,oldY=e.y;for(let tries=0;tries<10;tries++){const aa=rand(0,TAU),dd=rand(95,210),nx=p.x+Math.cos(aa)*dd,ny=p.y+Math.sin(aa)*dd;if(canOccupy(e,nx,ny)){e.x=nx;e.y=ny;break}}G.specterClones.push({x:oldX,y:oldY,life:1.7,max:1.7,shotCd:.2,color:e.color});for(let q=-2;q<=2;q++)shootEnemy(e,Math.atan2(p.y-e.y,p.x-e.x)+q*.16,445+e.bossPhase*10,12+e.bossPhase)}}
       }
     }else{
       e.vx=Math.cos(a)*e.speed*sm;e.vy=Math.sin(a)*e.speed*sm;
@@ -1905,7 +2114,7 @@ function updateHUD(){
   if(G.boss)$("bossFill").style.width=clamp(G.boss.hp/G.boss.maxHp*100,0,100)+"%";
 }
 function gameOver(){
-  setMobileGameActive(false);G.running=false;const best=safeGetBest();if(G.score>best)safeSetBest(G.score);
+  $("contractModal").classList.remove("show");$("eventBanner").classList.remove("show");setMobileGameActive(false);G.running=false;const best=safeGetBest();if(G.score>best)safeSetBest(G.score);
   const cores=G.bossKills+Math.floor(Math.max(0,G.wave-1)/10)+(G.challenge&&G.wave>=5?1:0);profile.cores+=cores;profile.totalRuns++;profile.totalBosses+=G.bossKills;profile.bestWave=Math.max(profile.bestWave,G.wave);profile.bestScore=Math.max(profile.bestScore,Math.round(G.score));profile.totalKills+=G.kills;
   const evoName=G.evolution?(EVOLUTIONS[G.classId]?.find(e=>e.id===G.evolution)?.name||G.evolution):null;profile.history.unshift({className:CLASS_DEFS[G.classId].name,challenge:G.challenge,wave:G.wave,score:Math.round(G.score),kills:G.kills,evolution:evoName,cores,date:new Date().toISOString().slice(0,10)});profile.history=profile.history.slice(0,12);saveProfile();refreshMetaUI();
   $("finalScore").textContent=Math.round(G.score).toLocaleString();$("sumWave").textContent=G.wave;$("sumKills").textContent=G.kills;$("sumLevel").textContent=G.level;const m=Math.floor(G.time/60),sec=Math.floor(G.time%60);$("sumTime").textContent=`${m}:${String(sec).padStart(2,"0")}`;
@@ -2242,6 +2451,8 @@ function drawBossForm(e,hit,t){
     for(let i=0;i<4+phase;i++){const a=i/(4+phase)*TAU+t*.7,rr=e.r+18+phase*4;X.fillStyle=c;X.globalAlpha=.65;X.save();X.translate(Math.cos(a)*rr,Math.sin(a)*rr);X.rotate(a);X.fillRect(-5,-2,10,4);X.restore();}
     X.globalAlpha=1;
   }
+  if(e.bossMods?.length){for(let i=0;i<e.bossMods.length;i++){const m=e.bossMods[i],a=t*.8+i/e.bossMods.length*TAU,rr=e.r+34;X.fillStyle=m.color;X.globalAlpha=.8;X.beginPath();X.arc(Math.cos(a)*rr,Math.sin(a)*rr,4,0,TAU);X.fill();}}
+  if(e.rage){X.strokeStyle="#ff315d";X.globalAlpha=.65+.25*Math.sin(t*16);X.lineWidth=4;X.beginPath();X.arc(0,0,e.r+15+Math.sin(t*10)*4,0,TAU);X.stroke();}
   X.restore();
 }
 function drawEnemy(e){
@@ -2249,6 +2460,12 @@ function drawEnemy(e){
   X.save();X.translate(e.x,e.y-(e.elevation||0)*8);X.rotate(aim);X.shadowColor=e.color;X.shadowBlur=e.type==="boss"?26:10;
   if(e.type==="boss"){
     drawBossForm(e,hit,t);
+  }else if(e.type==="miniboss"){
+    X.rotate(t*.12);X.fillStyle=hit?"#fff":e.color;X.strokeStyle="#eaf6ff";X.lineWidth=2;X.beginPath();for(let i=0;i<8;i++){const a=i/8*TAU,r=i%2?e.r*.72:e.r;const px=Math.cos(a)*r,py=Math.sin(a)*r;i?X.lineTo(px,py):X.moveTo(px,py)}X.closePath();X.fill();X.stroke();X.fillStyle="#09111b";X.beginPath();X.arc(0,0,e.r*.38,0,TAU);X.fill();X.fillStyle=e.color;X.fillRect(-5,-5,10,10);
+  }else if(e.type==="pylon"){
+    X.fillStyle=hit?"#fff":"#452040";X.strokeStyle=e.color;X.lineWidth=3;X.beginPath();X.moveTo(0,-e.r);X.lineTo(e.r*.72,0);X.lineTo(0,e.r);X.lineTo(-e.r*.72,0);X.closePath();X.fill();X.stroke();X.fillStyle=e.color;X.fillRect(-3,-8,6,16);
+  }else if(e.type==="turret"){
+    X.fillStyle=hit?"#fff":"#2d264a";X.strokeStyle=e.color;X.lineWidth=2;X.fillRect(-15,-13,30,26);X.strokeRect(-15,-13,30,26);X.fillStyle=e.color;X.fillRect(2,-4,24,8);
   }else if(e.type==="brute"){
     X.fillStyle=hit?"#fff":"#7b2632";roundedRect(-22,-18,42,36,10);X.fill();X.fillStyle="#b74851";roundedRect(-14,-22,26,44,8);X.fill();X.fillStyle="#251218";X.fillRect(3,-6,12,12);X.fillStyle="#ffb1ad";X.fillRect(8,-3,5,6);
   }else if(e.type==="shooter"){
@@ -2262,10 +2479,32 @@ function drawEnemy(e){
     X.fillStyle=hit?"#fff":"#b93c4a";X.beginPath();X.arc(0,0,e.r,0,TAU);X.fill();X.fillStyle="#742630";X.beginPath();X.arc(-4,-9+walk*8,5,0,TAU);X.arc(-4,9-walk*8,5,0,TAU);X.fill();X.fillStyle="#281014";X.beginPath();X.arc(5,0,6,0,TAU);X.fill();X.fillStyle="#ffaaa7";X.fillRect(7,-2,5,4);
   }
   X.shadowColor="transparent";X.restore();
+  if(e.type==="miniboss"){X.save();X.fillStyle=e.color;X.font="950 8px Inter,Arial";X.textAlign="center";X.fillText(e.miniBossName,e.x,e.y-e.r-14);X.restore();}
   if(e.eliteKind&&e.type!=="boss"){X.save();X.strokeStyle=e.eliteColor;X.globalAlpha=.75;X.lineWidth=2;X.beginPath();X.arc(e.x,e.y-(e.elevation||0)*8,e.r+6+Math.sin(G.time*5+e.anim)*2,0,TAU);X.stroke();X.fillStyle=e.eliteColor;X.font="900 7px Inter,Arial";X.textAlign="center";X.fillText(e.eliteName,e.x,e.y-(e.elevation||0)*8-e.r-10);X.restore()}
   if(settings.enemyHealthBars&&e.hp<e.maxHp&&e.type!=="boss"){X.fillStyle="rgba(0,0,0,.5)";X.fillRect(e.x-e.r,e.y-(e.elevation||0)*8+e.r+8,e.r*2,3);X.fillStyle="#ff8a92";X.fillRect(e.x-e.r,e.y-(e.elevation||0)*8+e.r+8,e.r*2*clamp(e.hp/e.maxHp,0,1),3);}
 }
 
+
+function drawV16CombatFx(){
+  X.save();
+  for(const h of G.bossHazards){
+    const life=clamp(h.life/h.max,0,1),pulse=.82+.18*Math.sin(G.time*8);
+    X.fillStyle=`rgba(${hexRgb(h.color)},${.075*life})`;X.strokeStyle=h.color;X.globalAlpha=.65*life;X.lineWidth=2;X.beginPath();X.arc(h.x,h.y,h.r*pulse,0,TAU);X.fill();X.stroke();
+  }
+  for(const q of G.enemyStrikes){
+    const pct=1-clamp(q.t/q.max,0,1),pulse=.55+.45*Math.sin(G.time*18);
+    X.fillStyle=`rgba(${hexRgb(q.color)},${.04+.08*pct})`;X.strokeStyle=q.color;X.globalAlpha=.35+.55*pct;X.lineWidth=2+pct*2;X.beginPath();X.arc(q.x,q.y,q.r*(.85+.15*pulse),0,TAU);X.fill();X.stroke();
+    X.beginPath();X.moveTo(q.x-q.r*.6,q.y);X.lineTo(q.x+q.r*.6,q.y);X.moveTo(q.x,q.y-q.r*.6);X.lineTo(q.x,q.y+q.r*.6);X.stroke();
+  }
+  for(const c of G.specterClones){
+    const life=clamp(c.life/c.max,0,1);X.globalAlpha=.2+.3*life;X.strokeStyle=c.color;X.fillStyle=`rgba(${hexRgb(c.color)},.08)`;X.lineWidth=2;X.beginPath();X.moveTo(c.x+18,c.y);X.lineTo(c.x-9,c.y-14);X.lineTo(c.x-9,c.y+14);X.closePath();X.fill();X.stroke();
+  }
+  if(G.boss?.bossKind==="warden"&&G.boss.laserTime>0){
+    const e=G.boss,count=e.laserCount||2;X.globalCompositeOperation="lighter";X.shadowColor=e.color;X.shadowBlur=18;
+    for(let i=0;i<count;i++){const a=e.laserAngle+i/count*TAU;X.strokeStyle=e.color;X.globalAlpha=.22;X.lineWidth=18;X.beginPath();X.moveTo(e.x,e.y);X.lineTo(e.x+Math.cos(a)*1000,e.y+Math.sin(a)*1000);X.stroke();X.globalAlpha=.85;X.lineWidth=3;X.beginPath();X.moveTo(e.x,e.y);X.lineTo(e.x+Math.cos(a)*1000,e.y+Math.sin(a)*1000);X.stroke();}
+  }
+  X.restore();
+}
 function drawObjective(){const o=G.objective;if(!o||o.failed)return;X.save();
  if(o.type==="anchors"){for(const a of o.items){if(a.hp<=0)continue;X.shadowColor="#75e9ff";X.shadowBlur=16;X.strokeStyle="#75e9ff";X.lineWidth=3;X.beginPath();X.arc(a.x,a.y,a.r+Math.sin(G.time*4)*3,0,TAU);X.stroke();X.fillStyle="#142f3b";X.fillRect(a.x-7,a.y-7,14,14);X.shadowBlur=0}}
  else if(o.type==="terminals"){for(const t of o.items){X.fillStyle=t.active?"#65e49a":"#334254";X.fillRect(t.x-11,t.y-15,22,30);X.strokeStyle=t.active?"#65e49a":"#75e9ff";X.strokeRect(t.x-11,t.y-15,22,30)}}
@@ -2358,7 +2597,7 @@ function drawBossIntro(){
   X.globalCompositeOperation="source-over";X.globalAlpha=a;
   X.textAlign="center";X.fillStyle="#7c8ba2";X.font="900 10px Inter,Arial";X.fillText("HOSTILE RIFT SIGNATURE",cx,cy-64);
   X.fillStyle="#f5f8ff";X.font="1000 42px Inter,Arial";X.fillText(q.name,cx,cy);
-  X.fillStyle=q.color;X.font="950 11px Inter,Arial";X.fillText("PHASE I // ENGAGEMENT AUTHORIZED",cx,cy+29);
+  X.fillStyle=q.color;X.font="950 11px Inter,Arial";X.fillText("PHASE I // ENGAGEMENT AUTHORIZED",cx,cy+29);if(q.mods?.length){X.fillStyle="#ffd166";X.font="900 9px Inter,Arial";X.fillText(q.mods.join(" + "),cx,cy+48);}
   X.strokeStyle=q.color;X.globalAlpha=.45*a;X.lineWidth=1;X.beginPath();X.moveTo(cx-180,cy+48);X.lineTo(cx+180,cy+48);X.stroke();
   X.restore();
 }
@@ -2374,6 +2613,7 @@ function drawPostProcessing(){
     for(let i=0;i<5;i++){const y=(G.time*90+i*137)%H;X.fillStyle=`rgba(${i%2?"70,235,255":"255,70,150"},${a*.12})`;X.fillRect(i%2?4:-4,y,W,1);}
   }
 
+  if(G.arenaEvent?.id==="blackout"){X.fillStyle="rgba(0,2,7,.72)";X.fillRect(0,0,W,H);const g=X.createRadialGradient(p.x,p.y,15,p.x,p.y,155);g.addColorStop(0,"rgba(100,215,255,.03)");g.addColorStop(.42,"rgba(0,0,0,.05)");g.addColorStop(1,"rgba(0,0,0,.92)");X.fillStyle=g;X.fillRect(0,0,W,H);}
   if(G.phasePulse>0){
     const q=clamp(G.phasePulse/.72,0,1),g=X.createRadialGradient(W/2,H/2,0,W/2,H/2,Math.max(W,H)*.72);
     g.addColorStop(0,`rgba(255,255,255,${q*.04})`);g.addColorStop(.4,`rgba(159,118,255,${q*.08})`);g.addColorStop(1,"rgba(255,70,130,0)");
@@ -2384,7 +2624,7 @@ function drawPostProcessing(){
 }
 function drawGame(){
   const actualShake=settings.reducedMotion?0:G.shake*settings.shake,sx=rand(-actualShake,actualShake),sy=rand(-actualShake,actualShake);
-  X.save();X.translate(sx,sy);drawMap();drawEnvironmentalLighting(false);drawEnemyTelegraphs();drawObjective();
+  X.save();X.translate(sx,sy);drawMap();drawEnvironmentalLighting(false);drawV16CombatFx();drawEnemyTelegraphs();drawObjective();
   drawSpawnFx();
   for(const o of G.orbs){const pulse=1+Math.sin(G.time*8+o.x*.02)*.14;X.shadowColor="#8d7aff";X.shadowBlur=9;X.fillStyle="#8d7aff";X.beginPath();X.arc(o.x,o.y,o.r*pulse,0,TAU);X.fill();X.shadowBlur=0;}
   for(const b of G.bullets)drawBullet(b);
@@ -2415,7 +2655,7 @@ function tryEnterFullscreen(){
   }catch(err){}
 }
 
-const APP_VERSION="15.0.0";
+const APP_VERSION="16.0.0";
 let pendingDesktopUpdate=null;
 
 function compareVersionStrings(a,b){
@@ -2493,6 +2733,7 @@ function setupMobileControls(){
 }
 setupMobileControls();
 $("bootStart").addEventListener("click",beginBoot);
+$("contractAccept").addEventListener("click",acceptContract);$("contractDecline").addEventListener("click",declineContract);
 /* BUTTONS */
 $("updateBtn").addEventListener("click",()=>pendingDesktopUpdate?installDesktopUpdate():checkDesktopUpdate(false));
 $("startBtn").addEventListener("click",()=>{pendingChallenge=false;openClassSelect(false)});
