@@ -312,7 +312,7 @@ COMBAT KERNEL....WAITING</div>
     <div class="frontTop"><span>RIFTSHIFT // COMBAT OPERATING SYSTEM</span><span class="live">● RIFT LINK STABLE</span></div>
     <div class="frontGrid">
       <div class="commandPane">
-        <div class="brandCode">FIELD TERMINAL / RS-18</div>
+        <div class="brandCode">FIELD TERMINAL / RS-18.1</div>
         <h1 class="brandMain"><span class="rift">RIFT</span><span class="shift">SHIFT</span></h1>
         <div class="brandSlash"></div>
         <p class="commandCopy">Pick an operative class. Enter a new procedural combat site every run. Build a focused upgrade stack, use elevation and cover, and survive until the rift overwhelms you.</p>
@@ -337,7 +337,7 @@ COMBAT KERNEL....WAITING</div>
         <div class="telemetry">
           <div><b>4</b><span>CLASS CORES</span></div>
           <div><b>∞</b><span>RUN SEEDS</span></div>
-          <div><b>V18</b><span>BUILD</span></div>
+          <div><b>V18.1</b><span>BUILD</span></div>
         </div>
         <div id="menuTrack">SOUNDTRACK // NULL VECTOR</div>
       </div>
@@ -412,6 +412,9 @@ COMBAT KERNEL....WAITING</div>
 <div class="settingRow"><label><span>SFX VOLUME</span><span id="sfxValue">100%</span></label><input id="sfxSlider" type="range" min="0" max="100" value="100"></div>
 <div class="settingRow"><label><span>ANNOUNCER VOLUME</span><span id="announcerValue">80%</span></label><input id="announcerSlider" type="range" min="0" max="100" value="80"></div>
 <div class="settingRow toggleRow"><label style="margin:0">ANNOUNCER VOICE</label><input id="announcerVoiceToggle" type="checkbox" checked></div>
+<div class="settingRow"><label><span>VOICE STYLE</span></label><select id="announcerStyleSelect"><option value="command">TACTICAL COMMAND</option><option value="natural">NATURAL</option><option value="synthetic">SYNTHETIC</option></select></div>
+<div class="settingRow"><label><span>SYSTEM VOICE</span></label><select id="announcerVoiceSelect"><option value="auto">AUTO // BEST AVAILABLE</option></select></div>
+<div class="settingRow"><label><span>VOICE PREVIEW</span></label><button id="announcerTestBtn" class="secondary" type="button" style="margin:0;width:100%">TEST VOICE</button></div><div class="settingRow" style="grid-column:1/-1"><div style="font-size:8px;line-height:1.5;color:#6f7d90">AUTO prioritizes higher-quality English neural / online / natural voices when your system exposes them. If AUTO sounds wrong, choose a specific installed voice and press TEST VOICE.</div></div>
 <div class="settingRow toggleRow"><label style="margin:0">ANNOUNCER SUBTITLES</label><input id="announcerSubtitleToggle" type="checkbox" checked></div>
 <div class="settingRow toggleRow"><label style="margin:0">DISCORD GAME ACTIVITY <span style="color:#647287;font-size:8px">(DESKTOP)</span></label><input id="discordActivityToggle" type="checkbox" checked></div>
 <div class="settingRow"><label><span>CAMERA SHAKE</span><span id="shakeValue">100%</span></label><input id="shakeSlider" type="range" min="0" max="100" value="100"></div>
@@ -685,7 +688,7 @@ const CLASS_ABILITIES={
  cosmic:{name:"ABSOLUTE NONSENSE",cost:40,desc:"Heal, fire a radial banana burst, and cause chaotic explosions around the cursor."}
 };
 
-const SETTINGS_DEFAULT={master:1,music:1,sfx:1,announcerVolume:.8,shake:1,impactFlash:1,particleDensity:1,crosshairScale:1,hudScale:1,fpsCap:0,damageNumbers:true,enemyHealthBars:true,hitmarker:true,vignette:true,flashes:true,reducedMotion:false,pauseOnBlur:true,mobileAimAssist:true,fullscreen:true,announcerVoice:true,announcerSubtitles:true,discordActivity:true};
+const SETTINGS_DEFAULT={master:1,music:1,sfx:1,announcerVolume:.8,announcerStyle:"command",announcerVoiceName:"auto",shake:1,impactFlash:1,particleDensity:1,crosshairScale:1,hudScale:1,fpsCap:0,damageNumbers:true,enemyHealthBars:true,hitmarker:true,vignette:true,flashes:true,reducedMotion:false,pauseOnBlur:true,mobileAimAssist:true,fullscreen:true,announcerVoice:true,announcerSubtitles:true,discordActivity:true};
 const PROFILE_DEFAULT={cores:0,totalRuns:0,totalBosses:0,bestWave:0,bestScore:0,totalKills:0,evolutions:[],achievements:[],history:[]};
 function upgradeLevel(id){return G?.upgradeLevels?.[id]||0}
 function upgradeDescription(id,next){
@@ -1001,13 +1004,13 @@ function syncSettingsLabels(){
 function openSettings(back="menu"){
  settingsReturn=back;showOnly("settings");
  $("masterSlider").value=Math.round(settings.master*100);$("musicSlider").value=Math.round(settings.music*100);$("sfxSlider").value=Math.round(settings.sfx*100);$("announcerSlider").value=Math.round((settings.announcerVolume??.8)*100);$("shakeSlider").value=Math.round(settings.shake*100);$("impactSlider").value=Math.round(settings.impactFlash*100);$("particleSlider").value=Math.round(settings.particleDensity*100);$("crosshairSlider").value=Math.round(settings.crosshairScale*100);$("hudSlider").value=Math.round(settings.hudScale*100);
- $("fpsSelect").value=String(settings.fpsCap||0);$("announcerVoiceToggle").checked=settings.announcerVoice!==false;$("announcerSubtitleToggle").checked=settings.announcerSubtitles!==false;$("discordActivityToggle").checked=settings.discordActivity!==false;$("damageToggle").checked=!!settings.damageNumbers;$("enemyBarsToggle").checked=!!settings.enemyHealthBars;$("hitmarkerToggle").checked=!!settings.hitmarker;$("vignetteToggle").checked=!!settings.vignette;$("flashToggle").checked=!!settings.flashes;$("reducedMotionToggle").checked=!!settings.reducedMotion;$("pauseBlurToggle").checked=!!settings.pauseOnBlur;$("mobileAimToggle").checked=!!settings.mobileAimAssist;$("fullscreenToggle").checked=!!settings.fullscreen;syncSettingsLabels();
+ $("fpsSelect").value=String(settings.fpsCap||0);$("announcerStyleSelect").value=settings.announcerStyle||"command";refreshAnnouncerVoiceList();$("announcerVoiceToggle").checked=settings.announcerVoice!==false;$("announcerSubtitleToggle").checked=settings.announcerSubtitles!==false;$("discordActivityToggle").checked=settings.discordActivity!==false;$("damageToggle").checked=!!settings.damageNumbers;$("enemyBarsToggle").checked=!!settings.enemyHealthBars;$("hitmarkerToggle").checked=!!settings.hitmarker;$("vignetteToggle").checked=!!settings.vignette;$("flashToggle").checked=!!settings.flashes;$("reducedMotionToggle").checked=!!settings.reducedMotion;$("pauseBlurToggle").checked=!!settings.pauseOnBlur;$("mobileAimToggle").checked=!!settings.mobileAimAssist;$("fullscreenToggle").checked=!!settings.fullscreen;syncSettingsLabels();
 }
 function handleSettingsInput(){
  settings.master=Number($("masterSlider").value)/100;settings.music=Number($("musicSlider").value)/100;settings.sfx=Number($("sfxSlider").value)/100;settings.announcerVolume=Number($("announcerSlider").value)/100;settings.shake=Number($("shakeSlider").value)/100;settings.impactFlash=Number($("impactSlider").value)/100;settings.particleDensity=Number($("particleSlider").value)/100;settings.crosshairScale=Number($("crosshairSlider").value)/100;settings.hudScale=Number($("hudSlider").value)/100;settings.fpsCap=Number($("fpsSelect").value)||0;
- settings.announcerVoice=$("announcerVoiceToggle").checked;settings.announcerSubtitles=$("announcerSubtitleToggle").checked;settings.discordActivity=$("discordActivityToggle").checked;settings.damageNumbers=$("damageToggle").checked;settings.enemyHealthBars=$("enemyBarsToggle").checked;settings.hitmarker=$("hitmarkerToggle").checked;settings.vignette=$("vignetteToggle").checked;settings.flashes=$("flashToggle").checked;settings.reducedMotion=$("reducedMotionToggle").checked;settings.pauseOnBlur=$("pauseBlurToggle").checked;settings.mobileAimAssist=$("mobileAimToggle").checked;settings.fullscreen=$("fullscreenToggle").checked;saveSettings();applyAudioSettings();applyVisualSettings();syncSettingsLabels();
+ settings.announcerStyle=$("announcerStyleSelect").value||"command";settings.announcerVoiceName=$("announcerVoiceSelect").value||"auto";settings.announcerVoice=$("announcerVoiceToggle").checked;settings.announcerSubtitles=$("announcerSubtitleToggle").checked;settings.discordActivity=$("discordActivityToggle").checked;settings.damageNumbers=$("damageToggle").checked;settings.enemyHealthBars=$("enemyBarsToggle").checked;settings.hitmarker=$("hitmarkerToggle").checked;settings.vignette=$("vignetteToggle").checked;settings.flashes=$("flashToggle").checked;settings.reducedMotion=$("reducedMotionToggle").checked;settings.pauseOnBlur=$("pauseBlurToggle").checked;settings.mobileAimAssist=$("mobileAimToggle").checked;settings.fullscreen=$("fullscreenToggle").checked;saveSettings();applyAudioSettings();applyVisualSettings();syncSettingsLabels();
 }
-function resetSettings(){settings={...SETTINGS_DEFAULT};saveSettings();applyAudioSettings();applyVisualSettings();openSettings(settingsReturn);toast("SETTINGS RESET");}
+function resetSettings(){settings={...SETTINGS_DEFAULT};saveSettings();applyAudioSettings();applyVisualSettings();openSettings(settingsReturn);setTimeout(refreshAnnouncerVoiceList,0);toast("SETTINGS RESET");}
 function renderArchive(){
  const u=profileUnlocks();$("archiveCores").textContent=`${profile.cores} RIFT CORES`;
  $("archiveStats").innerHTML=`<div><strong>${profile.totalRuns}</strong><span>RUNS</span></div><div><strong>${profile.bestWave}</strong><span>BEST WAVE</span></div><div><strong>${profile.totalBosses}</strong><span>BOSSES</span></div><div><strong>${profile.totalKills}</strong><span>TOTAL KILLS</span></div>`;
@@ -3318,14 +3321,14 @@ AudioSystem.prototype.start=function(){
 AudioSystem.prototype.announceChirp=function(level="normal"){
   this.start();if(!this.ctx)return;const d=this.announcerGain||this.sfxGain;
   const critical=level==="critical",warning=level==="warning";
-  this.noise(.055,critical?.058:warning?.043:.032,critical?2300:3200,0,"bandpass",d,.08);
-  this.tone(critical?420:warning?560:720,.065,"square",critical?.045:.03,critical?210:warning?820:1040,0,d,.08);
-  setTimeout(()=>this.tone(critical?185:warning?280:410,.08,"triangle",critical?.035:.022,critical?105:warning?410:560,0,d,.12),42);
+  this.noise(.038,critical?.034:warning?.026:.018,critical?2100:2900,0,"bandpass",d,.055);
+  this.tone(critical?390:warning?520:680,.045,"sine",critical?.032:.021,critical?265:warning?720:920,0,d,.06);
+  setTimeout(()=>this.tone(critical?205:warning?330:470,.055,"triangle",critical?.022:.015,critical?150:warning?440:620,0,d,.09),34);
 };
 AudioSystem.prototype.announceTail=function(level="normal"){
   this.start();if(!this.ctx)return;const d=this.announcerGain||this.sfxGain;
-  this.noise(.08,.016,1500,0,"bandpass",d,.18);
-  this.tone(level==="critical"?180:350,.07,"sine",.014,level==="critical"?95:520,0,d,.15);
+  this.noise(.055,.009,1350,0,"bandpass",d,.11);
+  this.tone(level==="critical"?210:390,.055,"sine",.009,level==="critical"?145:500,0,d,.10);
 };
 
 const _v18ApplyAudioSettings=applyAudioSettings;
@@ -3338,12 +3341,64 @@ class AnnouncerSystem{
   constructor(){
     this.queue=[];this.current=null;this.timer=null;this.lastKeys=new Map();this.voice=null;this.voiceRefresh=0;this.heatWarned=false;
   }
+  voiceScore(v){
+    const n=(v.name||"").toLowerCase(),lang=(v.lang||"").toLowerCase();
+    let score=/^en/.test(lang)?60:0;
+    if(n.includes("natural"))score+=120;
+    if(n.includes("online"))score+=85;
+    if(n.includes("neural"))score+=100;
+    if(n.includes("guy"))score+=70;
+    if(n.includes("christopher"))score+=66;
+    if(n.includes("eric"))score+=64;
+    if(n.includes("roger"))score+=62;
+    if(n.includes("davis"))score+=60;
+    if(n.includes("andrew"))score+=58;
+    if(n.includes("ryan"))score+=58;
+    if(n.includes("david"))score+=48;
+    if(n.includes("mark"))score+=46;
+    if(n.includes("daniel"))score+=44;
+    if(n.includes("alex"))score+=42;
+    if(n.includes("google us english"))score+=40;
+    if(n.includes("google uk english male"))score+=42;
+    if(n.includes("desktop"))score+=8;
+    if(n.includes("compact"))score-=12;
+    if(n.includes("zira"))score-=8;
+    if(n.includes("hazel"))score-=8;
+    return score;
+  }
+  availableVoices(){
+    if(!("speechSynthesis" in window))return [];
+    return speechSynthesis.getVoices().filter(v=>/^en/i.test(v.lang||"")).sort((a,b)=>this.voiceScore(b)-this.voiceScore(a));
+  }
   pickVoice(){
-    if(!("speechSynthesis" in window))return null;
-    const voices=speechSynthesis.getVoices();if(!voices.length)return null;
-    const preferred=["Microsoft David","Microsoft Mark","Google US English","Daniel","Alex"];
-    for(const n of preferred){const v=voices.find(x=>x.name.includes(n));if(v)return v}
-    return voices.find(v=>/^en/i.test(v.lang))||voices[0];
+    const voices=this.availableVoices();if(!voices.length)return null;
+    const wanted=settings.announcerVoiceName||"auto";
+    if(wanted!=="auto"){
+      const exact=voices.find(v=>v.name===wanted);
+      if(exact)return exact;
+    }
+    return voices[0];
+  }
+  prepareSpeech(text){
+    return String(text)
+      .replace(/\bRIFTSHIFT\b/gi,"Rift Shift")
+      .replace(/\bRIFTBORN\b/gi,"Rift Born")
+      .replace(/\bMK\s*II\b/gi,"Mark Two")
+      .replace(/\bMK\s*III\b/gi,"Mark Three")
+      .replace(/\bC-11\b/gi,"C eleven")
+      .replace(/\bx50\b/gi,"fifty")
+      .replace(/\bx25\b/gi,"twenty five")
+      .replace(/\bx10\b/gi,"ten")
+      .replace(/\/\//g,", ")
+      .replace(/[|]/g,", ")
+      .replace(/\s+/g," ")
+      .trim();
+  }
+  speechProfile(level){
+    const style=settings.announcerStyle||"command";
+    if(style==="natural")return{rate:level==="critical"?.91:.96,pitch:level==="critical"?.94:.99,volume:.86};
+    if(style==="synthetic")return{rate:level==="critical"?.86:.91,pitch:level==="critical"?.86:.90,volume:.82};
+    return{rate:level==="critical"?.88:.94,pitch:level==="critical"?.90:.95,volume:.86};
   }
   say(text,{category="SYSTEM",priority=45,key="",level="normal",duration=2.25,voice=true}={}){
     if(!text)return;
@@ -3370,15 +3425,39 @@ class AnnouncerSystem{
     try{sfx.announceChirp(item.level)}catch(e){}
     if(settings.announcerVoice!==false&&item.voice&&"speechSynthesis" in window){
       try{
-        speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(item.text.replace(/[\/|]/g," "));
-        const v=this.pickVoice();if(v)u.voice=v;u.rate=item.level==="critical"?.92:1.02;u.pitch=item.level==="critical"?.58:.67;u.volume=clamp((settings.master??1)*(settings.announcerVolume??.8)*.72,0,1);speechSynthesis.speak(u);
+        speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(this.prepareSpeech(item.text));
+        const v=this.pickVoice(),p=this.speechProfile(item.level);if(v)u.voice=v;
+        u.rate=p.rate;u.pitch=p.pitch;u.volume=clamp((settings.master??1)*(settings.announcerVolume??.8)*p.volume,0,1);
+        u.onstart=()=>{try{sfx.announcerGain&&sfx.announcerGain.gain.setTargetAtTime(.82*(settings.announcerVolume??.8),sfx.ctx.currentTime,.025)}catch(e){}};
+        u.onend=()=>{try{sfx.announcerGain&&sfx.announcerGain.gain.setTargetAtTime(.72*(settings.announcerVolume??.8),sfx.ctx.currentTime,.06)}catch(e){}};
+        speechSynthesis.speak(u);
       }catch(e){}
     }
     this.timer=setTimeout(()=>{try{sfx.announceTail(item.level)}catch(e){};hud.classList.remove("show","v18Critical","v18Warning");this.current=null;setTimeout(()=>this.next(),100)},item.duration*1000);
   }
 }
 const announcer=new AnnouncerSystem();
-try{speechSynthesis?.addEventListener?.("voiceschanged",()=>announcer.voice=announcer.pickVoice())}catch(e){}
+
+function refreshAnnouncerVoiceList(){
+  const sel=$("announcerVoiceSelect");if(!sel)return;
+  const current=settings.announcerVoiceName||"auto",voices=announcer.availableVoices();
+  sel.innerHTML='<option value="auto">AUTO // BEST AVAILABLE</option>'+voices.map((v,i)=>`<option value="${escapeHtml(v.name)}">${i===0?"★ ":""}${escapeHtml(v.name)}${v.localService?"":" // ONLINE"}</option>`).join("");
+  if([...sel.options].some(o=>o.value===current))sel.value=current;else sel.value="auto";
+}
+function testAnnouncerVoice(){
+  if(!settings.announcerVoice){toast("ANNOUNCER VOICE IS DISABLED");return}
+  try{speechSynthesis.cancel()}catch(e){}
+  announcer.stopCurrent(true);announcer.queue.length=0;
+  announcer.say("Command link established. Rift signature detected. All combat systems are online.",{category:"VOICE CALIBRATION",priority:999,key:"voice-preview-"+Date.now(),duration:4.2});
+}
+try{
+  speechSynthesis?.addEventListener?.("voiceschanged",()=>{announcer.voice=announcer.pickVoice();refreshAnnouncerVoiceList()});
+  setTimeout(refreshAnnouncerVoiceList,250);
+  setTimeout(refreshAnnouncerVoiceList,1100);
+}catch(e){}
+$("announcerTestBtn").onclick=()=>{handleSettingsInput();testAnnouncerVoice()};
+$("announcerStyleSelect").addEventListener("change",()=>{handleSettingsInput()});
+$("announcerVoiceSelect").addEventListener("change",()=>{handleSettingsInput()});
 
 function v18Notice(text,kind="SYSTEM",color="#75e9ff",life=2300){
   const stack=$("v18NotifyStack");if(!stack)return;
@@ -3500,7 +3579,7 @@ for(const id of ["announcerSlider","announcerVoiceToggle","announcerSubtitleTogg
 /* startup */
 setTimeout(()=>{applyAudioSettings();v18Presence(true)},650);
 
-const APP_VERSION="18.0.0";
+const APP_VERSION="18.1.0";
 let pendingDesktopUpdate=null;
 
 function compareVersionStrings(a,b){

@@ -1,6 +1,6 @@
 {
-  "version": "18.0.0",
+  "version": "18.1.0",
   "gameUrl": "https://raw.githubusercontent.com/C0SMIC58/RIFTSHIFT/main/RIFTSHIFT_LATEST.html",
-  "sha256": "f76f9870eb412219835ba61b899bf9e484a5152dab06347b325450a031d40ae2",
-  "notes": "V18: priority announcer with radio UI/voice/subtitles, broad presentation polish, reactive combat HUD, and desktop Discord Rich Presence support."
+  "sha256": "ba04e40c327a453ef7c5d88c7deece355988bbd9dddb4d73f9265805281674cd",
+  "notes": "V18.1: announcer voice quality pass \u2014 natural voice ranking, selectable system voices, tactical/natural/synthetic styles, improved pacing/pronunciation, voice preview, cleaner radio processing."
 }
