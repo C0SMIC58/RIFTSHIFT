@@ -195,6 +195,13 @@ canvas{display:block}
  .statblock{gap:9px}.stat .val{font-size:16px}.upCards,.v9Grid{grid-template-columns:1fr 1fr}
 }
 @media(max-width:520px){.classes,.upCards,.v9Grid{grid-template-columns:1fr}.classCard{min-height:315px}}
+
+#admin{align-items:center;justify-content:center;background:rgba(2,4,9,.95);backdrop-filter:blur(12px);pointer-events:auto}
+.adminShell{width:min(1000px,94vw);max-height:90vh;overflow:auto;background:linear-gradient(180deg,#151b29,#0b1019);border:1px solid rgba(255,215,100,.22);border-radius:20px;padding:24px;box-shadow:0 28px 80px rgba(0,0,0,.55)}
+.adminHeader{display:flex;justify-content:space-between;gap:18px;align-items:flex-end;margin-bottom:18px}.adminHeader h2{font-size:40px;margin:0}.ownerBadge{color:#ffd86c;border:1px solid rgba(255,216,108,.3);padding:7px 10px;border-radius:999px;font-size:8px;font-weight:950;letter-spacing:.1em}
+.adminLogin{max-width:520px;margin:24px auto;padding:20px;background:#101724;border:1px solid rgba(255,255,255,.08);border-radius:14px}.adminLogin input{width:100%;box-sizing:border-box;margin:12px 0;padding:13px;border-radius:9px;border:1px solid rgba(255,255,255,.12);background:#080d15;color:#fff;font:inherit}
+.adminGrid{display:grid;grid-template-columns:repeat(4,1fr);gap:9px}.adminCard{min-height:90px;text-align:left;background:#101724;color:#dbe6f4;border:1px solid rgba(255,255,255,.09);border-radius:12px;padding:13px;cursor:pointer}.adminCard:hover{border-color:rgba(255,216,108,.4)}.adminCard.on{border-color:rgba(101,228,154,.55);background:rgba(34,78,65,.25)}.adminCard b{display:block;font-size:11px;margin-bottom:5px}.adminCard span{font-size:9px;line-height:1.45;color:#8190a6}.adminSection{margin:18px 0 8px;font-size:9px;color:#7f8da2;letter-spacing:.15em;font-weight:950}.ownerClassCard{border-color:rgba(255,216,108,.4)!important;box-shadow:inset 0 0 45px rgba(255,191,76,.05)}.ownerClassCard .classRole{color:#ffd86c}#ownerPanelBtn{color:#ffd86c;border-color:rgba(255,216,108,.25)}
+@media(max-width:850px){.adminGrid{grid-template-columns:1fr 1fr}}
 @media(max-width:850px){.v9Grid{grid-template-columns:1fr 1fr}.settingsGrid{grid-template-columns:1fr}.historyRow{grid-template-columns:1fr 1fr 1fr}.historyRow span:nth-child(n+4){display:none}}
 @media(max-width:850px){.classes{grid-template-columns:1fr 1fr}.classCard{min-height:340px}.upCards{grid-template-columns:1fr}.upCard{min-height:155px}.classTop{align-items:flex-start;flex-direction:column}}
 </style>
@@ -207,7 +214,7 @@ canvas{display:block}
     <div class="frontTop"><span>RIFTSHIFT // COMBAT OPERATING SYSTEM</span><span class="live">● RIFT LINK STABLE</span></div>
     <div class="frontGrid">
       <div class="commandPane">
-        <div class="brandCode">FIELD TERMINAL / RS-12</div>
+        <div class="brandCode">FIELD TERMINAL / RS-13</div>
         <h1 class="brandMain"><span class="rift">RIFT</span><span class="shift">SHIFT</span></h1>
         <div class="brandSlash"></div>
         <p class="commandCopy">Pick an operative class. Enter a new procedural combat site every run. Build a focused upgrade stack, use elevation and cover, and survive until the rift overwhelms you.</p>
@@ -222,7 +229,7 @@ canvas{display:block}
             <span class="num">03</span><span><b>OVERRUN PROTOCOL</b><small id="challengeDesc">Locked — earn 3 Rift Cores through completed runs.</small></span><span class="arrow">◆</span>
           </button>
         </div>
-        <div id="metaButtons"><button id="archiveBtn" class="metaButton" type="button">RUN ARCHIVE</button><button id="settingsBtn" class="metaButton" type="button">SETTINGS</button><button id="progressBtn" class="metaButton locked" type="button">RIFT CORES // 0</button></div>
+        <div id="metaButtons"><button id="archiveBtn" class="metaButton" type="button">RUN ARCHIVE</button><button id="settingsBtn" class="metaButton" type="button">SETTINGS</button><button id="ownerPanelBtn" class="metaButton" type="button" hidden>OWNER PANEL</button><button id="progressBtn" class="metaButton locked" type="button">RIFT CORES // 0</button></div>
         <div class="controlStrip"><span>WASD MOVE</span><span>MOUSE FIRE</span><span>SPACE DASH</span><span>E OVERDRIVE</span><span>Q ABILITY</span><span>ESC PAUSE</span></div><div class="updatePanel"><button id="updateBtn" class="updateButton" type="button">CHECK FOR UPDATES</button><div id="updateStatus">DESKTOP UPDATE LINK // INITIALIZING</div></div>
       </div>
       <div class="visualPane">
@@ -232,7 +239,7 @@ canvas{display:block}
         <div class="telemetry">
           <div><b>4</b><span>CLASS CORES</span></div>
           <div><b>∞</b><span>RUN SEEDS</span></div>
-          <div><b>V12</b><span>BUILD</span></div>
+          <div><b>V13</b><span>BUILD</span></div>
         </div>
         <div id="menuTrack">SOUNDTRACK // NULL VECTOR</div>
       </div>
@@ -310,6 +317,17 @@ canvas{display:block}
 <div class="settingRow toggleRow"><label style="margin:0">AUTO FULLSCREEN</label><input id="fullscreenToggle" type="checkbox" checked></div>
 </div><div class="classActions"><button id="resetSettingsBtn" class="secondary">RESET SETTINGS</button><button id="settingsBackBtn" class="primary">BACK</button></div></div></section>
 <section id="archive" class="screen"><div class="v9Shell"><div class="v9Top"><div><div class="titleKicker">PERSISTENT PROFILE</div><h2>RUN ARCHIVE</h2><p>Rift Cores unlock modes, alternate starting arsenals, and cosmetics — never permanent combat stat advantages.</p></div><div id="archiveCores" class="v9Currency">0 RIFT CORES</div></div><div id="archiveStats" class="archiveStats"></div><div id="unlockList" class="unlockList"></div><div id="historyList" style="margin-top:16px"></div><div class="classActions"><button id="archiveBackBtn" class="primary">BACK</button></div></div></section>
+
+<section id="admin" class="screen"><div class="adminShell">
+<div class="adminHeader"><div><div class="titleKicker">PRIVATE OWNER TOOLS</div><h2>ADMIN PANEL</h2><p style="font-size:10px;color:#8090a5">Press F2 to open. Owner login is remembered on this device.</p></div><div id="adminOwnerBadge" class="ownerBadge">LOCKED</div></div>
+<div id="adminLoginPane" class="adminLogin"><b>OWNER AUTHENTICATION</b><div style="font-size:10px;color:#8492a8;margin-top:7px;line-height:1.5">Enter the private owner key from the separate owner-access file.</div><input id="ownerKeyInput" type="password" autocomplete="off" placeholder="RS-••••••••••••"><div id="ownerLoginStatus" style="min-height:18px;color:#ff8698;font-size:9px"></div><button id="ownerLoginBtn" class="primary">UNLOCK OWNER MODE</button></div>
+<div id="adminBody" hidden><div class="adminSection">LIVE TOGGLES</div><div class="adminGrid">
+<button class="adminCard" data-admin="god"><b>GOD MODE</b><span>Ignore all incoming damage.</span></button><button class="adminCard" data-admin="energy"><b>INFINITE ENERGY</b><span>Energy stays full.</span></button><button class="adminCard" data-admin="over"><b>INFINITE OVERDRIVE</b><span>Overdrive stays ready.</span></button><button class="adminCard" data-admin="damage"><b>5× DAMAGE</b><span>Multiply all player projectile damage.</span></button>
+</div><div class="adminSection">PLAYER / PROGRESSION</div><div class="adminGrid">
+<button class="adminCard" data-admin="heal"><b>FULL HEAL</b><span>Restore current HP.</span></button><button class="adminCard" data-admin="scrap"><b>+1,000 SCRAP</b><span>Add run currency.</span></button><button class="adminCard" data-admin="cores"><b>+5 RIFT CORES</b><span>Add persistent Cores.</span></button><button class="adminCard" data-admin="unlock"><b>UNLOCK PROGRESSION</b><span>Unlock normal progression requirements.</span></button><button class="adminCard" data-admin="cosmic"><b>COSMIC GREMLIN</b><span>Select your private silly class.</span></button>
+</div><div class="adminSection">RUN CONTROL</div><div class="adminGrid">
+<button class="adminCard" data-admin="clear"><b>CLEAR ENEMIES</b><span>Remove all current hostiles.</span></button><button class="adminCard" data-admin="elite"><b>SPAWN COMMANDER</b><span>Spawn an elite brute.</span></button><button class="adminCard" data-admin="wave5"><b>JUMP TO WAVE 5</b><span>Fast-forward the run.</span></button><button class="adminCard" data-admin="wave10"><b>JUMP TO WAVE 10</b><span>Fast-forward farther.</span></button>
+</div></div><div class="classActions"><button id="adminLogoutBtn" class="secondary" hidden>LOCK OWNER MODE</button><button id="adminCloseBtn" class="primary">BACK</button></div></div></section>
 <section id="gameover" class="screen"><div class="scorePanel"><div class="titleKicker">RUN OVER</div><h2>YOU GOT COOKED</h2><div id="finalScore" class="finalScore">0</div><div class="summary"><div><strong id="sumWave">0</strong><span>WAVE</span></div><div><strong id="sumKills">0</strong><span>KILLS</span></div><div><strong id="sumLevel">0</strong><span>LEVEL</span></div><div><strong id="sumTime">0:00</strong><span>TIME</span></div></div><div id="gameoverMeta"></div><div class="classActions" style="justify-content:center"><button id="againBtn" class="primary">RUN IT BACK</button><button id="menuBtn" class="secondary">MAIN MENU</button></div></div></section>
 
 <script>
@@ -342,7 +360,9 @@ const CLASS_DEFS={
   explosive:{name:"Explosive",role:"DEMOLITION",icon:"✹",desc:"Grenade launcher with splash damage, blast control, and chain reactions.",stats:["AOE DAMAGE","BLAST CONTROL","HEAVY HITS"],weapon:"M77 GRENADE LAUNCHER",
     p:{hp:100,maxHp:100,speed:246,fireRate:.52,damage:38,armor:.06,regen:0,dashMax:1.42,projectileSpeed:410,explosionRadius:76}},
   conduit:{name:"Conduit",role:"ENERGY",icon:"ϟ",desc:"Heavy railgun specialist with oversized Energy reserves, piercing shots, and electrical crowd control.",stats:["160 ENERGY","RAILGUN","SHOCK CONTROL"],weapon:"C-11 RAIL LANCE",
-    unlock:{cores:4,best:30000},p:{hp:96,maxHp:96,speed:254,fireRate:.58,damage:68,armor:.04,regen:0,dashMax:1.32,projectileSpeed:1180,crit:.10,pierce:4,maxEnergy:160,energyRegen:10}}
+    unlock:{cores:4,best:30000},p:{hp:96,maxHp:96,speed:254,fireRate:.58,damage:68,armor:.04,regen:0,dashMax:1.32,projectileSpeed:1180,crit:.10,pierce:4,maxEnergy:160,energyRegen:10}},
+  cosmic:{name:"Cosmic Gremlin",role:"OWNER // SILLY",icon:"☄",ownerOnly:true,desc:"An irresponsible pile of speed, bouncing bananas, confetti, and administrative privilege.",stats:["250 HP","TRIPLE BANANAS","CERTIFIED MENACE"],weapon:"BANANA ACCELERATOR",
+    p:{hp:250,maxHp:250,speed:330,fireRate:.07,damage:34,armor:.22,regen:2.5,dashMax:.72,projectileSpeed:900,crit:.25,maxEnergy:250,energyRegen:18}}
 };
 
 const COMMON_UPGRADES=[
@@ -434,7 +454,8 @@ const CLASS_UPGRADES={
     {id:"cond_overload",icon:"☇",name:"OVERLOAD BUS",tag:"CONDUIT",max:4},
     {id:"cond_dash",icon:"↯",name:"FLUX DASH",tag:"CONDUIT",max:3},
     {id:"cond_health",icon:"♥",name:"DIELECTRIC SHELL",tag:"CONDUIT",max:4}
-  ]
+  ],
+  cosmic:[]
 };
 
 
@@ -463,7 +484,8 @@ const CLASS_ABILITIES={
  rifleman:{name:"FOCUS LOCK",cost:55,desc:"For 5s gain +35% crit chance and every 3rd shot becomes a rail round."},
  soldier:{name:"AEGIS FIELD",cost:60,desc:"Gain 35% temporary damage resistance for 6 seconds."},
  explosive:{name:"SATURATION STRIKE",cost:70,desc:"Call a spread of explosive strikes around your cursor."},
- conduit:{name:"LINE CURRENT",cost:80,desc:"Send a straight electrical current through the cursor direction, damaging and shocking every enemy it crosses."}
+ conduit:{name:"LINE CURRENT",cost:80,desc:"Send a straight electrical current through the cursor direction, damaging and shocking every enemy it crosses."},
+ cosmic:{name:"ABSOLUTE NONSENSE",cost:40,desc:"Heal, fire a radial banana burst, and cause chaotic explosions around the cursor."}
 };
 
 const SETTINGS_DEFAULT={master:1,music:1,sfx:1,shake:1,impactFlash:1,particleDensity:1,crosshairScale:1,hudScale:1,fpsCap:0,damageNumbers:true,enemyHealthBars:true,hitmarker:true,vignette:true,flashes:true,reducedMotion:false,pauseOnBlur:true,mobileAimAssist:true,fullscreen:true};
@@ -690,6 +712,8 @@ class AudioSystem{
     }else if(cls==="soldier"){
       this.tone(325,.055,"square",.055,105,p);this.noise(.07,.042,1900,p,"bandpass",null,.12);
       setTimeout(()=>this.noise(.035,.018,3800,p,"highpass"),25);
+    }else if(cls==="cosmic"){
+      this.tone(760,.045,"square",.045,1160,p,null,.08);this.tone(1180,.035,"triangle",.035,420,p,null,.12);this.noise(.04,.02,2600,p,"bandpass",null,.1);
     }else if(cls==="conduit"){
       this.tone(1180,.035,"sawtooth",.075,180,p,null,.08);this.tone(92,.19,"sine",.13,34,p,null,.28);this.noise(.045,.105,5200,p,"highpass",null,.14);this.noise(.12,.062,1350,p,"bandpass",null,.3);
       setTimeout(()=>this.tone(640,.12,"triangle",.055,126,p,null,.5),24);setTimeout(()=>this.tone(74,.34,"sine",.05,38,p,null,.7),42);setTimeout(()=>this.noise(.28,.022,2100,p,"bandpass",null,.9),62);
@@ -736,7 +760,7 @@ class AudioSystem{
 }
 const sfx=new AudioSystem();
 
-const screens=["menu","classSelect","hud","pause","upgrade","armory","evolution","settings","archive","gameover"];
+const screens=["menu","classSelect","hud","pause","upgrade","armory","evolution","settings","archive","admin","gameover"];
 function showOnly(name){screens.forEach(id=>$(id).classList.toggle("active",id===name))}
 function showHUD(){screens.forEach(id=>$(id).classList.remove("active"));$("hud").classList.add("active")}
 function msg(t,sec=1.2){$("message").textContent=t;$("message").style.opacity=1;clearTimeout(msg.t);msg.t=setTimeout(()=>$("message").style.opacity=0,sec*1000)}
@@ -765,6 +789,7 @@ function refreshMetaUI(){
  if($("challengeBtn")){$("challengeBtn").classList.toggle("locked",!u.overrun);$("challengeDesc").textContent=u.overrun?"Elite-heavy endless pressure with increased scrap and score.":"Locked — earn 3 Rift Cores through completed runs.";}
  if($("variantBtn")){$("variantBtn").disabled=!u.alt;$("variantBtn").textContent=u.alt?`ALT ARSENAL: ${selectedVariant?"ON":"OFF"}`:"ALT ARSENAL: LOCKED";}
  if($("chromaBtn")){$("chromaBtn").disabled=!u.chroma;$("chromaBtn").textContent=u.chroma?`CHROMA: ${selectedChroma?"ON":"OFF"}`:"CHROMA: LOCKED";}
+ if($("ownerPanelBtn"))$("ownerPanelBtn").hidden=!ownerAuth;
 }
 function syncSettingsLabels(){
  $("masterValue").textContent=Math.round(settings.master*100)+"%";$("musicValue").textContent=Math.round(settings.music*100)+"%";$("sfxValue").textContent=Math.round(settings.sfx*100)+"%";$("shakeValue").textContent=Math.round(settings.shake*100)+"%";
@@ -787,9 +812,23 @@ function renderArchive(){
  const h=profile.history.slice(0,8);$("historyList").innerHTML=`<div class="historyRow head"><span>RUN</span><span>WAVE</span><span>SCORE</span><span>KILLS</span><span>EVOLUTION</span><span>CORES</span></div>`+(h.length?h.map(r=>`<div class="historyRow"><span>${r.className}${r.challenge?" / OVERRUN":""}</span><span>${r.wave}</span><span>${Number(r.score).toLocaleString()}</span><span>${r.kills}</span><span>${r.evolution||"—"}</span><span>+${r.cores||0}</span></div>`).join(""):`<div class="historyRow"><span>No completed runs yet.</span></div>`);
 }
 
+
+const OWNER_KEY_HASH="b48d43e39592dda918720442efc5d2d7db219bcdd1c27dc5dab0ec7909aeb694";
+let ownerAuth=localStorage.getItem("riftshift_owner_auth_v13")==="1";
+let adminReturnScreen="menu";
+const adminState={god:false,infiniteEnergy:false,infiniteOverdrive:false,megaDamage:false};
+async function ownerDigest(text){const buf=await crypto.subtle.digest("SHA-256",new TextEncoder().encode(text));return Array.from(new Uint8Array(buf)).map(b=>b.toString(16).padStart(2,"0")).join("")}
+async function tryOwnerLogin(){const v=$("ownerKeyInput").value.trim();$("ownerLoginStatus").textContent="CHECKING…";try{if(await ownerDigest(v)!==OWNER_KEY_HASH){$("ownerLoginStatus").textContent="INVALID OWNER KEY";return}ownerAuth=true;localStorage.setItem("riftshift_owner_auth_v13","1");$("ownerKeyInput").value="";$("ownerLoginStatus").textContent="";renderAdminPanel();renderClasses();refreshMetaUI();toast("OWNER MODE UNLOCKED")}catch(e){$("ownerLoginStatus").textContent="OWNER LOGIN REQUIRES HTTPS OR DESKTOP"}}
+function lockOwnerMode(){ownerAuth=false;localStorage.removeItem("riftshift_owner_auth_v13");Object.assign(adminState,{god:false,infiniteEnergy:false,infiniteOverdrive:false,megaDamage:false});if(selectedClass==="cosmic")selectedClass="survivor";renderClasses();refreshMetaUI();renderAdminPanel();toast("OWNER MODE LOCKED")}
+function openAdminPanel(){const active=document.querySelector(".screen.active")?.id||"menu";adminReturnScreen=active==="hud"?"pause":active;if(G&&G.running&&!G.choosing){G.paused=true;setMobileGameActive(false);adminReturnScreen="pause"}showOnly("admin");renderAdminPanel();setTimeout(()=>$("ownerKeyInput")?.focus(),20)}
+function closeAdminPanel(){showOnly(adminReturnScreen||"menu")}
+function renderAdminPanel(){$("adminLoginPane").hidden=ownerAuth;$("adminBody").hidden=!ownerAuth;$("adminLogoutBtn").hidden=!ownerAuth;$("adminOwnerBadge").textContent=ownerAuth?"OWNER AUTHENTICATED":"LOCKED";$("ownerPanelBtn").hidden=!ownerAuth;const st={god:adminState.god,energy:adminState.infiniteEnergy,over:adminState.infiniteOverdrive,damage:adminState.megaDamage};document.querySelectorAll("[data-admin]").forEach(b=>b.classList.toggle("on",!!st[b.dataset.admin]))}
+function requireRun(){if(!G||!G.running){toast("START A RUN FIRST");return false}return true}
+function adminJumpWave(t){if(!requireRun())return;G.enemies=[];G.boss=null;$("bossWrap").style.display="none";G.wave=Math.max(1,t-1);G.nextWaveDelay=0;nextWave();toast(`JUMPED TO WAVE ${t}`)}
+function adminAction(a){if(!ownerAuth)return;if(a==="god")adminState.god=!adminState.god;else if(a==="energy")adminState.infiniteEnergy=!adminState.infiniteEnergy;else if(a==="over")adminState.infiniteOverdrive=!adminState.infiniteOverdrive;else if(a==="damage")adminState.megaDamage=!adminState.megaDamage;else if(a==="heal"&&requireRun())G.player.hp=G.player.maxHp;else if(a==="scrap"&&requireRun())G.scrap+=1000;else if(a==="cores"){profile.cores+=5;saveProfile();refreshMetaUI()}else if(a==="unlock"){profile.cores=Math.max(profile.cores,99);profile.bestScore=Math.max(profile.bestScore,999999);safeSetBest(999999);saveProfile();refreshMetaUI();renderClasses();toast("PROGRESSION UNLOCKED")}else if(a==="cosmic"){selectedClass="cosmic";renderClasses();toast("COSMIC GREMLIN SELECTED")}else if(a==="clear"&&requireRun()){G.enemies=[];G.boss=null;$("bossWrap").style.display="none"}else if(a==="elite"&&requireRun())spawnEnemy("brute",null,null,"commander");else if(a==="wave5")adminJumpWave(5);else if(a==="wave10")adminJumpWave(10);if(G)updateHUD();renderAdminPanel()}
 let selectedClass="survivor",pendingChaos=false,pendingChallenge=false,selectedVariant=false,selectedChroma=false,settingsReturn="menu";
 const keys={},mouse={x:W/2,y:H/2,down:false};const mobile={moveX:0,moveY:0,moveTouch:null,aimTouch:null,fireHeld:false};
-addEventListener("keydown",e=>{keys[e.code]=true;if(!e.repeat)handleKey(e.code)});
+addEventListener("keydown",e=>{if(e.code==="F2"){e.preventDefault();if(!e.repeat)openAdminPanel();return}keys[e.code]=true;if(!e.repeat)handleKey(e.code)});
 addEventListener("keyup",e=>keys[e.code]=false);
 addEventListener("mousemove",e=>{mouse.x=e.clientX;mouse.y=e.clientY});
 addEventListener("mousedown",()=>{mouse.down=true;sfx.start()});
@@ -839,11 +878,12 @@ function classIconArt(id){
       <path d="M12 107h86" stroke="${accent}" stroke-width="5" stroke-linecap="round" opacity=".45"/>
     </g></svg>`;
 }
-function classUnlockState(id){const c=CLASS_DEFS[id];if(!c?.unlock)return{unlocked:true};const best=Math.max(profile.bestScore||0,safeGetBest()),cores=(profile.cores||0)>=c.unlock.cores,bestOk=best>=c.unlock.best;return{unlocked:cores&&bestOk,cores,best:bestOk}}
+function classUnlockState(id){const c=CLASS_DEFS[id];if(c?.ownerOnly)return{unlocked:ownerAuth,owner:true};if(!c?.unlock)return{unlocked:true};const best=Math.max(profile.bestScore||0,safeGetBest()),cores=(profile.cores||0)>=c.unlock.cores,bestOk=best>=c.unlock.best;return{unlocked:cores&&bestOk,cores,best:bestOk}}
 function renderClasses(){
  if(!classUnlockState(selectedClass).unlocked)selectedClass="survivor";
- $("classes").innerHTML=Object.entries(CLASS_DEFS).map(([id,c])=>{const lock=classUnlockState(id),lk=!lock.unlocked?`<div class="classLock">LOCKED // <b>${lock.cores?"✓":"✕"} 4 CORES</b> &nbsp; <b>${lock.best?"✓":"✕"} 30,000 BEST</b></div>`:"";return `<div class="classCard ${id===selectedClass?"selected":""} ${lock.unlocked?"":"locked"}" data-class="${id}"><div class="classPortrait"><div class="classMark">${c.icon}</div>${classIconArt(id)}</div>${lk}<div class="className">${c.name}</div><div class="classRole">${c.role}</div><div class="classDesc">${c.desc}</div><div class="classAbility">Q • ${CLASS_ABILITIES[id].name} // ${CLASS_ABILITIES[id].cost} ENERGY</div><div class="classStats">${c.stats.map(v=>`<span>${v}</span>`).join("")}</div><div class="classWeapon">${c.weapon}</div></div>`}).join("");
- document.querySelectorAll(".classCard").forEach(card=>card.addEventListener("click",()=>{const id=card.dataset.class;if(!classUnlockState(id).unlocked){toast("CONDUIT LOCKED // NEED 4 CORES + 30,000 BEST SCORE");return}selectedClass=id;renderClasses();refreshMetaUI();try{sfx.ui()}catch(e){}}));
+ const visible=Object.entries(CLASS_DEFS).filter(([id,c])=>!c.ownerOnly||ownerAuth);
+ $("classes").innerHTML=visible.map(([id,c])=>{const lock=classUnlockState(id),lk=!lock.unlocked?`<div class="classLock">LOCKED // <b>${lock.cores?"✓":"✕"} 4 CORES</b> &nbsp; <b>${lock.best?"✓":"✕"} 30,000 BEST</b></div>`:"";return `<div class="classCard ${id===selectedClass?"selected":""} ${lock.unlocked?"":"locked"} ${c.ownerOnly?"ownerClassCard":""}" data-class="${id}"><div class="classPortrait"><div class="classMark">${c.icon}</div>${classIconArt(id)}</div>${lk}<div class="className">${c.name}</div><div class="classRole">${c.role}</div><div class="classDesc">${c.desc}</div><div class="classAbility">Q • ${CLASS_ABILITIES[id].name} // ${CLASS_ABILITIES[id].cost} ENERGY</div><div class="classStats">${c.stats.map(v=>`<span>${v}</span>`).join("")}</div><div class="classWeapon">${c.weapon}</div></div>`}).join("");
+ document.querySelectorAll(".classCard").forEach(card=>card.addEventListener("click",()=>{const id=card.dataset.class,lock=classUnlockState(id);if(!lock.unlocked){toast("CLASS LOCKED");return}selectedClass=id;renderClasses();refreshMetaUI();try{sfx.ui()}catch(e){}}));
 }
 renderClasses();
 
@@ -1128,6 +1168,7 @@ function newGame(){
     level:1,xp:0,xpNeed:50,boss:null,nextWaveDelay:0,map:null
   };
   if(G.classId==="conduit"){G.player.pierce=base.pierce||4;G.player.maxEnergy=base.maxEnergy||160;G.player.energy=G.player.maxEnergy;G.player.energyRegen=base.energyRegen||10;G.player.currentWidth=24;G.player.currentShock=.8;G.player.currentDamageMult=1;G.player.currentChains=0;G.player.railEnergyGain=0;G.player.projectileSize=1.55;}
+  if(G.classId==="cosmic"){G.player.maxEnergy=250;G.player.energy=250;G.player.energyRegen=18;G.player.baseShots=3;G.player.bounce=5;G.player.projectileSize=1.35;}
   if(selectedVariant){
     if(G.classId==="survivor"){G.weaponName="B-3 BURST SMG";G.player.baseShots=3;G.player.damage*=.58;G.player.fireRate*=1.22;}
     if(G.classId==="rifleman"){G.weaponName="VX-D DMR";G.player.damage*=1.72;G.player.fireRate*=1.9;G.player.crit+=.08;G.player.projectileSpeed*=1.12;}
@@ -1175,7 +1216,7 @@ function activateClassAbility(){
   }else if(G.classId==="soldier"){
     p.abilityAegisTime=6;p.invuln=Math.max(p.invuln,.22);
     for(let i=0;i<24;i++){const a=i/24*TAU;particle(p.x,p.y,Math.cos(a)*100,Math.sin(a)*100,2.5,"#8f91ff",.55);}
-  }else if(G.classId==="explosive"){const tx=clamp(mouse.x,55,W-55),ty=clamp(mouse.y,55,H-55),count=7;for(let i=0;i<count;i++){const a=i/count*TAU+rand(-.16,.16),rr=i===0?0:rand(38,105);G.delayedBlasts.push({t:.08+i*.07,x:tx+Math.cos(a)*rr,y:ty+Math.sin(a)*rr,radius:Math.max(56,p.explosionRadius*.72),damage:p.damage*.72,floor:p.floor})}G.shake=Math.max(G.shake,3.2);}else if(G.classId==="conduit"){fireLineCurrent();}
+  }else if(G.classId==="explosive"){const tx=clamp(mouse.x,55,W-55),ty=clamp(mouse.y,55,H-55),count=7;for(let i=0;i<count;i++){const a=i/count*TAU+rand(-.16,.16),rr=i===0?0:rand(38,105);G.delayedBlasts.push({t:.08+i*.07,x:tx+Math.cos(a)*rr,y:ty+Math.sin(a)*rr,radius:Math.max(56,p.explosionRadius*.72),damage:p.damage*.72,floor:p.floor})}G.shake=Math.max(G.shake,3.2);}else if(G.classId==="conduit"){fireLineCurrent();}else if(G.classId==="cosmic"){p.hp=clamp(p.hp+40,0,p.maxHp);for(let i=0;i<24;i++){const a=i/24*TAU;G.bullets.push({x:p.x,y:p.y,vx:Math.cos(a)*650,vy:Math.sin(a)*650,r:6,life:1.3,damage:p.damage*.6,pierce:2,bounce:6,crit:Math.random()<p.crit,explosive:false,ownerShot:true,floor:p.floor})}const tx=clamp(mouse.x,50,W-50),ty=clamp(mouse.y,50,H-50);for(let i=0;i<6;i++){const a=i/6*TAU,rr=rand(30,100);G.delayedBlasts.push({t:.08+i*.05,x:tx+Math.cos(a)*rr,y:ty+Math.sin(a)*rr,radius:62,damage:p.damage*.7,floor:p.floor})}for(let i=0;i<40;i++){const a=rand(0,TAU),sp=rand(80,300);particle(p.x,p.y,Math.cos(a)*sp,Math.sin(a)*sp,rand(2,6),["#ffd43b","#ff73d1","#75e9ff","#8cff8c"][i%4],rand(.3,.8))}}
   msg(`${def.name} // ${Math.round(p.energy)} ENERGY`,1);
   updateHUD();
 }
@@ -1204,14 +1245,14 @@ function playerShoot(){
   const soldierGrenade=G.classId==="soldier"&&p.grenadeEvery&&p.shotCounter%p.grenadeEvery===0;
   if(G.classId==="rifleman"&&p.twinTap&&p.shotCounter%(p.twinEvery||5)===0)shots++;
   if(G.classId==="soldier"&&p.burstMod&&p.burstCounter%(p.burstEvery||4)===0)shots=3;
-  let aim=Math.atan2(mouse.y-p.y,mouse.x-p.x);if(settings.mobileAimAssist&&(mobile.aimTouch!==null||mobile.fireHeld)){let best=null,bestScore=.24;for(const e of G.enemies){if((e.floor??0)!==(p.floor??0))continue;const ea=Math.atan2(e.y-p.y,e.x-p.x),diff=Math.abs(Math.atan2(Math.sin(ea-aim),Math.cos(ea-aim))),d=dist(p,e),score=diff+d/5000;if(score<bestScore){bestScore=score;best=e;}}if(best)aim=Math.atan2(best.y-p.y,best.x-p.x);}const spread=G.classId==="conduit"?.012:G.classId==="soldier"?.07:G.classId==="rifleman"?.035:.11;
+  let aim=Math.atan2(mouse.y-p.y,mouse.x-p.x);if(settings.mobileAimAssist&&(mobile.aimTouch!==null||mobile.fireHeld)){let best=null,bestScore=.24;for(const e of G.enemies){if((e.floor??0)!==(p.floor??0))continue;const ea=Math.atan2(e.y-p.y,e.x-p.x),diff=Math.abs(Math.atan2(Math.sin(ea-aim),Math.cos(ea-aim))),d=dist(p,e),score=diff+d/5000;if(score<bestScore){bestScore=score;best=e;}}if(best)aim=Math.atan2(best.y-p.y,best.x-p.x);}const spread=G.classId==="cosmic"?.15:G.classId==="conduit"?.012:G.classId==="soldier"?.07:G.classId==="rifleman"?.035:.11;
   for(let i=0;i<shots;i++){
     const off=(i-(shots-1)/2)*spread,a=aim+off;
     G.bullets.push({
       x:p.x+Math.cos(a)*18,y:p.y+Math.sin(a)*18,vx:Math.cos(a)*p.projectileSpeed,vy:Math.sin(a)*p.projectileSpeed,
       r:(G.classId==="explosive"?7:G.classId==="conduit"?5.25:4)*(p.projectileSize||1),life:G.classId==="explosive"?1.5:1.35,
-      damage:p.damage*(over?1.22:1)*(low?1.12:1)*(low&&p.resolveBonus?1+p.resolveBonus:1)*(over&&p.overDamage?1+p.overDamage:1)*(railShot?Math.max(p.railDamage||1,abilityRail?1.65:1):1),
-      pierce:p.pierce+(railShot?6:0),conduitRail:G.classId==="conduit",beamLen:G.classId==="conduit"?Math.round(52*(p.projectileSize||1)):0,beamWidth:G.classId==="conduit"?Math.round(11*(p.projectileSize||1)):0,bounce:G.classId==="explosive"?0:(p.bounce||0),rail:railShot,
+      damage:p.damage*(ownerAuth&&adminState.megaDamage?5:1)*(over?1.22:1)*(low?1.12:1)*(low&&p.resolveBonus?1+p.resolveBonus:1)*(over&&p.overDamage?1+p.overDamage:1)*(railShot?Math.max(p.railDamage||1,abilityRail?1.65:1):1),
+      pierce:p.pierce+(railShot?6:0),conduitRail:G.classId==="conduit",ownerShot:G.classId==="cosmic",beamLen:G.classId==="conduit"?Math.round(52*(p.projectileSize||1)):0,beamWidth:G.classId==="conduit"?Math.round(11*(p.projectileSize||1)):0,bounce:G.classId==="explosive"?0:(p.bounce||0),rail:railShot,
       crit:G.classId==="explosive"?false:Math.random()<clamp(p.crit+(p.dashCritTime>0?p.dashCritBonus:0)+(p.focusAbilityTime>0?.35:0),0,.95),explosive:G.classId==="explosive",radius:p.explosionRadius,floor:p.floor,proximity:p.proximity||0
     });
   }
@@ -1303,7 +1344,7 @@ function shootEnemy(e,a,speed,damage){
   sfx.enemyShot(e.x);
 }
 function hurtPlayer(raw){
-  const p=G.player;if(p.invuln>0)return;
+  const p=G.player;if(ownerAuth&&adminState.god){p.invuln=.08;return}if(p.invuln>0)return;
   if(p.luckyDodge&&Math.random()<p.luckyDodge){p.invuln=.22;floatText(p.x,p.y-24,"DODGE","#9fffc0",13);sfx.dash();return;}
   const tempArmor=(p.postDashArmor>0?p.dashArmorStrength:0)+(p.aegisTime>0?p.aegisStrength:0)+(p.abilityAegisTime>0?.35:0)+(p.legendBastion&&p.overActive>0?.3:0);
   const dmg=raw*(1-clamp(p.armor+tempArmor,0,.78));p.hp-=dmg;G.waveDamageTaken=(G.waveDamageTaken||0)+dmg;p.invuln=.45;p.lastHit=G.time;G.shake=13;sfx.hurt();
@@ -1593,7 +1634,7 @@ function update(dt){
   G.time+=dt;G.shake=Math.max(0,G.shake-dt*24);G.flash=Math.max(0,G.flash-dt);G.hitmarker=Math.max(0,(G.hitmarker||0)-dt);
   p.fireCd-=dt;p.dashCd=Math.max(0,p.dashCd-dt);p.invuln=Math.max(0,p.invuln-dt);p.postDashArmor=Math.max(0,(p.postDashArmor||0)-dt);p.dashCritTime=Math.max(0,(p.dashCritTime||0)-dt);p.aegisTime=Math.max(0,(p.aegisTime||0)-dt);
   p.abilityCd=Math.max(0,(p.abilityCd||0)-dt);p.stimTime=Math.max(0,(p.stimTime||0)-dt);p.focusAbilityTime=Math.max(0,(p.focusAbilityTime||0)-dt);p.abilityAegisTime=Math.max(0,(p.abilityAegisTime||0)-dt);p.fluxSpeedTime=Math.max(0,(p.fluxSpeedTime||0)-dt);
-  p.energy=clamp(p.energy+(p.energyRegen||0)*dt,0,p.maxEnergy);
+  p.energy=clamp(p.energy+(p.energyRegen||0)*dt,0,p.maxEnergy);if(ownerAuth&&adminState.infiniteEnergy)p.energy=p.maxEnergy;if(ownerAuth&&adminState.infiniteOverdrive)p.over=100;
   const wasOver=p.overActive>0;p.overActive=Math.max(0,p.overActive-dt);
   if(wasOver&&p.overActive<=0)sfx.setMusic(G.boss?"boss":G.wave>=7?"danger":"combat");
 
@@ -1972,6 +2013,8 @@ function drawBullet(b){
     X.save();X.translate(b.x,b.y);X.rotate(Math.atan2(b.vy,b.vx));X.shadowColor="#ffb257";X.shadowBlur=12;X.fillStyle="#ffb45c";X.beginPath();X.arc(0,0,b.r,0,TAU);X.fill();X.fillStyle="#44311e";X.fillRect(-4,-2,9,4);X.restore();
   }else if(b.conduitRail){
     drawConduitBeam(b);
+  }else if(b.ownerShot){
+    const a=Math.atan2(b.vy,b.vx);X.save();X.translate(b.x,b.y);X.rotate(a);X.shadowColor="#ffd43b";X.shadowBlur=12;X.fillStyle=b.crit?"#fff0a3":"#ffd43b";X.beginPath();X.moveTo(9,0);X.quadraticCurveTo(0,-8,-10,-3);X.quadraticCurveTo(-2,7,9,0);X.fill();X.strokeStyle="#ff73d1";X.stroke();X.restore();
   }else{
     X.beginPath();X.fillStyle=b.crit?"#ffd166":"#75e9ff";X.arc(b.x,b.y,b.r,0,TAU);X.fill();
     X.strokeStyle=b.crit?"rgba(255,209,102,.4)":"rgba(117,233,255,.28)";X.lineWidth=2;X.beginPath();X.moveTo(b.x,b.y);X.lineTo(b.x-b.vx*.016,b.y-b.vy*.016);X.stroke();
@@ -2101,7 +2144,7 @@ function tryEnterFullscreen(){
   }catch(err){}
 }
 
-const APP_VERSION="12.0.0";
+const APP_VERSION="13.0.0";
 let pendingDesktopUpdate=null;
 
 function compareVersionStrings(a,b){
@@ -2186,6 +2229,7 @@ $("challengeBtn").addEventListener("click",()=>{if(!profileUnlocks().overrun){to
 $("archiveBtn").addEventListener("click",()=>{renderArchive();showOnly("archive")});
 $("archiveBackBtn").addEventListener("click",()=>{showOnly("menu");refreshMetaUI()});
 $("settingsBtn").addEventListener("click",()=>openSettings("menu"));
+$("ownerPanelBtn").addEventListener("click",openAdminPanel);
 $("pauseSettingsBtn").addEventListener("click",()=>openSettings("pause"));
 $("settingsBackBtn").addEventListener("click",()=>{handleSettingsInput();showOnly(settingsReturn)});
 $("variantBtn").addEventListener("click",()=>{if(!profileUnlocks().alt)return;selectedVariant=!selectedVariant;refreshMetaUI()});
@@ -2194,6 +2238,7 @@ $("rerollUpgradeBtn").addEventListener("click",rerollUpgrade);
 $("armoryContinueBtn").addEventListener("click",continueFromArmory);
 $("armoryRerollBtn").addEventListener("click",armoryReroll);
 ["masterSlider","musicSlider","sfxSlider","shakeSlider","impactSlider","particleSlider","crosshairSlider","hudSlider","fpsSelect","damageToggle","enemyBarsToggle","hitmarkerToggle","vignetteToggle","flashToggle","reducedMotionToggle","pauseBlurToggle","mobileAimToggle","fullscreenToggle"].forEach(id=>$(id).addEventListener("input",handleSettingsInput));$("resetSettingsBtn").addEventListener("click",resetSettings);
+$("ownerLoginBtn").addEventListener("click",tryOwnerLogin);$("ownerKeyInput").addEventListener("keydown",e=>{if(e.key==="Enter")tryOwnerLogin()});$("adminCloseBtn").addEventListener("click",closeAdminPanel);$("adminLogoutBtn").addEventListener("click",lockOwnerMode);document.querySelectorAll("[data-admin]").forEach(b=>b.addEventListener("click",()=>adminAction(b.dataset.admin)));
 $("classBackBtn").addEventListener("click",()=>returnMenu());
 $("deployBtn").addEventListener("click",()=>{
   if(settings.fullscreen)tryEnterFullscreen();
@@ -2214,7 +2259,7 @@ $("againBtn").addEventListener("click",()=>{if(G){pendingChaos=G.chaos;try{newGa
 $("menuBtn").addEventListener("click",()=>returnMenu());
 
 window.addEventListener("blur",()=>{if(settings.pauseOnBlur&&G&&G.running&&!G.paused&&!G.choosing){G.paused=true;showOnly("pause");setMobileGameActive(false);}});
-refreshMetaUI();applyAudioSettings();applyVisualSettings();setTimeout(()=>checkDesktopUpdate(true),900);
+document.addEventListener("keydown",e=>{if(e.code==="F2"){e.preventDefault();if(!e.repeat)openAdminPanel()}},true);refreshMetaUI();applyAudioSettings();applyVisualSettings();renderAdminPanel();if(new URLSearchParams(location.search).get("owner")==="1")setTimeout(openAdminPanel,250);setTimeout(()=>checkDesktopUpdate(true),900);
 
 if("serviceWorker" in navigator && location.protocol.startsWith("http")){
   addEventListener("load",()=>navigator.serviceWorker.register("./sw.js").catch(()=>{}));

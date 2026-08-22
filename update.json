@@ -1,6 +1,6 @@
 {
-  "version": "12.0.0",
+  "version": "13.0.0",
   "gameUrl": "https://raw.githubusercontent.com/C0SMIC58/RIFTSHIFT/main/RIFTSHIFT_LATEST.html",
-  "sha256": "4e345adc6e677ceffa30f5b6a2b54c5cb552d001aeeb7c10aac0d27f3c48d916",
-  "notes": "V12: dedicated railgun audio, ion impact visuals, expanded settings, flawless waves, combo polish, vignette, and mobile aim assist."
+  "sha256": "772ddb66ad9c937d5295b02af564eab23eec8089fb92c9e6f667058cb53e58f9",
+  "notes": "V13: owner admin panel, private Cosmic Gremlin class, and /school/ alias."
 }
