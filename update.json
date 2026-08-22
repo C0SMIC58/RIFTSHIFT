@@ -1,6 +1,6 @@
 {
-  "version": "18.4.0",
+  "version": "18.5.0",
   "gameUrl": "https://raw.githubusercontent.com/C0SMIC58/RIFTSHIFT/main/RIFTSHIFT_LATEST.html",
-  "sha256": "e4f8472590f9d8c7b3d8ffd337fcfdbb4c1a8bdf15510bfbd324a2b31497eda2",
-  "notes": "V18.4: larger diamond intro, longer startup, improved menu-title handoff alignment, and louder more impactful boot SFX."
+  "sha256": "5a852fd49f5c301f0a4632cc7548d77d8c103837352cbc8f5123cb8a0f392037",
+  "notes": "V18.5: complete main menu redesign, closer/larger boot diamond with visible camera motion, and new loading-style boot SFX."
 }
