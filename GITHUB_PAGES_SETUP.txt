@@ -1,0 +1,26 @@
+RIFTSHIFT V11 GITHUB PAGES
+
+Upload/overwrite ALL files in this folder at the root of:
+https://github.com/C0SMIC58/RIFTSHIFT
+
+Then:
+Settings -> Pages
+Source: Deploy from a branch
+Branch: main
+Folder: / (root)
+Save
+
+Your public game URL will be:
+https://c0smic58.github.io/RIFTSHIFT/
+
+This package includes:
+- index.html for the public playable site
+- RIFTSHIFT_LATEST.html for the desktop updater
+- update.json
+- robots.txt
+- sitemap.xml
+- manifest.webmanifest
+- .nojekyll
+- RIFTSHIFT_ICON.png
+
+Search engines can crawl the game after GitHub Pages is live. Indexing is not instant.
