@@ -1,6 +1,6 @@
 {
-  "version": "13.0.0",
+  "version": "14.0.0",
   "gameUrl": "https://raw.githubusercontent.com/C0SMIC58/RIFTSHIFT/main/RIFTSHIFT_LATEST.html",
-  "sha256": "772ddb66ad9c937d5295b02af564eab23eec8089fb92c9e6f667058cb53e58f9",
-  "notes": "V13: owner admin panel, private Cosmic Gremlin class, and /school/ alias."
+  "sha256": "b604949d266426a2663487cb484976451ec2284a2aab16c4d5a10b63fe6267cf",
+  "notes": "V14: engine-style boot sequence, full SFX redesign, weapon recoil, spawn pulses, menu polish, and custom-domain readiness."
 }

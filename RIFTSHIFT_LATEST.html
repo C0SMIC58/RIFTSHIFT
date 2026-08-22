@@ -201,6 +201,30 @@ canvas{display:block}
 .adminHeader{display:flex;justify-content:space-between;gap:18px;align-items:flex-end;margin-bottom:18px}.adminHeader h2{font-size:40px;margin:0}.ownerBadge{color:#ffd86c;border:1px solid rgba(255,216,108,.3);padding:7px 10px;border-radius:999px;font-size:8px;font-weight:950;letter-spacing:.1em}
 .adminLogin{max-width:520px;margin:24px auto;padding:20px;background:#101724;border:1px solid rgba(255,255,255,.08);border-radius:14px}.adminLogin input{width:100%;box-sizing:border-box;margin:12px 0;padding:13px;border-radius:9px;border:1px solid rgba(255,255,255,.12);background:#080d15;color:#fff;font:inherit}
 .adminGrid{display:grid;grid-template-columns:repeat(4,1fr);gap:9px}.adminCard{min-height:90px;text-align:left;background:#101724;color:#dbe6f4;border:1px solid rgba(255,255,255,.09);border-radius:12px;padding:13px;cursor:pointer}.adminCard:hover{border-color:rgba(255,216,108,.4)}.adminCard.on{border-color:rgba(101,228,154,.55);background:rgba(34,78,65,.25)}.adminCard b{display:block;font-size:11px;margin-bottom:5px}.adminCard span{font-size:9px;line-height:1.45;color:#8190a6}.adminSection{margin:18px 0 8px;font-size:9px;color:#7f8da2;letter-spacing:.15em;font-weight:950}.ownerClassCard{border-color:rgba(255,216,108,.4)!important;box-shadow:inset 0 0 45px rgba(255,191,76,.05)}.ownerClassCard .classRole{color:#ffd86c}#ownerPanelBtn{color:#ffd86c;border-color:rgba(255,216,108,.25)}
+
+.screen.active{animation:screenIn .18s ease-out}
+@keyframes screenIn{from{opacity:0;transform:scale(1.008)}to{opacity:1;transform:scale(1)}}
+#boot{align-items:center;justify-content:center;background:radial-gradient(circle at 50% 42%,rgba(74,112,220,.18),transparent 26%),radial-gradient(circle at 50% 60%,rgba(117,233,255,.08),transparent 35%),#03050a;overflow:hidden}
+#boot:before{content:"";position:absolute;inset:-30%;background:repeating-linear-gradient(90deg,transparent 0 52px,rgba(117,233,255,.018) 53px),repeating-linear-gradient(0deg,transparent 0 52px,rgba(117,233,255,.018) 53px);transform:perspective(600px) rotateX(68deg) translateY(20%);animation:bootGrid 10s linear infinite}
+@keyframes bootGrid{to{transform:perspective(600px) rotateX(68deg) translateY(32%)}}
+.bootShell{position:relative;width:min(760px,88vw);z-index:2}
+.bootBrand{font-size:clamp(58px,10vw,108px);font-weight:1000;line-height:.78;letter-spacing:-.075em}
+.bootBrand .a{color:#f5f7ff}.bootBrand .b{color:#75e9ff;text-shadow:0 0 40px rgba(117,233,255,.35)}
+.bootKicker{font-size:9px;letter-spacing:.28em;color:#697894;font-weight:950;margin-bottom:17px}
+.bootLine{height:1px;background:linear-gradient(90deg,#75e9ff 0 20%,#7886ff 20% 34%,rgba(255,255,255,.08) 34%);margin:24px 0 22px}
+.bootStatusRow{display:flex;justify-content:space-between;gap:20px;font-size:9px;letter-spacing:.12em;color:#7d8ba3;font-weight:900}
+#bootStatus{color:#aebbd0}#bootPercent{color:#75e9ff}
+.bootBar{height:4px;background:rgba(255,255,255,.055);margin-top:11px;overflow:hidden}
+#bootFill{height:100%;width:0;background:linear-gradient(90deg,#75e9ff,#6f87ff,#9f76ff);box-shadow:0 0 15px rgba(117,233,255,.42);transition:width .32s cubic-bezier(.2,.75,.25,1)}
+#bootDetails{height:52px;margin-top:15px;font:800 8px/1.8 ui-monospace,SFMono-Regular,Consolas,monospace;color:#55637a;letter-spacing:.08em;white-space:pre-line}
+#bootStart{margin-top:18px;border:1px solid rgba(117,233,255,.27);background:rgba(10,18,30,.75);color:#dcecff;padding:12px 16px;border-radius:9px;font-size:9px;letter-spacing:.13em;font-weight:950;cursor:pointer}
+#bootStart:hover{border-color:rgba(117,233,255,.7);background:rgba(21,38,59,.86)}
+#bootStart[disabled]{opacity:.35;cursor:default}
+#globalFx{position:fixed;inset:0;z-index:200;pointer-events:none;mix-blend-mode:screen}
+#globalFx:before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(180deg,rgba(255,255,255,.015) 0 1px,transparent 1px 4px);opacity:.32}
+#globalFx:after{content:"";position:absolute;inset:-20%;background:radial-gradient(circle at 50% 50%,transparent 42%,rgba(0,0,0,.35) 100%);mix-blend-mode:normal}
+.frontShell:after{content:"";position:absolute;inset:-30px;pointer-events:none;background:radial-gradient(circle at 76% 45%,rgba(117,233,255,.045),transparent 28%);animation:menuBreath 4.8s ease-in-out infinite}
+@keyframes menuBreath{50%{opacity:.45;transform:scale(1.025)}}
 @media(max-width:850px){.adminGrid{grid-template-columns:1fr 1fr}}
 @media(max-width:850px){.v9Grid{grid-template-columns:1fr 1fr}.settingsGrid{grid-template-columns:1fr}.historyRow{grid-template-columns:1fr 1fr 1fr}.historyRow span:nth-child(n+4){display:none}}
 @media(max-width:850px){.classes{grid-template-columns:1fr 1fr}.classCard{min-height:340px}.upCards{grid-template-columns:1fr}.upCard{min-height:155px}.classTop{align-items:flex-start;flex-direction:column}}
@@ -209,12 +233,28 @@ canvas{display:block}
 <body>
 <canvas id="game"></canvas>
 
-<section id="menu" class="screen active">
+<section id="boot" class="screen active">
+  <div class="bootShell">
+    <div class="bootKicker">RIFTSHIFT // COMBAT RUNTIME</div>
+    <div class="bootBrand"><span class="a">RIFT</span><span class="b">SHIFT</span></div>
+    <div class="bootLine"></div>
+    <div class="bootStatusRow"><span id="bootStatus">RUNTIME DORMANT</span><span id="bootPercent">0%</span></div>
+    <div class="bootBar"><div id="bootFill"></div></div>
+    <div id="bootDetails">AUDIO BUS........WAITING
+RIFT CORE........WAITING
+COMBAT KERNEL....WAITING</div>
+    <button id="bootStart" type="button">CLICK / TAP TO INITIALIZE</button>
+  </div>
+</section>
+<div id="globalFx"></div>
+
+
+<section id="menu" class="screen">
   <div class="frontShell">
     <div class="frontTop"><span>RIFTSHIFT // COMBAT OPERATING SYSTEM</span><span class="live">● RIFT LINK STABLE</span></div>
     <div class="frontGrid">
       <div class="commandPane">
-        <div class="brandCode">FIELD TERMINAL / RS-13</div>
+        <div class="brandCode">FIELD TERMINAL / RS-14</div>
         <h1 class="brandMain"><span class="rift">RIFT</span><span class="shift">SHIFT</span></h1>
         <div class="brandSlash"></div>
         <p class="commandCopy">Pick an operative class. Enter a new procedural combat site every run. Build a focused upgrade stack, use elevation and cover, and survive until the rift overwhelms you.</p>
@@ -239,7 +279,7 @@ canvas{display:block}
         <div class="telemetry">
           <div><b>4</b><span>CLASS CORES</span></div>
           <div><b>∞</b><span>RUN SEEDS</span></div>
-          <div><b>V13</b><span>BUILD</span></div>
+          <div><b>V14</b><span>BUILD</span></div>
         </div>
         <div id="menuTrack">SOUNDTRACK // NULL VECTOR</div>
       </div>
@@ -698,69 +738,75 @@ class AudioSystem{
     if(beat===0){[1,1.25,1.5].forEach((m,i)=>this.tone(root*m,.55,"sine",.021,root*m*.99,(i-1)*.25,dest,.22));}
   }
   hat(v,dest){this.noise(.035,v,5200,rand(-.35,.35),"highpass",dest,.03)}
-  ui(){this.start();this.tone(520,.05,"triangle",.035,680)}
+  ui(){
+    this.start();this.tone(920,.035,"sine",.022,1220,0,null,.08);this.tone(360,.055,"triangle",.016,520,0,null,.04);
+  }
+  hover(){this.start();this.tone(680,.028,"sine",.008,760,0,null,.02);}
+  bootPower(){this.start();this.tone(42,.8,"sine",.09,74,0,null,.48);this.tone(84,.46,"triangle",.05,168,0,null,.34);this.noise(.32,.026,420,0,"lowpass",null,.55);}
+  bootStep(freq=520){this.start();this.tone(freq,.055,"triangle",.026,freq*1.35,0,null,.12);this.noise(.025,.009,3900,0,"highpass",null,.04);}
+  bootComplete(){this.start();[330,495,660,990].forEach((f,i)=>setTimeout(()=>this.tone(f,.18,"sine",.035/(1+i*.2),f*1.015,(i-1.5)*.1,null,.25),i*52));setTimeout(()=>this.noise(.11,.026,5200,0,"highpass",null,.16),110);}
   foot(cls,onStairs=false){
-    this.start();
-    if(onStairs){this.noise(.055,.032,1450,0,"bandpass",null,.08);this.tone(125,.05,"triangle",.022,82);}
-    else{this.noise(.04,.018,720,0,"bandpass");this.tone(cls==="explosive"?74:92,.045,"triangle",.014,58);}
+    this.start();const heavy=cls==="explosive"||cls==="cosmic";
+    if(onStairs){this.noise(.045,heavy?.036:.028,1800,0,"bandpass",null,.08);this.tone(heavy?82:112,.065,"triangle",heavy?.027:.02,heavy?48:68,0,null,.05);}
+    else{this.noise(.035,heavy?.024:.016,760,0,"bandpass",null,.03);this.tone(heavy?70:94,.052,"triangle",heavy?.021:.014,heavy?42:58,0,null,.03);}
   }
   shoot(cls,x){
     this.start();const p=this.pan(x);
-    if(cls==="rifleman"){
-      this.tone(520,.035,"square",.048,170,p);this.noise(.045,.035,3100,p,"bandpass",null,.08);
-      setTimeout(()=>this.tone(165,.05,"triangle",.016,105,p),22);
-    }else if(cls==="soldier"){
-      this.tone(325,.055,"square",.055,105,p);this.noise(.07,.042,1900,p,"bandpass",null,.12);
-      setTimeout(()=>this.noise(.035,.018,3800,p,"highpass"),25);
-    }else if(cls==="cosmic"){
-      this.tone(760,.045,"square",.045,1160,p,null,.08);this.tone(1180,.035,"triangle",.035,420,p,null,.12);this.noise(.04,.02,2600,p,"bandpass",null,.1);
-    }else if(cls==="conduit"){
-      this.tone(1180,.035,"sawtooth",.075,180,p,null,.08);this.tone(92,.19,"sine",.13,34,p,null,.28);this.noise(.045,.105,5200,p,"highpass",null,.14);this.noise(.12,.062,1350,p,"bandpass",null,.3);
-      setTimeout(()=>this.tone(640,.12,"triangle",.055,126,p,null,.5),24);setTimeout(()=>this.tone(74,.34,"sine",.05,38,p,null,.7),42);setTimeout(()=>this.noise(.28,.022,2100,p,"bandpass",null,.9),62);
-    }else if(cls==="explosive"){
-      // Launcher: pressure thump + tube resonance + mechanical clack.
-      this.tone(112,.16,"sine",.1,38,p,null,.18);
-      this.noise(.13,.085,360,p,"lowpass",null,.28);
-      this.noise(.035,.05,3300,p,"highpass",null,.12);
-      setTimeout(()=>this.tone(210,.07,"triangle",.024,125,p,null,.08),55);
-    }else{
-      this.tone(380,.045,"square",.045,145,p);this.noise(.05,.032,2400,p,"bandpass",null,.08);
-    }
+    if(cls==="survivor"){this.noise(.028,.036,4200,p,"highpass",null,.06);this.tone(410,.038,"square",.042,132,p,null,.05);this.tone(118,.055,"triangle",.018,72,p,null,.04);}
+    else if(cls==="rifleman"){this.noise(.032,.052,4700,p,"highpass",null,.08);this.tone(560,.038,"square",.055,178,p,null,.08);this.tone(145,.075,"triangle",.025,88,p,null,.07);setTimeout(()=>this.noise(.018,.018,2700,p,"bandpass"),26);}
+    else if(cls==="soldier"){this.noise(.045,.06,3300,p,"highpass",null,.12);this.tone(285,.07,"square",.064,92,p,null,.1);this.tone(86,.105,"sine",.045,48,p,null,.14);setTimeout(()=>this.tone(610,.028,"triangle",.012,420,p),35);}
+    else if(cls==="explosive"){this.tone(104,.22,"sine",.14,32,p,null,.32);this.noise(.16,.11,310,p,"lowpass",null,.42);this.noise(.04,.06,4300,p,"highpass",null,.1);setTimeout(()=>this.tone(230,.075,"triangle",.025,128,p,null,.09),58);setTimeout(()=>this.noise(.22,.016,720,p,"bandpass",null,.5),45);}
+    else if(cls==="conduit"){this.tone(1680,.026,"square",.09,260,p,null,.1);this.noise(.03,.12,7200,p,"highpass",null,.16);this.tone(138,.13,"sawtooth",.105,42,p,null,.28);this.tone(56,.36,"sine",.13,30,p,null,.48);setTimeout(()=>this.tone(720,.16,"triangle",.065,110,p,null,.58),23);setTimeout(()=>this.noise(.34,.028,1600,p,"bandpass",null,.92),46);}
+    else if(cls==="cosmic"){this.tone(880,.035,"square",.05,1320,p,null,.12);this.tone(1310,.03,"triangle",.028,530,p,null,.1);this.noise(.035,.022,3000,p,"bandpass",null,.08);}
   }
-  enemyShot(x){const p=this.pan(x);this.tone(225,.08,"sawtooth",.043,105,p);this.noise(.065,.024,1600,p,"bandpass",null,.08)}
-  hit(x){this.tone(105,.032,"triangle",.025,60,this.pan(x))}
-  railImpact(x,crit=false){this.start();const p=this.pan(x),boost=crit?1.22:1;this.noise(.035,.09*boost,6800,p,"highpass",null,.14);this.tone(1540,.045,"square",.05*boost,260,p,null,.22);this.tone(86,.17,"sine",.095*boost,32,p,null,.38);setTimeout(()=>this.tone(420,.16,"triangle",.032*boost,95,p,null,.72),22);setTimeout(()=>this.noise(.24,.018*boost,1800,p,"bandpass",null,.95),35);}
-  impact(x){const p=this.pan(x);this.noise(.055,.026,1150,p,"bandpass",null,.07);this.tone(95,.045,"triangle",.018,60,p)}
-  kill(x){this.tone(155,.07,"triangle",.045,320,this.pan(x))}
+  enemyShot(x){const p=this.pan(x);this.tone(250,.075,"sawtooth",.046,86,p,null,.1);this.noise(.052,.028,2100,p,"bandpass",null,.08);this.tone(74,.08,"sine",.018,48,p,null,.08);}
+  hit(x){const p=this.pan(x);this.noise(.024,.024,2600,p,"bandpass",null,.04);this.tone(122,.034,"triangle",.025,72,p,null,.03);}
+  railImpact(x,crit=false){this.start();const p=this.pan(x),m=crit?1.25:1;this.noise(.035,.11*m,7600,p,"highpass",null,.16);this.tone(1840,.036,"square",.06*m,280,p,null,.22);this.tone(92,.18,"sine",.11*m,31,p,null,.42);this.noise(.12,.045*m,1450,p,"bandpass",null,.55);setTimeout(()=>this.tone(510,.2,"triangle",.036*m,82,p,null,.8),24);}
+  impact(x){const p=this.pan(x);this.noise(.055,.034,1250,p,"bandpass",null,.09);this.tone(98,.065,"triangle",.024,55,p,null,.05);}
+  kill(x){const p=this.pan(x);this.tone(170,.07,"triangle",.052,390,p,null,.13);this.noise(.04,.028,3100,p,"bandpass",null,.09);setTimeout(()=>this.tone(520,.055,"sine",.018,760,p,null,.12),20);}
   explosion(x,radius=76){
-    this.start();const p=this.pan(x),scale=clamp(radius/76,.7,2.5);
-    // Larger radius means audibly deeper, longer, and heavier — not just visually bigger.
-    this.tone(96/Math.sqrt(scale),.34+.16*scale,"sine",.12+.035*scale,25,p,null,.34);
-    this.tone(68/Math.sqrt(scale),.42+.18*scale,"triangle",.085+.03*scale,22,p,null,.42);
-    this.noise(.20+.08*scale,.09+.035*scale,330/Math.sqrt(scale),p,"lowpass",null,.52);
-    this.noise(.045,.07+.02*scale,5200,p,"highpass",null,.2);
-    setTimeout(()=>this.noise(.42+.18*scale,.026+.012*scale,620/Math.sqrt(scale),p,"bandpass",null,.82),38);
-    if(scale>1.35)setTimeout(()=>this.tone(42,.38,"sine",.045*scale,24,p,null,.3),22);
+    this.start();const p=this.pan(x),scale=clamp(radius/76,.65,2.8);this.tone(92/Math.sqrt(scale),.38+.13*scale,"sine",.14+.04*scale,22,p,null,.4);this.tone(54/Math.sqrt(scale),.5+.16*scale,"triangle",.1+.032*scale,18,p,null,.5);this.noise(.22+.08*scale,.105+.03*scale,290/Math.sqrt(scale),p,"lowpass",null,.58);this.noise(.042,.09+.018*scale,5600,p,"highpass",null,.22);setTimeout(()=>this.noise(.48+.15*scale,.032+.01*scale,590/Math.sqrt(scale),p,"bandpass",null,.9),38);if(scale>1.35)setTimeout(()=>this.tone(36,.45,"sine",.055*scale,20,p,null,.4),24);
   }
   ability(cls){
     this.start();
-    if(cls==="survivor"){this.tone(330,.14,"triangle",.065,720,0,null,.12);setTimeout(()=>this.tone(620,.18,"sine",.04,920),70);}
-    else if(cls==="rifleman"){this.tone(820,.08,"sine",.06,1240,0,null,.18);setTimeout(()=>this.tone(410,.22,"triangle",.035,205),65);}
-    else if(cls==="soldier"){this.tone(95,.32,"triangle",.08,54,0,null,.32);this.noise(.16,.04,680,0,"bandpass",null,.25);}
-    else if(cls==="conduit"){this.tone(980,.14,"sawtooth",.08,125,0,null,.3);this.noise(.18,.07,5100,0,"highpass",null,.45);setTimeout(()=>this.tone(140,.34,"triangle",.065,42,0,null,.65),28);}
-    else{this.tone(72,.28,"sawtooth",.095,32,0,null,.35);this.noise(.22,.075,360,0,"lowpass",null,.4);}
+    if(cls==="survivor"){this.tone(330,.12,"triangle",.06,720,0,null,.12);setTimeout(()=>this.tone(690,.2,"sine",.045,1040,0,null,.24),62);this.noise(.08,.018,3600,0,"highpass",null,.1);}
+    else if(cls==="rifleman"){this.tone(920,.075,"sine",.07,1480,0,null,.2);this.tone(270,.18,"triangle",.036,155,0,null,.12);setTimeout(()=>this.tone(1210,.07,"sine",.035,880,0,null,.28),55);}
+    else if(cls==="soldier"){this.tone(88,.36,"triangle",.095,48,0,null,.38);this.noise(.18,.045,710,0,"bandpass",null,.3);setTimeout(()=>this.tone(220,.18,"sine",.028,310,0,null,.24),70);}
+    else if(cls==="explosive"){this.tone(66,.32,"sawtooth",.11,28,0,null,.42);this.noise(.24,.085,340,0,"lowpass",null,.52);this.noise(.06,.045,4400,0,"highpass",null,.18);}
+    else if(cls==="conduit"){this.tone(1180,.12,"sawtooth",.095,140,0,null,.35);this.noise(.18,.08,6200,0,"highpass",null,.5);this.tone(126,.38,"triangle",.075,37,0,null,.7);setTimeout(()=>this.tone(1880,.065,"sine",.035,510,0,null,.35),32);}
+    else{for(let i=0;i<5;i++)setTimeout(()=>this.tone(350+i*145,.085,"square",.026,560+i*90,0,null,.18),i*24);this.noise(.2,.04,2000,0,"bandpass",null,.35);}
   }
-  dash(){this.noise(.1,.046,820);this.tone(120,.11,"sawtooth",.032,55)}
-  hurt(){this.tone(130,.16,"sawtooth",.065,52)}
-  pickup(x){this.tone(470,.06,"triangle",.035,720,this.pan(x))}
-  level(){this.tone(430,.1,"triangle",.05,640);setTimeout(()=>this.tone(650,.12,"triangle",.045,960),75)}
-  boss(){this.tone(68,.55,"sawtooth",.07,36);this.noise(.55,.04,170)}
-  over(){this.tone(180,.18,"sawtooth",.07,540);setTimeout(()=>this.tone(560,.18,"triangle",.05,860),110)}
-  spawn(x){this.tone(92,.16,"sawtooth",.022,180,this.pan(x))}
+  dash(){this.start();this.noise(.11,.052,1000,0,"bandpass",null,.12);this.tone(145,.13,"sawtooth",.04,48,0,null,.08);this.tone(880,.055,"sine",.016,420,0,null,.08);}
+  hurt(){this.start();this.tone(112,.18,"sawtooth",.08,44,0,null,.08);this.noise(.08,.032,620,0,"bandpass",null,.05);}
+  pickup(x){const p=this.pan(x);this.tone(520,.065,"triangle",.036,760,p,null,.12);setTimeout(()=>this.tone(790,.07,"sine",.027,1080,p,null,.16),38);}
+  level(){this.start();[430,575,720,960].forEach((f,i)=>setTimeout(()=>this.tone(f,.13,"triangle",.045/(1+i*.1),f*1.12,(i-1.5)*.1,null,.2),i*55));setTimeout(()=>this.noise(.08,.018,4800,0,"highpass",null,.15),100);}
+  boss(){this.start();this.tone(54,.7,"sawtooth",.095,27,0,null,.55);this.tone(81,.55,"triangle",.055,42,0,null,.42);this.noise(.65,.052,145,0,"lowpass",null,.7);setTimeout(()=>this.tone(310,.18,"sine",.025,120,0,null,.45),120);}
+  over(){this.start();this.tone(160,.2,"sawtooth",.08,620,0,null,.25);this.noise(.15,.034,2500,0,"bandpass",null,.22);setTimeout(()=>this.tone(620,.22,"triangle",.06,1040,0,null,.38),105);setTimeout(()=>this.tone(1040,.16,"sine",.03,1460,0,null,.28),185);}
+  spawn(x){const p=this.pan(x);this.tone(74,.2,"sawtooth",.027,210,p,null,.22);this.noise(.11,.02,980,p,"bandpass",null,.18);setTimeout(()=>this.tone(380,.07,"sine",.012,690,p,null,.12),55);}
 }
 const sfx=new AudioSystem();
 
-const screens=["menu","classSelect","hud","pause","upgrade","armory","evolution","settings","archive","admin","gameover"];
+
+let bootStarted=false;
+function setBootStage(percent,status,details,freq){
+  $("bootFill").style.width=percent+"%";$("bootPercent").textContent=percent+"%";$("bootStatus").textContent=status;$("bootDetails").textContent=details;
+  if(freq)sfx.bootStep(freq);
+}
+function beginBoot(){
+  if(bootStarted)return;bootStarted=true;$("bootStart").disabled=true;$("bootStart").textContent="INITIALIZING…";
+  sfx.start();applyAudioSettings();sfx.bootPower();
+  const stages=[
+    [10,"AUDIO BUS ONLINE","AUDIO BUS........ONLINE\nRIFT CORE........WAITING\nCOMBAT KERNEL....WAITING",420],
+    [28,"MOUNTING RIFT CORE","AUDIO BUS........ONLINE\nRIFT CORE........MOUNTING\nCOMBAT KERNEL....WAITING",520],
+    [49,"CALIBRATING WEAPON BUS","WEAPON BUS.......CALIBRATED\nPROCEDURAL MAP...WAITING\nENTITY TABLE.....WAITING",630],
+    [69,"SYNCING PROCEDURAL MAP","WEAPON BUS.......CALIBRATED\nPROCEDURAL MAP...SYNCED\nENTITY TABLE.....LOADING",760],
+    [86,"VERIFYING COMBAT KERNEL","ENTITY TABLE.....READY\nSAVE PROFILE.....READY\nCOMBAT KERNEL....VERIFYING",880],
+    [100,"RIFT LINK STABLE","ENTITY TABLE.....READY\nSAVE PROFILE.....READY\nCOMBAT KERNEL....ONLINE",1080]
+  ];
+  stages.forEach((st,i)=>setTimeout(()=>setBootStage(...st),260+i*410));
+  setTimeout(()=>{sfx.bootComplete();$("bootStart").textContent="RUNTIME READY";setTimeout(()=>{showOnly("menu");refreshMetaUI();sfx.setMusic("menu");checkDesktopUpdate(true);},650);},260+stages.length*410);
+}
+const screens=["boot","menu","classSelect","hud","pause","upgrade","armory","evolution","settings","archive","admin","gameover"];
 function showOnly(name){screens.forEach(id=>$(id).classList.toggle("active",id===name))}
 function showHUD(){screens.forEach(id=>$(id).classList.remove("active"));$("hud").classList.add("active")}
 function msg(t,sec=1.2){$("message").textContent=t;$("message").style.opacity=1;clearTimeout(msg.t);msg.t=setTimeout(()=>$("message").style.opacity=0,sec*1000)}
@@ -1163,8 +1209,8 @@ function newGame(){
       dashArmorTime:0,dashArmorStrength:0,dashCritTime:0,dashCritBonus:0,executeBonus:0,railEvery:0,railDamage:1,markPower:0,grenadeEvery:0,aegisTime:0,aegisStrength:0,
       rallyHeal:0,shockKill:0,overDamage:0,stability:0,shrapnel:0,aftershock:0,proximity:0,implosion:0,doubleBlast:0,clusterCount:0
     },
-    bullets:[],enemyBullets:[],enemies:[],particles:[],orbs:[],texts:[],blasts:[],delayedBlasts:[],energyLines:[],railImpacts:[],drones:0,droneCd:0,upgradeLevels:{},maxedUpgradeIds:new Set(),scrap:0,rerolls:1,bossKills:0,objective:null,evolution:null,evolutionOffered:false,weaponName:def.weapon,armoryStock:[],armoryPurchased:new Set(),
-    wave:1,spawnTimer:.65,spawned:0,waveTarget:pendingChallenge?22:(pendingChaos?18:12),kills:0,score:0,combo:0,comboTimer:0,waveDamageTaken:0,railMuzzle:0,
+    bullets:[],enemyBullets:[],enemies:[],particles:[],orbs:[],texts:[],blasts:[],delayedBlasts:[],energyLines:[],railImpacts:[],spawnFx:[],drones:0,droneCd:0,upgradeLevels:{},maxedUpgradeIds:new Set(),scrap:0,rerolls:1,bossKills:0,objective:null,evolution:null,evolutionOffered:false,weaponName:def.weapon,armoryStock:[],armoryPurchased:new Set(),
+    wave:1,spawnTimer:.65,spawned:0,waveTarget:pendingChallenge?22:(pendingChaos?18:12),kills:0,score:0,combo:0,comboTimer:0,waveDamageTaken:0,railMuzzle:0,weaponKick:0,
     level:1,xp:0,xpNeed:50,boss:null,nextWaveDelay:0,map:null
   };
   if(G.classId==="conduit"){G.player.pierce=base.pierce||4;G.player.maxEnergy=base.maxEnergy||160;G.player.energy=G.player.maxEnergy;G.player.energyRegen=base.energyRegen||10;G.player.currentWidth=24;G.player.currentShock=.8;G.player.currentDamageMult=1;G.player.currentChains=0;G.player.railEnergyGain=0;G.player.projectileSize=1.55;}
@@ -1260,7 +1306,7 @@ function playerShoot(){
     const ga=aim;G.bullets.push({x:p.x+Math.cos(ga)*19,y:p.y+Math.sin(ga)*19,vx:Math.cos(ga)*430,vy:Math.sin(ga)*430,r:6,life:1.25,damage:p.damage*.85,pierce:0,bounce:0,crit:false,explosive:true,radius:58+(upgradeLevel("sold_grenade")*5),floor:p.floor,proximity:18});
   }
   if(p.mirrorShot){const ba=aim+Math.PI;G.bullets.push({x:p.x+Math.cos(ba)*17,y:p.y+Math.sin(ba)*17,vx:Math.cos(ba)*p.projectileSpeed,vy:Math.sin(ba)*p.projectileSpeed,r:3.5,life:1.15,damage:p.damage*.55,pierce:p.pierce,bounce:p.bounce||0,crit:false,explosive:false,floor:p.floor});}
-  if(G.classId==="conduit")G.railMuzzle=.11;
+  if(G.classId==="conduit")G.railMuzzle=.11;G.weaponKick=Math.max(G.weaponKick,G.classId==="conduit"?8:G.classId==="explosive"?6:3.5);
   sfx.shoot(G.classId,p.x);
 }
 
@@ -1284,7 +1330,7 @@ function spawnEnemy(type=null,x=null,y=null,forcedElite=null){
   const base=1+(w-1)*.105*(G.chaos?1.2:1);
   const defs={chaser:{r:16,hp:46*base,speed:98+w*2,color:"#ff6978",damage:16,score:90},charger:{r:19,hp:76*base,speed:73,color:"#ffae55",damage:24,score:145,chargeCd:rand(.7,1.5),charge:0},shooter:{r:17,hp:62*base,speed:62,color:"#a476ff",damage:14,score:170,shootCd:rand(.5,1.35)},splitter:{r:20,hp:102*base,speed:71,color:"#61df98",damage:18,score:215},brute:{r:25,hp:185*base,speed:54,color:"#e65a62",damage:32,score:300}};
   const e={...defs[type],...pos,type,maxHp:defs[type].hp,vx:0,vy:0,hit:0,slow:0,anim:rand(0,TAU),floor:0,elevation:0,platformId:null,isEnemy:true,stairRoute:null,routeStuck:0,routeLastDist:Infinity};
-  applyElite(e,forcedElite);G.enemies.push(e);sfx.spawn(pos.x);return e;
+  applyElite(e,forcedElite);G.enemies.push(e);G.spawnFx.push({x:pos.x,y:pos.y,r:e.r,color:e.eliteColor||e.color,life:.42,max:.42,floor:e.floor??0});sfx.spawn(pos.x);return e;
 }
 function spawnMini(x,y){
   const base=1+(G.wave-1)*.09;
@@ -1293,7 +1339,7 @@ function spawnMini(x,y){
 function spawnBoss(){
   const p=spawnPoint(),scale=1+(G.wave/5-1)*.26,index=(Math.floor(G.wave/5)-1)%BOSS_DEFS.length,bd=BOSS_DEFS[index];
   G.boss={x:p.x,y:p.y,r:50,hp:1050*scale*bd.hp,maxHp:1050*scale*bd.hp,speed:bd.speed,color:bd.color,damage:28,type:"boss",bossKind:bd.id,bossName:bd.name,bossPhase:1,score:3000,shootCd:.9,burstCd:2.7,specialCd:2.2,vx:0,vy:0,hit:0,slow:0,anim:0,floor:0,elevation:0,platformId:null,isEnemy:true,stairRoute:null,routeStuck:0,routeLastDist:Infinity};
-  G.enemies.push(G.boss);$("bossWrap").style.display="block";$("bossName").textContent=bd.name;sfx.boss();sfx.setMusic("boss");msg(`${bd.name} // PHASE I`,1.8);
+  G.enemies.push(G.boss);G.spawnFx.push({x:p.x,y:p.y,r:50,color:bd.color,life:.8,max:.8,floor:0,boss:true});$("bossWrap").style.display="block";$("bossName").textContent=bd.name;sfx.boss();sfx.setMusic("boss");msg(`${bd.name} // PHASE I`,1.8);
 }
 function explode(x,y,radius,damage,cluster=false,secondary=false,blastFloor=G.player.floor){
   const scale=radius/76;
@@ -1795,7 +1841,7 @@ function update(dt){
   }
   for(let i=G.blasts.length-1;i>=0;i--){
     const b=G.blasts[i];b.life-=dt;if(b.life<=0)G.blasts.splice(i,1);
-  }  for(let i=G.energyLines.length-1;i>=0;i--){G.energyLines[i].life-=dt;if(G.energyLines[i].life<=0)G.energyLines.splice(i,1);}for(let i=G.railImpacts.length-1;i>=0;i--){G.railImpacts[i].life-=dt;if(G.railImpacts[i].life<=0)G.railImpacts.splice(i,1);}G.railMuzzle=Math.max(0,(G.railMuzzle||0)-dt);
+  }  for(let i=G.energyLines.length-1;i>=0;i--){G.energyLines[i].life-=dt;if(G.energyLines[i].life<=0)G.energyLines.splice(i,1);}for(let i=G.railImpacts.length-1;i>=0;i--){G.railImpacts[i].life-=dt;if(G.railImpacts[i].life<=0)G.railImpacts.splice(i,1);}G.railMuzzle=Math.max(0,(G.railMuzzle||0)-dt);G.weaponKick=Math.max(0,(G.weaponKick||0)-dt*34);for(let i=G.spawnFx.length-1;i>=0;i--){G.spawnFx[i].life-=dt;if(G.spawnFx[i].life<=0)G.spawnFx.splice(i,1);}
 
   for(let i=G.delayedBlasts.length-1;i>=0;i--){const b=G.delayedBlasts[i];b.t-=dt;if(b.t<=0){explode(b.x,b.y,b.radius,b.damage,false,true,b.floor);G.delayedBlasts.splice(i,1);}}
   for(let i=G.texts.length-1;i>=0;i--){
@@ -2082,6 +2128,8 @@ function drawObjective(){const o=G.objective;if(!o||o.failed)return;X.save();
  X.restore()}
 function drawCrosshair(){const size=7*(settings.crosshairScale||1);X.save();X.translate(mouse.x,mouse.y);X.strokeStyle="rgba(225,239,255,.72)";X.lineWidth=1.5;X.beginPath();X.moveTo(-size-4,0);X.lineTo(-4,0);X.moveTo(4,0);X.lineTo(size+4,0);X.moveTo(0,-size-4);X.lineTo(0,-4);X.moveTo(0,4);X.lineTo(0,size+4);X.stroke();if(settings.hitmarker&&G.hitmarker>0){X.strokeStyle="#fff";X.lineWidth=2;for(const [sx,sy] of [[-1,-1],[1,-1],[-1,1],[1,1]]){X.beginPath();X.moveTo(sx*5,sy*5);X.lineTo(sx*10,sy*10);X.stroke()}}X.restore()}
 function drawRailImpacts(){for(const q of G.railImpacts){if((q.floor??0)!==(G.player.floor??0))continue;const life=clamp(q.life/q.max,0,1),t=1-life,r=(q.small?12:20)+(q.small?18:34)*t;X.save();X.translate(q.x,q.y);X.rotate(q.angle||0);X.globalCompositeOperation="lighter";X.shadowColor=q.crit?"#fff1aa":"#77f1ff";X.shadowBlur=q.small?10:22;X.strokeStyle=q.crit?`rgba(255,235,150,${life})`:`rgba(126,244,255,${life})`;X.lineWidth=q.small?1.5:3;X.beginPath();X.moveTo(r,0);X.lineTo(0,r*.55);X.lineTo(-r,0);X.lineTo(0,-r*.55);X.closePath();X.stroke();X.strokeStyle=`rgba(235,253,255,${life*.9})`;X.lineWidth=q.small?1:2;for(let i=0;i<(q.small?4:8);i++){const a=i/(q.small?4:8)*TAU+q.seed,rr=r*(.8+(i%3)*.15);X.beginPath();X.moveTo(Math.cos(a)*r*.25,Math.sin(a)*r*.25);X.lineTo(Math.cos(a+.08)*rr,Math.sin(a+.08)*rr);X.lineTo(Math.cos(a-.05)*rr*1.3,Math.sin(a-.05)*rr*1.3);X.stroke();}if(!q.small){X.fillStyle=`rgba(216,252,255,${life*.5})`;X.beginPath();X.arc(0,0,5+10*t,0,TAU);X.fill();}X.restore();}}
+
+function drawSpawnFx(){for(const q of G.spawnFx){if((q.floor??0)!==(G.player.floor??0))continue;const t=1-q.life/q.max,alpha=clamp(q.life/q.max,0,1),rr=q.r+(q.boss?95:48)*t;X.save();X.globalCompositeOperation="lighter";X.strokeStyle=q.color;X.globalAlpha=alpha*.72;X.lineWidth=q.boss?4:2;X.shadowColor=q.color;X.shadowBlur=q.boss?26:14;X.beginPath();X.arc(q.x,q.y,rr,0,TAU);X.stroke();X.globalAlpha=alpha*.2;X.fillStyle=q.color;X.beginPath();X.arc(q.x,q.y,Math.max(1,rr*.48),0,TAU);X.fill();X.restore();}}
 function drawBlasts(){
   for(const b of G.blasts){
     if((b.floor??0)!==(G.player.floor??0))continue;
@@ -2104,17 +2152,18 @@ function drawPlayer(){
   X.shadowColor=G.chroma?`hsl(${(G.time*80)%360} 90% 68%)`:cls==="explosive"?"#ffad5d":cls==="rifleman"?"#75e9ff":cls==="conduit"?"#70ecff":cls==="soldier"?"#9ea9ff":"#68e8a1";X.shadowBlur=G.chroma?22:13;
   const body=p.invuln>0&&Math.floor(G.time*18)%2?"#fff":cls==="explosive"?"#ffd09a":cls==="rifleman"?"#d8f8ff":cls==="conduit"?"#d8fbff":cls==="soldier"?"#dde0ff":"#dcffe9";
   X.fillStyle=body;X.beginPath();X.moveTo(17,0);X.lineTo(-7,-11);X.lineTo(-13,-5);X.lineTo(-8,0);X.lineTo(-13,5);X.lineTo(-7,11);X.closePath();X.fill();
-  X.fillStyle=cls==="explosive"?"#ff9d4a":cls==="survivor"?"#65e49a":cls==="conduit"?"#70ecff":cls==="soldier"?"#858bff":"#75e9ff";
+  X.save();X.translate(-(G.weaponKick||0),0);X.fillStyle=cls==="explosive"?"#ff9d4a":cls==="survivor"?"#65e49a":cls==="conduit"?"#70ecff":cls==="soldier"?"#858bff":"#75e9ff";
   if(cls==="explosive"){X.fillRect(2,-5,22,10);X.fillStyle="#47331d";X.fillRect(18,-7,8,14);}
   else if(cls==="rifleman"){X.fillRect(0,-3,27,6);X.fillRect(17,-5,9,10);}
   else if(cls==="soldier"){X.fillRect(1,-4,23,8);X.fillStyle="#54599f";X.fillRect(-3,-8,10,16);}
   else if(cls==="conduit"){X.fillRect(-2,-4,34,8);X.fillStyle="#c7fbff";X.fillRect(20,-2,20,4);X.fillStyle="#244654";X.fillRect(4,-8,13,16);if(G.railMuzzle>0){const m=clamp(G.railMuzzle/.11,0,1);X.globalCompositeOperation="lighter";X.fillStyle=`rgba(220,252,255,${m})`;X.beginPath();X.moveTo(42,0);X.lineTo(22,-9*m);X.lineTo(70,0);X.lineTo(22,9*m);X.closePath();X.fill();X.globalCompositeOperation="source-over";}}
   else X.fillRect(2,-3,20,6);
-  X.shadowColor="transparent";X.restore();
+  X.restore();X.shadowColor="transparent";X.restore();
 }
 function drawGame(){
   const actualShake=settings.reducedMotion?0:G.shake*settings.shake,sx=rand(-actualShake,actualShake),sy=rand(-actualShake,actualShake);
   X.save();X.translate(sx,sy);drawMap();drawObjective();
+  drawSpawnFx();
   for(const o of G.orbs){const pulse=1+Math.sin(G.time*8+o.x*.02)*.14;X.shadowColor="#8d7aff";X.shadowBlur=9;X.fillStyle="#8d7aff";X.beginPath();X.arc(o.x,o.y,o.r*pulse,0,TAU);X.fill();X.shadowBlur=0;}
   for(const b of G.bullets)drawBullet(b);
   for(const b of G.enemyBullets){X.shadowColor="#ff70b4";X.shadowBlur=8;X.fillStyle="#ff70b4";X.beginPath();X.arc(b.x,b.y,b.r,0,TAU);X.fill();X.shadowBlur=0;}drawBlasts();drawRailImpacts();for(const l of G.energyLines)drawSharpElectricLine(l);
@@ -2144,7 +2193,7 @@ function tryEnterFullscreen(){
   }catch(err){}
 }
 
-const APP_VERSION="13.0.0";
+const APP_VERSION="14.0.0";
 let pendingDesktopUpdate=null;
 
 function compareVersionStrings(a,b){
@@ -2221,6 +2270,7 @@ function setupMobileControls(){
  hold("mobDash",()=>dash());hold("mobAbility",()=>activateClassAbility());hold("mobOver",()=>activateOverdrive());hold("mobPause",()=>{if(G&&!G.choosing){G.paused=true;showOnly("pause");setMobileGameActive(false)}});
 }
 setupMobileControls();
+$("bootStart").addEventListener("click",beginBoot);
 /* BUTTONS */
 $("updateBtn").addEventListener("click",()=>pendingDesktopUpdate?installDesktopUpdate():checkDesktopUpdate(false));
 $("startBtn").addEventListener("click",()=>{pendingChallenge=false;openClassSelect(false)});
@@ -2258,8 +2308,11 @@ $("quitBtn").addEventListener("click",()=>returnMenu());
 $("againBtn").addEventListener("click",()=>{if(G){pendingChaos=G.chaos;try{newGame()}catch(err){console.error(err);returnMenu();}}});
 $("menuBtn").addEventListener("click",()=>returnMenu());
 
+
+let lastHoverSound=0;
+document.addEventListener("pointerover",e=>{const btn=e.target.closest("button");if(!btn||btn.disabled||!bootStarted)return;const n=performance.now();if(n-lastHoverSound<70)return;lastHoverSound=n;try{sfx.hover()}catch(_){}});
 window.addEventListener("blur",()=>{if(settings.pauseOnBlur&&G&&G.running&&!G.paused&&!G.choosing){G.paused=true;showOnly("pause");setMobileGameActive(false);}});
-document.addEventListener("keydown",e=>{if(e.code==="F2"){e.preventDefault();if(!e.repeat)openAdminPanel()}},true);refreshMetaUI();applyAudioSettings();applyVisualSettings();renderAdminPanel();if(new URLSearchParams(location.search).get("owner")==="1")setTimeout(openAdminPanel,250);setTimeout(()=>checkDesktopUpdate(true),900);
+document.addEventListener("keydown",e=>{if(e.code==="F2"){e.preventDefault();if(!e.repeat)openAdminPanel()}},true);refreshMetaUI();applyAudioSettings();applyVisualSettings();renderAdminPanel();if(new URLSearchParams(location.search).get("owner")==="1")setTimeout(openAdminPanel,250);
 
 if("serviceWorker" in navigator && location.protocol.startsWith("http")){
   addEventListener("load",()=>navigator.serviceWorker.register("./sw.js").catch(()=>{}));
