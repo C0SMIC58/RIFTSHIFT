@@ -243,6 +243,26 @@ canvas{display:block}
 #eventBanner.show{display:block;animation:eventIn .28s ease-out}
 #eventBanner b{display:block;font-size:9px;letter-spacing:.16em;color:#ffd166}#eventBanner span{font-size:8px;color:#8290a5}
 @keyframes eventIn{from{opacity:0;transform:translate(-50%,-8px)}to{opacity:1;transform:translate(-50%,0)}}
+
+#v17Hub,#v17Artifact,#v17Fork,#v17Ultimate,#v17Death{position:fixed;inset:0;z-index:190;display:none;align-items:center;justify-content:center;background:rgba(2,4,9,.78);backdrop-filter:blur(9px);pointer-events:auto}
+#v17Hub.show,#v17Artifact.show,#v17Fork.show,#v17Ultimate.show,#v17Death.show{display:flex}
+.v17Panel{width:min(1000px,92vw);max-height:88vh;overflow:auto;border:1px solid rgba(117,233,255,.18);border-radius:18px;background:linear-gradient(180deg,#111927,#080d15);box-shadow:0 35px 120px rgba(0,0,0,.65);padding:24px}
+.v17Head{display:flex;justify-content:space-between;gap:20px;align-items:flex-start;border-bottom:1px solid rgba(255,255,255,.07);padding-bottom:18px;margin-bottom:18px}
+.v17Head h2{font-size:32px;margin:3px 0 4px;letter-spacing:-.045em}.v17Kicker{font-size:8px;letter-spacing:.19em;color:#75e9ff;font-weight:950}.v17Sub{font-size:10px;color:#8492a7;line-height:1.55}
+.v17Close{border:1px solid rgba(255,255,255,.1);background:#121a28;color:#c8d5e5;border-radius:8px;padding:9px 12px;font-size:9px;font-weight:950;cursor:pointer}
+.v17Grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.v17Section{border:1px solid rgba(255,255,255,.065);background:rgba(255,255,255,.018);border-radius:13px;padding:16px}.v17Section.full{grid-column:1/-1}
+.v17Section h3{font-size:13px;margin:0 0 5px}.v17Section p{font-size:9px;color:#8190a4;line-height:1.55;margin:0 0 12px}
+.v17Btns{display:flex;flex-wrap:wrap;gap:7px}.v17Btn{border:1px solid rgba(255,255,255,.09);background:#111927;color:#a9b6c8;border-radius:8px;padding:9px 10px;font-size:8px;font-weight:950;letter-spacing:.05em;cursor:pointer}.v17Btn.on{border-color:rgba(117,233,255,.52);color:#e4fbff;background:rgba(117,233,255,.08);box-shadow:inset 0 0 18px rgba(117,233,255,.04)}
+.v17Statline{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}.v17Stat{padding:10px;border-radius:9px;background:#0a1019;border:1px solid rgba(255,255,255,.055)}.v17Stat b{display:block;font-size:17px;color:#eaf3ff}.v17Stat span{font-size:7px;color:#6f7d90;letter-spacing:.09em}
+.v17List{display:grid;gap:6px;max-height:230px;overflow:auto}.v17Row{display:flex;justify-content:space-between;gap:10px;padding:8px 9px;border:1px solid rgba(255,255,255,.055);border-radius:8px;background:#0b111a;font-size:8px;color:#8997aa}.v17Row b{color:#dce8f7}.v17Row.unseen{opacity:.35;filter:blur(.3px)}
+.v17ChoiceGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:16px}.v17Choice{border:1px solid rgba(255,255,255,.08);background:#0b111b;border-radius:13px;padding:18px;cursor:pointer;min-height:190px;transition:.15s}.v17Choice:hover{transform:translateY(-3px);border-color:rgba(117,233,255,.35)}.v17Choice.corrupt{border-color:rgba(255,83,126,.28);background:linear-gradient(180deg,rgba(105,18,47,.18),#0b111b)}.v17Choice .ico{font-size:26px;color:#75e9ff;margin-bottom:28px}.v17Choice.corrupt .ico{color:#ff657e}.v17Choice h3{font-size:16px;margin:0 0 7px}.v17Choice p{font-size:9px;color:#8795a8;line-height:1.55}.v17Choice small{display:block;color:#65748a;font-size:7px;letter-spacing:.09em;margin-top:12px}
+#v17Heat{position:fixed;right:18px;top:98px;z-index:57;width:142px;padding:8px 10px;border:1px solid rgba(255,255,255,.07);background:rgba(5,9,15,.72);backdrop-filter:blur(5px);border-radius:8px;pointer-events:none}
+#v17HeatTop{display:flex;justify-content:space-between;font-size:7px;font-weight:950;letter-spacing:.1em;color:#7e8da1;margin-bottom:5px}#v17HeatBar{height:3px;background:rgba(255,255,255,.07);overflow:hidden}#v17HeatFill{height:100%;width:0;background:linear-gradient(90deg,#75e9ff,#ffd166,#ff657e)}
+.v17DeathCore{text-align:center}.v17DeathCore .skull{font-size:74px;color:#ff657e;filter:drop-shadow(0 0 24px rgba(255,75,105,.35));animation:v17DeathPulse .7s ease-in-out infinite alternate}.v17DeathCore b{display:block;font-size:24px;margin-top:8px;letter-spacing:-.03em}.v17DeathCore span{font-size:9px;color:#76859a;letter-spacing:.14em}
+@keyframes v17DeathPulse{to{transform:scale(1.07);filter:drop-shadow(0 0 42px rgba(255,75,105,.55))}}
+.v17Breakdown{margin-top:16px;padding-top:14px;border-top:1px solid rgba(255,255,255,.08)}.v17BreakGrid{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin-bottom:12px}.v17BreakGrid div{padding:8px;background:#0b111a;border:1px solid rgba(255,255,255,.055);border-radius:7px;font-size:7px;color:#77869a}.v17BreakGrid b{display:block;font-size:13px;color:#dce8f7}.v17Graph{height:62px;display:flex;align-items:flex-end;gap:3px;padding:8px;background:#080d14;border-radius:8px;border:1px solid rgba(255,255,255,.05)}.v17Graph i{display:block;flex:1;min-width:5px;background:linear-gradient(180deg,#75e9ff,#7886ff);border-radius:2px 2px 0 0;opacity:.75}
+#v17ShipButton{position:relative}
+@media(max-width:760px){.v17Grid,.v17ChoiceGrid{grid-template-columns:1fr}.v17Section.full{grid-column:auto}.v17Statline,.v17BreakGrid{grid-template-columns:repeat(2,1fr)}#v17Heat{top:82px;right:8px;width:112px}}
 @media(max-width:850px){.adminGrid{grid-template-columns:1fr 1fr}}
 @media(max-width:850px){.v9Grid{grid-template-columns:1fr 1fr}.settingsGrid{grid-template-columns:1fr}.historyRow{grid-template-columns:1fr 1fr 1fr}.historyRow span:nth-child(n+4){display:none}}
 @media(max-width:850px){.classes{grid-template-columns:1fr 1fr}.classCard{min-height:340px}.upCards{grid-template-columns:1fr}.upCard{min-height:155px}.classTop{align-items:flex-start;flex-direction:column}}
@@ -272,7 +292,7 @@ COMBAT KERNEL....WAITING</div>
     <div class="frontTop"><span>RIFTSHIFT // COMBAT OPERATING SYSTEM</span><span class="live">● RIFT LINK STABLE</span></div>
     <div class="frontGrid">
       <div class="commandPane">
-        <div class="brandCode">FIELD TERMINAL / RS-16</div>
+        <div class="brandCode">FIELD TERMINAL / RS-17</div>
         <h1 class="brandMain"><span class="rift">RIFT</span><span class="shift">SHIFT</span></h1>
         <div class="brandSlash"></div>
         <p class="commandCopy">Pick an operative class. Enter a new procedural combat site every run. Build a focused upgrade stack, use elevation and cover, and survive until the rift overwhelms you.</p>
@@ -288,7 +308,7 @@ COMBAT KERNEL....WAITING</div>
           </button>
         </div>
         <div id="metaButtons"><button id="archiveBtn" class="metaButton" type="button">RUN ARCHIVE</button><button id="settingsBtn" class="metaButton" type="button">SETTINGS</button><button id="ownerPanelBtn" class="metaButton" type="button" hidden>OWNER PANEL</button><button id="progressBtn" class="metaButton locked" type="button">RIFT CORES // 0</button></div>
-        <div class="controlStrip"><span>WASD MOVE</span><span>MOUSE FIRE</span><span>SPACE DASH</span><span>E OVERDRIVE</span><span>Q ABILITY</span><span>ESC PAUSE</span></div><div class="updatePanel"><button id="updateBtn" class="updateButton" type="button">CHECK FOR UPDATES</button><div id="updateStatus">DESKTOP UPDATE LINK // INITIALIZING</div></div>
+        <div class="controlStrip"><span>WASD MOVE</span><span>MOUSE FIRE</span><span>SPACE DASH</span><span>E OVERDRIVE</span><span>Q ABILITY</span><span>F EXECUTE</span><span>ESC PAUSE</span></div><div class="updatePanel"><button id="updateBtn" class="updateButton" type="button">CHECK FOR UPDATES</button><div id="updateStatus">DESKTOP UPDATE LINK // INITIALIZING</div></div>
       </div>
       <div class="visualPane">
         <div class="riftMachine" aria-hidden="true">
@@ -297,7 +317,7 @@ COMBAT KERNEL....WAITING</div>
         <div class="telemetry">
           <div><b>4</b><span>CLASS CORES</span></div>
           <div><b>∞</b><span>RUN SEEDS</span></div>
-          <div><b>V16</b><span>BUILD</span></div>
+          <div><b>V17</b><span>BUILD</span></div>
         </div>
         <div id="menuTrack">SOUNDTRACK // NULL VECTOR</div>
       </div>
@@ -400,6 +420,48 @@ COMBAT KERNEL....WAITING</div>
 </div></div><div class="classActions"><button id="adminLogoutBtn" class="secondary" hidden>LOCK OWNER MODE</button><button id="adminCloseBtn" class="primary">BACK</button></div></div></section>
 <section id="gameover" class="screen"><div class="scorePanel"><div class="titleKicker">RUN OVER</div><h2>YOU GOT COOKED</h2><div id="finalScore" class="finalScore">0</div><div class="summary"><div><strong id="sumWave">0</strong><span>WAVE</span></div><div><strong id="sumKills">0</strong><span>KILLS</span></div><div><strong id="sumLevel">0</strong><span>LEVEL</span></div><div><strong id="sumTime">0:00</strong><span>TIME</span></div></div><div id="gameoverMeta"></div><div class="classActions" style="justify-content:center"><button id="againBtn" class="primary">RUN IT BACK</button><button id="menuBtn" class="secondary">MAIN MENU</button></div></div></section>
 
+
+<div id="v17Heat"><div id="v17HeatTop"><span>RIFT HEAT</span><span id="v17HeatPct">0%</span></div><div id="v17HeatBar"><div id="v17HeatFill"></div></div></div>
+
+<div id="v17Hub">
+  <div class="v17Panel">
+    <div class="v17Head"><div><div class="v17Kicker">PERSISTENT COMMAND SHIP // TERMINAL 17</div><h2>RIFTSHIFT OPERATIONS</h2><div class="v17Sub">Configure runs, inspect discoveries, review achievements, select cosmetics, read field logs, and launch seeded challenges.</div></div><button id="v17HubClose" class="v17Close">CLOSE</button></div>
+    <div class="v17Grid">
+      <section class="v17Section"><h3>DIFFICULTY PROTOCOL</h3><p>Higher protocols change enemy pressure and rewards rather than only adding health.</p><div id="v17DifficultyBtns" class="v17Btns"></div></section>
+      <section class="v17Section"><h3>STARTING ARSENAL</h3><p>Select Standard, Alternate, or Experimental starting weapon behavior.</p><div id="v17WeaponBtns" class="v17Btns"></div></section>
+      <section class="v17Section full"><h3>RUN MUTATORS</h3><p>Stack optional rules. These are intentionally chaotic and remain separate from permanent progression.</p><div id="v17MutatorBtns" class="v17Btns"></div></section>
+      <section class="v17Section"><h3>SEEDED / CHALLENGE RUNS</h3><p>Daily seed and special rule sets. Daily uses the calendar date for its map and V17 encounter rolls.</p><div class="v17Btns"><button class="v17Btn" id="v17DailyBtn">DAILY RIFT</button><button class="v17Btn" data-v17challenge="glass">GLASS CANNON</button><button class="v17Btn" data-v17challenge="pacifist">ABILITY RUN</button><button class="v17Btn" data-v17challenge="bossrush">BOSS RUSH</button><button class="v17Btn" data-v17challenge="">CLEAR CHALLENGE</button></div></section>
+      <section class="v17Section"><h3>COSMETIC SHELL</h3><p>Cosmetics never change combat stats.</p><div id="v17CosmeticBtns" class="v17Btns"></div></section>
+      <section class="v17Section full"><h3>OPERATIONS RECORD</h3><div id="v17MetaStats" class="v17Statline"></div></section>
+      <section class="v17Section"><h3>CODEX / BESTIARY</h3><p>Discover factions, enemies, biomes, artifacts, bosses and anomaly signatures through play.</p><div id="v17Codex" class="v17List"></div></section>
+      <section class="v17Section"><h3>ACHIEVEMENTS</h3><p>Skill and discovery goals. Several unlock only through deep runs.</p><div id="v17Achievements" class="v17List"></div></section>
+      <section class="v17Section full"><h3>FIELD LOGS // OPTIONAL LORE</h3><div id="v17Lore" class="v17List"></div></section>
+    </div>
+  </div>
+</div>
+
+<div id="v17Artifact">
+  <div class="v17Panel" style="width:min(820px,92vw)">
+    <div class="v17Head"><div><div class="v17Kicker">ANOMALOUS RUN ITEM</div><h2 id="v17ArtifactTitle">ARTIFACT RECOVERED</h2><div id="v17ArtifactSub" class="v17Sub">Artifacts alter the run more aggressively than normal augments.</div></div></div>
+    <div id="v17ArtifactChoices" class="v17ChoiceGrid"></div>
+  </div>
+</div>
+
+<div id="v17Fork">
+  <div class="v17Panel" style="width:min(740px,92vw)">
+    <div class="v17Head"><div><div class="v17Kicker">MID-RUN RIFT FORK</div><h2>CHOOSE THE NEXT PROBLEM.</h2><div class="v17Sub">Both choices modify the remainder of the run. Higher risk produces stronger rewards.</div></div></div>
+    <div id="v17ForkChoices" class="v17ChoiceGrid" style="grid-template-columns:repeat(2,1fr)"></div>
+  </div>
+</div>
+
+<div id="v17Ultimate">
+  <div class="v17Panel" style="width:min(620px,92vw)">
+    <div class="v17Head"><div><div class="v17Kicker">ULTIMATE WEAPON EVOLUTION</div><h2 id="v17UltimateName">CORE ASCENSION</h2><div id="v17UltimateDesc" class="v17Sub"></div></div></div>
+    <div class="v17Btns" style="justify-content:flex-end"><button id="v17UltimateAccept" class="v17Btn on">ASCEND WEAPON</button></div>
+  </div>
+</div>
+
+<div id="v17Death"><div class="v17DeathCore"><div class="skull">◇</div><b>RIFT LINK LOST</b><span>COMPILING RUN TELEMETRY</span></div></div>
 <script>
 "use strict";
 
@@ -1015,7 +1077,11 @@ function buildMap(){
     {name:"VOID FOUNDRY",floorA:"#1a2231",floorB:"#141b27",line:"rgba(255,177,83,.14)",accent:"#ffad5d"},
     {name:"CRYO RELAY",floorA:"#172634",floorB:"#12202d",line:"rgba(117,233,255,.13)",accent:"#75e9ff"},
     {name:"BLACKSITE ARRAY",floorA:"#202133",floorB:"#171827",line:"rgba(159,118,255,.13)",accent:"#9f76ff"},
-    {name:"RUST CHANNEL",floorA:"#29221f",floorB:"#201a18",line:"rgba(255,122,85,.13)",accent:"#ff805c"}
+    {name:"RUST CHANNEL",floorA:"#29221f",floorB:"#201a18",line:"rgba(255,122,85,.13)",accent:"#ff805c"},
+    {name:"BIO LAB",floorA:"#14251f",floorB:"#0f1d18",line:"rgba(101,228,154,.14)",accent:"#65e49a"},
+    {name:"ORBITAL PLATFORM",floorA:"#16202d",floorB:"#0f1721",line:"rgba(176,206,255,.14)",accent:"#a9c8ff"},
+    {name:"ABANDONED CITY",floorA:"#242528",floorB:"#1a1b1e",line:"rgba(255,214,120,.10)",accent:"#e7c077"},
+    {name:"NULL VOID",floorA:"#151322",floorB:"#0b0912",line:"rgba(208,104,255,.14)",accent:"#d068ff"}
   ];
   const theme=themes[Math.floor(r()*themes.length)];
   const map={theme,obstacles:[],hazards:[],debris:[],platforms:[],stairs:[],decals:[],cables:[],vents:[],name:theme.name};
@@ -1906,7 +1972,7 @@ function update(dt){
   updateObjective(dt);updateBossHazards(dt);
   if(p.focus){p.focusTimer=Math.max(0,p.focusTimer-dt);if(p.focusTimer<=0)p.focusStack=0;}
   if(G.comboTimer>0){G.comboTimer-=dt;if(G.comboTimer<=0){G.combo=0;$("combo").style.opacity=0;}}
-  if(p.regen>0&&G.time-(p.lastHit||0)>3)p.hp=clamp(p.hp+p.regen*dt,0,p.maxHp);
+  if(p.regen>0&&G.time-(p.lastHit||0)>3&&!v17Config?.mutators?.includes?.("noheal"))p.hp=clamp(p.hp+p.regen*dt,0,p.maxHp);
 
   const inHazard=G.map.hazards.some(h=>Math.hypot(p.x-h.x,p.y-h.y)<h.r-6);
   if(inHazard&&p.invuln<=0){
@@ -2655,7 +2721,547 @@ function tryEnterFullscreen(){
   }catch(err){}
 }
 
-const APP_VERSION="16.0.0";
+
+/* ============================================================
+   V17 // WORLD, ARSENAL, META & REPLAYABILITY LAYER
+   ============================================================ */
+const V17_BIOMES={
+  "VOID FOUNDRY":{faction:"SYNTHETICS",hazard:"heat",accent:"#ffad5d"},
+  "CRYO RELAY":{faction:"NULL SECURITY",hazard:"cryo",accent:"#75e9ff"},
+  "BLACKSITE ARRAY":{faction:"NULL SECURITY",hazard:"arc",accent:"#9f76ff"},
+  "RUST CHANNEL":{faction:"RIFTBORN",hazard:"rust",accent:"#ff805c"},
+  "BIO LAB":{faction:"INFESTED",hazard:"bio",accent:"#65e49a"},
+  "ORBITAL PLATFORM":{faction:"SYNTHETICS",hazard:"vacuum",accent:"#a9c8ff"},
+  "ABANDONED CITY":{faction:"RIFTBORN",hazard:"ruin",accent:"#e7c077"},
+  "NULL VOID":{faction:"RIFTBORN",hazard:"void",accent:"#d068ff"},
+  "ANOMALY CHAMBER":{faction:"ANOMALY",hazard:"anomaly",accent:"#ff62ce"}
+};
+const V17_FACTIONS={
+  "RIFTBORN":{color:"#ff6b7e",special:["shover","minelayer"]},
+  "NULL SECURITY":{color:"#9d88ff",special:["shield","sniper"]},
+  "INFESTED":{color:"#68e69b",special:["medic","shover"]},
+  "SYNTHETICS":{color:"#75e9ff",special:["shield","sniper","minelayer"]},
+  "ANOMALY":{color:"#ff69d5",special:["sniper","medic","shover"]}
+};
+const V17_ARTIFACTS=[
+ {id:"echo",icon:"◫",name:"ECHO CHAMBER",desc:"Every fifth primary shot repeats itself as an echo volley.",apply(){G.player.v17Echo=5}},
+ {id:"heart",icon:"♥",name:"RIFT HEART",desc:"Healing releases a damaging pulse around you.",apply(){G.player.v17HealBurst=true}},
+ {id:"engine",icon:"▲",name:"DEAD MAN'S ENGINE",desc:"Below 25% HP: +45% damage and +22% movement speed.",apply(){G.player.v17DeadEngine=true}},
+ {id:"prism",icon:"◇",name:"PRISMATIC BORE",desc:"+2 pierce. Critical hits split one arc round toward another enemy.",apply(){G.player.pierce+=2;G.player.v17Prism=true}},
+ {id:"singularity",icon:"⊙",name:"POCKET SINGULARITY",desc:"Kills have a chance to pull nearby enemies inward.",apply(){G.player.v17KillPull=.24}},
+ {id:"clock",icon:"⌁",name:"BROKEN CLOCK",desc:"Perfect Dodges briefly slow all hostile projectiles.",apply(){G.player.v17Clock=true}},
+ {id:"reactor",icon:"✹",name:"REACTOR TEETH",desc:"Environmental detonations become larger and deal +45% damage.",apply(){G.player.v17EnvDamage=1.45}},
+ {id:"mirror",icon:"∞",name:"MIRROR CORE",desc:"Every seventh shot fires a weaker round behind you.",apply(){G.player.mirrorShot=true}},
+ {id:"collector",icon:"▣",name:"BLACKBOX COLLECTOR",desc:"Named elites and mini-bosses drop more Scrap and Energy.",apply(){G.player.v17Collector=true}},
+ {id:"ghost",icon:"◌",name:"GHOST CAPACITOR",desc:"Executions instantly reset Dash and restore 30 Energy.",apply(){G.player.v17GhostExec=true}},
+ {id:"furnace",icon:"☀",name:"WHITE FURNACE",desc:"High Rift Heat grants up to +28% fire rate.",apply(){G.player.v17HeatFire=true}},
+ {id:"parasite",icon:"☍",name:"FRIENDLY PARASITE",desc:"Slow passive healing while enemies are within 180px.",apply(){G.player.v17Parasite=true}}
+];
+const V17_CURSES=[
+ {id:"glass",name:"GLASS CROWN",desc:"+70% damage, -35% maximum HP.",apply(){G.player.damage*=1.7;G.player.maxHp*=.65;G.player.hp=Math.min(G.player.hp,G.player.maxHp)}},
+ {id:"hunger",name:"RIFT HUNGER",desc:"+2 base projectiles. Enemies move 25% faster.",apply(){G.player.baseShots=(G.player.baseShots||1)+2;G.v17EnemySpeed*=1.25}},
+ {id:"static",name:"STATIC BLOOD",desc:"+45% Energy regeneration. Healing effectiveness is halved.",apply(){G.player.energyRegen*=1.45;G.v17HealMult*=.5}},
+ {id:"redline",name:"REDLINE SOUL",desc:"+30% movement and fire speed. Incoming damage +25%.",apply(){G.player.speed*=1.3;G.player.fireRate*=.77;G.v17Incoming*=1.25}},
+ {id:"blind",name:"BLIND ORACLE",desc:"+30% crit chance. Arena visibility is permanently reduced.",apply(){G.player.crit=clamp(G.player.crit+.30,0,.95);G.v17Blind=true}},
+ {id:"debt",name:"CORE DEBT",desc:"Gain 120 Scrap now. Future Armory costs are 35% higher.",apply(){G.scrap+=120;G.v17ArmoryCost*=1.35}}
+];
+const V17_ULTIMATES={
+ survivor:{name:"IMMORTAL SCRAP ENGINE",desc:"Kill healing, emergency armor and radial dash fire become dramatically stronger."},
+ rifleman:{name:"ABSOLUTE LINE",desc:"Every fourth shot becomes a massive piercing rail round; crit chains jump twice."},
+ soldier:{name:"MOBILE FORTRESS",desc:"Armor cap increases, Overdrive damage rises, and support drones gain rapid fire."},
+ explosive:{name:"EVENT HORIZON M77",desc:"Explosions become enormous, create aftershocks, and throw additional shrapnel."},
+ conduit:{name:"GODWIRE",desc:"Rail beam size, Energy cycling and Line Current chaining are pushed beyond normal evolution limits."},
+ cosmic:{name:"BANANA SINGULARITY",desc:"This is a terrible idea. Triple the nonsense."}
+};
+const V17_MINIBOSSES=[
+ {id:"bulwark",name:"NULL BULWARK",color:"#c7d6ff",hp:1.4,speed:42},
+ {id:"weaver",name:"RIFT WEAVER",color:"#ff6bd3",hp:.92,speed:96},
+ {id:"surgeon",name:"PLAGUE SURGEON",color:"#72ef9e",hp:1.08,speed:70},
+ {id:"reactor",name:"WALKING REACTOR",color:"#ffb15e",hp:1.48,speed:50},
+ {id:"hunter",name:"VOID HUNTER",color:"#c68cff",hp:.9,speed:112},
+ {id:"archon",name:"ARC ARCHON",color:"#72efff",hp:1.14,speed:78}
+];
+for(const mb of V17_MINIBOSSES)if(!MINIBOSS_DEFS.some(x=>x.id===mb.id))MINIBOSS_DEFS.push(mb);
+
+const V17_ACHIEVEMENTS=[
+ ["perfect_dodge","THREAD THE NEEDLE","Perform a Perfect Dodge."],
+ ["execution","FINISH THE JOB","Execute a wounded elite."],
+ ["combo50","NO BRAKES","Reach a 50 kill combo."],
+ ["artifact5","RELIC ADDICT","Hold five Artifacts in one run."],
+ ["curse","BAD DECISIONS","Accept a cursed Artifact."],
+ ["anomaly","WRONG DOOR","Survive an Anomaly Chamber."],
+ ["secret_boss","LOOKED BACK","Defeat THE BREACH."],
+ ["contracts3","SIGNED IN BLOOD","Complete three Rift Contracts in one run."],
+ ["environment","USE THE ROOM","Kill 10 enemies with environmental devices in one run."],
+ ["ultimate","BEYOND SPEC","Ascend a weapon into its Ultimate Evolution."]
+];
+const V17_LORE=[
+ ["LOG 01 // FIRST SHIFT","The first breach did not open. It blinked. By the time instruments agreed it existed, three decks were already missing."],
+ ["LOG 02 // NULL SECURITY","Null Security was built to contain rifts. Their targeting logic eventually concluded that observers were part of the containment problem."],
+ ["LOG 03 // THE RIFTBORN","Riftborn entities are not a species. They are patterns the breach has learned to repeat."],
+ ["LOG 04 // C-11","The Rail Lance was designed to pin unstable matter to reality. Firing it at living targets was officially considered an accounting error."],
+ ["LOG 05 // CONTRACTS","Contract terminals do not belong to the facility. Nobody knows who receives the signed telemetry."],
+ ["LOG 06 // THE BREACH","Deep-run sensors sometimes report a hostile signature identical to the rift itself. Command has removed this line from all official reports."]
+];
+const V17_MUTATORS={
+ double:{name:"DOUBLE HOSTILES"},
+ noheal:{name:"NO HEALING"},
+ blackout:{name:"PERMANENT BLACKOUT"},
+ bosses:{name:"BOSS EVERY 3"},
+ elites:{name:"ALL ELITES"},
+ velocity:{name:"HOSTILE HYPERVELOCITY"}
+};
+const V17_DIFFICULTY={
+ standard:{name:"STANDARD",hp:1,damage:1,speed:1,reward:1},
+ overrun:{name:"OVERRUN",hp:1.12,damage:1.08,speed:1.08,reward:1.25},
+ nightmare:{name:"NIGHTMARE",hp:1.32,damage:1.18,speed:1.16,reward:1.5},
+ riftshift:{name:"RIFTSHIFT",hp:1.55,damage:1.28,speed:1.24,reward:1.8}
+};
+const V17_COSMETICS={
+ cyan:{name:"CYAN TRACE",color:"#75e9ff"},
+ violet:{name:"VOID VIOLET",color:"#b17cff"},
+ amber:{name:"REACTOR AMBER",color:"#ffd166"},
+ rose:{name:"RIFT ROSE",color:"#ff72b7"},
+ green:{name:"BIO GREEN",color:"#65e49a"}
+};
+let v17Config=safeReadJSON("riftshift_v17_config",{difficulty:"standard",weaponMode:"standard",mutators:[],cosmetic:"cyan",challenge:"",daily:false,voice:true});
+v17Config.mutators=Array.isArray(v17Config.mutators)?v17Config.mutators:[];
+profile.v17Codex=profile.v17Codex||{biomes:[],enemies:[],artifacts:[],bosses:[],factions:[]};
+profile.v17SecretBosses=profile.v17SecretBosses||0;profile.v17EnvironmentKills=profile.v17EnvironmentKills||0;saveProfile();
+
+function v17SaveConfig(){safeWriteJSON("riftshift_v17_config",v17Config)}
+function v17Discover(kind,id){
+  if(!profile.v17Codex[kind])profile.v17Codex[kind]=[];
+  if(!profile.v17Codex[kind].includes(id)){profile.v17Codex[kind].push(id);saveProfile();}
+}
+function v17HashDate(){
+  const d=new Date(),str=`${d.getUTCFullYear()}-${d.getUTCMonth()+1}-${d.getUTCDate()}`;let h=2166136261;
+  for(const ch of str){h^=ch.charCodeAt(0);h=Math.imul(h,16777619)}return h>>>0;
+}
+function v17Speak(text){
+  try{
+    sfx.bootStep(460+Math.random()*180);
+    if(!v17Config.voice||!("speechSynthesis" in window))return;
+    speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(text.replace(/\/\//g,""));u.rate=1.08;u.pitch=.72;u.volume=Math.min(.45,settings.sfx||1);speechSynthesis.speak(u);
+  }catch(e){}
+}
+function v17ModeMultiplier(){return V17_DIFFICULTY[v17Config.difficulty]||V17_DIFFICULTY.standard}
+function v17RunRandom(){
+  if(G?.v17DailyRng)return G.v17DailyRng();return Math.random();
+}
+function v17NamedElite(e){
+  if(!e||!e.eliteKind||e.v17Name)return;
+  const a=["VOLTAIC","HOLLOW","RED","NULL","BROKEN","RABID","SABLE","PHASED","IRON","ECHO"];
+  const b=["BUTCHER","WARDEN","HOUND","REVENANT","LANCER","EXECUTOR","PILOT","STALKER","HERALD","KNIGHT"];
+  e.v17Name=`${a[Math.floor(v17RunRandom()*a.length)]} ${b[Math.floor(v17RunRandom()*b.length)]}`;
+  e.maxHp*=1.22;e.hp=e.maxHp;e.score*=1.35;e.v17Named=true;
+}
+function v17Biome(){
+  return V17_BIOMES[G?.map?.name]||V17_BIOMES["VOID FOUNDRY"];
+}
+function v17AddEnvProps(){
+  if(!G?.map)return;
+  const r=G.v17DailyRng||Math.random,Gm=G.map;Gm.envProps=[];
+  for(const o of Gm.obstacles){if(o.type==="crate"||o.type==="deckcrate"){o.v17Destructible=true;o.v17Hp=o.v17MaxHp=95+(o.w+o.h)*.55;}else if(o.type==="core"){o.v17Destructible=true;o.v17Hp=o.v17MaxHp=170;}}
+  const types=["barrel","coil","coolant","turret","crystal"],count=Math.max(4,Math.min(8,Math.floor((W*H)/140000)));
+  for(let i=0,tries=0;i<count&&tries<90;tries++){
+    const type=types[Math.floor(r()*types.length)],q={x:55+r()*(W-110),y:65+r()*(H-130),r:type==="turret"?17:13,type,hp:type==="crystal"?75:55,active:0,fireCd:0};
+    if(Math.hypot(q.x-G.player.x,q.y-G.player.y)<130||hitsObstacle(q.x,q.y,q.r)||platformAt(q.x,q.y)||Gm.envProps.some(e=>Math.hypot(e.x-q.x,e.y-q.y)<60))continue;
+    Gm.envProps.push(q);i++;
+  }
+}
+function v17TriggerEnvironment(q){
+  if(!q||q.dead)return;q.dead=true;const mult=(G.player.v17EnvDamage||1),rad=q.type==="barrel"?105:q.type==="crystal"?125:90,dmg=(q.type==="crystal"?75:52)*mult;
+  if(q.type==="barrel"){explode(q.x,q.y,rad,dmg,false,false,0);}
+  else if(q.type==="coil"){
+    G.blasts.push({x:q.x,y:q.y,radius:100,life:.45,max:.45,floor:0,color:"#75e9ff"});sfx.railImpact(q.x,true);
+    for(let i=G.enemies.length-1;i>=0;i--){const e=G.enemies[i];if(Math.hypot(e.x-q.x,e.y-q.y)<110){e.hp-=65*mult;e.slow=Math.max(e.slow,1.4);if(e.hp<=0){G.v17EnvKillPending=true;killEnemy(e,i);G.v17EnvKillPending=false;}}}
+  }else if(q.type==="coolant"){
+    G.blasts.push({x:q.x,y:q.y,radius:115,life:.5,max:.5,floor:0,color:"#9deaff"});sfx.explosion(q.x,80);
+    for(const e of G.enemies)if(Math.hypot(e.x-q.x,e.y-q.y)<125)e.slow=Math.max(e.slow,3.2);
+  }else if(q.type==="turret"){
+    q.dead=false;q.active=9;q.hp=999;q.fireCd=.1;toast("AUTO-TURRET OVERRIDDEN // 9s");return;
+  }else{
+    explode(q.x,q.y,rad,dmg,false,false,0);
+    for(let k=0;k<12;k++){const a=k/12*TAU;G.bullets.push({x:q.x,y:q.y,vx:Math.cos(a)*620,vy:Math.sin(a)*620,r:3,life:.7,damage:G.player.damage*.55,pierce:2,bounce:0,crit:false,explosive:false,floor:0});}
+  }
+  for(let i=0;i<18;i++){const a=rand(0,TAU),sp=rand(70,250);particle(q.x,q.y,Math.cos(a)*sp,Math.sin(a)*sp,rand(2,5),v17Biome().accent,rand(.25,.6));}
+}
+function v17UpdateEnvironment(dt){
+  if(!G?.map?.envProps)return;
+  for(const q of G.map.envProps){
+    if(q.dead)continue;
+    if(q.active>0){
+      q.active-=dt;q.fireCd-=dt;
+      if(q.fireCd<=0){q.fireCd=.42;const target=G.enemies.filter(e=>(e.floor??0)===0).sort((a,b)=>Math.hypot(a.x-q.x,a.y-q.y)-Math.hypot(b.x-q.x,b.y-q.y))[0];if(target){const a=Math.atan2(target.y-q.y,target.x-q.x);G.bullets.push({x:q.x,y:q.y,vx:Math.cos(a)*760,vy:Math.sin(a)*760,r:3.5,life:1,damage:G.player.damage*.7,pierce:1,bounce:0,crit:false,explosive:false,floor:0,v17Turret:true});}}
+    }
+  }
+  G.map.envProps=G.map.envProps.filter(q=>!q.dead);
+}
+function v17DrawEnvironment(){
+  if(!G?.map?.envProps)return;
+  X.save();
+  for(const q of G.map.envProps){
+    const c=q.type==="barrel"?"#ff9b55":q.type==="coil"?"#75e9ff":q.type==="coolant"?"#a9f0ff":q.type==="turret"?"#9d9fff":"#d068ff";
+    X.shadowColor=c;X.shadowBlur=q.active>0?20:8;X.strokeStyle=c;X.fillStyle="#101720";X.lineWidth=2;
+    if(q.type==="barrel"){X.fillRect(q.x-9,q.y-13,18,26);X.strokeRect(q.x-9,q.y-13,18,26);X.fillStyle=c;X.fillRect(q.x-9,q.y-2,18,4);}
+    else if(q.type==="turret"){X.fillRect(q.x-12,q.y-9,24,18);X.strokeRect(q.x-12,q.y-9,24,18);X.fillStyle=c;X.fillRect(q.x+2,q.y-3,17,6);}
+    else{X.beginPath();X.arc(q.x,q.y,q.r,0,TAU);X.fill();X.stroke();X.fillStyle=c;X.beginPath();X.arc(q.x,q.y,4,0,TAU);X.fill();}
+    X.shadowBlur=0;
+  }
+  X.restore();
+}
+function v17DamageCover(o,dmg,x,y){
+  if(!o?.v17Destructible)return false;o.v17Hp-=dmg;
+  for(let i=0;i<3;i++)particle(x,y,rand(-100,100),rand(-100,100),rand(2,4),"#8b93a1",.3);
+  if(o.v17Hp<=0){const idx=G.map.obstacles.indexOf(o);if(idx>=0)G.map.obstacles.splice(idx,1);for(let i=0;i<16;i++)particle(x,y,rand(-180,180),rand(-180,180),rand(2,6),"#6d7580",.55);sfx.impact(x);}
+  return true;
+}
+function v17SpawnSpecial(type){
+  const pos=spawnPoint(),w=G.wave,base=1+(w-1)*.11,defs={
+    shield:{r:20,hp:115*base,speed:64,color:"#aab9ff",damage:18,score:260,v17Behavior:"shield"},
+    medic:{r:17,hp:78*base,speed:72,color:"#70e69d",damage:12,score:250,v17Behavior:"medic",v17Cd:1.2},
+    sniper:{r:16,hp:66*base,speed:54,color:"#c38cff",damage:20,score:280,v17Behavior:"sniper",v17Cd:1},
+    minelayer:{r:18,hp:82*base,speed:76,color:"#ff9e63",damage:17,score:270,v17Behavior:"minelayer",v17Cd:1.5},
+    shover:{r:22,hp:105*base,speed:105,color:"#ff687d",damage:20,score:255,v17Behavior:"shover",v17Cd:.8}
+  },d=defs[type];
+  const e={...d,...pos,type,maxHp:d.hp,vx:0,vy:0,hit:0,slow:0,anim:rand(0,TAU),floor:0,elevation:0,platformId:null,isEnemy:true,stairRoute:null,routeStuck:0,routeLastDist:Infinity,faction:v17Biome().faction};
+  if(type==="shield")e.eliteArmor=.28;const m=v17ModeMultiplier();e.hp*=m.hp;e.maxHp=e.hp;e.damage*=m.damage*(G.v17EnemyDamage||1);e.speed*=m.speed*(G.v17EnemySpeed||1);
+  G.enemies.push(e);G.spawnFx.push({x:e.x,y:e.y,r:e.r,color:e.color,life:.5,max:.5,floor:0});v17Discover("enemies",type);return e;
+}
+function v17UpdateSpecialEnemies(dt){
+  const p=G.player;
+  for(const e of G.enemies){
+    if(!e.v17Behavior)continue;e.v17Cd=(e.v17Cd||0)-dt;const d=dist(e,p),a=Math.atan2(p.y-e.y,p.x-e.x);
+    if(e.v17Behavior==="medic"&&e.v17Cd<=0){e.v17Cd=1.45;for(const q of G.enemies)if(q!==e&&dist(q,e)<145)q.hp=clamp(q.hp+q.maxHp*.08,0,q.maxHp);G.energyLines.push({x1:e.x,y1:e.y,x2:e.x+rand(-50,50),y2:e.y+rand(-50,50),life:.15,max:.15,width:8});}
+    if(e.v17Behavior==="sniper"){if(d<220){moveEntity(e,-Math.cos(a)*e.speed*dt*1.2,-Math.sin(a)*e.speed*dt*1.2)}if(e.v17Cd<=0&&d<650){e.v17Cd=1.7;addEnemyStrike(p.x,p.y,18,0,.52,e.color);setTimeout(()=>{if(G?.running&&G.enemies.includes(e)){const aa=Math.atan2(G.player.y-e.y,G.player.x-e.x);shootEnemy(e,aa,720,22+G.wave*.25)}},470);}}
+    if(e.v17Behavior==="minelayer"&&e.v17Cd<=0){e.v17Cd=2.3;addBossHazard(e.x,e.y,29,8+G.wave*.12,5.2,"#ff965e");}
+    if(e.v17Behavior==="shover"&&e.v17Cd<=0&&d<75){e.v17Cd=2.1;hurtPlayer(8+G.wave*.12);moveEntity(p,Math.cos(a)*-85,Math.sin(a)*-85);G.shake=Math.max(G.shake,7);}
+  }
+}
+function v17DrawEnemyOverlay(e){
+  if(e.v17Named){X.save();X.textAlign="center";X.font="950 8px Inter,Arial";X.fillStyle=e.eliteColor||"#ffd166";X.fillText(e.v17Name,e.x,e.y-e.r-23);X.restore();}
+  if(e.v17Behavior){X.save();X.textAlign="center";X.font="900 7px Inter,Arial";X.fillStyle=e.color;X.fillText(e.v17Behavior.toUpperCase(),e.x,e.y-e.r-13);X.restore();}
+}
+function v17OfferArtifact(source="RIFT CACHE"){
+  if(!G||G.choosing)return;G.choosing=true;G.paused=true;setMobileGameActive(false);$("v17ArtifactTitle").textContent=source;$("v17ArtifactSub").textContent="Choose one Artifact, or accept the corrupted option for a larger immediate swing.";
+  const owned=new Set(G.v17Artifacts||[]),pool=shuffle(V17_ARTIFACTS.filter(a=>!owned.has(a.id))),picks=pool.slice(0,2),curse=V17_CURSES[Math.floor(v17RunRandom()*V17_CURSES.length)];
+  $("v17ArtifactChoices").innerHTML=picks.map(a=>`<article class="v17Choice" data-art="${a.id}"><div class="ico">${a.icon}</div><h3>${a.name}</h3><p>${a.desc}</p><small>ARTIFACT // RUN-ONLY</small></article>`).join("")+`<article class="v17Choice corrupt" data-curse="${curse.id}"><div class="ico">☠</div><h3>${curse.name}</h3><p>${curse.desc}</p><small>CORRUPTED CORE // ACCEPT CONSEQUENCE</small></article>`;
+  $("v17Artifact").classList.add("show");
+  document.querySelectorAll("#v17ArtifactChoices [data-art]").forEach(el=>el.onclick=()=>{const a=V17_ARTIFACTS.find(q=>q.id===el.dataset.art);G.v17Artifacts.push(a.id);a.apply();v17Discover("artifacts",a.id);if(G.v17Artifacts.length>=5)unlockAchievement("artifact5","RELIC ADDICT");v17CloseArtifact(a.name)});
+  document.querySelectorAll("#v17ArtifactChoices [data-curse]").forEach(el=>el.onclick=()=>{const c=V17_CURSES.find(q=>q.id===el.dataset.curse);G.v17Curses.push(c.id);c.apply();unlockAchievement("curse","BAD DECISIONS");v17CloseArtifact(c.name)});
+}
+function v17CloseArtifact(name){$("v17Artifact").classList.remove("show");G.choosing=false;G.paused=false;setMobileGameActive(true);G.last=performance.now();sfx.level();v17Speak(name+" acquired");msg(`${name} // INSTALLED`,1.3);requestAnimationFrame(loop);}
+function v17OfferFork(){
+  if(!G||G.choosing)return false;G.choosing=true;G.paused=true;setMobileGameActive(false);
+  const choices=[
+   {id:"swarm",name:"OPEN THE FLOODGATE",desc:"+35% wave population for the rest of the run. +30% Scrap gain.",apply(){G.v17WaveMult*=1.35;G.scrapMultiplier*=1.3}},
+   {id:"hunter",name:"ELITE HUNT",desc:"More elites and named enemies. +25% score and mini-boss rewards.",apply(){G.v17EliteBoost+=.18;G.scoreMultiplier*=1.25}},
+   {id:"core",name:"UNSTABLE CORE",desc:"+24% player damage. Incoming damage +15%.",apply(){G.player.damage*=1.24;G.v17Incoming*=1.15}},
+   {id:"speed",name:"REDLINE CLOCK",desc:"Enemy movement +18%. Player fire rate +18%.",apply(){G.v17EnemySpeed*=1.18;G.player.fireRate*=.82}}
+  ];
+  const picks=shuffle(choices).slice(0,2);$("v17ForkChoices").innerHTML=picks.map(c=>`<article class="v17Choice" data-fork="${c.id}"><div class="ico">⌁</div><h3>${c.name}</h3><p>${c.desc}</p><small>MID-RUN PERMANENT MODIFIER</small></article>`).join("");$("v17Fork").classList.add("show");
+  document.querySelectorAll("[data-fork]").forEach(el=>el.onclick=()=>{const c=choices.find(q=>q.id===el.dataset.fork);c.apply();$("v17Fork").classList.remove("show");G.choosing=false;G.paused=false;setMobileGameActive(true);G.v17ForkHandled=G.wave;G.last=performance.now();toast(c.name);_v17FinishWave();requestAnimationFrame(loop)});
+  return true;
+}
+function v17ApplyUltimate(){
+  if(!G||G.v17Ultimate)return;G.v17Ultimate=true;const p=G.player,id=G.classId;
+  if(id==="survivor"){p.lifesteal+=4;p.dashBurst=true;p.armor+=.08}
+  else if(id==="rifleman"){p.railEvery=4;p.railDamage=Math.max(p.railDamage||1,3);p.critChain=true;p.crit=clamp(p.crit+.12,0,.95)}
+  else if(id==="soldier"){p.armor+=.12;p.overDamage=Math.max(.32,p.overDamage||0);G.drones=Math.min(8,G.drones+2)}
+  else if(id==="explosive"){p.explosionRadius*=1.45;p.aftershock=Math.max(.95,p.aftershock||0);p.shrapnel=Math.max(14,p.shrapnel||0)}
+  else if(id==="conduit"){p.damage*=1.28;p.projectileSize=(p.projectileSize||1)*1.35;p.currentChains=Math.max(5,p.currentChains||0);p.energyRegen*=1.3}
+  else{p.damage*=2;p.baseShots=(p.baseShots||3)+3;p.bounce+=4}
+  G.weaponName=`${G.weaponName} // ULTIMATE`;unlockAchievement("ultimate","BEYOND SPEC");$("v17Ultimate").classList.remove("show");G.choosing=false;G.paused=false;setMobileGameActive(true);G.last=performance.now();sfx.over();v17Speak("Ultimate evolution online");requestAnimationFrame(loop);
+}
+function v17MaybeUltimate(){
+  if(!G||G.v17Ultimate||G.v17UltimateOffered||!G.evolution||G.level<15)return;G.v17UltimateOffered=true;G.choosing=true;G.paused=true;setMobileGameActive(false);
+  const u=V17_ULTIMATES[G.classId];$("v17UltimateName").textContent=u.name;$("v17UltimateDesc").textContent=u.desc;$("v17Ultimate").classList.add("show");
+}
+function v17Execute(){
+  if(!G||!G.running||G.paused||G.choosing)return;
+  const p=G.player,cands=G.enemies.filter(e=>e.type!=="boss"&&(e.eliteKind||e.type==="miniboss"||e.v17Named)&&e.hp/e.maxHp<=.22&&dist(e,p)<58).sort((a,b)=>dist(a,p)-dist(b,p));
+  const e=cands[0];if(!e){toast("NO EXECUTABLE TARGET");return}
+  const idx=G.enemies.indexOf(e);if(idx<0)return;e.hp=0;G.v17ExecutionPending=true;killEnemy(e,idx);G.v17ExecutionPending=false;p.energy=clamp(p.energy+22,0,p.maxEnergy);if(p.v17GhostExec){p.dashCd=0;p.energy=clamp(p.energy+30,0,p.maxEnergy)}p.invuln=Math.max(p.invuln,.45);unlockAchievement("execution","FINISH THE JOB");G.v17Stats.executions++;G.shake=9;G.flash=.12;v17Speak("Execution");
+}
+function v17PerfectDodgeCheck(){
+  if(!G)return false;const p=G.player;return G.enemyBullets.some(b=>(b.floor??0)===(p.floor??0)&&Math.hypot(b.x-p.x,b.y-p.y)<42+b.r)||G.enemies.some(e=>dist(e,p)<p.r+e.r+22);
+}
+function v17PerfectDodge(){
+  const p=G.player;p.energy=clamp(p.energy+18,0,p.maxEnergy);p.dashCd=Math.max(0,p.dashCd-.35);p.v17PerfectTime=.65;
+  for(const e of G.enemies)e.slow=Math.max(e.slow,.65);if(p.v17Clock)for(const b of G.enemyBullets){b.vx*=.55;b.vy*=.55}
+  for(let i=0;i<28;i++){const a=rand(0,TAU),sp=rand(80,260);particle(p.x,p.y,Math.cos(a)*sp,Math.sin(a)*sp,2,V17_COSMETICS[v17Config.cosmetic].color,.45);}
+  floatText(p.x,p.y-30,"PERFECT DODGE","#cfffff",16);G.v17Stats.perfectDodges++;unlockAchievement("perfect_dodge","THREAD THE NEEDLE");sfx.level();
+}
+function v17PrepareBossArena(e){
+  if(!G?.map||!e)return;G.map.envProps=G.map.envProps||[];
+  if(e.bossKind==="warden"){for(let i=0;i<3;i++){const a=i/3*TAU;G.map.envProps.push({x:W/2+Math.cos(a)*180,y:H/2+Math.sin(a)*135,r:13,type:"coil",hp:60,active:0,fireCd:0});}}
+  else if(e.bossKind==="devourer"){for(let i=0;i<3;i++){const a=i/3*TAU+.4;G.map.hazards.push({x:W/2+Math.cos(a)*190,y:H/2+Math.sin(a)*120,r:38,phase:rand(0,TAU),v17BossArena:true});}}
+  else if(e.bossKind==="artillery"){for(let i=0;i<4;i++)G.map.obstacles.push({x:60+i*(W-160)/3,y:i%2?H-105:72,w:75,h:28,type:"crate",floor:0,v17Destructible:true,v17Hp:130,v17MaxHp:130});}
+  else{for(let i=0;i<4;i++){const a=i/4*TAU;G.map.envProps.push({x:W/2+Math.cos(a)*205,y:H/2+Math.sin(a)*140,r:13,type:"crystal",hp:70,active:0,fireCd:0});}}
+}
+function v17BossLoot(e){
+  const pools={warden:"BULWARK RELIC",devourer:"DEVOURER ORGAN",artillery:"NULL FIRE-CONTROL",specter:"PHASE SHARD"};
+  const item=pools[e.bossKind]||"RIFT TROPHY";G.v17BossLoot.push(item);v17Discover("bosses",e.bossName||e.bossKind);setTimeout(()=>{if(G?.running)v17OfferArtifact(item)},120);
+}
+function v17SpawnSecretBoss(){
+  spawnBoss();const e=G.boss;if(!e)return;e.bossName="THE BREACH";e.color="#ff4fc8";e.maxHp*=1.8;e.hp=e.maxHp;e.speed*=1.18;e.damage*=1.25;e.bossKind="warden";e.bossMods=[...e.bossMods,{id:"overloaded",name:"OVERLOADED",color:"#75e9ff"},{id:"mirrored",name:"MIRRORED",color:"#d58cff"}];e.v17Secret=true;$("bossName").textContent="THE BREACH // SECRET SIGNATURE";G.bossIntro={name:"THE BREACH",kind:"warden",color:e.color,t:3,max:3,mods:["SECRET BOSS","OVERLOADED","MIRRORED"]};v17Speak("Unregistered hostile signature. The Breach is looking back.");
+}
+function v17RecordWave(){
+  if(!G?.v17Stats)return;G.v17Stats.waveKills.push(G.kills-(G.v17Stats.lastWaveKills||0));G.v17Stats.lastWaveKills=G.kills;
+  G.v17Stats.waveDamage.push(Math.round(G.waveDamageTaken||0));
+}
+function v17UpdateDirector(dt){
+  const st=G.v17Stats,p=G.player;G.heat=Math.max(0,(G.heat||0)-dt*(G.boss?1.5:3.2));const elapsed=Math.max(1,G.time),kpm=G.kills/elapsed*60;
+  const target=clamp((kpm-18)/55+(p.hp/p.maxHp-.45)*.35,0,1);G.directorPressure+=(target-G.directorPressure)*Math.min(1,dt*.45);
+  if(!G.boss&&G.spawned<G.waveTarget)G.spawnTimer-=dt*G.directorPressure*.22;
+  if(p.v17HeatFire)p.fireCd-=dt*(G.heat/100)*.28;
+  if(p.v17Parasite&&G.enemies.some(e=>dist(e,p)<180)&&v17Config.mutators.includes("noheal")===false)p.hp=clamp(p.hp+.4*dt*(G.v17HealMult||1),0,p.maxHp);
+  if(G.heat>=80&&G.combo>=20)sfx.setMusic("danger");
+  if(G.boss?.rage)sfx.setMusic("boss");
+  $("v17HeatFill").style.width=clamp(G.heat,0,100)+"%";$("v17HeatPct").textContent=Math.round(G.heat)+"%";
+}
+function v17UpdateCustomObjectives(dt){
+  const o=G.objective;if(!o||!o.v17||o.complete||o.failed)return false;const p=G.player;
+  if(o.type==="escort"){const d=Math.hypot(p.x-o.drone.x,p.y-o.drone.y);if(d<95){const a=Math.atan2(o.goal.y-o.drone.y,o.goal.x-o.drone.x);o.drone.x+=Math.cos(a)*42*dt;o.drone.y+=Math.sin(a)*42*dt;}o.progress=1-Math.hypot(o.goal.x-o.drone.x,o.goal.y-o.drone.y)/o.startDist;if(Math.hypot(o.goal.x-o.drone.x,o.goal.y-o.drone.y)<34)completeObjective();}
+  else if(o.type==="dual"){for(const z of o.zones){if(Math.hypot(p.x-z.x,p.y-z.y)<z.r)z.progress=Math.min(z.target,z.progress+dt);else z.progress=Math.max(0,z.progress-dt*.16)}if(o.zones.every(z=>z.progress>=z.target))completeObjective();}
+  else if(o.type==="moving"){o.a+=dt*.32;o.x=W/2+Math.cos(o.a)*Math.min(W*.28,220);o.y=H/2+Math.sin(o.a*1.35)*Math.min(H*.22,130);if(Math.hypot(p.x-o.x,p.y-o.y)<o.r)o.progress+=dt;else o.progress=Math.max(0,o.progress-dt*.2);if(o.progress>=o.target)completeObjective();}
+  else if(o.type==="courier"){if(!o.cell.picked&&Math.hypot(p.x-o.cell.x,p.y-o.cell.y)<28){o.cell.picked=true;p.v17Carry=true;toast("UNSTABLE CORE ACQUIRED // DASH DISABLED")}if(o.cell.picked){o.cell.x=p.x;o.cell.y=p.y;if(Math.hypot(p.x-o.goal.x,p.y-o.goal.y)<o.goal.r){p.v17Carry=false;completeObjective()}}}
+  v17UpdateObjectiveHUD();return true;
+}
+function v17UpdateObjectiveHUD(){
+  const o=G.objective;if(!o?.v17)return;let text="",pct=0;
+  if(o.type==="escort"){text="ESCORT DRONE TO UPLINK";pct=clamp(o.progress||0,0,1)}
+  if(o.type==="dual"){text=`DUAL LOCK // ${o.zones.filter(z=>z.progress>=z.target).length}/2`;pct=o.zones.reduce((n,z)=>n+z.progress/z.target,0)/2}
+  if(o.type==="moving"){text=`MOVING ZONE // ${o.progress.toFixed(1)} / ${o.target.toFixed(1)}s`;pct=o.progress/o.target}
+  if(o.type==="courier"){text=o.cell.picked?"DELIVER UNSTABLE CORE // DASH OFFLINE":"RECOVER UNSTABLE CORE";pct=o.cell.picked?.5:0}
+  $("objectiveHUD").style.display="block";$("objectiveName").textContent=o.name;$("objectiveText").textContent=text;$("objectiveFill").style.width=clamp(pct,0,1)*100+"%";
+}
+function v17SetupObjective(){
+  if(G.wave<3||G.wave%5===0||v17RunRandom()>.34)return false;const type=["escort","dual","moving","courier"][Math.floor(v17RunRandom()*4)];
+  if(type==="escort"){const a=randomObjectivePoint(),b=randomObjectivePoint();G.objective={v17:true,type,name:"ESCORT SIGNAL DRONE",drone:{x:a.x,y:a.y,r:13},goal:{x:b.x,y:b.y,r:42},startDist:Math.hypot(b.x-a.x,b.y-a.y),progress:0,reward:36};}
+  else if(type==="dual"){const a=randomObjectivePoint(),b=randomObjectivePoint();G.objective={v17:true,type,name:"SYNC DUAL STABILIZERS",zones:[{x:a.x,y:a.y,r:52,progress:0,target:5.5},{x:b.x,y:b.y,r:52,progress:0,target:5.5}],reward:38};}
+  else if(type==="moving"){G.objective={v17:true,type,name:"FOLLOW MOBILE SAFE ZONE",x:W/2,y:H/2,r:62,a:0,progress:0,target:10,reward:40};}
+  else{const a=randomObjectivePoint(),b=randomObjectivePoint();G.objective={v17:true,type,name:"TRANSPORT UNSTABLE CORE",cell:{x:a.x,y:a.y,r:11,picked:false},goal:{x:b.x,y:b.y,r:48},reward:44};}
+  $("objectiveHUD").style.display="block";msg("OBJECTIVE // "+G.objective.name,1.3);v17UpdateObjectiveHUD();return true;
+}
+function v17DrawObjective(){
+  const o=G.objective;if(!o?.v17)return;X.save();
+  if(o.type==="escort"){X.strokeStyle="#75e9ff";X.fillStyle="rgba(117,233,255,.12)";X.beginPath();X.arc(o.drone.x,o.drone.y,14,0,TAU);X.fill();X.stroke();X.strokeStyle="rgba(117,233,255,.28)";X.beginPath();X.arc(o.goal.x,o.goal.y,o.goal.r,0,TAU);X.stroke();}
+  if(o.type==="dual")for(const z of o.zones){X.strokeStyle="#9f76ff";X.fillStyle="rgba(159,118,255,.06)";X.beginPath();X.arc(z.x,z.y,z.r,0,TAU);X.fill();X.stroke();}
+  if(o.type==="moving"){X.strokeStyle="#65e49a";X.fillStyle="rgba(101,228,154,.05)";X.lineWidth=2;X.beginPath();X.arc(o.x,o.y,o.r,0,TAU);X.fill();X.stroke();}
+  if(o.type==="courier"){X.fillStyle="#ffd166";X.beginPath();X.arc(o.cell.x,o.cell.y,11,0,TAU);X.fill();X.strokeStyle="#ffd166";X.beginPath();X.arc(o.goal.x,o.goal.y,o.goal.r,0,TAU);X.stroke();}
+  X.restore();
+}
+function v17DrawBiomeAtmosphere(){
+  if(!G?.map)return;const name=G.map.name;X.save();X.globalCompositeOperation="lighter";
+  if(name==="BIO LAB"){for(let i=0;i<9;i++){const x=(i*173+G.time*9)%W,y=(i*97+Math.sin(G.time+i)*55+H)%H;X.fillStyle="rgba(101,228,154,.045)";X.beginPath();X.arc(x,y,16+(i%3)*8,0,TAU);X.fill();}}
+  else if(name==="ORBITAL PLATFORM"){X.strokeStyle="rgba(169,200,255,.065)";for(let i=0;i<8;i++){const y=(i*83+G.time*12)%H;X.beginPath();X.moveTo(0,y);X.lineTo(W,y-28);X.stroke();}}
+  else if(name==="ABANDONED CITY"){X.fillStyle="rgba(229,190,119,.035)";for(let i=0;i<18;i++)X.fillRect((i*113)%W,(i*67)%H,rand(20,65),2);}
+  else if(name==="NULL VOID"||name==="ANOMALY CHAMBER"){X.strokeStyle="rgba(208,104,255,.1)";for(let i=0;i<5;i++){X.beginPath();X.arc(W/2,H/2,100+i*55+Math.sin(G.time+i)*8,0,TAU);X.stroke();}}
+  X.restore();
+}
+function v17RenderHub(){
+  const d=V17_DIFFICULTY,wModes={standard:"STANDARD",alt:"ALTERNATE",experimental:"EXPERIMENTAL"};
+  $("v17DifficultyBtns").innerHTML=Object.entries(d).map(([id,x])=>`<button class="v17Btn ${v17Config.difficulty===id?"on":""}" data-v17diff="${id}">${x.name}</button>`).join("");
+  $("v17WeaponBtns").innerHTML=Object.entries(wModes).map(([id,n])=>`<button class="v17Btn ${v17Config.weaponMode===id?"on":""}" data-v17weapon="${id}">${n}</button>`).join("");
+  $("v17MutatorBtns").innerHTML=Object.entries(V17_MUTATORS).map(([id,x])=>`<button class="v17Btn ${v17Config.mutators.includes(id)?"on":""}" data-v17mut="${id}">${x.name}</button>`).join("");
+  $("v17CosmeticBtns").innerHTML=Object.entries(V17_COSMETICS).map(([id,x])=>`<button class="v17Btn ${v17Config.cosmetic===id?"on":""}" data-v17cos="${id}" style="box-shadow:inset 0 -2px ${x.color}">${x.name}</button>`).join("");
+  $("v17MetaStats").innerHTML=`<div class="v17Stat"><b>${profile.totalRuns||0}</b><span>TOTAL RUNS</span></div><div class="v17Stat"><b>${profile.bestWave||0}</b><span>BEST WAVE</span></div><div class="v17Stat"><b>${profile.v17Codex.artifacts.length}</b><span>ARTIFACTS FOUND</span></div><div class="v17Stat"><b>${profile.achievements.length}</b><span>ACHIEVEMENTS</span></div>`;
+  const codex=[...Object.keys(V17_BIOMES).map(x=>["BIOME",x,profile.v17Codex.biomes.includes(x)]),...["shield","medic","sniper","minelayer","shover"].map(x=>["ENEMY",x.toUpperCase(),profile.v17Codex.enemies.includes(x)]),...V17_ARTIFACTS.map(x=>["ARTIFACT",x.name,profile.v17Codex.artifacts.includes(x.id)])];
+  $("v17Codex").innerHTML=codex.map(([k,n,on])=>`<div class="v17Row ${on?"":"unseen"}"><b>${on?n:"UNKNOWN SIGNATURE"}</b><span>${k}</span></div>`).join("");
+  $("v17Achievements").innerHTML=V17_ACHIEVEMENTS.map(([id,n,desc])=>`<div class="v17Row ${profile.achievements.includes(id)?"":"unseen"}"><span><b>${profile.achievements.includes(id)?n:"LOCKED"}</b><br>${desc}</span><span>${profile.achievements.includes(id)?"✓":"—"}</span></div>`).join("");
+  $("v17Lore").innerHTML=V17_LORE.map(([n,t],i)=>`<div class="v17Row ${profile.totalRuns>i?"":"unseen"}"><span><b>${profile.totalRuns>i?n:"ENCRYPTED LOG"}</b><br>${profile.totalRuns>i?t:"Complete more runs to decrypt."}</span><span>LOG</span></div>`).join("");
+  document.querySelectorAll("[data-v17diff]").forEach(b=>b.onclick=()=>{v17Config.difficulty=b.dataset.v17diff;v17SaveConfig();v17RenderHub()});
+  document.querySelectorAll("[data-v17weapon]").forEach(b=>b.onclick=()=>{v17Config.weaponMode=b.dataset.v17weapon;v17SaveConfig();v17RenderHub()});
+  document.querySelectorAll("[data-v17mut]").forEach(b=>b.onclick=()=>{const id=b.dataset.v17mut,i=v17Config.mutators.indexOf(id);if(i>=0)v17Config.mutators.splice(i,1);else v17Config.mutators.push(id);v17SaveConfig();v17RenderHub()});
+  document.querySelectorAll("[data-v17cos]").forEach(b=>b.onclick=()=>{v17Config.cosmetic=b.dataset.v17cos;v17SaveConfig();v17RenderHub()});
+}
+function v17OpenHub(){$("v17Hub").classList.add("show");v17RenderHub();sfx.ui()}
+function v17CloseHub(){$("v17Hub").classList.remove("show")}
+function v17StartDaily(){v17Config.daily=true;v17Config.challenge="daily";v17SaveConfig();v17CloseHub();pendingChaos=false;pendingChallenge=false;openClassSelect(false);$("modeBadge").textContent=`DAILY RIFT // ${new Date().toISOString().slice(0,10)}`;}
+function v17SetChallenge(id){v17Config.daily=false;v17Config.challenge=id;v17SaveConfig();toast(id?`CHALLENGE SET // ${id.toUpperCase()}`:"CHALLENGE CLEARED");v17RenderHub();}
+function v17ApplyExperimentalArsenal(){
+  const p=G.player;if(v17Config.weaponMode!=="experimental")return;
+  if(G.classId==="survivor"){G.weaponName="K-0 NEEDLER";p.fireRate*=.72;p.damage*=.7;p.projectileSpeed*=1.35;p.pierce+=1}
+  if(G.classId==="rifleman"){G.weaponName="VX-12 LONGBOW";p.fireRate*=2.35;p.damage*=2.35;p.crit+=.12;p.pierce+=2}
+  if(G.classId==="soldier"){G.weaponName="A-12 SHOCK CARBINE";p.damage*=.9;p.fireRate*=.82;p.energyRegen*=1.25;p.shockKill=.35}
+  if(G.classId==="explosive"){G.weaponName="M-VOID IMPLODER";p.damage*=1.05;p.explosionRadius*=1.3;p.implosion=55;p.fireRate*=1.15}
+  if(G.classId==="conduit"){G.weaponName="C-0 PULSE DRIVER";p.damage*=.6;p.fireRate*=.48;p.projectileSize=.78;p.pierce=Math.max(2,p.pierce-1)}
+}
+function v17ApplyRunRules(){
+  const p=G.player,m=v17ModeMultiplier();G.difficulty=v17Config.difficulty;G.v17EnemySpeed=1;G.v17EnemyDamage=1;G.v17Incoming=1;G.v17HealMult=1;G.v17WaveMult=1;G.v17EliteBoost=0;G.v17ArmoryCost=1;
+  G.scoreMultiplier*=m.reward;G.scrapMultiplier*=m.reward;
+  G.v17Stats={damageDealt:0,damageTaken:0,environmentKills:0,executions:0,perfectDodges:0,contracts:0,artifacts:0,maxCombo:0,waveKills:[],waveDamage:[],lastWaveKills:0,bossTimes:[],startBossTime:0};
+  G.v17Artifacts=[];G.v17Curses=[];G.v17BossLoot=[];G.heat=0;G.directorPressure=0;G.v17Ultimate=false;G.v17UltimateOffered=false;G.v17ForkHandled=0;G.v17ContractsCompleted=0;G.v17SecretSpawned=false;
+  if(v17Config.mutators.includes("double"))G.v17WaveMult*=2;
+  if(v17Config.mutators.includes("blackout"))G.v17Blind=true;
+  if(v17Config.mutators.includes("velocity"))G.v17ProjectileSpeed=1.55;else G.v17ProjectileSpeed=1;
+  if(v17Config.challenge==="glass"){p.damage*=1.75;p.maxHp*=.55;p.hp=Math.min(p.hp,p.maxHp);G.scoreMultiplier*=1.35}
+  if(v17Config.challenge==="pacifist"){p.damage*=.35;p.energyRegen*=2.1;p.maxEnergy*=1.35;p.energy=p.maxEnergy}
+  if(v17Config.challenge==="bossrush"){G.v17BossRush=true;G.scoreMultiplier*=1.45}
+  if(v17Config.daily){const seed=v17HashDate();G.mapSeed=seed;G.v17DailyRng=seeded(seed^0x17f00d);G.v17DailySeed=seed;}
+  v17ApplyExperimentalArsenal();
+}
+function v17PostRunHTML(){
+  const st=G.v17Stats||{},vals=st.waveKills||[],max=Math.max(1,...vals),bars=vals.map(v=>`<i title="${v} kills" style="height:${Math.max(4,v/max*100)}%"></i>`).join("");
+  return `<div class="v17Breakdown"><div class="v17Kicker">V17 RUN TELEMETRY</div><div class="v17BreakGrid"><div><b>${Math.round(st.damageTaken||0)}</b>DAMAGE TAKEN</div><div><b>${st.maxCombo||0}</b>MAX COMBO</div><div><b>${st.perfectDodges||0}</b>PERFECT DODGES</div><div><b>${st.executions||0}</b>EXECUTIONS</div><div><b>${G.v17Artifacts?.length||0}</b>ARTIFACTS</div><div><b>${G.v17Curses?.length||0}</b>CURSES</div><div><b>${st.environmentKills||0}</b>ENV KILLS</div><div><b>${G.difficulty?.toUpperCase()||"STANDARD"}</b>PROTOCOL</div></div><div class="v17Sub">KILLS PER CLEARED WAVE</div><div class="v17Graph">${bars||'<i style="height:4px"></i>'}</div></div>`;
+}
+
+/* -------- wrappers / hooks -------- */
+const _v17BuildMap=buildMap;
+buildMap=function(){
+  _v17BuildMap();
+  if(!G)return;
+  if(G.v17ForceAnomaly){G.map.name="ANOMALY CHAMBER";G.map.theme={name:"ANOMALY CHAMBER",floorA:"#160c1c",floorB:"#0b0710",line:"rgba(255,98,206,.16)",accent:"#ff62ce"};G.v17ForceAnomaly=false;G.v17AnomalyActive=true;}
+  v17Discover("biomes",G.map.name);v17Discover("factions",v17Biome().faction);v17AddEnvProps();
+};
+const _v17NewGame=newGame;
+newGame=function(){
+  selectedVariant=v17Config.weaponMode==="alt";_v17NewGame();v17ApplyRunRules();
+  if(v17Config.daily){buildMap();msg(`DAILY RIFT // SEED ${G.v17DailySeed}`,1.7)}
+  v17Discover("biomes",G.map.name);v17Discover("factions",v17Biome().faction);v17RenderHub();
+  if(!document.getElementById("v17ExecMobile")){const b=document.createElement("button");b.id="v17ExecMobile";b.className="mobileBtn";b.textContent="EXEC";b.onclick=v17Execute;document.querySelector(".mobileActions")?.appendChild(b)}
+};
+const _v17SpawnEnemy=spawnEnemy;
+spawnEnemy=function(type=null,x=null,y=null,forcedElite=null){
+  if(!type&&G){
+    const biome=v17Biome(),f=V17_FACTIONS[biome.faction],specialChance=.10+Math.min(.16,G.wave*.006);
+    if(f&&v17RunRandom()<specialChance)return v17SpawnSpecial(f.special[Math.floor(v17RunRandom()*f.special.length)]);
+  }
+  if(v17Config.mutators.includes("elites")&&!forcedElite)forcedElite=Object.keys(ELITE_DEFS)[Math.floor(v17RunRandom()*Object.keys(ELITE_DEFS).length)];
+  const e=_v17SpawnEnemy(type,x,y,forcedElite);if(!e)return e;const m=v17ModeMultiplier();e.maxHp*=m.hp;e.hp*=m.hp;e.damage*=m.damage*(G.v17EnemyDamage||1);e.speed*=m.speed*(G.v17EnemySpeed||1);e.faction=v17Biome().faction;
+  if(G.directorPressure)e.speed*=1+G.directorPressure*.08;
+  if(e.eliteKind&&v17RunRandom()<.18+(G.v17EliteBoost||0))v17NamedElite(e);
+  return e;
+};
+const _v17ApplyElite=applyElite;
+applyElite=function(e,forced=null){
+  if(!forced&&G&&((G.heat||0)>75||G.v17EliteBoost>0)&&v17RunRandom()<.10+(G.heat||0)/700+(G.v17EliteBoost||0))forced=Object.keys(ELITE_DEFS)[Math.floor(v17RunRandom()*Object.keys(ELITE_DEFS).length)];
+  return _v17ApplyElite(e,forced);
+};
+const _v17BulletObstacle=bulletObstacle;
+bulletObstacle=function(b){
+  if(G?.map?.envProps){
+    for(const q of G.map.envProps){if(!q.dead&&Math.hypot(b.x-q.x,b.y-q.y)<b.r+q.r){q.hp-=Math.max(8,b.damage||10);if(q.hp<=0)v17TriggerEnvironment(q);return true}}
+  }
+  const hit=G.map.obstacles.find(o=>(o.floor??0)===(b.floor??0)&&circleRect(b.x,b.y,b.r,o));
+  if(hit){v17DamageCover(hit,Math.max(5,b.damage||8),b.x,b.y);return true}
+  return false;
+};
+const _v17HurtPlayer=hurtPlayer;
+hurtPlayer=function(raw){
+  if(G){raw*=G.v17Incoming||1;if(v17Config.mutators.includes("noheal"))G.v17NoHeal=true;const before=G.player.hp;_v17HurtPlayer(raw);if(G?.v17Stats)G.v17Stats.damageTaken+=Math.max(0,before-G.player.hp);return}
+  return _v17HurtPlayer(raw);
+};
+const _v17Dash=dash;
+dash=function(){
+  if(G?.player?.v17Carry){toast("DASH OFFLINE // CARRYING CORE");return}
+  const perfect=v17PerfectDodgeCheck();_v17Dash();if(perfect&&G?.player?.dashTime>0)v17PerfectDodge();
+};
+const _v17PlayerShoot=playerShoot;
+playerShoot=function(){
+  if(!G)return;const before=G.bullets.length;_v17PlayerShoot();const p=G.player;
+  if(p.v17Echo&&p.shotCounter%p.v17Echo===0){const newShots=G.bullets.slice(before).map(b=>({...b,x:b.x-b.vx*.035,y:b.y-b.vy*.035,damage:b.damage*.62,life:b.life*.9,echo:true}));G.bullets.push(...newShots);}
+};
+const _v17KillEnemy=killEnemy;
+killEnemy=function(e,index){
+  if(!G)return _v17KillEnemy(e,index);const wasBoss=e.type==="boss",wasMini=e.type==="miniboss",named=e.v17Named,beforeKills=G.kills;
+  _v17KillEnemy(e,index);const killed=G.kills>beforeKills;
+  if(!killed)return;
+  G.heat=clamp((G.heat||0)+(wasBoss?24:wasMini?15:named?10:3.5),0,100);G.v17Stats.maxCombo=Math.max(G.v17Stats.maxCombo,G.combo||0);
+  if(G.combo===50)unlockAchievement("combo50","NO BRAKES");
+  if(G.v17EnvKillPending){G.v17Stats.environmentKills++;profile.v17EnvironmentKills++;if(G.v17Stats.environmentKills>=10)unlockAchievement("environment","USE THE ROOM");}
+  if(named&&G.player.v17Collector){G.scrap+=8;G.player.energy=clamp(G.player.energy+12,0,G.player.maxEnergy)}
+  if(G.player.v17KillPull&&Math.random()<G.player.v17KillPull){for(const q of G.enemies){if(dist(q,e)<150){const a=Math.atan2(e.y-q.y,e.x-q.x);moveEntity(q,Math.cos(a)*35,Math.sin(a)*35)}}}
+  if(G.combo===10){G.player.energy=clamp(G.player.energy+15,0,G.player.maxEnergy);toast("COMBO x10 // ENERGY SURGE")}
+  if(G.combo===25){G.scrap+=10;toast("COMBO x25 // +10 SCRAP")}
+  if(G.combo===50){G.player.over=clamp(G.player.over+35,0,100);toast("COMBO x50 // OVERDRIVE CHARGE")}
+  if(wasBoss){if(e.v17Secret){profile.v17SecretBosses++;unlockAchievement("secret_boss","LOOKED BACK");saveProfile()}v17BossLoot(e);}
+};
+const _v17FinishWave=finishWave;
+finishWave=function(){
+  v17RecordWave();
+  if(G.v17AnomalyActive){G.v17AnomalyActive=false;unlockAchievement("anomaly","WRONG DOOR");setTimeout(()=>{if(G?.running)v17OfferArtifact("ANOMALY CACHE")},80);}
+  if(G.wave>0&&G.wave%6===0&&G.v17ForkHandled!==G.wave&&!G.boss){if(v17OfferFork())return}
+  _v17FinishWave();
+};
+const _v17NextWave=nextWave;
+nextWave=function(){
+  const prev=G.wave;_v17NextWave();if(!G)return;
+  G.waveTarget=Math.round(G.waveTarget*(G.v17WaveMult||1));
+  if(v17Config.mutators.includes("double"))G.waveTarget=Math.round(G.waveTarget*1.12);
+  if((v17Config.mutators.includes("bosses")||G.v17BossRush)&&G.wave%3===0&&!G.boss){G.spawned=G.waveTarget;G.enemies=G.enemies.filter(e=>e.type==="miniboss");spawnBoss();}
+  if(G.wave%7===0&&!G.boss){setTimeout(()=>{if(!G?.running)return;for(let i=0;i<3;i++){const e=spawnEnemy(null,null,null,Object.keys(ELITE_DEFS)[i%Object.keys(ELITE_DEFS).length]);v17NamedElite(e)}msg("ELITE SQUAD // MULTIPLE SIGNATURES",1.2)},220)}
+  if(G.wave%5!==0&&G.wave>=4&&v17RunRandom()<.09){G.v17ForceAnomaly=true;buildMap();G.mapName=G.map.name;msg("ANOMALY CHAMBER // UNREGISTERED SPACE",1.7);v17Speak("Anomaly chamber detected");}
+  if(G.wave%5!==0&&v17RunRandom()<.34){G.objective=null;v17SetupObjective();}
+};
+const _v17SetupWaveObjective=setupWaveObjective;
+setupWaveObjective=function(){if(G&&v17RunRandom()<.32&&v17SetupObjective())return;_v17SetupWaveObjective()};
+const _v17UpdateObjective=updateObjective;
+updateObjective=function(dt){if(G?.objective?.v17){v17UpdateCustomObjectives(dt);return}_v17UpdateObjective(dt)};
+const _v17UpdateObjectiveHUD=updateObjectiveHUD;
+updateObjectiveHUD=function(){if(G?.objective?.v17){v17UpdateObjectiveHUD();return}_v17UpdateObjectiveHUD()};
+const _v17DrawObjective=drawObjective;
+drawObjective=function(){if(G?.objective?.v17){v17DrawObjective();return}_v17DrawObjective()};
+const _v17Update=update;
+update=function(dt){
+  _v17Update(dt);if(!G)return;
+  v17UpdateEnvironment(dt);v17UpdateSpecialEnemies(dt);v17UpdateDirector(dt);v17MaybeUltimate();
+  if(v17Config.mutators.includes("blackout"))G.arenaEvent={id:"blackout",name:"PERMANENT BLACKOUT",text:"Mutator active",reward:0};
+  if(G.v17Blind)G.arenaEvent=G.arenaEvent||{id:"blackout",name:"BLIND ORACLE",text:"Visibility reduced",reward:0};
+  for(const b of G.enemyBullets)if(G.v17ProjectileSpeed&&!b.v17VelocityApplied){b.vx*=G.v17ProjectileSpeed;b.vy*=G.v17ProjectileSpeed;b.v17VelocityApplied=true}
+  if(G.player.v17DeadEngine&&G.player.hp/G.player.maxHp<.25){G.player.v17DeadActive=true}else G.player.v17DeadActive=false;
+  if(G.player.v17DeadActive){G.player.fireCd-=dt*.45}
+  const c=V17_COSMETICS[v17Config.cosmetic].color;
+  if((Math.abs(G.player.dashVX||0)+Math.abs(G.player.dashVY||0)>0||keys.KeyW||keys.KeyA||keys.KeyS||keys.KeyD)&&Math.random()<dt*10)particle(G.player.x,G.player.y,rand(-25,25),rand(-25,25),2,c,.28);
+};
+const _v17DrawMap=drawMap;
+drawMap=function(){_v17DrawMap();v17DrawBiomeAtmosphere();v17DrawEnvironment()};
+const _v17DrawEnemy=drawEnemy;
+drawEnemy=function(e){_v17DrawEnemy(e);v17DrawEnemyOverlay(e)};
+const _v17DrawSpawnFx=drawSpawnFx;
+drawSpawnFx=function(){
+  _v17DrawSpawnFx();if(!G)return;X.save();X.globalCompositeOperation="lighter";
+  for(const q of G.spawnFx){const a=clamp(q.life/q.max,0,1),r=q.r+42*(1-a);X.strokeStyle=q.color||"#75e9ff";X.globalAlpha=a*.35;X.lineWidth=1;for(let i=0;i<3;i++){const ang=G.time*2+i/3*TAU;X.beginPath();X.moveTo(q.x+Math.cos(ang)*r*.4,q.y+Math.sin(ang)*r*.4);X.lineTo(q.x+Math.cos(ang+.22)*r,q.y+Math.sin(ang+.22)*r);X.stroke();}}X.restore();
+};
+const _v17DrawWeaponMechanics=drawWeaponMechanics;
+drawWeaponMechanics=function(cls,p){
+  _v17DrawWeaponMechanics(cls,p);if(!G?.evolution&&!G?.v17Ultimate)return;X.save();X.globalCompositeOperation="lighter";const c=G.v17Ultimate?"#fff0a8":V17_COSMETICS[v17Config.cosmetic].color;X.strokeStyle=c;X.globalAlpha=G.v17Ultimate?.85:.38;X.lineWidth=G.v17Ultimate?2:1;
+  X.beginPath();X.moveTo(3,-9);X.lineTo(34+(G.v17Ultimate?10:0),-6);X.moveTo(3,9);X.lineTo(34+(G.v17Ultimate?10:0),6);X.stroke();if(G.v17Ultimate){X.fillStyle=c;X.beginPath();X.arc(34,0,3+Math.sin(G.time*16)*1.5,0,TAU);X.fill()}X.restore();
+};
+const _v17SpawnBoss=spawnBoss;
+spawnBoss=function(){
+  if(G&&G.wave>=30&&G.v17ContractsCompleted>=3&&!G.v17SecretSpawned){G.v17SecretSpawned=true;v17SpawnSecretBoss();return}
+  _v17SpawnBoss();if(!G?.boss)return;
+  if(G.wave>=25){G.boss.v17Rematch=true;G.boss.bossName=`${G.boss.bossName} MK II`;G.boss.maxHp*=1.3;G.boss.hp=G.boss.maxHp;G.boss.speed*=1.08;G.boss.damage*=1.12;$("bossName").textContent=G.boss.bossName+" // REMATCH";}
+  v17PrepareBossArena(G.boss);v17Discover("bosses",G.boss.bossName);v17Speak(G.boss.bossName+" entering arena");G.v17Stats.startBossTime=G.time;
+};
+const _v17CompleteObjective=completeObjective;
+completeObjective=function(){_v17CompleteObjective();if(G?.objective?.v17)G.scrap+=6};
+const _v17ResolveContract=resolveContract;
+resolveContract=function(){const c=G?.contract,passed=c&&!c.failed;_v17ResolveContract();if(passed&&G){G.v17ContractsCompleted++;G.v17Stats.contracts++;if(G.v17ContractsCompleted>=3)unlockAchievement("contracts3","SIGNED IN BLOOD")}};
+const _v17ScaledArmoryCost=scaledArmoryCost;
+scaledArmoryCost=function(it){return Math.round(_v17ScaledArmoryCost(it)*(G?.v17ArmoryCost||1))};
+const _v17GameOver=gameOver;
+gameOver=function(){
+  if(!G||G.v17Dying)return;G.v17Dying=true;G.running=false;$("v17Death").classList.add("show");setMobileGameActive(false);
+  setTimeout(()=>{if(!G)return;$("v17Death").classList.remove("show");_v17GameOver();$("gameoverMeta").innerHTML+=v17PostRunHTML();saveProfile();v17RenderHub()},820);
+};
+const _v17HandleKey=handleKey;
+handleKey=function(code){if(code==="KeyF"){v17Execute();return}_v17HandleKey(code)};
+
+/* healing artifact hook through generic positive HP changes after pickups/waves is intentionally conservative */
+const _v17GainXP=gainXP;
+gainXP=function(a){const before=G?.player?.hp||0;_v17GainXP(a);if(G?.player?.v17HealBurst&&G.player.hp>before){explode(G.player.x,G.player.y,62,G.player.damage*.35,false,true,G.player.floor)}};
+
+/* menu / terminal wiring */
+if($("metaButtons")&&!$("v17ShipButton")){const b=document.createElement("button");b.id="v17ShipButton";b.className="metaButton";b.type="button";b.textContent="SHIP TERMINAL";b.onclick=v17OpenHub;$("metaButtons").insertBefore(b,$("settingsBtn"))}
+$("v17HubClose").onclick=v17CloseHub;$("v17DailyBtn").onclick=v17StartDaily;$("v17UltimateAccept").onclick=v17ApplyUltimate;
+document.querySelectorAll("[data-v17challenge]").forEach(b=>b.onclick=()=>v17SetChallenge(b.dataset.v17challenge));
+v17RenderHub();
+
+const APP_VERSION="17.0.0";
 let pendingDesktopUpdate=null;
 
 function compareVersionStrings(a,b){

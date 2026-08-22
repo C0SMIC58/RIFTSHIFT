@@ -1,6 +1,6 @@
 {
-  "version": "16.0.0",
+  "version": "17.0.0",
   "gameUrl": "https://raw.githubusercontent.com/C0SMIC58/RIFTSHIFT/main/RIFTSHIFT_LATEST.html",
-  "sha256": "52f5a46710a6aa8ad453687d4a5f098f832f05484c116f7c2b065ac8e2c5cfa0",
-  "notes": "V16: Boss / Encounter Update."
+  "sha256": "c47ec82cd229301244e3235b516fb86bf2104594f3d736d86e39ac48852874c4",
+  "notes": "V17: World & Arsenal Update \u2014 expanded biomes/factions, destructible environments, artifacts/curses, special enemies, executions/perfect dodges, Ship Terminal, difficulties/mutators/daily challenges, secret encounters, ultimate evolutions, deep-run bosses, codex/lore/cosmetics, and run telemetry."
 }
