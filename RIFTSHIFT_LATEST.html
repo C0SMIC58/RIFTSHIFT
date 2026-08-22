@@ -263,6 +263,26 @@ canvas{display:block}
 .v17Breakdown{margin-top:16px;padding-top:14px;border-top:1px solid rgba(255,255,255,.08)}.v17BreakGrid{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin-bottom:12px}.v17BreakGrid div{padding:8px;background:#0b111a;border:1px solid rgba(255,255,255,.055);border-radius:7px;font-size:7px;color:#77869a}.v17BreakGrid b{display:block;font-size:13px;color:#dce8f7}.v17Graph{height:62px;display:flex;align-items:flex-end;gap:3px;padding:8px;background:#080d14;border-radius:8px;border:1px solid rgba(255,255,255,.05)}.v17Graph i{display:block;flex:1;min-width:5px;background:linear-gradient(180deg,#75e9ff,#7886ff);border-radius:2px 2px 0 0;opacity:.75}
 #v17ShipButton{position:relative}
 @media(max-width:760px){.v17Grid,.v17ChoiceGrid{grid-template-columns:1fr}.v17Section.full{grid-column:auto}.v17Statline,.v17BreakGrid{grid-template-columns:repeat(2,1fr)}#v17Heat{top:82px;right:8px;width:112px}}
+
+#announcerHUD{position:fixed;left:50%;top:76px;transform:translate(-50%,-12px);z-index:176;width:min(640px,88vw);opacity:0;pointer-events:none;transition:opacity .16s ease,transform .2s cubic-bezier(.2,.8,.2,1)}
+#announcerHUD.show{opacity:1;transform:translate(-50%,0)}
+.announcerBox{display:grid;grid-template-columns:44px 1fr 70px;gap:12px;align-items:center;padding:11px 13px;border:1px solid rgba(117,233,255,.22);border-radius:10px;background:linear-gradient(90deg,rgba(5,10,18,.94),rgba(12,17,29,.88));box-shadow:0 14px 45px rgba(0,0,0,.42),inset 0 1px rgba(255,255,255,.025);backdrop-filter:blur(8px);overflow:hidden;position:relative}
+.announcerBox:after{content:"";position:absolute;inset:auto 0 0;height:2px;background:linear-gradient(90deg,#75e9ff,#8f82ff);transform-origin:left;transform:scaleX(var(--announce-progress,1));transition:transform linear}
+.announcerMark{width:34px;height:34px;display:grid;place-items:center;border-radius:7px;border:1px solid rgba(117,233,255,.2);color:#75e9ff;background:rgba(117,233,255,.045);font-weight:1000}
+.announcerCategory{font-size:7px;letter-spacing:.18em;font-weight:950;color:#77869b;margin-bottom:3px}.announcerText{font-size:12px;line-height:1.3;font-weight:950;letter-spacing:.015em;color:#eaf5ff;text-shadow:0 0 18px rgba(117,233,255,.08)}
+.announcerSignal{display:flex;gap:3px;align-items:end;justify-content:flex-end;height:21px}.announcerSignal i{display:block;width:3px;background:#75e9ff;opacity:.55;animation:signalBars .45s ease-in-out infinite alternate}.announcerSignal i:nth-child(2){animation-delay:.1s}.announcerSignal i:nth-child(3){animation-delay:.2s}.announcerSignal i:nth-child(4){animation-delay:.05s}.announcerSignal i:nth-child(5){animation-delay:.16s}
+@keyframes signalBars{from{height:4px;opacity:.25}to{height:19px;opacity:.9}}
+#v18NotifyStack{position:fixed;right:16px;bottom:18px;z-index:178;width:min(330px,86vw);display:flex;flex-direction:column;gap:7px;pointer-events:none}
+.v18Notice{padding:10px 12px;border:1px solid rgba(255,255,255,.085);border-left:3px solid var(--notice,#75e9ff);background:rgba(8,13,22,.92);border-radius:8px;box-shadow:0 12px 35px rgba(0,0,0,.34);backdrop-filter:blur(6px);animation:noticeIn .22s cubic-bezier(.2,.75,.2,1);transition:opacity .2s,transform .2s}
+.v18Notice.out{opacity:0;transform:translateX(18px)}.v18Notice b{display:block;font-size:8px;letter-spacing:.12em;color:var(--notice,#75e9ff);margin-bottom:3px}.v18Notice span{font-size:9px;color:#cfdaea;line-height:1.4}
+@keyframes noticeIn{from{opacity:0;transform:translateX(22px) scale(.98)}to{opacity:1;transform:none}}
+#v18DamageFrame{position:fixed;inset:0;z-index:174;pointer-events:none;border:0 solid rgba(255,70,92,0);box-shadow:inset 0 0 0 rgba(255,40,70,0);transition:.16s}
+#v18DamageFrame.hit{border-width:4px;border-color:rgba(255,72,94,.35);box-shadow:inset 0 0 70px rgba(255,40,70,.18)}
+#v18Transition{position:fixed;inset:0;z-index:187;pointer-events:none;background:linear-gradient(90deg,transparent,rgba(117,233,255,.035),transparent);opacity:0;transform:translateX(-100%)}#v18Transition.go{animation:v18Wipe .3s ease-out}@keyframes v18Wipe{0%{opacity:0;transform:translateX(-100%)}35%{opacity:1}100%{opacity:0;transform:translateX(100%)}}
+#discordPresenceBadge{position:fixed;left:15px;bottom:15px;z-index:56;display:none;gap:7px;align-items:center;padding:6px 8px;border:1px solid rgba(88,101,242,.22);background:rgba(8,11,20,.76);border-radius:7px;font-size:7px;color:#8d99ab;letter-spacing:.08em;font-weight:900;pointer-events:none}#discordPresenceBadge.on{display:flex}#discordPresenceDot{width:6px;height:6px;border-radius:50%;background:#5865f2;box-shadow:0 0 8px #5865f2}
+.v18Critical .announcerBox{border-color:rgba(255,83,116,.42);box-shadow:0 14px 55px rgba(255,35,80,.09)}.v18Critical .announcerMark,.v18Critical .announcerText{color:#ff8a9d}.v18Critical .announcerSignal i{background:#ff657e}
+.v18Warning .announcerBox{border-color:rgba(255,209,102,.32)}.v18Warning .announcerMark,.v18Warning .announcerText{color:#ffe19a}.v18Warning .announcerSignal i{background:#ffd166}
+@media(max-width:620px){#announcerHUD{top:62px}.announcerBox{grid-template-columns:36px 1fr 42px;padding:9px}.announcerText{font-size:10px}.announcerMark{width:30px;height:30px}#v18NotifyStack{right:8px;bottom:88px}}
 @media(max-width:850px){.adminGrid{grid-template-columns:1fr 1fr}}
 @media(max-width:850px){.v9Grid{grid-template-columns:1fr 1fr}.settingsGrid{grid-template-columns:1fr}.historyRow{grid-template-columns:1fr 1fr 1fr}.historyRow span:nth-child(n+4){display:none}}
 @media(max-width:850px){.classes{grid-template-columns:1fr 1fr}.classCard{min-height:340px}.upCards{grid-template-columns:1fr}.upCard{min-height:155px}.classTop{align-items:flex-start;flex-direction:column}}
@@ -292,7 +312,7 @@ COMBAT KERNEL....WAITING</div>
     <div class="frontTop"><span>RIFTSHIFT // COMBAT OPERATING SYSTEM</span><span class="live">● RIFT LINK STABLE</span></div>
     <div class="frontGrid">
       <div class="commandPane">
-        <div class="brandCode">FIELD TERMINAL / RS-17</div>
+        <div class="brandCode">FIELD TERMINAL / RS-18</div>
         <h1 class="brandMain"><span class="rift">RIFT</span><span class="shift">SHIFT</span></h1>
         <div class="brandSlash"></div>
         <p class="commandCopy">Pick an operative class. Enter a new procedural combat site every run. Build a focused upgrade stack, use elevation and cover, and survive until the rift overwhelms you.</p>
@@ -317,7 +337,7 @@ COMBAT KERNEL....WAITING</div>
         <div class="telemetry">
           <div><b>4</b><span>CLASS CORES</span></div>
           <div><b>∞</b><span>RUN SEEDS</span></div>
-          <div><b>V17</b><span>BUILD</span></div>
+          <div><b>V18</b><span>BUILD</span></div>
         </div>
         <div id="menuTrack">SOUNDTRACK // NULL VECTOR</div>
       </div>
@@ -390,6 +410,10 @@ COMBAT KERNEL....WAITING</div>
 <div class="settingRow"><label><span>MASTER VOLUME</span><span id="masterValue">100%</span></label><input id="masterSlider" type="range" min="0" max="100" value="100"></div>
 <div class="settingRow"><label><span>MUSIC VOLUME</span><span id="musicValue">100%</span></label><input id="musicSlider" type="range" min="0" max="100" value="100"></div>
 <div class="settingRow"><label><span>SFX VOLUME</span><span id="sfxValue">100%</span></label><input id="sfxSlider" type="range" min="0" max="100" value="100"></div>
+<div class="settingRow"><label><span>ANNOUNCER VOLUME</span><span id="announcerValue">80%</span></label><input id="announcerSlider" type="range" min="0" max="100" value="80"></div>
+<div class="settingRow toggleRow"><label style="margin:0">ANNOUNCER VOICE</label><input id="announcerVoiceToggle" type="checkbox" checked></div>
+<div class="settingRow toggleRow"><label style="margin:0">ANNOUNCER SUBTITLES</label><input id="announcerSubtitleToggle" type="checkbox" checked></div>
+<div class="settingRow toggleRow"><label style="margin:0">DISCORD GAME ACTIVITY <span style="color:#647287;font-size:8px">(DESKTOP)</span></label><input id="discordActivityToggle" type="checkbox" checked></div>
 <div class="settingRow"><label><span>CAMERA SHAKE</span><span id="shakeValue">100%</span></label><input id="shakeSlider" type="range" min="0" max="100" value="100"></div>
 <div class="settingRow"><label><span>IMPACT FLASH</span><span id="impactValue">100%</span></label><input id="impactSlider" type="range" min="0" max="100" value="100"></div>
 <div class="settingRow"><label><span>PARTICLE DENSITY</span><span id="particleValue">100%</span></label><input id="particleSlider" type="range" min="25" max="150" value="100"></div>
@@ -462,6 +486,18 @@ COMBAT KERNEL....WAITING</div>
 </div>
 
 <div id="v17Death"><div class="v17DeathCore"><div class="skull">◇</div><b>RIFT LINK LOST</b><span>COMPILING RUN TELEMETRY</span></div></div>
+
+<div id="announcerHUD">
+  <div class="announcerBox">
+    <div class="announcerMark">RS</div>
+    <div><div id="announcerCategory" class="announcerCategory">SYSTEM</div><div id="announcerText" class="announcerText">RIFT LINK ONLINE.</div></div>
+    <div class="announcerSignal"><i></i><i></i><i></i><i></i><i></i></div>
+  </div>
+</div>
+<div id="v18NotifyStack"></div>
+<div id="v18DamageFrame"></div>
+<div id="v18Transition"></div>
+<div id="discordPresenceBadge"><span id="discordPresenceDot"></span><span>DISCORD ACTIVITY</span></div>
 <script>
 "use strict";
 
@@ -649,7 +685,7 @@ const CLASS_ABILITIES={
  cosmic:{name:"ABSOLUTE NONSENSE",cost:40,desc:"Heal, fire a radial banana burst, and cause chaotic explosions around the cursor."}
 };
 
-const SETTINGS_DEFAULT={master:1,music:1,sfx:1,shake:1,impactFlash:1,particleDensity:1,crosshairScale:1,hudScale:1,fpsCap:0,damageNumbers:true,enemyHealthBars:true,hitmarker:true,vignette:true,flashes:true,reducedMotion:false,pauseOnBlur:true,mobileAimAssist:true,fullscreen:true};
+const SETTINGS_DEFAULT={master:1,music:1,sfx:1,announcerVolume:.8,shake:1,impactFlash:1,particleDensity:1,crosshairScale:1,hudScale:1,fpsCap:0,damageNumbers:true,enemyHealthBars:true,hitmarker:true,vignette:true,flashes:true,reducedMotion:false,pauseOnBlur:true,mobileAimAssist:true,fullscreen:true,announcerVoice:true,announcerSubtitles:true,discordActivity:true};
 const PROFILE_DEFAULT={cores:0,totalRuns:0,totalBosses:0,bestWave:0,bestScore:0,totalKills:0,evolutions:[],achievements:[],history:[]};
 function upgradeLevel(id){return G?.upgradeLevels?.[id]||0}
 function upgradeDescription(id,next){
@@ -959,17 +995,17 @@ function refreshMetaUI(){
  if($("ownerPanelBtn"))$("ownerPanelBtn").hidden=!ownerAuth;
 }
 function syncSettingsLabels(){
- $("masterValue").textContent=Math.round(settings.master*100)+"%";$("musicValue").textContent=Math.round(settings.music*100)+"%";$("sfxValue").textContent=Math.round(settings.sfx*100)+"%";$("shakeValue").textContent=Math.round(settings.shake*100)+"%";
+ $("masterValue").textContent=Math.round(settings.master*100)+"%";$("musicValue").textContent=Math.round(settings.music*100)+"%";$("sfxValue").textContent=Math.round(settings.sfx*100)+"%";$("announcerValue").textContent=Math.round((settings.announcerVolume??.8)*100)+"%";$("shakeValue").textContent=Math.round(settings.shake*100)+"%";
  $("impactValue").textContent=Math.round(settings.impactFlash*100)+"%";$("particleValue").textContent=Math.round(settings.particleDensity*100)+"%";$("crosshairValue").textContent=Math.round(settings.crosshairScale*100)+"%";$("hudValue").textContent=Math.round(settings.hudScale*100)+"%";
 }
 function openSettings(back="menu"){
  settingsReturn=back;showOnly("settings");
- $("masterSlider").value=Math.round(settings.master*100);$("musicSlider").value=Math.round(settings.music*100);$("sfxSlider").value=Math.round(settings.sfx*100);$("shakeSlider").value=Math.round(settings.shake*100);$("impactSlider").value=Math.round(settings.impactFlash*100);$("particleSlider").value=Math.round(settings.particleDensity*100);$("crosshairSlider").value=Math.round(settings.crosshairScale*100);$("hudSlider").value=Math.round(settings.hudScale*100);
- $("fpsSelect").value=String(settings.fpsCap||0);$("damageToggle").checked=!!settings.damageNumbers;$("enemyBarsToggle").checked=!!settings.enemyHealthBars;$("hitmarkerToggle").checked=!!settings.hitmarker;$("vignetteToggle").checked=!!settings.vignette;$("flashToggle").checked=!!settings.flashes;$("reducedMotionToggle").checked=!!settings.reducedMotion;$("pauseBlurToggle").checked=!!settings.pauseOnBlur;$("mobileAimToggle").checked=!!settings.mobileAimAssist;$("fullscreenToggle").checked=!!settings.fullscreen;syncSettingsLabels();
+ $("masterSlider").value=Math.round(settings.master*100);$("musicSlider").value=Math.round(settings.music*100);$("sfxSlider").value=Math.round(settings.sfx*100);$("announcerSlider").value=Math.round((settings.announcerVolume??.8)*100);$("shakeSlider").value=Math.round(settings.shake*100);$("impactSlider").value=Math.round(settings.impactFlash*100);$("particleSlider").value=Math.round(settings.particleDensity*100);$("crosshairSlider").value=Math.round(settings.crosshairScale*100);$("hudSlider").value=Math.round(settings.hudScale*100);
+ $("fpsSelect").value=String(settings.fpsCap||0);$("announcerVoiceToggle").checked=settings.announcerVoice!==false;$("announcerSubtitleToggle").checked=settings.announcerSubtitles!==false;$("discordActivityToggle").checked=settings.discordActivity!==false;$("damageToggle").checked=!!settings.damageNumbers;$("enemyBarsToggle").checked=!!settings.enemyHealthBars;$("hitmarkerToggle").checked=!!settings.hitmarker;$("vignetteToggle").checked=!!settings.vignette;$("flashToggle").checked=!!settings.flashes;$("reducedMotionToggle").checked=!!settings.reducedMotion;$("pauseBlurToggle").checked=!!settings.pauseOnBlur;$("mobileAimToggle").checked=!!settings.mobileAimAssist;$("fullscreenToggle").checked=!!settings.fullscreen;syncSettingsLabels();
 }
 function handleSettingsInput(){
- settings.master=Number($("masterSlider").value)/100;settings.music=Number($("musicSlider").value)/100;settings.sfx=Number($("sfxSlider").value)/100;settings.shake=Number($("shakeSlider").value)/100;settings.impactFlash=Number($("impactSlider").value)/100;settings.particleDensity=Number($("particleSlider").value)/100;settings.crosshairScale=Number($("crosshairSlider").value)/100;settings.hudScale=Number($("hudSlider").value)/100;settings.fpsCap=Number($("fpsSelect").value)||0;
- settings.damageNumbers=$("damageToggle").checked;settings.enemyHealthBars=$("enemyBarsToggle").checked;settings.hitmarker=$("hitmarkerToggle").checked;settings.vignette=$("vignetteToggle").checked;settings.flashes=$("flashToggle").checked;settings.reducedMotion=$("reducedMotionToggle").checked;settings.pauseOnBlur=$("pauseBlurToggle").checked;settings.mobileAimAssist=$("mobileAimToggle").checked;settings.fullscreen=$("fullscreenToggle").checked;saveSettings();applyAudioSettings();applyVisualSettings();syncSettingsLabels();
+ settings.master=Number($("masterSlider").value)/100;settings.music=Number($("musicSlider").value)/100;settings.sfx=Number($("sfxSlider").value)/100;settings.announcerVolume=Number($("announcerSlider").value)/100;settings.shake=Number($("shakeSlider").value)/100;settings.impactFlash=Number($("impactSlider").value)/100;settings.particleDensity=Number($("particleSlider").value)/100;settings.crosshairScale=Number($("crosshairSlider").value)/100;settings.hudScale=Number($("hudSlider").value)/100;settings.fpsCap=Number($("fpsSelect").value)||0;
+ settings.announcerVoice=$("announcerVoiceToggle").checked;settings.announcerSubtitles=$("announcerSubtitleToggle").checked;settings.discordActivity=$("discordActivityToggle").checked;settings.damageNumbers=$("damageToggle").checked;settings.enemyHealthBars=$("enemyBarsToggle").checked;settings.hitmarker=$("hitmarkerToggle").checked;settings.vignette=$("vignetteToggle").checked;settings.flashes=$("flashToggle").checked;settings.reducedMotion=$("reducedMotionToggle").checked;settings.pauseOnBlur=$("pauseBlurToggle").checked;settings.mobileAimAssist=$("mobileAimToggle").checked;settings.fullscreen=$("fullscreenToggle").checked;saveSettings();applyAudioSettings();applyVisualSettings();syncSettingsLabels();
 }
 function resetSettings(){settings={...SETTINGS_DEFAULT};saveSettings();applyAudioSettings();applyVisualSettings();openSettings(settingsReturn);toast("SETTINGS RESET");}
 function renderArchive(){
@@ -3261,7 +3297,210 @@ $("v17HubClose").onclick=v17CloseHub;$("v17DailyBtn").onclick=v17StartDaily;$("v
 document.querySelectorAll("[data-v17challenge]").forEach(b=>b.onclick=()=>v17SetChallenge(b.dataset.v17challenge));
 v17RenderHub();
 
-const APP_VERSION="17.0.0";
+
+/* ============================================================
+   V18 // PRESENTATION, ANNOUNCER & DESKTOP PRESENCE
+   ============================================================ */
+settings.announcerVolume=settings.announcerVolume??.8;
+settings.announcerVoice=settings.announcerVoice!==false;
+settings.announcerSubtitles=settings.announcerSubtitles!==false;
+settings.discordActivity=settings.discordActivity!==false;
+
+const _v18AudioStart=AudioSystem.prototype.start;
+AudioSystem.prototype.start=function(){
+  _v18AudioStart.call(this);
+  if(this.ctx&&!this.announcerGain){
+    this.announcerGain=this.ctx.createGain();
+    this.announcerGain.gain.value=.72*(settings.announcerVolume??.8);
+    this.announcerGain.connect(this.master);
+  }
+};
+AudioSystem.prototype.announceChirp=function(level="normal"){
+  this.start();if(!this.ctx)return;const d=this.announcerGain||this.sfxGain;
+  const critical=level==="critical",warning=level==="warning";
+  this.noise(.055,critical?.058:warning?.043:.032,critical?2300:3200,0,"bandpass",d,.08);
+  this.tone(critical?420:warning?560:720,.065,"square",critical?.045:.03,critical?210:warning?820:1040,0,d,.08);
+  setTimeout(()=>this.tone(critical?185:warning?280:410,.08,"triangle",critical?.035:.022,critical?105:warning?410:560,0,d,.12),42);
+};
+AudioSystem.prototype.announceTail=function(level="normal"){
+  this.start();if(!this.ctx)return;const d=this.announcerGain||this.sfxGain;
+  this.noise(.08,.016,1500,0,"bandpass",d,.18);
+  this.tone(level==="critical"?180:350,.07,"sine",.014,level==="critical"?95:520,0,d,.15);
+};
+
+const _v18ApplyAudioSettings=applyAudioSettings;
+applyAudioSettings=function(){
+  _v18ApplyAudioSettings();
+  try{if(sfx.announcerGain)sfx.announcerGain.gain.value=.72*(settings.announcerVolume??.8)}catch(e){}
+};
+
+class AnnouncerSystem{
+  constructor(){
+    this.queue=[];this.current=null;this.timer=null;this.lastKeys=new Map();this.voice=null;this.voiceRefresh=0;this.heatWarned=false;
+  }
+  pickVoice(){
+    if(!("speechSynthesis" in window))return null;
+    const voices=speechSynthesis.getVoices();if(!voices.length)return null;
+    const preferred=["Microsoft David","Microsoft Mark","Google US English","Daniel","Alex"];
+    for(const n of preferred){const v=voices.find(x=>x.name.includes(n));if(v)return v}
+    return voices.find(v=>/^en/i.test(v.lang))||voices[0];
+  }
+  say(text,{category="SYSTEM",priority=45,key="",level="normal",duration=2.25,voice=true}={}){
+    if(!text)return;
+    const now=performance.now(),dedupe=key||text;
+    if((this.lastKeys.get(dedupe)||0)>now-4500)return;
+    this.lastKeys.set(dedupe,now);
+    const item={text:String(text),category,priority,key:dedupe,level,duration,voice};
+    if(this.current&&priority>=this.current.priority+25){this.stopCurrent(false);this.queue.unshift(item);this.next();return}
+    this.queue.push(item);this.queue.sort((a,b)=>b.priority-a.priority);if(!this.current)this.next();
+  }
+  stopCurrent(clearVoice=true){
+    clearTimeout(this.timer);this.timer=null;
+    if(clearVoice&&"speechSynthesis" in window)try{speechSynthesis.cancel()}catch(e){}
+    $("announcerHUD").classList.remove("show","v18Critical","v18Warning");this.current=null;
+  }
+  next(){
+    if(this.current||!this.queue.length)return;const item=this.queue.shift();this.current=item;
+    const hud=$("announcerHUD"),box=hud.querySelector(".announcerBox");
+    $("announcerCategory").textContent=item.category;$("announcerText").textContent=item.text;
+    hud.classList.toggle("v18Critical",item.level==="critical");hud.classList.toggle("v18Warning",item.level==="warning");
+    if(settings.announcerSubtitles!==false)hud.classList.add("show");
+    box.style.setProperty("--announce-progress","1");box.style.transition="none";void box.offsetWidth;box.style.transition="";
+    requestAnimationFrame(()=>box.style.setProperty("--announce-progress","0"));
+    try{sfx.announceChirp(item.level)}catch(e){}
+    if(settings.announcerVoice!==false&&item.voice&&"speechSynthesis" in window){
+      try{
+        speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(item.text.replace(/[\/|]/g," "));
+        const v=this.pickVoice();if(v)u.voice=v;u.rate=item.level==="critical"?.92:1.02;u.pitch=item.level==="critical"?.58:.67;u.volume=clamp((settings.master??1)*(settings.announcerVolume??.8)*.72,0,1);speechSynthesis.speak(u);
+      }catch(e){}
+    }
+    this.timer=setTimeout(()=>{try{sfx.announceTail(item.level)}catch(e){};hud.classList.remove("show","v18Critical","v18Warning");this.current=null;setTimeout(()=>this.next(),100)},item.duration*1000);
+  }
+}
+const announcer=new AnnouncerSystem();
+try{speechSynthesis?.addEventListener?.("voiceschanged",()=>announcer.voice=announcer.pickVoice())}catch(e){}
+
+function v18Notice(text,kind="SYSTEM",color="#75e9ff",life=2300){
+  const stack=$("v18NotifyStack");if(!stack)return;
+  const el=document.createElement("div");el.className="v18Notice";el.style.setProperty("--notice",color);el.innerHTML=`<b>${kind}</b><span></span>`;el.querySelector("span").textContent=text;stack.prepend(el);
+  while(stack.children.length>4)stack.lastElementChild.remove();
+  setTimeout(()=>{el.classList.add("out");setTimeout(()=>el.remove(),220)},life);
+}
+const _v18Toast=toast;
+toast=function(t){
+  const text=String(t||""),kind=text.includes("ACHIEVEMENT")?"ACHIEVEMENT":text.includes("CONTRACT")?"RIFT CONTRACT":text.includes("SCRAP")?"REWARD":text.includes("OBJECTIVE")?"OBJECTIVE":"SYSTEM";
+  const color=kind==="ACHIEVEMENT"?"#ffd166":kind==="RIFT CONTRACT"?"#b487ff":kind==="REWARD"?"#65e49a":"#75e9ff";v18Notice(text,kind,color);
+};
+const _v18Msg=msg;
+msg=function(t,sec=1.2){_v18Msg(t,sec);if(String(t).includes("PHASE"))$("message").style.textShadow="0 0 24px rgba(177,124,255,.65)";else $("message").style.textShadow=""};
+
+const _v18ShowOnly=showOnly;
+showOnly=function(name){_v18ShowOnly(name);const w=$("v18Transition");w.classList.remove("go");void w.offsetWidth;w.classList.add("go");v18PresenceScreen(name)};
+const _v18ShowHUD=showHUD;
+showHUD=function(){_v18ShowHUD();const w=$("v18Transition");w.classList.remove("go");void w.offsetWidth;w.classList.add("go");v18Presence(true)};
+
+function v18PulseDamage(){
+  const f=$("v18DamageFrame");f.classList.remove("hit");void f.offsetWidth;f.classList.add("hit");clearTimeout(v18PulseDamage.t);v18PulseDamage.t=setTimeout(()=>f.classList.remove("hit"),130);
+}
+const _v18HurtPlayer=hurtPlayer;
+hurtPlayer=function(raw){const before=G?.player?.hp??0;const r=_v18HurtPlayer(raw);if(G&&G.player.hp<before)v18PulseDamage();return r};
+
+const _v18DrawCrosshair=drawCrosshair;
+drawCrosshair=function(){
+  _v18DrawCrosshair();if(!G?.player)return;const p=G.player,bloom=clamp((G.weaponKick||0)*1.1+(p.fireCd>0?p.fireCd/Math.max(.05,p.fireRate)*7:0),0,15),c=V17_COSMETICS?.[v17Config?.cosmetic]?.color||"#75e9ff";
+  X.save();X.translate(mouse.x,mouse.y);X.strokeStyle=c;X.globalAlpha=.14+Math.min(.32,bloom*.018);X.lineWidth=1;X.beginPath();X.arc(0,0,13+bloom,0,TAU);X.stroke();
+  if(p.energy<p.maxEnergy*.15){X.strokeStyle="#ff9c65";X.globalAlpha=.45;X.beginPath();X.arc(0,0,18+bloom,-Math.PI*.25,Math.PI*.25);X.stroke()}X.restore();
+};
+
+let v18LowHealthCd=0,v18LastHeatHigh=false;
+function v18PolishUpdate(dt){
+  if(!G?.running)return;const p=G.player;v18LowHealthCd-=dt;
+  if(p.hp/p.maxHp<.28&&v18LowHealthCd<=0){v18LowHealthCd=.72;try{sfx.tone(72,.12,"sine",.045,48,0,null,.25);setTimeout(()=>sfx.tone(60,.15,"sine",.035,42,0,null,.2),125)}catch(e){}}
+  const heat=(G.heat||0)>=80;if(heat&&!v18LastHeatHigh)announcer.say("Rift heat critical. Elite probability increasing.",{category:"RIFT HEAT",priority:65,key:"heat-critical",level:"warning",duration:2.6});v18LastHeatHigh=heat;
+  v18Presence(false);
+}
+const _v18Update=update;
+update=function(dt){_v18Update(dt);v18PolishUpdate(dt)};
+
+/* -------- event announcement hooks -------- */
+const _v18NextWave=nextWave;
+nextWave=function(){_v18NextWave();if(!G)return;if(G.wave===10||G.wave%10===0)announcer.say(`Wave ${G.wave}. Hostile density increasing.`,{category:"WAVE CONTROL",priority:42,key:"wave-"+G.wave,duration:2.2});v18Presence(true)};
+const _v18SpawnMiniBoss=spawnMiniBoss;
+spawnMiniBoss=function(){_v18SpawnMiniBoss();if(G?.miniboss)announcer.say(`${G.miniboss.miniBossName}. Mini-boss signature inbound.`,{category:"HOSTILE SIGNATURE",priority:75,key:"mini-"+G.wave,level:"warning",duration:2.4});v18Presence(true)};
+const _v18ShowEventBanner=showEventBanner;
+showEventBanner=function(ev){_v18ShowEventBanner(ev);if(ev)announcer.say(ev.name.replace(/_/g," ")+". "+(ev.text||""),{category:"ARENA EVENT",priority:72,key:"event-"+ev.id+"-"+G?.wave,level:"warning",duration:2.7})};
+const _v18OfferContract=offerRiftContract;
+offerRiftContract=function(){const r=_v18OfferContract();if(r)announcer.say("Rift Contract available. Review risk and reward.",{category:"CONTRACT TERMINAL",priority:54,key:"contract-offer-"+G?.wave,duration:2.4});return r};
+const _v18AcceptContract=acceptContract;
+acceptContract=function(){const n=G?.contractOffer?.name;_v18AcceptContract();announcer.say(`${n||"Contract"} accepted. Conditions now active.`,{category:"CONTRACT TERMINAL",priority:52,key:"contract-accept-"+G?.wave,duration:2.1})};
+const _v18FailContract=failContract;
+failContract=function(reason="CONTRACT FAILED"){const n=G?.contract?.name;_v18FailContract(reason);announcer.say(`${n||"Contract"} failed. Reward forfeited.`,{category:"CONTRACT TERMINAL",priority:70,key:"contract-fail-"+G?.wave,level:"warning",duration:2.3})};
+const _v18ResolveContract=resolveContract;
+resolveContract=function(){const c=G?.contract,passed=c&&!c.failed,n=c?.name;_v18ResolveContract();if(passed)announcer.say(`${n||"Contract"} complete. Reward authorized.`,{category:"CONTRACT TERMINAL",priority:60,key:"contract-win-"+G?.wave,duration:2.2})};
+const _v18TriggerBossRage=triggerBossRage;
+triggerBossRage=function(e,p){const before=e?.rage;_v18TriggerBossRage(e,p);if(e?.rage&&!before){announcer.say(`${e.bossName}. Rage state detected.`,{category:"CRITICAL WARNING",priority:100,key:"rage-"+e.bossName+"-"+G?.wave,level:"critical",duration:2.5});v18Presence(true)}};
+const _v18SpawnBoss=spawnBoss;
+spawnBoss=function(){_v18SpawnBoss();if(G?.boss&&!G.boss.v17Secret)announcer.say(`${G.boss.bossName}. Major hostile entering arena.`,{category:"BOSS SIGNATURE",priority:92,key:"boss-"+G.boss.bossName+"-"+G.wave,level:"critical",duration:2.8});v18Presence(true)};
+const _v18PerfectDodge=v17PerfectDodge;
+v17PerfectDodge=function(){_v18PerfectDodge();announcer.say("Perfect dodge.",{category:"COMBAT",priority:18,key:"perfect-"+Math.floor(performance.now()/1500),voice:false,duration:1.1})};
+const _v18Execute=v17Execute;
+v17Execute=function(){const before=G?.kills||0;_v18Execute();if(G&&G.kills>before)announcer.say("Execution confirmed.",{category:"COMBAT",priority:25,key:"execute-"+G.kills,voice:false,duration:1.25})};
+const _v18ApplyUltimate=v17ApplyUltimate;
+v17ApplyUltimate=function(){const n=V17_ULTIMATES[G?.classId]?.name||"Ultimate evolution";_v18ApplyUltimate();announcer.say(`${n}. Ultimate evolution online.`,{category:"WEAPON SYSTEM",priority:82,key:"ultimate-"+G?.classId,level:"warning",duration:2.7});v18Presence(true)};
+const _v18CompleteObjective=completeObjective;
+completeObjective=function(){const n=G?.objective?.name;_v18CompleteObjective();if(n)announcer.say(`${n}. Objective complete.`,{category:"MISSION CONTROL",priority:45,key:"objective-"+G?.wave+"-"+n,duration:2})};
+const _v18V17NamedElite=v17NamedElite;
+v17NamedElite=function(e){const had=e?.v17Name;_v18V17NamedElite(e);if(e?.v17Name&&!had&&G?.enemies?.filter(q=>q.v17Named).length>=2)announcer.say("Elite squad detected. Multiple modified signatures.",{category:"HOSTILE SIGNATURE",priority:72,key:"elite-squad-"+G.wave,level:"warning",duration:2.5})};
+const _v18V17CloseArtifact=v17CloseArtifact;
+v17CloseArtifact=function(name){_v18V17CloseArtifact(name);announcer.say(`${name}. Artifact installed.`,{category:"ARTIFACT CORE",priority:42,key:"artifact-"+name,duration:2})};
+const _v18V17SpawnSecretBoss=v17SpawnSecretBoss;
+v17SpawnSecretBoss=function(){_v18V17SpawnSecretBoss();announcer.say("Unregistered hostile signature detected. The Breach is looking back.",{category:"UNKNOWN SIGNAL",priority:110,key:"the-breach",level:"critical",duration:3.4});v18Presence(true)};
+const _v18UnlockAchievement=unlockAchievement;
+unlockAchievement=function(id,label){const had=profile.achievements.includes(id);_v18UnlockAchievement(id,label);if(!had)announcer.say(`Achievement unlocked. ${label}.`,{category:"OPERATIONS RECORD",priority:30,key:"ach-"+id,voice:false,duration:1.6})};
+
+/* -------- replace V17 direct TTS with this priority system -------- */
+v17Speak=function(text){announcer.say(text,{category:"RIFTSHIFT CONTROL",priority:58,key:"v17-"+String(text).slice(0,35),duration:2.3})};
+
+/* -------- Discord Desktop Rich Presence bridge -------- */
+const v18PresenceState={last:"",lastSend:0,start:Date.now(),statusChecked:false,available:false};
+function v18PresencePayload(){
+  const active=document.querySelector(".screen.active")?.id||"menu";
+  if(G?.running){
+    const cls=CLASS_DEFS[G.classId]?.name||"Operative",diff=(G.difficulty||v17Config?.difficulty||"standard").toUpperCase(),biome=G.map?.name||"Unknown Arena";
+    if(G.boss)return{details:`Fighting ${G.boss.bossName||"Boss"}`,state:`Wave ${G.wave} • ${cls} • ${diff}`,largeText:biome,start:Math.floor(v18PresenceState.start/1000)};
+    if(G.v17AnomalyActive)return{details:"Exploring Anomaly Chamber",state:`Wave ${G.wave} • ${cls} • ${diff}`,largeText:"Anomaly Chamber",start:Math.floor(v18PresenceState.start/1000)};
+    return{details:`Wave ${G.wave} • ${biome}`,state:`${cls} • ${diff}`,largeText:biome,start:Math.floor(v18PresenceState.start/1000)};
+  }
+  if(active==="classSelect")return{details:"Choosing an Operative",state:"Preparing a run",largeText:"RIFTSHIFT"};
+  if(active==="gameover"&&G)return{details:`Run ended at Wave ${G.wave}`,state:`${G.kills} kills • ${Math.round(G.score).toLocaleString()} score`,largeText:"Run Complete"};
+  if(active==="v17Hub")return{details:"In the Ship Terminal",state:"Configuring a run",largeText:"Command Ship"};
+  return{details:"In the Ship Terminal",state:"Preparing to enter the rift",largeText:"RIFTSHIFT"};
+}
+async function v18Presence(force=false){
+  if(settings.discordActivity===false||!window.riftshiftDiscord?.update)return;
+  const payload=v18PresencePayload(),sig=JSON.stringify(payload),now=performance.now();
+  if(!force&&(sig===v18PresenceState.last||now-v18PresenceState.lastSend<4000))return;
+  v18PresenceState.last=sig;v18PresenceState.lastSend=now;
+  try{window.riftshiftDiscord.update(payload);if(!v18PresenceState.statusChecked){v18PresenceState.statusChecked=true;const st=await window.riftshiftDiscord.status();v18PresenceState.available=!!st?.configured;$("discordPresenceBadge").classList.toggle("on",!!st?.configured)}}catch(e){}
+}
+function v18PresenceScreen(name){
+  if(name==="menu")v18PresenceState.start=Date.now();
+  if(settings.discordActivity===false&&window.riftshiftDiscord?.clear)try{window.riftshiftDiscord.clear()}catch(e){}
+  else v18Presence(true);
+}
+const _v18NewGame=newGame;
+newGame=function(){v18PresenceState.start=Date.now();_v18NewGame();announcer.heatWarned=false;v18LastHeatHigh=false;announcer.say("Rift link established. Combat systems online.",{category:"RIFTSHIFT CONTROL",priority:40,key:"run-start-"+Date.now(),duration:2.2});v18Presence(true)};
+const _v18GameOver=gameOver;
+gameOver=function(){announcer.say("Rift link lost. Compiling run telemetry.",{category:"CRITICAL SYSTEM",priority:105,key:"death-"+Date.now(),level:"critical",duration:2.4});const r=_v18GameOver();setTimeout(()=>v18Presence(true),1000);return r};
+
+
+for(const id of ["announcerSlider","announcerVoiceToggle","announcerSubtitleToggle","discordActivityToggle"]){
+  const el=$(id);if(el)el.addEventListener("input",()=>{handleSettingsInput();if(id==="discordActivityToggle"&&!settings.discordActivity&&window.riftshiftDiscord?.clear)window.riftshiftDiscord.clear();else if(id==="discordActivityToggle")v18Presence(true)});
+}
+/* startup */
+setTimeout(()=>{applyAudioSettings();v18Presence(true)},650);
+
+const APP_VERSION="18.0.0";
 let pendingDesktopUpdate=null;
 
 function compareVersionStrings(a,b){

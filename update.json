@@ -1,6 +1,6 @@
 {
-  "version": "17.0.0",
+  "version": "18.0.0",
   "gameUrl": "https://raw.githubusercontent.com/C0SMIC58/RIFTSHIFT/main/RIFTSHIFT_LATEST.html",
-  "sha256": "c47ec82cd229301244e3235b516fb86bf2104594f3d736d86e39ac48852874c4",
-  "notes": "V17: World & Arsenal Update \u2014 expanded biomes/factions, destructible environments, artifacts/curses, special enemies, executions/perfect dodges, Ship Terminal, difficulties/mutators/daily challenges, secret encounters, ultimate evolutions, deep-run bosses, codex/lore/cosmetics, and run telemetry."
+  "sha256": "f76f9870eb412219835ba61b899bf9e484a5152dab06347b325450a031d40ae2",
+  "notes": "V18: priority announcer with radio UI/voice/subtitles, broad presentation polish, reactive combat HUD, and desktop Discord Rich Presence support."
 }
