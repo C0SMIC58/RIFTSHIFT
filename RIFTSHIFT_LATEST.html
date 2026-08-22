@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#05070d">
 <link rel="manifest" href="manifest.webmanifest">
-<title>RIFTSHIFT V9</title>
+<title>RIFTSHIFT V10</title>
 <style>
 :root{
   --bg:#05070d; --bg2:#09101b; --panel:#101726; --panel2:#171f30;
@@ -157,6 +157,11 @@ canvas{display:block}
 .unlockList{display:flex;gap:7px;flex-wrap:wrap}.unlockPill{font-size:8px;letter-spacing:.08em;padding:7px 9px;border:1px solid rgba(117,233,255,.16);border-radius:999px;color:#8fa0b7}.unlockPill.on{color:#75e9ff;border-color:rgba(117,233,255,.42);background:rgba(117,233,255,.04)}
 #gameoverMeta{margin:12px auto 0;max-width:560px;color:#98a6bc;font-size:11px;line-height:1.6}
 #scrapHud{color:#ffd166}
+
+#energyFill{background:linear-gradient(90deg,#65e9ff,#73a8ff,#a17aff)}
+#energyText{color:#a7dfff}
+#abilityText{font-size:10px;color:#75e9ff;margin-top:4px;font-weight:900;letter-spacing:.06em}
+.classAbility{margin-top:9px;font-size:8px;letter-spacing:.09em;color:#7bdfff;font-weight:900;border-left:2px solid rgba(117,233,255,.45);padding-left:7px}
 @media(max-width:850px){.v9Grid{grid-template-columns:1fr 1fr}.settingsGrid{grid-template-columns:1fr}.historyRow{grid-template-columns:1fr 1fr 1fr}.historyRow span:nth-child(n+4){display:none}}
 @media(max-width:850px){.classes{grid-template-columns:1fr 1fr}.classCard{min-height:340px}.upCards{grid-template-columns:1fr}.upCard{min-height:155px}.classTop{align-items:flex-start;flex-direction:column}}
 </style>
@@ -169,7 +174,7 @@ canvas{display:block}
     <div class="frontTop"><span>RIFTSHIFT // COMBAT OPERATING SYSTEM</span><span class="live">● RIFT LINK STABLE</span></div>
     <div class="frontGrid">
       <div class="commandPane">
-        <div class="brandCode">FIELD TERMINAL / RS-09</div>
+        <div class="brandCode">FIELD TERMINAL / RS-10</div>
         <h1 class="brandMain"><span class="rift">RIFT</span><span class="shift">SHIFT</span></h1>
         <div class="brandSlash"></div>
         <p class="commandCopy">Pick an operative class. Enter a new procedural combat site every run. Build a focused upgrade stack, use elevation and cover, and survive until the rift overwhelms you.</p>
@@ -185,7 +190,7 @@ canvas{display:block}
           </button>
         </div>
         <div id="metaButtons"><button id="archiveBtn" class="metaButton" type="button">RUN ARCHIVE</button><button id="settingsBtn" class="metaButton" type="button">SETTINGS</button><button id="progressBtn" class="metaButton locked" type="button">RIFT CORES // 0</button></div>
-        <div class="controlStrip"><span>WASD MOVE</span><span>MOUSE FIRE</span><span>SPACE DASH</span><span>E OVERDRIVE</span><span>ESC PAUSE</span></div><div class="updatePanel"><button id="updateBtn" class="updateButton" type="button">CHECK FOR UPDATES</button><div id="updateStatus">DESKTOP UPDATE LINK // INITIALIZING</div></div>
+        <div class="controlStrip"><span>WASD MOVE</span><span>MOUSE FIRE</span><span>SPACE DASH</span><span>E OVERDRIVE</span><span>Q ABILITY</span><span>ESC PAUSE</span></div><div class="updatePanel"><button id="updateBtn" class="updateButton" type="button">CHECK FOR UPDATES</button><div id="updateStatus">DESKTOP UPDATE LINK // INITIALIZING</div></div>
       </div>
       <div class="visualPane">
         <div class="riftMachine" aria-hidden="true">
@@ -194,7 +199,7 @@ canvas{display:block}
         <div class="telemetry">
           <div><b>4</b><span>CLASS CORES</span></div>
           <div><b>∞</b><span>RUN SEEDS</span></div>
-          <div><b>V9</b><span>BUILD</span></div>
+          <div><b>V10</b><span>BUILD</span></div>
         </div>
         <div id="menuTrack">SOUNDTRACK // NULL VECTOR</div>
       </div>
@@ -238,8 +243,9 @@ canvas{display:block}
     <div class="meterTitle"><span>HEALTH</span><span id="hpText">100/100</span></div><div class="bar"><div id="hpFill" class="fill"></div></div>
     <div class="meterTitle"><span>LEVEL <span id="level">1</span></span><span id="xpText">0/50</span></div><div class="bar"><div id="xpFill" class="fill"></div></div>
     <div class="meterTitle"><span>OVERDRIVE</span><span id="overPct">0%</span></div><div class="bar"><div id="overFill" class="fill"></div></div>
+    <div class="meterTitle"><span>ENERGY</span><span id="energyText">100/100</span></div><div class="bar"><div id="energyFill" class="fill"></div></div>
   </div>
-  <div id="bottomRight"><div id="weaponName">WEAPON</div><div id="dashText">DASH READY</div><div id="overText">E • OVERDRIVE</div><div id="trackName">♪ KINETIC BREACH</div></div>
+  <div id="bottomRight"><div id="weaponName">WEAPON</div><div id="dashText">DASH READY</div><div id="overText">E • OVERDRIVE</div><div id="abilityText">Q • CLASS ABILITY</div><div id="trackName">♪ KINETIC BREACH</div></div>
   <div id="message"></div><div id="toast"></div>
 </section>
 
@@ -390,6 +396,13 @@ const ARMORY_ITEMS=[
 ];
 const ELITE_DEFS={armored:{name:"ARMORED",color:"#b8c1d0"},volatile:{name:"VOLATILE",color:"#ff875f"},phase:{name:"PHASE",color:"#b083ff"},vampiric:{name:"VAMPIRIC",color:"#ff657e"},overclocked:{name:"OVERCLOCKED",color:"#72efff"},commander:{name:"COMMANDER",color:"#ffd166"}};
 const BOSS_DEFS=[{id:"warden",name:"RIFT WARDEN",color:"#ff5d9b",hp:1,speed:62},{id:"devourer",name:"VOID DEVOURER",color:"#ff795d",hp:1.15,speed:78},{id:"artillery",name:"NULL ARTILLERY",color:"#9c7cff",hp:1.08,speed:42},{id:"specter",name:"PHASE SPECTER",color:"#70e6ff",hp:.95,speed:70}];
+const CLASS_ABILITIES={
+ survivor:{name:"EMERGENCY STIM",cost:45,desc:"Heal 30 HP and gain a 5s movement/fire-rate surge."},
+ rifleman:{name:"FOCUS LOCK",cost:55,desc:"For 5s gain +35% crit chance and every 3rd shot becomes a rail round."},
+ soldier:{name:"AEGIS FIELD",cost:60,desc:"Gain 35% temporary damage resistance for 6 seconds."},
+ explosive:{name:"SATURATION STRIKE",cost:70,desc:"Call a spread of explosive strikes around your cursor."}
+};
+
 const SETTINGS_DEFAULT={music:1,sfx:1,shake:1,fpsCap:0,damageNumbers:true,hitmarker:true,flashes:true,fullscreen:true};
 const PROFILE_DEFAULT={cores:0,totalRuns:0,totalBosses:0,bestWave:0,bestScore:0,totalKills:0,evolutions:[],achievements:[],history:[]};
 function upgradeLevel(id){return G?.upgradeLevels?.[id]||0}
@@ -484,7 +497,7 @@ class AudioSystem{
         this.compressor=this.ctx.createDynamicsCompressor();this.compressor.threshold.value=-12;this.compressor.knee.value=16;this.compressor.ratio.value=5;this.compressor.attack.value=.004;this.compressor.release.value=.18;
         this.master.connect(this.compressor);this.compressor.connect(this.ctx.destination);
         this.sfxGain=this.ctx.createGain();this.sfxGain.gain.value=.76;this.sfxGain.connect(this.master);
-        this.musicGain=this.ctx.createGain();this.musicGain.gain.value=.72;this.musicGain.connect(this.master);
+        this.musicGain=this.ctx.createGain();this.musicGain.gain.value=.78;this.musicGain.connect(this.master);
 
         // Short synthetic room impulse gives explosions and weapon tails actual space.
         this.reverb=this.ctx.createConvolver();
@@ -625,6 +638,13 @@ class AudioSystem{
     setTimeout(()=>this.noise(.42+.18*scale,.026+.012*scale,620/Math.sqrt(scale),p,"bandpass",null,.82),38);
     if(scale>1.35)setTimeout(()=>this.tone(42,.38,"sine",.045*scale,24,p,null,.3),22);
   }
+  ability(cls){
+    this.start();
+    if(cls==="survivor"){this.tone(330,.14,"triangle",.065,720,0,null,.12);setTimeout(()=>this.tone(620,.18,"sine",.04,920),70);}
+    else if(cls==="rifleman"){this.tone(820,.08,"sine",.06,1240,0,null,.18);setTimeout(()=>this.tone(410,.22,"triangle",.035,205),65);}
+    else if(cls==="soldier"){this.tone(95,.32,"triangle",.08,54,0,null,.32);this.noise(.16,.04,680,0,"bandpass",null,.25);}
+    else{this.tone(72,.28,"sawtooth",.095,32,0,null,.35);this.noise(.22,.075,360,0,"lowpass",null,.4);}
+  }
   dash(){this.noise(.1,.046,820);this.tone(120,.11,"sawtooth",.032,55)}
   hurt(){this.tone(130,.16,"sawtooth",.065,52)}
   pickup(x){this.tone(470,.06,"triangle",.035,720,this.pan(x))}
@@ -654,7 +674,7 @@ let settings=safeReadJSON("riftshift_settings_v9",SETTINGS_DEFAULT);
 let profile=safeReadJSON("riftshift_profile_v9",PROFILE_DEFAULT);
 profile.history=Array.isArray(profile.history)?profile.history:[];profile.evolutions=Array.isArray(profile.evolutions)?profile.evolutions:[];profile.achievements=Array.isArray(profile.achievements)?profile.achievements:[];
 function saveSettings(){safeWriteJSON("riftshift_settings_v9",settings)}function saveProfile(){safeWriteJSON("riftshift_profile_v9",profile)}
-function applyAudioSettings(){try{if(sfx.musicGain)sfx.musicGain.gain.value=.52*settings.music;if(sfx.sfxGain)sfx.sfxGain.gain.value=.72*settings.sfx}catch(e){}}
+function applyAudioSettings(){try{if(sfx.musicGain)sfx.musicGain.gain.value=.78*settings.music;if(sfx.sfxGain)sfx.sfxGain.gain.value=.72*settings.sfx}catch(e){}}
 function profileUnlocks(){return{overrun:profile.cores>=3,alt:profile.cores>=5,chroma:profile.cores>=8}}
 function unlockAchievement(id,label){if(profile.achievements.includes(id))return;profile.achievements.push(id);saveProfile();toast("ACHIEVEMENT // "+label)}
 function refreshMetaUI(){
@@ -732,6 +752,7 @@ function renderClasses(){
       <div class="className">${c.name}</div>
       <div class="classRole">${c.role}</div>
       <div class="classDesc">${c.desc}</div>
+      <div class="classAbility">Q • ${CLASS_ABILITIES[id].name} // ${CLASS_ABILITIES[id].cost} ENERGY</div>
       <div class="classStats">${c.stats.map(v=>`<span>${v}</span>`).join("")}</div>
       <div class="classWeapon">${c.weapon}</div>
     </div>`).join("");
@@ -1013,13 +1034,13 @@ function newGame(){
     player:{
       x:W/2,y:H/2+95,r:14,floor:0,elevation:0,platformId:null,stepClock:0,hp:base.hp,maxHp:base.maxHp,speed:base.speed,fireCd:0,fireRate:base.fireRate,damage:base.damage,shots:1,
       pierce:0,crit:base.crit||.08,dashCd:0,dashMax:base.dashMax,dashTime:0,invuln:0,regen:base.regen||0,magnet:90,lifesteal:0,
-      over:0,overActive:0,overMult:base.overMult||1,armor:base.armor||0,projectileSpeed:base.projectileSpeed||680,explosionRadius:base.explosionRadius||0,
+      over:0,overActive:0,overMult:base.overMult||1,energy:100,maxEnergy:100,energyRegen:6,abilityCd:0,stimTime:0,focusAbilityTime:0,abilityAegisTime:0,armor:base.armor||0,projectileSpeed:base.projectileSpeed||680,explosionRadius:base.explosionRadius||0,
       secondWind:false,dashHeal:0,adrenaline:false,twinTap:false,shotCounter:0,focus:false,focusStack:0,focusTimer:0,suppress:false,burstMod:false,burstCounter:0,
       dashDistance:1,extraDashInvuln:0,cluster:false,chain:0,explosionSlow:false,bounce:0,luckyDodge:0,waveHeal:0,scroungeChance:0,scroungeHeal:0,xpHeal:0,resolveBonus:0,
       dashArmorTime:0,dashArmorStrength:0,dashCritTime:0,dashCritBonus:0,executeBonus:0,railEvery:0,railDamage:1,markPower:0,grenadeEvery:0,aegisTime:0,aegisStrength:0,
       rallyHeal:0,shockKill:0,overDamage:0,stability:0,shrapnel:0,aftershock:0,proximity:0,implosion:0,doubleBlast:0,clusterCount:0
     },
-    bullets:[],enemyBullets:[],enemies:[],particles:[],orbs:[],texts:[],blasts:[],delayedBlasts:[],drones:0,droneCd:0,upgradeLevels:{},scrap:0,rerolls:1,bossKills:0,objective:null,evolution:null,evolutionOffered:false,weaponName:def.weapon,armoryStock:[],armoryPurchased:new Set(),
+    bullets:[],enemyBullets:[],enemies:[],particles:[],orbs:[],texts:[],blasts:[],delayedBlasts:[],drones:0,droneCd:0,upgradeLevels:{},maxedUpgradeIds:new Set(),scrap:0,rerolls:1,bossKills:0,objective:null,evolution:null,evolutionOffered:false,weaponName:def.weapon,armoryStock:[],armoryPurchased:new Set(),
     wave:1,spawnTimer:.65,spawned:0,waveTarget:pendingChallenge?22:(pendingChaos?18:12),kills:0,score:0,combo:0,comboTimer:0,
     level:1,xp:0,xpNeed:50,boss:null,nextWaveDelay:0,map:null
   };
@@ -1051,6 +1072,34 @@ function handleKey(code){
   if(!G.running||G.paused||G.choosing)return;
   if(code==="Space")dash();
   if(code==="KeyE")activateOverdrive();
+  if(code==="KeyQ")activateClassAbility();
+}
+
+function activateClassAbility(){
+  const p=G.player,def=CLASS_ABILITIES[G.classId];
+  if(!def||p.abilityCd>0)return;
+  if(p.energy<def.cost){toast(`NEED ${def.cost} ENERGY`);return;}
+  p.energy-=def.cost;p.abilityCd=.75;sfx.ability(G.classId);
+
+  if(G.classId==="survivor"){
+    p.hp=clamp(p.hp+30,0,p.maxHp);p.stimTime=5;p.invuln=Math.max(p.invuln,.28);
+    for(let i=0;i<22;i++)particle(p.x,p.y,rand(-110,110),rand(-110,110),rand(2,5),"#65e49a",.5);
+  }else if(G.classId==="rifleman"){
+    p.focusAbilityTime=5;
+    for(let i=0;i<18;i++){const a=i/18*TAU;particle(p.x,p.y,Math.cos(a)*120,Math.sin(a)*120,2,"#75e9ff",.45);}
+  }else if(G.classId==="soldier"){
+    p.abilityAegisTime=6;p.invuln=Math.max(p.invuln,.22);
+    for(let i=0;i<24;i++){const a=i/24*TAU;particle(p.x,p.y,Math.cos(a)*100,Math.sin(a)*100,2.5,"#8f91ff",.55);}
+  }else{
+    const tx=clamp(mouse.x,55,W-55),ty=clamp(mouse.y,55,H-55),count=7;
+    for(let i=0;i<count;i++){
+      const a=i/count*TAU+rand(-.16,.16),rr=i===0?0:rand(38,105);
+      G.delayedBlasts.push({t:.08+i*.07,x:tx+Math.cos(a)*rr,y:ty+Math.sin(a)*rr,radius:Math.max(56,p.explosionRadius*.72),damage:p.damage*.72,floor:p.floor});
+    }
+    G.shake=Math.max(G.shake,3.2);
+  }
+  msg(`${def.name} // ${Math.round(p.energy)} ENERGY`,1);
+  updateHUD();
 }
 function dash(){
   const p=G.player;if(p.dashCd>0)return;
@@ -1069,10 +1118,11 @@ function activateOverdrive(){
 }
 function playerShoot(){
   const p=G.player;if(p.fireCd>0)return;
-  const low=p.hp/p.maxHp<.4&&p.adrenaline,over=p.overActive>0,lastStand=p.lastStandLegend&&p.hp/p.maxHp<.25,fireMul=(low?.78:1)*(over?.52:1)*(lastStand?.62:1);
+  const low=p.hp/p.maxHp<.4&&p.adrenaline,over=p.overActive>0,lastStand=p.lastStandLegend&&p.hp/p.maxHp<.25,fireMul=(low?.78:1)*(over?.52:1)*(lastStand?.62:1)*(p.stimTime>0?.82:1);
   p.fireCd=p.fireRate*fireMul;p.shotCounter++;p.burstCounter++;
   let shots=p.baseShots||1;
-  const railShot=G.classId==="rifleman"&&p.railEvery&&p.shotCounter%p.railEvery===0;
+  const abilityRail=G.classId==="rifleman"&&p.focusAbilityTime>0&&p.shotCounter%3===0;
+  const railShot=G.classId==="rifleman"&&((p.railEvery&&p.shotCounter%p.railEvery===0)||abilityRail);
   const soldierGrenade=G.classId==="soldier"&&p.grenadeEvery&&p.shotCounter%p.grenadeEvery===0;
   if(G.classId==="rifleman"&&p.twinTap&&p.shotCounter%(p.twinEvery||5)===0)shots++;
   if(G.classId==="soldier"&&p.burstMod&&p.burstCounter%(p.burstEvery||4)===0)shots=3;
@@ -1082,9 +1132,9 @@ function playerShoot(){
     G.bullets.push({
       x:p.x+Math.cos(a)*18,y:p.y+Math.sin(a)*18,vx:Math.cos(a)*p.projectileSpeed,vy:Math.sin(a)*p.projectileSpeed,
       r:(G.classId==="explosive"?7:4)*(p.projectileSize||1),life:G.classId==="explosive"?1.5:1.35,
-      damage:p.damage*(over?1.22:1)*(low?1.12:1)*(low&&p.resolveBonus?1+p.resolveBonus:1)*(over&&p.overDamage?1+p.overDamage:1)*(railShot?p.railDamage:1),
+      damage:p.damage*(over?1.22:1)*(low?1.12:1)*(low&&p.resolveBonus?1+p.resolveBonus:1)*(over&&p.overDamage?1+p.overDamage:1)*(railShot?Math.max(p.railDamage||1,abilityRail?1.65:1):1),
       pierce:p.pierce+(railShot?6:0),bounce:G.classId==="explosive"?0:(p.bounce||0),rail:railShot,
-      crit:G.classId==="explosive"?false:Math.random()<clamp(p.crit+(p.dashCritTime>0?p.dashCritBonus:0),0,.95),explosive:G.classId==="explosive",radius:p.explosionRadius,floor:p.floor,proximity:p.proximity||0
+      crit:G.classId==="explosive"?false:Math.random()<clamp(p.crit+(p.dashCritTime>0?p.dashCritBonus:0)+(p.focusAbilityTime>0?.35:0),0,.95),explosive:G.classId==="explosive",radius:p.explosionRadius,floor:p.floor,proximity:p.proximity||0
     });
   }
   if(soldierGrenade){
@@ -1176,7 +1226,7 @@ function shootEnemy(e,a,speed,damage){
 function hurtPlayer(raw){
   const p=G.player;if(p.invuln>0)return;
   if(p.luckyDodge&&Math.random()<p.luckyDodge){p.invuln=.22;floatText(p.x,p.y-24,"DODGE","#9fffc0",13);sfx.dash();return;}
-  const tempArmor=(p.postDashArmor>0?p.dashArmorStrength:0)+(p.aegisTime>0?p.aegisStrength:0)+(p.legendBastion&&p.overActive>0?.3:0);
+  const tempArmor=(p.postDashArmor>0?p.dashArmorStrength:0)+(p.aegisTime>0?p.aegisStrength:0)+(p.abilityAegisTime>0?.35:0)+(p.legendBastion&&p.overActive>0?.3:0);
   const dmg=raw*(1-clamp(p.armor+tempArmor,0,.78));p.hp-=dmg;p.invuln=.45;p.lastHit=G.time;G.shake=13;sfx.hurt();
   if(p.hp<=0&&p.secondWind){p.secondWind=false;p.hp=35;p.invuln=2;msg("SECOND WIND",1.3);G.flash=.3;return;}
   for(let i=0;i<14;i++)particle(p.x,p.y,rand(-140,140),rand(-140,140),rand(2,5),"#ff6c76",.45);
@@ -1185,7 +1235,7 @@ function hurtPlayer(raw){
 function enemyExplosion(x,y,radius,damage,floor){G.blasts.push({x,y,radius,life:.35,max:.35,floor,color:"#ff705a"});sfx.explosion(x,radius);if((G.player.floor??0)===(floor??0)&&Math.hypot(G.player.x-x,G.player.y-y)<radius+G.player.r)hurtPlayer(damage)}
 function killEnemy(e,index){
   G.enemies.splice(index,1);G.kills++;G.combo++;G.comboTimer=2.5;const mult=1+Math.min(G.combo,20)*.045,pts=Math.round(e.score*mult*(G.scoreMultiplier||1));G.score+=pts;
-  const scrapBase=e.type==="boss"?65:e.eliteKind?10:e.type==="brute"?5:2;G.scrap+=Math.round(scrapBase*(G.scrapMultiplier||1));G.player.over=clamp(G.player.over+8*G.player.overMult,0,100);
+  const scrapBase=e.type==="boss"?65:e.eliteKind?10:e.type==="brute"?5:2;G.scrap+=Math.round(scrapBase*(G.scrapMultiplier||1));G.player.over=clamp(G.player.over+8*G.player.overMult,0,100);G.player.energy=clamp(G.player.energy+(e.type==="boss"?35:e.eliteKind?16:9),0,G.player.maxEnergy);
   if(G.player.lifesteal>0)G.player.hp=clamp(G.player.hp+G.player.lifesteal,0,G.player.maxHp);if(G.player.lastStandLegend&&G.player.hp/G.player.maxHp<.25)G.player.hp=clamp(G.player.hp+5,0,G.player.maxHp);
   if(G.player.scroungeChance&&Math.random()<G.player.scroungeChance)G.player.hp=clamp(G.player.hp+(G.player.scroungeHeal||5),0,G.player.maxHp);
   if(G.player.shockKill){for(let j=G.enemies.length-1;j>=0;j--){const q=G.enemies[j];if((q.floor??0)===(e.floor??0)&&dist(e,q)<92){q.hp=Math.max(1,q.hp-G.player.damage*G.player.shockKill);q.hit=.08}}}
@@ -1255,32 +1305,83 @@ function allUpgradeDefs(){
 function upgradeDef(id){
   return allUpgradeDefs().find(u=>u.id===id)||null;
 }
+function upgradeCap(u){
+  if(!u)return Infinity;
+  const max=Number(u.max);
+  return Number.isFinite(max)?Math.max(0,Math.floor(max)):Infinity;
+}
+function syncMaxedUpgradeIds(){
+  if(!G)return;
+  if(!(G.maxedUpgradeIds instanceof Set))G.maxedUpgradeIds=new Set();
+  for(const u of allUpgradeDefs()){
+    if(u&&u.id!=="fallback"&&upgradeLevel(u.id)>=upgradeCap(u))G.maxedUpgradeIds.add(u.id);
+  }
+}
 function isUpgradeMaxed(u){
   if(!u||u.id==="fallback")return false;
-  const max=Number.isFinite(Number(u.max))?Number(u.max):Infinity;
-  return upgradeLevel(u.id)>=max;
+  if(G?.maxedUpgradeIds?.has(u.id))return true;
+  const maxed=upgradeLevel(u.id)>=upgradeCap(u);
+  if(maxed&&G?.maxedUpgradeIds)G.maxedUpgradeIds.add(u.id);
+  return maxed;
 }
 function availableUpgrades(list){
-  // This is intentionally checked fresh on every level-up.
-  // Maxed upgrades can never re-enter the roll through another pool.
-  const seen=new Set();
-  return list.filter(u=>{
-    if(!u||seen.has(u.id)||isUpgradeMaxed(u))return false;
-    seen.add(u.id);return true;
-  });
+  syncMaxedUpgradeIds();
+  const seen=new Set(),out=[];
+  for(const u of list||[]){
+    if(!u||seen.has(u.id)||isUpgradeMaxed(u))continue;
+    seen.add(u.id);out.push(u);
+  }
+  return out;
 }
 function rollUpgradeRarity(){const r=Math.random()*100;if(G.wave>=4&&r<(G.challenge?4:2))return"legendary";if(r<12)return"epic";if(r<39)return"rare";return"common"}
 function rarityBonusText(r){return r==="rare"?"RARE BONUS // +4% weapon damage":r==="epic"?"EPIC BONUS // +7% damage and +3% movement speed":""}
 function applyRarityBonus(r){if(r==="rare")G.player.damage*=1.04;if(r==="epic"){G.player.damage*=1.07;G.player.speed*=1.03}}
 function chooseUpgrade(){
-  G.choosing=true;sfx.level();showOnly("upgrade");
-  const classPool=availableUpgrades(CLASS_UPGRADES[G.classId]||[]),commonPool=availableUpgrades(COMMON_UPGRADES),combined=availableUpgrades([...classPool,...commonPool]),legends=availableUpgrades(LEGENDARY_UPGRADES[G.classId]||[]);
-  let picks=[];const take=(pool,n)=>{const arr=shuffle(availableUpgrades(pool)).filter(u=>!picks.some(p=>p.u.id===u.id));for(const u of arr.slice(0,n))picks.push({u,rarity:rollUpgradeRarity()})};
-  take(classPool,3);take(commonPool,1);if(picks.length<4)take(combined,4-picks.length);
-  if(legends.length&&G.wave>=4&&Math.random()<(G.challenge?.14:.08)){const u=shuffle([...legends])[0];if(picks.length)picks[Math.floor(Math.random()*picks.length)]={u,rarity:"legendary"}}
+  G.choosing=true;syncMaxedUpgradeIds();sfx.level();showOnly("upgrade");
+  const classPool=availableUpgrades(CLASS_UPGRADES[G.classId]||[]);
+  const commonPool=availableUpgrades(COMMON_UPGRADES);
+  const legends=availableUpgrades(LEGENDARY_UPGRADES[G.classId]||[]);
+  const allPool=availableUpgrades([...classPool,...commonPool,...legends]);
+  let picks=[];
+
+  for(const u of shuffle([...classPool])){
+    if(picks.length>=3)break;
+    if(!isUpgradeMaxed(u)&&!picks.some(p=>p.u.id===u.id))picks.push({u,rarity:rollUpgradeRarity()});
+  }
+  for(const u of shuffle([...commonPool])){
+    if(picks.length>=4)break;
+    if(!isUpgradeMaxed(u)&&!picks.some(p=>p.u.id===u.id))picks.push({u,rarity:rollUpgradeRarity()});
+  }
+  if(picks.length<4){
+    for(const u of shuffle([...allPool])){
+      if(picks.length>=4)break;
+      if(!isUpgradeMaxed(u)&&!picks.some(p=>p.u.id===u.id))picks.push({u,rarity:u.id.startsWith("legend_")?"legendary":rollUpgradeRarity()});
+    }
+  }
+
+  if(legends.length&&G.wave>=4&&Math.random()<(G.challenge?.14:.08)&&picks.length){
+    const candidates=shuffle([...legends]).filter(u=>!isUpgradeMaxed(u)&&!picks.some(p=>p.u.id===u.id));
+    if(candidates.length)picks[Math.floor(Math.random()*picks.length)]={u:candidates[0],rarity:"legendary"};
+  }
+
+  // Final hard filter + refill. Maxed IDs cannot be rendered.
+  picks=picks.filter((p,i,a)=>p?.u&&!isUpgradeMaxed(p.u)&&a.findIndex(q=>q.u.id===p.u.id)===i);
+  if(picks.length<4){
+    for(const u of shuffle([...availableUpgrades(allPool)])){
+      if(picks.length>=4)break;
+      if(!picks.some(p=>p.u.id===u.id))picks.push({u,rarity:u.id.startsWith("legend_")?"legendary":rollUpgradeRarity()});
+    }
+  }
   if(!picks.length)picks=[{u:{id:"fallback",icon:"★",name:"CORE OVERCLOCK",tag:"MAX BUILD",max:999},rarity:"epic"}];
-  $("upCards").innerHTML=picks.map(({u,rarity})=>{if(u.id!=="fallback"&&isUpgradeMaxed(u))return"";const next=upgradeLevel(u.id)+1,isLegend=rarity==="legendary"&&u.id.startsWith("legend_"),isClass=u.tag===CLASS_DEFS[G.classId].name.toUpperCase();const desc=u.id==="fallback"?"Your build is fully maxed. Gain +12% damage, +8% speed, and restore 25 HP.":isLegend?u.desc:upgradeDescription(u.id,next),bonus=isLegend?"":rarityBonusText(rarity);return `<div class="upCard ${isClass?"classPick":""} rarity-${rarity}" data-id="${u.id}" data-rarity="${rarity}"><div class="upTier">${isLegend?"ONE OF ONE":u.id==="fallback"?"BONUS":`TIER ${next}/${u.max}`}</div><div class="upIcon">${u.icon}</div><div class="upName">${u.name}</div><div class="upDesc">${desc}${bonus?`<br><br><b>${bonus}</b>`:""}</div><div class="upTag">${u.tag}</div><div class="rarityLabel">${RARITIES[rarity].name}</div></div>`}).join("");
-  document.querySelectorAll(".upCard").forEach(c=>c.addEventListener("click",()=>applyUpgrade(c.dataset.id,c.dataset.rarity||"common")));$("rerollUpgradeBtn").textContent=`REROLL // ${G.rerolls}`;$("rerollUpgradeBtn").disabled=G.rerolls<=0;
+
+  $("upCards").innerHTML=picks.map(({u,rarity})=>{
+    if(u.id!=="fallback"&&isUpgradeMaxed(u))return"";
+    const next=upgradeLevel(u.id)+1,isLegend=rarity==="legendary"&&u.id.startsWith("legend_"),isClass=u.tag===CLASS_DEFS[G.classId].name.toUpperCase();
+    const desc=u.id==="fallback"?"Your build is fully maxed. Gain +12% damage, +8% speed, and restore 25 HP.":isLegend?u.desc:upgradeDescription(u.id,next),bonus=isLegend?"":rarityBonusText(rarity);
+    return `<div class="upCard ${isClass?"classPick":""} rarity-${rarity}" data-id="${u.id}" data-rarity="${rarity}"><div class="upTier">${isLegend?"ONE OF ONE":u.id==="fallback"?"BONUS":`TIER ${next}/${u.max}`}</div><div class="upIcon">${u.icon}</div><div class="upName">${u.name}</div><div class="upDesc">${desc}${bonus?`<br><br><b>${bonus}</b>`:""}</div><div class="upTag">${u.tag}</div><div class="rarityLabel">${RARITIES[rarity].name}</div></div>`;
+  }).join("");
+  document.querySelectorAll(".upCard").forEach(c=>c.addEventListener("click",()=>applyUpgrade(c.dataset.id,c.dataset.rarity||"common")));
+  $("rerollUpgradeBtn").textContent=`REROLL // ${G.rerolls}`;$("rerollUpgradeBtn").disabled=G.rerolls<=0;
 }
 function shuffle(a){for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a}
 function applyUpgrade(id,rarity="common"){
@@ -1291,7 +1392,8 @@ function applyUpgrade(id,rarity="common"){
       // Stale card or double click: reroll instead of granting a tier above max.
       chooseUpgrade();return;
     }
-    G.upgradeLevels[id]=Math.min(Number(def.max)||999,(G.upgradeLevels[id]||0)+1);
+    G.upgradeLevels[id]=Math.min(upgradeCap(def),(G.upgradeLevels[id]||0)+1);
+    if(G.upgradeLevels[id]>=upgradeCap(def))G.maxedUpgradeIds.add(id);
   }
   const tier=upgradeLevel(id);
   if(id==="fallback"){p.damage*=1.12;p.speed*=1.08;p.hp=clamp(p.hp+25,0,p.maxHp);}
@@ -1395,6 +1497,8 @@ function update(dt){
   const p=G.player;
   G.time+=dt;G.shake=Math.max(0,G.shake-dt*24);G.flash=Math.max(0,G.flash-dt);G.hitmarker=Math.max(0,(G.hitmarker||0)-dt);
   p.fireCd-=dt;p.dashCd=Math.max(0,p.dashCd-dt);p.invuln=Math.max(0,p.invuln-dt);p.postDashArmor=Math.max(0,(p.postDashArmor||0)-dt);p.dashCritTime=Math.max(0,(p.dashCritTime||0)-dt);p.aegisTime=Math.max(0,(p.aegisTime||0)-dt);
+  p.abilityCd=Math.max(0,(p.abilityCd||0)-dt);p.stimTime=Math.max(0,(p.stimTime||0)-dt);p.focusAbilityTime=Math.max(0,(p.focusAbilityTime||0)-dt);p.abilityAegisTime=Math.max(0,(p.abilityAegisTime||0)-dt);
+  p.energy=clamp(p.energy+(p.energyRegen||0)*dt,0,p.maxEnergy);
   const wasOver=p.overActive>0;p.overActive=Math.max(0,p.overActive-dt);
   if(wasOver&&p.overActive<=0)sfx.setMusic(G.boss?"boss":G.wave>=7?"danger":"combat");
 
@@ -1417,7 +1521,7 @@ function update(dt){
   }else{
     let dx=(keys.KeyD?1:0)-(keys.KeyA?1:0),dy=(keys.KeyS?1:0)-(keys.KeyW?1:0),l=Math.hypot(dx,dy)||1;
     const moving=dx!==0||dy!==0;
-    const spd=p.speed*(p.hp/p.maxHp<.4&&p.adrenaline?1.18:1)*(p.overActive>0?1.16:1);
+    const spd=p.speed*(p.hp/p.maxHp<.4&&p.adrenaline?1.18:1)*(p.overActive>0?1.16:1)*(p.stimTime>0?1.20:1);
     moveEntity(p,dx/l*spd*dt,dy/l*spd*dt);
     if(moving){
       p.stepClock-=dt;
@@ -1456,7 +1560,7 @@ function update(dt){
         if(G.classId==="rifleman"&&p.focus){p.focusStack=clamp(p.focusStack+.04,0,p.focusMax||.35);p.focusTimer=1;dmg*=1+p.focusStack;}
         if(b.crit&&p.markPower){e.vulnTime=2.2;e.vulnPower=Math.max(e.vulnPower||0,p.markPower);}
         if(b.crit&&p.critChain){const other=G.enemies.filter(q=>q!==e&&(q.floor??0)===(e.floor??0)&&dist(q,e)<230).sort((a,b)=>dist(a,e)-dist(b,e))[0];if(other){other.hp-=dmg*.55;other.hit=.08;floatText(other.x,other.y-other.r,Math.round(dmg*.55),"#75e9ff",12)}}
-        e.hp-=dmg;e.hit=.09;G.hitmarker=.11;if(p.suppress)e.slow=Math.max(e.slow,p.suppressDuration||.55);G.shake=Math.max(G.shake,b.crit?5:2);sfx.hit(e.x);
+        e.hp-=dmg;e.hit=.09;G.hitmarker=.11;p.energy=clamp(p.energy+1.15,0,p.maxEnergy);if(p.suppress)e.slow=Math.max(e.slow,p.suppressDuration||.55);G.shake=Math.max(G.shake,b.crit?5:2);sfx.hit(e.x);
         floatText(e.x,e.y-Math.max(16,e.r),Math.round(dmg),b.crit?"#ffd166":"#dfeaff",b.crit?18:13);
         for(let k=0;k<4;k++)particle(b.x,b.y,rand(-100,100),rand(-100,100),rand(2,4),e.color,.25);
         if(e.hp<=0)killEnemy(e,j);
@@ -1582,7 +1686,9 @@ function updateHUD(){
   $("hpText").textContent=`${Math.ceil(p.hp)}/${Math.ceil(p.maxHp)}`;$("hpFill").style.width=clamp(p.hp/p.maxHp*100,0,100)+"%";
   $("xpText").textContent=`${Math.floor(G.xp)}/${G.xpNeed}`;$("xpFill").style.width=clamp(G.xp/G.xpNeed*100,0,100)+"%";
   $("overPct").textContent=Math.floor(p.over)+"%";$("overFill").style.width=p.over+"%";
+  $("energyText").textContent=`${Math.floor(p.energy)}/${p.maxEnergy}`;$("energyFill").style.width=clamp(p.energy/p.maxEnergy*100,0,100)+"%";
   $("overText").textContent=p.over>=100?"E • OVERDRIVE READY":"E • OVERDRIVE";
+  const ab=CLASS_ABILITIES[G.classId];$("abilityText").textContent=`Q • ${ab.name} // ${ab.cost} ENERGY`;
   $("dashText").textContent=p.dashCd<=0?"DASH READY":`DASH ${p.dashCd.toFixed(1)}s`;
   $("weaponName").textContent=(G.weaponName||def.weapon)+(G.evolution?" // EVOLVED":"");
   if(G.boss)$("bossFill").style.width=clamp(G.boss.hp/G.boss.maxHp*100,0,100)+"%";
@@ -1684,13 +1790,42 @@ function drawBullet(b){
     X.strokeStyle=b.crit?"rgba(255,209,102,.4)":"rgba(117,233,255,.28)";X.lineWidth=2;X.beginPath();X.moveTo(b.x,b.y);X.lineTo(b.x-b.vx*.016,b.y-b.vy*.016);X.stroke();
   }
 }
+
+function drawBossForm(e,hit,t){
+  const phase=e.bossPhase||1,c=e.color||"#ff5d9b";
+  X.save();
+  if(e.bossKind==="warden"){
+    X.rotate(t*.22);X.strokeStyle=c;X.globalAlpha=.22+.06*phase;X.lineWidth=3+phase;
+    for(let i=0;i<2+phase;i++){X.beginPath();X.arc(0,0,e.r+10+i*9,0,TAU);X.stroke();}
+    X.globalAlpha=1;X.fillStyle=hit?"#fff":"#bd3d72";X.beginPath();
+    for(let i=0;i<16;i++){const a=i/16*TAU,r=i%2?e.r*.68:e.r*(1+.07*(phase-1)),xx=Math.cos(a)*r,yy=Math.sin(a)*r;i?X.lineTo(xx,yy):X.moveTo(xx,yy);}X.closePath();X.fill();
+    X.rotate(-t*.58);X.fillStyle="#25101f";X.rotate(Math.PI/4);X.fillRect(-19,-19,38,38);X.strokeStyle="#ff9ec3";X.lineWidth=3;X.strokeRect(-13,-13,26,26);X.rotate(-Math.PI/4);X.fillStyle="#fff0f6";X.beginPath();X.arc(8,0,5+phase,0,TAU);X.fill();
+  }else if(e.bossKind==="devourer"){
+    const jaw=7+Math.sin(t*4)*3;X.strokeStyle=c;X.lineWidth=7;X.globalAlpha=.38;
+    for(let k=0;k<6+phase;k++){const a=k/(6+phase)*TAU+t*.22;X.beginPath();X.moveTo(Math.cos(a)*e.r*.72,Math.sin(a)*e.r*.72);X.quadraticCurveTo(Math.cos(a+.5)*e.r*1.35,Math.sin(a+.5)*e.r*1.35,Math.cos(a+.8)*e.r*1.12,Math.sin(a+.8)*e.r*1.12);X.stroke();}
+    X.globalAlpha=1;X.fillStyle=hit?"#fff":"#742c28";X.beginPath();X.arc(0,0,e.r,0,TAU);X.fill();X.fillStyle="#15090a";X.beginPath();X.ellipse(8,0,27+jaw,21+jaw*.35,0,0,TAU);X.fill();X.fillStyle="#ffe0c5";
+    for(let i=0;i<10+phase*2;i++){const a=i/(10+phase*2)*TAU,rr=22+jaw*.3;X.beginPath();X.moveTo(8+Math.cos(a)*rr,Math.sin(a)*rr);X.lineTo(8+Math.cos(a-.09)*(rr-10),Math.sin(a-.09)*(rr-10));X.lineTo(8+Math.cos(a+.09)*(rr-10),Math.sin(a+.09)*(rr-10));X.closePath();X.fill();}
+    X.fillStyle="#ff765e";X.beginPath();X.arc(-8,0,7+phase*2,0,TAU);X.fill();
+  }else if(e.bossKind==="artillery"){
+    X.fillStyle=hit?"#fff":"#493a70";roundedRect(-34,-28,60,56,10);X.fill();X.fillStyle="#241d39";roundedRect(-24,-20,40,40,7);X.fill();X.strokeStyle=c;X.lineWidth=3;X.strokeRect(-19,-15,30,30);
+    X.fillStyle="#7761b8";X.fillRect(5,-8,58,16);X.fillStyle="#c4b7ff";X.fillRect(50,-5,20,10);
+    for(const sy of [-1,1]){X.fillStyle="#312942";roundedRect(-28,sy*29-8,39,16,7);X.fill();X.strokeStyle="rgba(202,186,255,.34)";X.strokeRect(-24,sy*29-5,30,10);}
+    X.fillStyle=c;for(let i=0;i<phase;i++){X.beginPath();X.arc(-6,(i-(phase-1)/2)*13,4,0,TAU);X.fill();}
+    if(phase>=2){X.strokeStyle="rgba(159,124,255,.5)";X.lineWidth=3;X.beginPath();X.arc(-4,0,e.r+14+Math.sin(t*3)*3,0,TAU);X.stroke();}
+  }else{
+    X.globalAlpha=.22;X.fillStyle=c;
+    for(let j=3;j>=1;j--){X.save();X.rotate(-t*.18*j);X.translate(-j*7,Math.sin(t*3+j)*4);X.beginPath();X.arc(0,0,e.r-j*4,-1.2,1.2);X.arc(-10,0,e.r*.55,1.1,-1.1,true);X.closePath();X.fill();X.restore();}
+    X.globalAlpha=.86;X.strokeStyle=c;X.lineWidth=4;X.beginPath();X.arc(0,0,e.r,-1.35,1.35);X.stroke();X.fillStyle=hit?"#fff":"#183d52";X.beginPath();X.moveTo(23,0);X.lineTo(-8,-27);X.lineTo(-23,0);X.lineTo(-8,27);X.closePath();X.fill();X.strokeStyle="#a9f6ff";X.lineWidth=2;X.stroke();
+    for(let i=0;i<4+phase;i++){const a=i/(4+phase)*TAU+t*.7,rr=e.r+18+phase*4;X.fillStyle=c;X.globalAlpha=.65;X.save();X.translate(Math.cos(a)*rr,Math.sin(a)*rr);X.rotate(a);X.fillRect(-5,-2,10,4);X.restore();}
+    X.globalAlpha=1;
+  }
+  X.restore();
+}
 function drawEnemy(e){
   const t=G.time,aim=Math.atan2(G.player.y-e.y,G.player.x-e.x),walk=Math.sin(e.anim*7)*.18,hit=e.hit>0;
   X.save();X.translate(e.x,e.y-(e.elevation||0)*8);X.rotate(aim);X.shadowColor=e.color;X.shadowBlur=e.type==="boss"?26:10;
   if(e.type==="boss"){
-    X.rotate(t*.22);X.strokeStyle="rgba(255,93,155,.26)";X.lineWidth=5;for(let i=0;i<3;i++){X.beginPath();X.arc(0,0,e.r+13+i*8,0,TAU);X.stroke();}
-    X.fillStyle=hit?"#fff":"#d7477f";X.beginPath();for(let i=0;i<10;i++){const a=i/10*TAU,r=i%2?e.r*.68:e.r,xx=Math.cos(a)*r,yy=Math.sin(a)*r;i?X.lineTo(xx,yy):X.moveTo(xx,yy);}X.closePath();X.fill();
-    X.rotate(-t*.55);X.fillStyle="#281023";X.fillRect(-18,-18,36,36);X.strokeStyle="#ff9ec3";X.lineWidth=3;X.strokeRect(-13,-13,26,26);X.fillStyle="#fff0f6";X.fillRect(2,-5,11,10);
+    drawBossForm(e,hit,t);
   }else if(e.type==="brute"){
     X.fillStyle=hit?"#fff":"#7b2632";roundedRect(-22,-18,42,36,10);X.fill();X.fillStyle="#b74851";roundedRect(-14,-22,26,44,8);X.fill();X.fillStyle="#251218";X.fillRect(3,-6,12,12);X.fillStyle="#ffb1ad";X.fillRect(8,-3,5,6);
   }else if(e.type==="shooter"){
@@ -1777,9 +1912,13 @@ function tryEnterFullscreen(){
   }catch(err){}
 }
 
-const APP_VERSION="9.0.0";
+const APP_VERSION="10.0.0";
 let pendingDesktopUpdate=null;
 
+function compareVersionStrings(a,b){
+  const A=String(a||"0").replace(/^v/i,"").split(".").map(n=>parseInt(n,10)||0),B=String(b||"0").replace(/^v/i,"").split(".").map(n=>parseInt(n,10)||0);
+  for(let i=0;i<Math.max(A.length,B.length);i++){const x=A[i]||0,y=B[i]||0;if(x!==y)return x>y?1:-1;}return 0;
+}
 function setUpdateStatus(text,kind=""){
   const el=$("updateStatus");if(!el)return;
   el.textContent=text;el.className=kind||"";
@@ -1801,7 +1940,7 @@ async function checkDesktopUpdate(auto=false){
         setUpdateStatus("UPDATE CHECK FAILED"+(result?.message?": "+result.message:""),"error");
       }
       pendingDesktopUpdate=null;
-    }else if(result.available){
+    }else if(result.available&&compareVersionStrings(result.version,APP_VERSION)>0){
       pendingDesktopUpdate=result;
       $("updateBtn").textContent=`INSTALL V${result.version}`;
       $("updateBtn").disabled=false;

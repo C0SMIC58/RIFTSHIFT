@@ -1,6 +1,6 @@
 {
-  "version": "9.0.0",
+  "version": "10.0.0",
   "gameUrl": "https://raw.githubusercontent.com/C0SMIC58/RIFTSHIFT/main/RIFTSHIFT_LATEST.html",
-  "sha256": "7b91c5e82ab1001d4597026dda95a5262995a07679f636a57cfd8015a2814d2d",
-  "notes": "V9 Arsenal Update: Field Armory, 12 weapon evolutions, elite modifiers, randomized objectives, four phased bosses, rarity/Legendary augments, run archive, Rift Core unlocks, alternate arsenals, chroma progression, and settings."
+  "sha256": "e6b1107244f6c905a9d5c3a6ca3acb62c370949f9aba902dfb02ba5ff8a51eb6",
+  "notes": "V10: Energy class abilities, unique boss forms, maxed-upgrade fix, update-loop fix, and 1.5x louder music."
 }
