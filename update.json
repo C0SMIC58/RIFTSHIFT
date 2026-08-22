@@ -1,0 +1,6 @@
+{
+  "version": "8.0.0",
+  "gameUrl": "https://raw.githubusercontent.com/C0SMIC58/RIFTSHIFT/main/RIFTSHIFT_LATEST.html",
+  "sha256": "9fbaa9bf7df4deb8879ba5fdd991fb1330a776f92d67a0aede4c37baaee09550",
+  "notes": "V8: improved enemy navigation, stair avoidance, maxed-upgrade filtering, and desktop auto-updates."
+}
