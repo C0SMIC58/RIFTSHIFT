@@ -1,6 +1,6 @@
 {
-  "version": "18.3.0",
+  "version": "18.4.0",
   "gameUrl": "https://raw.githubusercontent.com/C0SMIC58/RIFTSHIFT/main/RIFTSHIFT_LATEST.html",
-  "sha256": "d7f4ebd10f969773a1473cc777863569755f203053e00bba9e8edfd4a3361300",
-  "notes": "V18.3: faux-3D diamond boot prelude, blackout into RIFTCORE engine splash, aligned final title handoff, richer loading audio, and animated menu background."
+  "sha256": "e4f8472590f9d8c7b3d8ffd337fcfdbb4c1a8bdf15510bfbd324a2b31497eda2",
+  "notes": "V18.4: larger diamond intro, longer startup, improved menu-title handoff alignment, and louder more impactful boot SFX."
 }
