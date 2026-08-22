@@ -207,7 +207,7 @@ canvas{display:block}
     <div class="frontTop"><span>RIFTSHIFT // COMBAT OPERATING SYSTEM</span><span class="live">● RIFT LINK STABLE</span></div>
     <div class="frontGrid">
       <div class="commandPane">
-        <div class="brandCode">FIELD TERMINAL / RS-11</div>
+        <div class="brandCode">FIELD TERMINAL / RS-11.1</div>
         <h1 class="brandMain"><span class="rift">RIFT</span><span class="shift">SHIFT</span></h1>
         <div class="brandSlash"></div>
         <p class="commandCopy">Pick an operative class. Enter a new procedural combat site every run. Build a focused upgrade stack, use elevation and cover, and survive until the rift overwhelms you.</p>
@@ -232,7 +232,7 @@ canvas{display:block}
         <div class="telemetry">
           <div><b>4</b><span>CLASS CORES</span></div>
           <div><b>∞</b><span>RUN SEEDS</span></div>
-          <div><b>V11</b><span>BUILD</span></div>
+          <div><b>V11.1</b><span>BUILD</span></div>
         </div>
         <div id="menuTrack">SOUNDTRACK // NULL VECTOR</div>
       </div>
@@ -1100,7 +1100,7 @@ function newGame(){
     wave:1,spawnTimer:.65,spawned:0,waveTarget:pendingChallenge?22:(pendingChaos?18:12),kills:0,score:0,combo:0,comboTimer:0,
     level:1,xp:0,xpNeed:50,boss:null,nextWaveDelay:0,map:null
   };
-  if(G.classId==="conduit"){G.player.pierce=base.pierce||4;G.player.maxEnergy=base.maxEnergy||160;G.player.energy=G.player.maxEnergy;G.player.energyRegen=base.energyRegen||10;G.player.currentWidth=24;G.player.currentShock=.8;G.player.currentDamageMult=1;G.player.currentChains=0;G.player.railEnergyGain=0;}
+  if(G.classId==="conduit"){G.player.pierce=base.pierce||4;G.player.maxEnergy=base.maxEnergy||160;G.player.energy=G.player.maxEnergy;G.player.energyRegen=base.energyRegen||10;G.player.currentWidth=24;G.player.currentShock=.8;G.player.currentDamageMult=1;G.player.currentChains=0;G.player.railEnergyGain=0;G.player.projectileSize=1.55;}
   if(selectedVariant){
     if(G.classId==="survivor"){G.weaponName="B-3 BURST SMG";G.player.baseShots=3;G.player.damage*=.58;G.player.fireRate*=1.22;}
     if(G.classId==="rifleman"){G.weaponName="VX-D DMR";G.player.damage*=1.72;G.player.fireRate*=1.9;G.player.crit+=.08;G.player.projectileSpeed*=1.12;}
@@ -1133,7 +1133,7 @@ function handleKey(code){
 }
 
 function pointSegmentDistance(px,py,x1,y1,x2,y2){const vx=x2-x1,vy=y2-y1,wx=px-x1,wy=py-y1,l2=vx*vx+vy*vy,t=l2?clamp((wx*vx+wy*vy)/l2,0,1):0,qx=x1+t*vx,qy=y1+t*vy;return Math.hypot(px-qx,py-qy)}
-function fireLineCurrent(){const p=G.player,a=Math.atan2(mouse.y-p.y,mouse.x-p.x),range=Math.hypot(W,H)*1.35,x2=p.x+Math.cos(a)*range,y2=p.y+Math.sin(a)*range,width=p.currentWidth||24,dmg=p.damage*.9*(p.currentDamageMult||1),shock=.8+(p.currentShock||0),hit=[];for(let i=G.enemies.length-1;i>=0;i--){const e=G.enemies[i];if((e.floor??0)!==(p.floor??0))continue;if(pointSegmentDistance(e.x,e.y,p.x,p.y,x2,y2)<=width+e.r){e.hp-=dmg;e.hit=.16;e.slow=Math.max(e.slow,shock);hit.push(e);floatText(e.x,e.y-e.r,Math.round(dmg),"#86f7ff",15);if(e.hp<=0)killEnemy(e,i)}}if(p.currentChains&&hit.length){for(const source of hit){for(const q of G.enemies.filter(q=>!hit.includes(q)&&(q.floor??0)===(source.floor??0)&&dist(q,source)<150).slice(0,p.currentChains)){q.hp-=dmg*.42;q.slow=Math.max(q.slow,shock*.7);G.energyLines.push({x1:source.x,y1:source.y,x2:q.x,y2:q.y,life:.18,max:.18,width:6})}}}G.energyLines.push({x1:p.x,y1:p.y,x2,y2,life:.32,max:.32,width});G.shake=Math.max(G.shake,4);G.flash=Math.max(G.flash,.08)}
+function fireLineCurrent(){const p=G.player,a=Math.atan2(mouse.y-p.y,mouse.x-p.x),range=Math.hypot(W,H)*1.35,x2=p.x+Math.cos(a)*range,y2=p.y+Math.sin(a)*range,width=p.currentWidth||24,dmg=p.damage*.9*(p.currentDamageMult||1),shock=.8+(p.currentShock||0),hit=[];for(let i=G.enemies.length-1;i>=0;i--){const e=G.enemies[i];if((e.floor??0)!==(p.floor??0))continue;if(pointSegmentDistance(e.x,e.y,p.x,p.y,x2,y2)<=width+e.r){e.hp-=dmg;e.hit=.16;e.slow=Math.max(e.slow,shock);hit.push(e);floatText(e.x,e.y-e.r,Math.round(dmg),"#86f7ff",15);if(e.hp<=0)killEnemy(e,i)}}if(p.currentChains&&hit.length){for(const source of hit){for(const q of G.enemies.filter(q=>!hit.includes(q)&&(q.floor??0)===(source.floor??0)&&dist(q,source)<150).slice(0,p.currentChains)){q.hp-=dmg*.42;q.slow=Math.max(q.slow,shock*.7);G.energyLines.push({x1:source.x,y1:source.y,x2:q.x,y2:q.y,life:.18,max:.18,width:10})}}}G.energyLines.push({x1:p.x,y1:p.y,x2,y2,life:.32,max:.32,width});G.shake=Math.max(G.shake,4);G.flash=Math.max(G.flash,.08)}
 function activateClassAbility(){
   const p=G.player,def=CLASS_ABILITIES[G.classId];
   if(!def||p.abilityCd>0)return;const cost=Math.round(def.cost*(G.classId==="conduit"?(p.currentCostMult||1):1));if(p.energy<cost){toast(`NEED ${cost} ENERGY`);return;}p.energy-=cost;p.abilityCd=.75;sfx.ability(G.classId);
@@ -1181,9 +1181,9 @@ function playerShoot(){
     const off=(i-(shots-1)/2)*spread,a=aim+off;
     G.bullets.push({
       x:p.x+Math.cos(a)*18,y:p.y+Math.sin(a)*18,vx:Math.cos(a)*p.projectileSpeed,vy:Math.sin(a)*p.projectileSpeed,
-      r:(G.classId==="explosive"?7:4)*(p.projectileSize||1),life:G.classId==="explosive"?1.5:1.35,
+      r:(G.classId==="explosive"?7:G.classId==="conduit"?5.25:4)*(p.projectileSize||1),life:G.classId==="explosive"?1.5:1.35,
       damage:p.damage*(over?1.22:1)*(low?1.12:1)*(low&&p.resolveBonus?1+p.resolveBonus:1)*(over&&p.overDamage?1+p.overDamage:1)*(railShot?Math.max(p.railDamage||1,abilityRail?1.65:1):1),
-      pierce:p.pierce+(railShot?6:0),conduitRail:G.classId==="conduit",bounce:G.classId==="explosive"?0:(p.bounce||0),rail:railShot,
+      pierce:p.pierce+(railShot?6:0),conduitRail:G.classId==="conduit",beamLen:G.classId==="conduit"?Math.round(52*(p.projectileSize||1)):0,beamWidth:G.classId==="conduit"?Math.round(11*(p.projectileSize||1)):0,bounce:G.classId==="explosive"?0:(p.bounce||0),rail:railShot,
       crit:G.classId==="explosive"?false:Math.random()<clamp(p.crit+(p.dashCritTime>0?p.dashCritBonus:0)+(p.focusAbilityTime>0?.35:0),0,.95),explosive:G.classId==="explosive",radius:p.explosionRadius,floor:p.floor,proximity:p.proximity||0
     });
   }
@@ -1556,7 +1556,7 @@ function applyEvolution(id){const p=G.player,e=(EVOLUTIONS[G.classId]||[]).find(
  if(G.classId==="rifleman"){if(id==="railcaster"){p.railEvery=4;p.railDamage=Math.max(p.railDamage||1,2.35);p.pierce+=2;p.fireRate*=1.08}if(id==="deadeye"){p.crit=clamp(p.crit+.16,0,.92);p.critChain=true}if(id==="stormline"){p.fireRate*=.72;p.damage*=.9;p.twinTap=true;p.twinEvery=3}}
  if(G.classId==="soldier"){if(id==="aegis"){p.armor+=.1;p.aegisStrength=Math.max(p.aegisStrength,.35);p.aegisDuration=Math.max(p.aegisDuration,1.3);p.overDamage=Math.max(p.overDamage,.16)}if(id==="fireteam"){G.drones=Math.min(8,G.drones+2);p.grenadeEvery=Math.min(p.grenadeEvery||999,5)}if(id==="vanguard"){p.damage*=1.18;p.burstMod=true;p.burstEvery=2;p.stability+=2}}
  if(G.classId==="explosive"){if(id==="mortar"){p.explosionRadius*=1.55;p.damage*=1.34;p.fireRate*=1.2;p.projectileSpeed*=.88}if(id==="clusterstorm"){p.cluster=true;p.clusterCount=Math.max(p.clusterCount||0,9);p.shrapnel=Math.max(p.shrapnel||0,10)}if(id==="singularity"){p.implosion=Math.max(p.implosion||0,28);p.aftershock=Math.max(p.aftershock||0,.82);p.proximity=Math.max(p.proximity||0,42)}}
- if(G.classId==="conduit"){if(id==="ion_spear"){p.damage*=1.34;p.pierce+=5;p.projectileSize=(p.projectileSize||1)*1.35}if(id==="stormrail"){p.fireRate*=.72;p.energyRegen*=1.25;p.railEnergyGain=(p.railEnergyGain||0)+1.6}if(id==="tesla_spine"){p.currentWidth=Math.max(p.currentWidth||24,48);p.currentDamageMult=(p.currentDamageMult||1)*1.35;p.currentChains=Math.max(p.currentChains||0,3)}}
+ if(G.classId==="conduit"){if(id==="ion_spear"){p.damage*=1.34;p.pierce+=5;p.projectileSize=(p.projectileSize||1)*1.35}if(id==="stormrail"){p.fireRate*=.72;p.energyRegen*=1.25;p.railEnergyGain=(p.railEnergyGain||0)+1.6;p.projectileSize=(p.projectileSize||1)*1.08}if(id==="tesla_spine"){p.currentWidth=Math.max(p.currentWidth||24,48);p.currentDamageMult=(p.currentDamageMult||1)*1.35;p.currentChains=Math.max(p.currentChains||0,3)}}
  if(!profile.evolutions.includes(G.weaponName)){profile.evolutions.push(G.weaponName);saveProfile();unlockAchievement("first_evolution","WEAPON EVOLUTION")}
  G.choosing=false;showHUD();G.last=performance.now();sfx.over();msg(`${G.weaponName} // EVOLVED`,1.5);requestAnimationFrame(loop)}
 function update(dt){
@@ -1849,9 +1849,100 @@ function drawMap(){
   X.strokeStyle=theme.accent+"55";X.lineWidth=2;X.strokeRect(10,10,W-20,H-20);
   X.fillStyle="rgba(220,230,244,.38)";X.font="800 9px Inter,Arial";X.textAlign="left";X.fillText(G.mapName+" // SEED "+(G.mapSeed>>>0).toString(16).toUpperCase(),18,31);
 }
+
+function drawConduitBeam(b){
+  const ang=Math.atan2(b.vy,b.vx),len=b.beamLen||56,w=b.beamWidth||13;
+  X.save();X.translate(b.x,b.y);X.rotate(ang);X.globalCompositeOperation="lighter";
+  X.shadowColor=b.crit?"#f8ffff":"#74efff";X.shadowBlur=b.crit?26:22;
+
+  // Outer hard-edged beam shell
+  X.fillStyle=b.crit?"rgba(255,238,185,.78)":"rgba(108,238,255,.72)";
+  X.beginPath();
+  X.moveTo(len*.56,0);
+  X.lineTo(len*.22,-w*.9);
+  X.lineTo(-len*.18,-w*.58);
+  X.lineTo(-len*.72,-w*.18);
+  X.lineTo(-len*.82,0);
+  X.lineTo(-len*.72,w*.18);
+  X.lineTo(-len*.18,w*.58);
+  X.lineTo(len*.22,w*.9);
+  X.closePath();
+  X.fill();
+
+  // Core beam
+  X.fillStyle=b.crit?"rgba(255,255,255,.96)":"rgba(228,252,255,.96)";
+  X.beginPath();
+  X.moveTo(len*.48,0);
+  X.lineTo(len*.12,-w*.34);
+  X.lineTo(-len*.14,-w*.18);
+  X.lineTo(-len*.62,-w*.05);
+  X.lineTo(-len*.72,0);
+  X.lineTo(-len*.62,w*.05);
+  X.lineTo(-len*.14,w*.18);
+  X.lineTo(len*.12,w*.34);
+  X.closePath();
+  X.fill();
+
+  // Hard leading edge
+  X.strokeStyle="rgba(255,255,255,.95)";X.lineWidth=2;
+  X.beginPath();X.moveTo(len*.52,-w*.42);X.lineTo(len*.62,0);X.lineTo(len*.52,w*.42);X.stroke();
+
+  // Small side fins to make it feel like a large rail beam instead of a bullet
+  X.strokeStyle=b.crit?"rgba(255,230,170,.8)":"rgba(122,239,255,.8)";
+  X.lineWidth=2;
+  X.beginPath();
+  X.moveTo(-len*.06,-w*.5);X.lineTo(-len*.16,-w*.98);
+  X.moveTo(-len*.06,w*.5);X.lineTo(-len*.16,w*.98);
+  X.moveTo(-len*.38,-w*.24);X.lineTo(-len*.5,-w*.62);
+  X.moveTo(-len*.38,w*.24);X.lineTo(-len*.5,w*.62);
+  X.stroke();
+  X.restore();
+}
+function drawSharpElectricLine(l){
+  const dx=l.x2-l.x1,dy=l.y2-l.y1,len=Math.hypot(dx,dy)||1,nx=-dy/len,ny=dx/len;
+  const alpha=clamp(l.life/l.max,0,1),width=Math.max(7,l.width||20),segments=11,pts=[[l.x1,l.y1]];
+  for(let n=1;n<segments;n++){
+    const t=n/segments,baseX=l.x1+dx*t,baseY=l.y1+dy*t;
+    const amp=(width*.5)*(1-Math.abs(.5-t)*.65),dir=n%2?1:-1;
+    pts.push([baseX+nx*amp*dir,baseY+ny*amp*dir]);
+  }
+  pts.push([l.x2,l.y2]);
+
+  X.save();X.globalCompositeOperation="lighter";X.lineJoin="miter";X.lineCap="butt";
+  X.shadowColor="#74efff";X.shadowBlur=20;
+
+  // Outer electric hull
+  X.strokeStyle=`rgba(101,238,255,${.24+.64*alpha})`;
+  X.lineWidth=Math.max(3,width*.23*alpha);
+  X.beginPath();X.moveTo(pts[0][0],pts[0][1]);
+  for(let i=1;i<pts.length;i++)X.lineTo(pts[i][0],pts[i][1]);
+  X.stroke();
+
+  // Bright inner edge
+  X.strokeStyle=`rgba(235,252,255,${.5+.45*alpha})`;
+  X.lineWidth=Math.max(1.5,width*.08*alpha);
+  X.beginPath();X.moveTo(pts[0][0],pts[0][1]);
+  for(let i=1;i<pts.length;i++)X.lineTo(pts[i][0],pts[i][1]);
+  X.stroke();
+
+  // Sharp branch spikes
+  X.strokeStyle=`rgba(178,246,255,${.2+.55*alpha})`;
+  X.lineWidth=Math.max(1,width*.05*alpha);
+  for(let i=2;i<pts.length-1;i+=3){
+    const px=pts[i][0],py=pts[i][1],dir=(i%2?1:-1),branch=width*(.55+.12*(i%3));
+    X.beginPath();
+    X.moveTo(px,py);
+    X.lineTo(px+nx*branch*dir+dx/len*branch*.25,py+ny*branch*dir+dy/len*branch*.25);
+    X.lineTo(px+nx*branch*.42*dir+dx/len*branch*.45,py+ny*branch*.42*dir+dy/len*branch*.45);
+    X.stroke();
+  }
+  X.restore();
+}
 function drawBullet(b){
   if(b.explosive){
     X.save();X.translate(b.x,b.y);X.rotate(Math.atan2(b.vy,b.vx));X.shadowColor="#ffb257";X.shadowBlur=12;X.fillStyle="#ffb45c";X.beginPath();X.arc(0,0,b.r,0,TAU);X.fill();X.fillStyle="#44311e";X.fillRect(-4,-2,9,4);X.restore();
+  }else if(b.conduitRail){
+    drawConduitBeam(b);
   }else{
     X.beginPath();X.fillStyle=b.crit?"#ffd166":"#75e9ff";X.arc(b.x,b.y,b.r,0,TAU);X.fill();
     X.strokeStyle=b.crit?"rgba(255,209,102,.4)":"rgba(117,233,255,.28)";X.lineWidth=2;X.beginPath();X.moveTo(b.x,b.y);X.lineTo(b.x-b.vx*.016,b.y-b.vy*.016);X.stroke();
@@ -1953,7 +2044,7 @@ function drawGame(){
   X.save();X.translate(sx,sy);drawMap();drawObjective();
   for(const o of G.orbs){const pulse=1+Math.sin(G.time*8+o.x*.02)*.14;X.shadowColor="#8d7aff";X.shadowBlur=9;X.fillStyle="#8d7aff";X.beginPath();X.arc(o.x,o.y,o.r*pulse,0,TAU);X.fill();X.shadowBlur=0;}
   for(const b of G.bullets)drawBullet(b);
-  for(const b of G.enemyBullets){X.shadowColor="#ff70b4";X.shadowBlur=8;X.fillStyle="#ff70b4";X.beginPath();X.arc(b.x,b.y,b.r,0,TAU);X.fill();X.shadowBlur=0;}drawBlasts();for(const l of G.energyLines){const a=clamp(l.life/l.max,0,1);X.save();X.globalCompositeOperation="lighter";X.strokeStyle=`rgba(125,244,255,${.3+.7*a})`;X.shadowColor="#74efff";X.shadowBlur=18;X.lineWidth=Math.max(2,l.width*.16*a);X.beginPath();X.moveTo(l.x1,l.y1);for(let n=1;n<10;n++){const t=n/10,xx=l.x1+(l.x2-l.x1)*t,yy=l.y1+(l.y2-l.y1)*t;X.lineTo(xx,yy+(n%2?4:-4)*a)}X.lineTo(l.x2,l.y2);X.stroke();X.restore();}
+  for(const b of G.enemyBullets){X.shadowColor="#ff70b4";X.shadowBlur=8;X.fillStyle="#ff70b4";X.beginPath();X.arc(b.x,b.y,b.r,0,TAU);X.fill();X.shadowBlur=0;}drawBlasts();for(const l of G.energyLines)drawSharpElectricLine(l);
   for(const e of G.enemies)drawEnemy(e);
   if(G.drones>0)for(let i=0;i<G.drones;i++){const a=G.time*2.2+i/G.drones*TAU,x=G.player.x+Math.cos(a)*35,y=G.player.y+Math.sin(a)*35;X.save();X.translate(x,y);X.rotate(a);X.fillStyle="#bba4ff";X.beginPath();X.moveTo(9,0);X.lineTo(-6,-6);X.lineTo(-2,0);X.lineTo(-6,6);X.closePath();X.fill();X.restore();}
   drawPlayer();
@@ -1980,7 +2071,7 @@ function tryEnterFullscreen(){
   }catch(err){}
 }
 
-const APP_VERSION="11.0.0";
+const APP_VERSION="11.1.0";
 let pendingDesktopUpdate=null;
 
 function compareVersionStrings(a,b){

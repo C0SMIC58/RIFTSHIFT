@@ -1,6 +1,6 @@
 {
-  "version": "11.0.0",
+  "version": "11.1.0",
   "gameUrl": "https://raw.githubusercontent.com/C0SMIC58/RIFTSHIFT/main/RIFTSHIFT_LATEST.html",
-  "sha256": "689e9f313af5ecb0a8804d4bdd07ba77d617d72a9f5c81866ec2fdf7f0d3ea92",
-  "notes": "V11: unlockable Conduit railgun class, Line Current ability, mobile touch controls, and searchable GitHub Pages build."
+  "sha256": "2c089cbf875ac602a98a3ef7956c8cd48024fb93b7521a4584e9f9ae466460d6",
+  "notes": "V11.1: Conduit railgun now renders as a large beam and Line Current uses sharper electric edges."
 }
