@@ -596,6 +596,46 @@ canvas{display:block}
 @media(max-width:850px){.adminGrid{grid-template-columns:1fr 1fr}}
 @media(max-width:850px){.v9Grid{grid-template-columns:1fr 1fr}.settingsGrid{grid-template-columns:1fr}.historyRow{grid-template-columns:1fr 1fr 1fr}.historyRow span:nth-child(n+4){display:none}}
 @media(max-width:850px){.classes{grid-template-columns:1fr 1fr}.classCard{min-height:340px}.upCards{grid-template-columns:1fr}.upCard{min-height:155px}.classTop{align-items:flex-start;flex-direction:column}}
+
+/* V18.8.1 // CLASS SELECT FIT PASS */
+#classSelect{padding:10px;overflow:hidden}
+#classSelect .classShell{
+  width:1480px;max-width:none;max-height:none;overflow:visible;
+  display:flex;flex-direction:column;
+  transform:scale(var(--classScale,1));transform-origin:center center;
+  will-change:transform;
+}
+#classSelect .classTop{flex:0 0 auto;margin-bottom:12px;gap:14px}
+#classSelect .classTop h2{font-size:clamp(34px,4.2vh,46px)}
+#classSelect .classTop p{font-size:11px;margin-top:6px}
+#classSelect .classes{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+  gap:10px;align-items:stretch;min-height:0;
+}
+#classSelect .classCard{min-height:0;height:auto;padding:0 13px 13px;border-radius:16px}
+#classSelect .classPortrait{height:132px;margin:0 -13px 10px}
+#classSelect .className{font-size:18px}
+#classSelect .classRole{font-size:8px;margin-top:3px}
+#classSelect .classDesc{font-size:9px;line-height:1.42;margin-top:7px;min-height:52px}
+#classSelect .classAbility{margin-top:7px;font-size:7px;line-height:1.35;padding-left:6px}
+#classSelect .classStats{margin-top:7px;gap:4px}
+#classSelect .classStats span{font-size:7px;padding:3px 5px}
+#classSelect .classKitMini{margin-top:8px;gap:4px}
+#classSelect .classKitRow{grid-template-columns:17px 1fr;gap:6px;padding:5px 6px;border-radius:8px}
+#classSelect .classKitRow b{width:17px;height:17px;font-size:7px;line-height:17px}
+#classSelect .classKitRow strong{font-size:6px;margin-bottom:1px}
+#classSelect .classKitRow span{font-size:8px;line-height:1.18}
+#classSelect .classWeapon{margin-top:7px;font-size:7px}
+#classSelect #launchStatus{min-height:14px!important;margin-top:6px!important;font-size:9px!important}
+#classSelect .classActions{margin-top:7px;gap:7px;flex:0 0 auto}
+#classSelect .classActions button{padding:9px 12px;font-size:9px}
+@media(max-height:720px){
+  #classSelect .classPortrait{height:104px}
+  #classSelect .classDesc{font-size:8px;min-height:43px}
+  #classSelect .classKitRow{padding:4px 5px}
+  #classSelect .classTop{margin-bottom:8px}
+}
+
 </style>
 </head>
 <body>
@@ -691,7 +731,7 @@ canvas{display:block}
     <div class="menuTopRedux">
       <div class="menuTopLeft">
         <span class="menuKickerRedux">RIFTSHIFT // STRIKE DIRECTOR</span>
-        <span class="menuBuildChip">BUILD V18.8</span>
+        <span class="menuBuildChip">BUILD V18.8.1</span>
       </div>
       <div class="menuTopRight"><span class="menuPulse"></span> ORBITAL LINK GREEN</div>
     </div>
@@ -756,7 +796,7 @@ canvas{display:block}
           <div class="stageStatBar">
             <div class="stageStat"><span>CLASS CORES</span><b>4</b></div>
             <div class="stageStat"><span>RUN SEEDS</span><b>∞</b></div>
-            <div class="stageStat"><span>BUILD</span><b>V18.8</b></div>
+            <div class="stageStat"><span>BUILD</span><b>V18.8.1</b></div>
           </div>
         </div>
 
@@ -1600,11 +1640,26 @@ function classIconArt(id){
 }
 
 function classUnlockState(id){const c=CLASS_DEFS[id];if(c?.ownerOnly)return{unlocked:ownerAuth,owner:true};if(!c?.unlock)return{unlocked:true};const best=Math.max(profile.bestScore||0,safeGetBest()),cores=(profile.cores||0)>=c.unlock.cores,bestOk=best>=c.unlock.best;return{unlocked:cores&&bestOk,cores,best:bestOk}}
+function fitClassSelect(){
+  const screen=$("classSelect"),shell=screen?.querySelector(".classShell");
+  if(!screen||!shell||!screen.classList.contains("active"))return;
+  shell.style.setProperty("--classScale","1");
+  requestAnimationFrame(()=>{
+    const pad=20;
+    const naturalW=Math.max(shell.scrollWidth,1480);
+    const naturalH=Math.max(shell.scrollHeight,1);
+    const scale=Math.min(1,(window.innerWidth-pad)/naturalW,(window.innerHeight-pad)/naturalH);
+    shell.style.setProperty("--classScale",String(Math.max(.62,scale)));
+  });
+}
+window.addEventListener("resize",()=>{if($("classSelect")?.classList.contains("active"))fitClassSelect()});
+
 function renderClasses(){
  if(!classUnlockState(selectedClass).unlocked)selectedClass="survivor";
  const visible=Object.entries(CLASS_DEFS).filter(([id,c])=>!c.ownerOnly||ownerAuth);
  $("classes").innerHTML=visible.map(([id,c])=>{const lock=classUnlockState(id),lk=!lock.unlocked?`<div class="classLock">LOCKED // <b>${lock.cores?"✓":"✕"} 4 CORES</b> &nbsp; <b>${lock.best?"✓":"✕"} 30,000 BEST</b></div>`:"";const load=CLASS_LOADOUTS[id]||{};const kitRows=[{k:1,t:"PRIMARY",n:c.weapon,cls:"primary"},{k:2,t:"SECONDARY",n:load.secondary||"SECONDARY",cls:""},{k:3,t:"MELEE",n:load.melee||"MELEE",cls:""},{k:4,t:"UTILITY",n:load.utility||"UTILITY",cls:""}].map(row=>`<div class="classKitRow ${row.cls}"><b>${row.k}</b><div><strong>${row.t}</strong><span>${row.n}</span></div></div>`).join("");return `<div class="classCard ${id===selectedClass?"selected":""} ${lock.unlocked?"":"locked"} ${c.ownerOnly?"ownerClassCard":""}" data-class="${id}"><div class="classPortrait"><div class="classMark">${c.icon}</div>${classIconArt(id)}</div>${lk}<div class="className">${c.name}</div><div class="classRole">${c.role}</div><div class="classDesc">${c.desc}</div><div class="classAbility">Q • ${CLASS_ABILITIES[id].name} // ${CLASS_ABILITIES[id].cost} ENERGY</div><div class="classStats">${c.stats.map(v=>`<span>${v}</span>`).join("")}</div><div class="classKitMini">${kitRows}</div><div class="classWeapon">STARTING LOADOUT // ALL FOUR SLOTS INCLUDED</div></div>`}).join("");
  document.querySelectorAll(".classCard").forEach(card=>card.addEventListener("click",()=>{const id=card.dataset.class,lock=classUnlockState(id);if(!lock.unlocked){toast("CLASS LOCKED");return}selectedClass=id;renderClasses();refreshMetaUI();try{sfx.ui()}catch(e){}}));
+ if($("classSelect")?.classList.contains("active"))fitClassSelect();
 }
 renderClasses();
 
@@ -1613,7 +1668,7 @@ function openClassSelect(chaos){
   pendingChaos=!!chaos;
   $("modeBadge").textContent=pendingChaos?"CHAOS MODE":"STANDARD RUN";
   $("launchStatus").textContent="";
-  showOnly("classSelect");refreshMetaUI();
+  showOnly("classSelect");refreshMetaUI();requestAnimationFrame(()=>fitClassSelect());
   try{sfx.start();sfx.setMusic("menu");applyAudioSettings();sfx.ui()}catch(err){console.warn(err)}
 }
 function returnMenu(){setMobileGameActive(false);G=null;showOnly("menu");refreshMetaUI();try{sfx.start();sfx.setMusic("menu");applyAudioSettings()}catch(err){console.warn(err)}}
@@ -4285,8 +4340,8 @@ for(const id of ["announcerSlider","announcerEngineSelect","announcerVoiceToggle
 /* startup */
 setTimeout(()=>{applyAudioSettings();v18Presence(true)},650);
 
-const APP_VERSION="18.8.0";
-const APP_VERSION_LABEL="18.8";
+const APP_VERSION="18.8.1";
+const APP_VERSION_LABEL="18.8.1";
 let pendingDesktopUpdate=null;
 
 function compareVersionStrings(a,b){
@@ -4395,7 +4450,7 @@ $("deployBtn").addEventListener("click",()=>{
   }catch(err){
     console.error(err);
     $("launchStatus").textContent="STARTUP ERROR: "+(err&&err.message?err.message:String(err));
-    showOnly("classSelect");
+    showOnly("classSelect");requestAnimationFrame(()=>fitClassSelect());
   }
 });
 $("resumeBtn").addEventListener("click",()=>{if(G){G.paused=false;showHUD();setMobileGameActive(true);G.last=performance.now();requestAnimationFrame(loop);}});

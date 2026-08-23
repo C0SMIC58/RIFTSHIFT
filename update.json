@@ -1,8 +1,8 @@
 {
-  "version": "18.8.0",
+  "version": "18.8.1",
   "gameUrl": "https://raw.githubusercontent.com/C0SMIC58/RIFTSHIFT/main/RIFTSHIFT_LATEST.html",
-  "sha256": "47425bae2fcb83091a96fd81d9898d3fc5262a141a9c5d073da823d6ebe3501c",
+  "sha256": "86d71e1c538d819669787e8414b20a6e14b3cb361bfcaa4e803a01ae7be99ff2",
   "overhaul": false,
   "priority": "normal",
-  "notes": "Class selection loadout cleanup; true equipped secondary/melee/utility visuals; ignition pistol gasoline trails and ignition chaining; flame menu backdrop; subtitle-style announcer UI; denser procedural structures."
+  "notes": "Class selection fit pass: all visible class cards are kept on-screen on desktop and the selection shell now auto-scales to the viewport."
 }
