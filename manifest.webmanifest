@@ -1,0 +1,16 @@
+{
+  "name": "RIFTSHIFT",
+  "short_name": "RIFTSHIFT",
+  "start_url": "./",
+  "scope": "./",
+  "display": "fullscreen",
+  "background_color": "#05070d",
+  "theme_color": "#05070d",
+  "icons": [
+    {
+      "src": "RIFTSHIFT_ICON.png",
+      "sizes": "1024x1024",
+      "type": "image/png"
+    }
+  ]
+}

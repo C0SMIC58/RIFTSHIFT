@@ -1,1 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url><loc>https://c0smic58.github.io/RIFTSHIFT/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url></urlset>
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<url><loc>https://c0smic58.github.io/RIFTSHIFT/</loc></url>
+<url><loc>https://c0smic58.github.io/RIFTSHIFT/game/</loc></url>
+<url><loc>https://c0smic58.github.io/RIFTSHIFT/play/</loc></url>
+<url><loc>https://c0smic58.github.io/RIFTSHIFT/download/</loc></url>
+<url><loc>https://c0smic58.github.io/RIFTSHIFT/updates/</loc></url>
+<url><loc>https://c0smic58.github.io/RIFTSHIFT/media/</loc></url>
+<url><loc>https://c0smic58.github.io/RIFTSHIFT/lore/</loc></url>
+<url><loc>https://c0smic58.github.io/RIFTSHIFT/faq/</loc></url>
+</urlset>
