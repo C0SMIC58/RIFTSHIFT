@@ -264,7 +264,7 @@ canvas{display:block}
 @media(prefers-reduced-motion:reduce){.eg,.engineSlash,.engineCoreCircle,.enginePulseRing,.engineLogoStage,.engineWordmark,.engineBuild,.engineHandoff,.engineFooter,.engineSplash:before,.engineSplash:after{animation-duration:.01ms!important;animation-delay:0ms!important}}
 
 
-/* V18.8.12 intro cinematic refresh */
+/* V18.8.13 intro cinematic refresh */
 .bootCinematicFX{position:absolute;inset:0;pointer-events:none;z-index:1;overflow:hidden}
 .bootHorizon{position:absolute;left:-10%;right:-10%;top:50%;height:1px;background:linear-gradient(90deg,transparent,rgba(255,126,68,.18),rgba(255,226,175,.75),rgba(117,233,255,.34),transparent);box-shadow:0 0 26px rgba(255,126,68,.25);opacity:0;animation:bootHorizonLife 4.1s .25s ease both}
 .bootScanline{position:absolute;left:0;right:0;height:2px;top:16%;background:linear-gradient(90deg,transparent,rgba(117,233,255,.05),rgba(255,255,255,.35),rgba(255,126,68,.08),transparent);opacity:0;animation:bootScanSweep 2.6s .65s cubic-bezier(.2,.72,.2,1) both}
@@ -651,7 +651,7 @@ canvas{display:block}
 @media(max-width:850px){.v9Grid{grid-template-columns:1fr 1fr}.settingsGrid{grid-template-columns:1fr}.historyRow{grid-template-columns:1fr 1fr 1fr}.historyRow span:nth-child(n+4){display:none}}
 @media(max-width:850px){.classes{grid-template-columns:1fr 1fr}.classCard{min-height:340px}.upCards{grid-template-columns:1fr}.upCard{min-height:155px}.classTop{align-items:flex-start;flex-direction:column}}
 
-/* V18.8.12 // CLASS SELECT FIT PASS */
+/* V18.8.13 // CLASS SELECT FIT PASS */
 #classSelect{padding:10px;overflow:hidden}
 #classSelect .classShell{
   width:1480px;max-width:none;max-height:none;overflow:visible;
@@ -691,7 +691,7 @@ canvas{display:block}
 }
 
 
-/* V18.8.12 // boot warp handoff + admin exit reliability */
+/* V18.8.13 // boot warp handoff + admin exit reliability */
 #bootWarpFX{position:absolute;inset:-8%;z-index:90;pointer-events:none;opacity:0;overflow:hidden;mix-blend-mode:screen}
 #bootWarpFX:before,#bootWarpFX:after{content:"";position:absolute;inset:0;opacity:0}
 #bootWarpFX:before{background:repeating-linear-gradient(90deg,rgba(117,233,255,.0) 0 6%,rgba(117,233,255,.13) 7%,rgba(255,114,72,.10) 8%,rgba(0,0,0,0) 10% 17%);filter:blur(3px);transform:scaleX(1.08)}
@@ -711,7 +711,7 @@ canvas{display:block}
 </style>
 
 <style id="v1886-polish">
-/* V18.8.12: side-slot branches use the normal upgrade-card presentation */
+/* V18.8.13: side-slot branches use the normal upgrade-card presentation */
 #kitBranch{align-items:center;justify-content:center;background:rgba(4,6,10,.82);backdrop-filter:blur(8px);pointer-events:auto}
 #kitBranch .kitBranchBox{width:min(980px,92vw);max-height:88vh;overflow:auto;background:rgba(13,19,31,.98);border:1px solid rgba(255,255,255,.10);border-radius:20px;padding:24px;box-sizing:border-box;box-shadow:0 28px 80px rgba(0,0,0,.55)}
 #kitBranch .upTitle{margin-bottom:6px}
@@ -787,7 +787,7 @@ canvas{display:block}
         <div class="engineHandoffTop"><span>RIFTSHIFT // COMBAT OPERATING SYSTEM</span><span class="live">● RIFT LINK STABLE</span></div>
         <div class="engineHandoffFrame">
           <div class="engineHandoffPane">
-            <div class="engineHandoffCode">FIELD TERMINAL / RS-18.8.12</div>
+            <div class="engineHandoffCode">FIELD TERMINAL / RS-18.8.13</div>
             <h1 class="engineHandoffTitle"><span class="rift">RIFT</span><span class="shift">SHIFT</span></h1>
             <div class="engineHandoffSlash"></div>
             <div class="engineHandoffSub">RIFT LINK STABLE // MENU UPLINK READY</div>
@@ -836,14 +836,14 @@ canvas{display:block}
     <div class="menuTopRedux">
       <div class="menuTopLeft">
         <span class="menuKickerRedux">RIFTSHIFT // STRIKE DIRECTOR</span>
-        <span class="menuBuildChip">BUILD V18.8.12</span>
+        <span class="menuBuildChip">BUILD V18.8.13</span>
       </div>
       <div class="menuTopRight"><span class="menuPulse"></span> ORBITAL LINK GREEN</div>
     </div>
 
     <div class="menuHeroRedux">
       <div class="menuBrandRedux">
-        <div class="brandCode">FIELD TERMINAL / RS-18.8.12</div>
+        <div class="brandCode">FIELD TERMINAL / RS-18.8.13</div>
         <h1 class="brandMain"><span class="rift">RIFT</span><span class="shift">SHIFT</span></h1>
         <div class="brandSlash"></div>
         <p class="commandCopy">Drop into a collapsing warfront where every run rebuilds the battlefield, every class carries a full combat kit, and every wave pushes harder than the last. Build momentum, evolve your weapons, and survive the rupture long enough to turn the front line back on itself.</p>
@@ -901,7 +901,7 @@ canvas{display:block}
           <div class="stageStatBar">
             <div class="stageStat"><span>CLASS CORES</span><b>4</b></div>
             <div class="stageStat"><span>RUN SEEDS</span><b>∞</b></div>
-            <div class="stageStat"><span>BUILD</span><b>V18.8.12</b></div>
+            <div class="stageStat"><span>BUILD</span><b>V18.8.13</b></div>
           </div>
         </div>
 
@@ -4708,8 +4708,8 @@ for(const id of ["announcerSlider","announcerEngineSelect","announcerVoiceToggle
 /* startup */
 setTimeout(()=>{applyAudioSettings();v18Presence(true)},650);
 
-const APP_VERSION="18.8.12";
-const APP_VERSION_LABEL="18.8.12";
+const APP_VERSION="18.8.13";
+const APP_VERSION_LABEL="18.8.13";
 let pendingDesktopUpdate=null;
 
 function compareVersionStrings(a,b){
@@ -4808,7 +4808,7 @@ $("armoryContinueBtn").addEventListener("click",continueFromArmory);
 $("armoryRerollBtn").addEventListener("click",armoryReroll);
 ["masterSlider","musicSlider","sfxSlider","shakeSlider","impactSlider","particleSlider","crosshairSlider","hudSlider","fpsSelect","damageToggle","enemyBarsToggle","hitmarkerToggle","vignetteToggle","flashToggle","reducedMotionToggle","pauseBlurToggle","mobileAimToggle","fullscreenToggle"].forEach(id=>$(id).addEventListener("input",handleSettingsInput));$("resetSettingsBtn").addEventListener("click",resetSettings);
 $("ownerLoginBtn").addEventListener("click",tryOwnerLogin);$("ownerKeyInput").addEventListener("keydown",e=>{if(e.key==="Enter")tryOwnerLogin()});$("adminCloseBtn").addEventListener("click",closeAdminPanel);$("adminLogoutBtn").addEventListener("click",lockOwnerMode);document.querySelectorAll("[data-admin]").forEach(b=>b.addEventListener("click",()=>adminAction(b.dataset.admin)));
-// V18.8.12 fail-safe admin exit wiring. This remains functional even if the panel is opened repeatedly with F2.
+// V18.8.13 fail-safe admin exit wiring. This remains functional even if the panel is opened repeatedly with F2.
 document.addEventListener("click",e=>{if(e.target?.id==="adminCloseBtn"){e.preventDefault();e.stopPropagation();closeAdminPanel();}},true);
 document.addEventListener("keydown",e=>{if(e.key==="Escape"&&$("admin")?.classList.contains("active")){e.preventDefault();e.stopImmediatePropagation();closeAdminPanel();}},true);
 $("classBackBtn").addEventListener("click",()=>returnMenu());
@@ -4833,7 +4833,7 @@ $("menuBtn").addEventListener("click",()=>returnMenu());
 
 let lastHoverSound=0;
 document.addEventListener("pointerover",e=>{const btn=e.target.closest("button");if(!btn||btn.disabled||!bootStarted)return;const n=performance.now();if(n-lastHoverSound<70)return;lastHoverSound=n;try{sfx.hover()}catch(_){}});
-window.addEventListener("blur",()=>{if(settings.pauseOnBlur&&G&&G.running&&!G.paused&&!G.choosing){G.paused=true;showOnly("pause");setMobileGameActive(false);}});
+document.addEventListener("visibilitychange",()=>{if(document.visibilityState==="hidden"&&settings.pauseOnBlur&&G&&G.running&&!G.paused&&!G.choosing){G.paused=true;showOnly("pause");setMobileGameActive(false);}});
 document.addEventListener("keydown",e=>{if(e.code==="F2"){e.preventDefault();if(!e.repeat)openAdminPanel()}},true);refreshMetaUI();applyAudioSettings();applyVisualSettings();renderAdminPanel();if(new URLSearchParams(location.search).get("owner")==="1")setTimeout(openAdminPanel,250);
 
 if("serviceWorker" in navigator && location.protocol.startsWith("http")){
@@ -4841,7 +4841,7 @@ if("serviceWorker" in navigator && location.protocol.startsWith("http")){
 }
 
 
-/* ===== V18.8.12 CLEAN ENHANCEMENT PATCH ===== */
+/* ===== V18.8.13 CLEAN ENHANCEMENT PATCH ===== */
 function rsClamp01(v){return Math.max(0,Math.min(1,v));}
 function rsRotate(x,y,a){const c=Math.cos(a),s=Math.sin(a);return{x:x*c-y*s,y:x*s+y*c};}
 function getBaseWeaponRig(slot=1,cls=G?.classId||"survivor"){
@@ -4967,7 +4967,7 @@ const rsOldNextWave=nextWave;nextWave=function(...args){const out=rsOldNextWave.
 const rsOldUpdate=update;update=function(dt){if(G?.map?.obstacles){for(const o of G.map.obstacles){if(!o.moving)continue;o.moveClock=(o.moveClock||0)+dt*(o.moveRate||1);o.x=o.baseX+Math.sin(o.moveClock)*(o.ampX||0);o.y=o.baseY+Math.sin(o.moveClock*1.06+1.2)*(o.ampY||0);}}const out=rsOldUpdate.apply(this,arguments);if(G?.running){updateSuperPickups(dt);updateFireFields(dt);if(G.enemies.some(e=>e.type==="behemoth"&&dist(e,G.player)<120))G.shake=Math.max(G.shake,2.2);}return out;};
 const rsOldDrawGame=drawGame;drawGame=function(){rsOldDrawGame.apply(this,arguments);if(!G?.running)return;X.save();if(G.map?.motionMode){X.globalAlpha=.09;X.strokeStyle=G.map.theme.accent;X.lineWidth=2;const speed=(G.time*180)%80;for(let y=-80+speed;y<H+80;y+=80){X.beginPath();X.moveTo(0,y);X.lineTo(W,y-35);X.stroke();}X.globalAlpha=1;}drawFireFields();drawSuperPickups();X.restore();};
 
-/* V18.8.12 realistic menu inferno: broad wall fire, jagged turbulent edges, layered cores, embers, smoke. */
+/* V18.8.13 realistic menu inferno: broad wall fire, jagged turbulent edges, layered cores, embers, smoke. */
 (function initMenuFlameCanvas(){
   const canvas=document.getElementById("menuFlameCanvas");if(!canvas)return;
   const ctx=canvas.getContext("2d"),flames=[],embers=[],smoke=[];let cw=0,ch=0,dpr=1,last=performance.now();
@@ -4994,7 +4994,7 @@ const rsOldDrawGame=drawGame;drawGame=function(){rsOldDrawGame.apply(this,argume
 
 
 
-/* ===== V18.8.12 PLAYER / MELEE / UTILITY PRESENTATION PATCH ===== */
+/* ===== V18.8.13 PLAYER / MELEE / UTILITY PRESENTATION PATCH ===== */
 function rs810AngleDelta(a,b){return Math.atan2(Math.sin(a-b),Math.cos(a-b));}
 function rs810VisualFacing(p){
   const target=Math.atan2(mouse.y-p.y,mouse.x-p.x);
@@ -5146,7 +5146,7 @@ update=function(dt){const out=rs810OldUpdate.apply(this,arguments);if(G?.running
 
 
 
-/* ===== V18.8.12 INPUT / AUDIO / AIM / PRESENCE POLISH ===== */
+/* ===== V18.8.13 INPUT / AUDIO / AIM / PRESENCE POLISH ===== */
 
 /* F2 FIX
    V18.8.11 had two F2 handlers: the later capture handler opened the admin panel,
@@ -5174,7 +5174,12 @@ rs810VisualFacing=function(p){
   return target;
 };
 
-/* HARD MUTE WHEN APP/TAB LOSES FOCUS */
+/* TRUE TAB / APP AUDIO MUTE — V18.8.13
+   Do NOT use the browser window blur event here. In an embedded game, ordinary
+   pointer/focus changes can blur the iframe/window even though the tab is still
+   visible. That caused clicks to cut the entire mix. Browser builds now mute only
+   when the document actually becomes hidden. The Electron shell supplies a real
+   native window-focus signal for desktop Alt-Tab. */
 let rs812FocusMuted=false;
 const rs812OldTone=AudioSystem.prototype.tone;
 const rs812OldNoise=AudioSystem.prototype.noise;
@@ -5191,16 +5196,13 @@ function rs812SetFocusAudioMuted(muted){
       if(sfx?.master&&sfx?.ctx){
         const now=sfx.ctx.currentTime;
         sfx.master.gain.cancelScheduledValues(now);
-        sfx.master.gain.setValueAtTime(Math.max(.0001,sfx.master.gain.value||.0001),now);
-        sfx.master.gain.exponentialRampToValueAtTime(.0001,now+.025);
-        setTimeout(()=>{if(rs812FocusMuted&&sfx?.ctx?.state==="running")sfx.ctx.suspend().catch(()=>{})},34);
+        sfx.master.gain.setValueAtTime(.0001,now);
+        if(sfx.ctx.state==="running")sfx.ctx.suspend().catch(()=>{});
       }
     }catch(_){}
     try{announcer?.stopCurrent?.(true);if(announcer?.queue)announcer.queue.length=0}catch(_){}
     try{if("speechSynthesis" in window)speechSynthesis.cancel()}catch(_){}
     try{document.querySelectorAll("audio,video").forEach(m=>{try{m.pause()}catch(_){}})}catch(_){}
-    // Catch a voice clip whose delayed play() was already queued just before blur.
-    setTimeout(()=>{if(rs812FocusMuted){try{announcer?.currentAudio?.pause()}catch(_){}}},90);
   }else{
     try{
       if(sfx?.ctx){
@@ -5209,9 +5211,24 @@ function rs812SetFocusAudioMuted(muted){
     }catch(_){}
   }
 }
-window.addEventListener("blur",()=>rs812SetFocusAudioMuted(true),true);
-window.addEventListener("focus",()=>{if(!document.hidden)rs812SetFocusAudioMuted(false)},true);
-document.addEventListener("visibilitychange",()=>rs812SetFocusAudioMuted(document.hidden),true);
+
+/* Browsers: visibilityState is the reliable signal for a real tab/app switch.
+   Clicking the canvas, UI, iframe, or page controls will NOT mute audio. */
+document.addEventListener("visibilitychange",()=>{
+  rs812SetFocusAudioMuted(document.visibilityState==="hidden");
+},true);
+window.addEventListener("pagehide",()=>rs812SetFocusAudioMuted(true),true);
+window.addEventListener("pageshow",()=>{
+  if(document.visibilityState!=="hidden")rs812SetFocusAudioMuted(false);
+},true);
+
+/* Desktop: Electron reports the actual native BrowserWindow focus state. */
+try{
+  window.riftshiftWindow?.onFocusChanged?.(active=>{
+    if(document.visibilityState==="hidden")return rs812SetFocusAudioMuted(true);
+    rs812SetFocusAudioMuted(!active);
+  });
+}catch(_){}
 
 /* STRONGER, LAYERED FOOTSTEPS
    Existing movement cadence is preserved, but each step now has a body thump,
@@ -5282,10 +5299,10 @@ v18PresencePayload=function(){
     if(G.paused||active==="pause")return{details:`PAUSED // WAVE ${G.wave} // ${biome}`,state:`${cls} // ${weapon}`,largeText:`${diff} PROTOCOL`,start:Math.floor(v18PresenceState.start/1000)};
     return{details:`WAVE ${G.wave} // ${biome}`,state:`${cls} // ${weapon}`,largeText:`${diff} // ${G.kills||0} KILLS`,start:Math.floor(v18PresenceState.start/1000)};
   }
-  if(active==="classSelect")return{details:"LOADOUT TERMINAL // CHOOSING OPERATIVE",state:"Preparing a new Rift deployment",largeText:"RIFTSHIFT // V18.8.12"};
+  if(active==="classSelect")return{details:"LOADOUT TERMINAL // CHOOSING OPERATIVE",state:"Preparing a new Rift deployment",largeText:"RIFTSHIFT // V18.8.13"};
   if(active==="gameover"&&G)return{details:`RUN COMPLETE // WAVE ${G.wave}`,state:`${G.kills} KILLS // ${Math.round(G.score).toLocaleString()} SCORE`,largeText:"RIFTSHIFT // RUN TELEMETRY",start:Math.floor(v18PresenceState.start/1000)};
-  if(active==="v17Hub")return{details:"SHIP TERMINAL // CONFIGURING RUN",state:"Reviewing protocols, arsenal and contracts",largeText:"RIFTSHIFT // V18.8.12"};
-  return{details:"SHIP TERMINAL // IDLE",state:"Preparing to enter the Rift",largeText:"RIFTSHIFT // V18.8.12"};
+  if(active==="v17Hub")return{details:"SHIP TERMINAL // CONFIGURING RUN",state:"Reviewing protocols, arsenal and contracts",largeText:"RIFTSHIFT // V18.8.13"};
+  return{details:"SHIP TERMINAL // IDLE",state:"Preparing to enter the Rift",largeText:"RIFTSHIFT // V18.8.13"};
 };
 try{$("discordPresenceBadge")?.classList.remove("on")}catch(_){}
 
