@@ -1,8 +1,8 @@
 {
-  "version": "18.8.1",
+  "version": "18.8.2",
   "gameUrl": "https://raw.githubusercontent.com/C0SMIC58/RIFTSHIFT/main/RIFTSHIFT_LATEST.html",
-  "sha256": "86d71e1c538d819669787e8414b20a6e14b3cb361bfcaa4e803a01ae7be99ff2",
+  "sha256": "f1b1f6c67baed9b64966fabbd2d4d5abba185af4bd6340831e821004b81082bd",
   "overhaul": false,
   "priority": "normal",
-  "notes": "Class selection fit pass: all visible class cards are kept on-screen on desktop and the selection shell now auto-scales to the viewport."
+  "notes": "Weapon/loadout presentation update with persistent weapon switching, player upgrade visuals, improved gun audio, flame-based Ignition Pistol presentation, and flames-only menu backdrop."
 }
