@@ -1,11 +1,11 @@
 {
-  "version": "18.8.20",
+  "version": "18.8.21",
   "gameUrl": "https://raw.githubusercontent.com/C0SMIC58/RIFTSHIFT/main/RIFTSHIFT_LATEST.html",
-  "sha256": "991af8207c39bc323f96e3274be88a07a9bc6944be7de60e8de1103559110073",
+  "sha256": "1d7fb9e3f5fcb004ee59bb8af15d0b950de683b9af786b0c3c7099e12e8c575c",
   "iconUrl": "https://raw.githubusercontent.com/C0SMIC58/RIFTSHIFT/main/RIFTSHIFT_ICON.ico",
   "iconSha256": "d1493025ba3162b8511d26ac342611fe5e977e9308ebadb4658551fb79b1e314",
   "iconPngUrl": "https://raw.githubusercontent.com/C0SMIC58/RIFTSHIFT/main/RIFTSHIFT_ICON.png",
   "overhaul": false,
   "priority": "normal",
-  "notes": "V18.8.20 adds P2P co-op, fixes destroyed-wall ghost collision, stabilizes loud audio, optimizes dense map geometry, and adds eight enemy ability variants."
+  "notes": "V18.8.21 rewrites co-op networking around host-authoritative enemy simulation, compact delta snapshots, smooth interpolation, player naming, named squads, ready states and squad HUD."
 }

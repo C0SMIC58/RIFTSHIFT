@@ -264,7 +264,7 @@ canvas{display:block}
 @media(prefers-reduced-motion:reduce){.eg,.engineSlash,.engineCoreCircle,.enginePulseRing,.engineLogoStage,.engineWordmark,.engineBuild,.engineHandoff,.engineFooter,.engineSplash:before,.engineSplash:after{animation-duration:.01ms!important;animation-delay:0ms!important}}
 
 
-/* V18.8.20 intro cinematic refresh */
+/* V18.8.21 intro cinematic refresh */
 .bootCinematicFX{position:absolute;inset:0;pointer-events:none;z-index:1;overflow:hidden}
 .bootHorizon{position:absolute;left:-10%;right:-10%;top:50%;height:1px;background:linear-gradient(90deg,transparent,rgba(255,126,68,.18),rgba(255,226,175,.75),rgba(117,233,255,.34),transparent);box-shadow:0 0 26px rgba(255,126,68,.25);opacity:0;animation:bootHorizonLife 4.1s .25s ease both}
 .bootScanline{position:absolute;left:0;right:0;height:2px;top:16%;background:linear-gradient(90deg,transparent,rgba(117,233,255,.05),rgba(255,255,255,.35),rgba(255,126,68,.08),transparent);opacity:0;animation:bootScanSweep 2.6s .65s cubic-bezier(.2,.72,.2,1) both}
@@ -651,7 +651,7 @@ canvas{display:block}
 @media(max-width:850px){.v9Grid{grid-template-columns:1fr 1fr}.settingsGrid{grid-template-columns:1fr}.historyRow{grid-template-columns:1fr 1fr 1fr}.historyRow span:nth-child(n+4){display:none}}
 @media(max-width:850px){.classes{grid-template-columns:1fr 1fr}.classCard{min-height:340px}.upCards{grid-template-columns:1fr}.upCard{min-height:155px}.classTop{align-items:flex-start;flex-direction:column}}
 
-/* V18.8.20 // CLASS SELECT FIT PASS */
+/* V18.8.21 // CLASS SELECT FIT PASS */
 #classSelect{padding:10px;overflow:hidden}
 #classSelect .classShell{
   width:1480px;max-width:none;max-height:none;overflow:visible;
@@ -691,7 +691,7 @@ canvas{display:block}
 }
 
 
-/* V18.8.20 // boot warp handoff + admin exit reliability */
+/* V18.8.21 // boot warp handoff + admin exit reliability */
 #bootWarpFX{position:absolute;inset:-8%;z-index:90;pointer-events:none;opacity:0;overflow:hidden;mix-blend-mode:screen}
 #bootWarpFX:before,#bootWarpFX:after{content:"";position:absolute;inset:0;opacity:0}
 #bootWarpFX:before{background:repeating-linear-gradient(90deg,rgba(117,233,255,.0) 0 6%,rgba(117,233,255,.13) 7%,rgba(255,114,72,.10) 8%,rgba(0,0,0,0) 10% 17%);filter:blur(3px);transform:scaleX(1.08)}
@@ -711,7 +711,7 @@ canvas{display:block}
 </style>
 
 <style id="v1886-polish">
-/* V18.8.20: side-slot branches use the normal upgrade-card presentation */
+/* V18.8.21: side-slot branches use the normal upgrade-card presentation */
 #kitBranch{align-items:center;justify-content:center;background:rgba(4,6,10,.82);backdrop-filter:blur(8px);pointer-events:auto}
 #kitBranch .kitBranchBox{width:min(980px,92vw);max-height:88vh;overflow:auto;background:rgba(13,19,31,.98);border:1px solid rgba(255,255,255,.10);border-radius:20px;padding:24px;box-sizing:border-box;box-shadow:0 28px 80px rgba(0,0,0,.55)}
 #kitBranch .upTitle{margin-bottom:6px}
@@ -734,7 +734,7 @@ canvas{display:block}
 
 
 <style id="rs819Style">
-/* V18.8.20 // cinematic intro, mastery UI, denser map geometry */
+/* V18.8.21 // cinematic intro, mastery UI, denser map geometry */
 #boot{background:#020307!important;overflow:hidden!important;isolation:isolate}
 #boot .engineSplash{position:absolute;inset:0;background:#020307;overflow:hidden}
 .rs819IntroField{position:absolute;inset:0;overflow:hidden;background:radial-gradient(circle at 50% 50%,rgba(23,43,63,.28),transparent 28%),linear-gradient(180deg,#010205,#05070d 58%,#020307)}
@@ -772,7 +772,7 @@ canvas{display:block}
       <div class="rs819Corner tl">RIFTCORE FIELD NODE 07<br>RECOVERY CHANNEL // OPEN</div>
       <div class="rs819Corner tr">SECTOR: UNMAPPED<br>LOCAL TIME: --:--:--</div>
       <div class="rs819Corner bl">SIGNAL LOSS 82.4%<br>RECONSTRUCTION ACTIVE</div>
-      <div class="rs819Corner br">RIFTSHIFT V18.8.20<br>COMBAT LINK // STANDBY</div>
+      <div class="rs819Corner br">RIFTSHIFT V18.8.21<br>COMBAT LINK // STANDBY</div>
       <div id="bootPrelude">
         <div class="rs819SignalStack">
           <div class="rs819Status">RECOVERING FIELD TELEMETRY</div>
@@ -819,7 +819,7 @@ canvas{display:block}
     <div class="menuTopRedux">
       <div class="menuTopLeft">
         <span class="menuKickerRedux">RIFTSHIFT // STRIKE DIRECTOR</span>
-        <span class="menuBuildChip">BUILD V18.8.20</span>
+        <span class="menuBuildChip">BUILD V18.8.21</span>
       </div>
       <div class="menuTopRight"><span class="menuPulse"></span> ORBITAL LINK GREEN</div>
     </div>
@@ -884,7 +884,7 @@ canvas{display:block}
           <div class="stageStatBar">
             <div class="stageStat"><span>CLASS CORES</span><b>4</b></div>
             <div class="stageStat"><span>RUN SEEDS</span><b>∞</b></div>
-            <div class="stageStat"><span>BUILD</span><b>V18.8.20</b></div>
+            <div class="stageStat"><span>BUILD</span><b>V18.8.21</b></div>
           </div>
         </div>
 
@@ -4752,7 +4752,7 @@ $("armoryContinueBtn").addEventListener("click",continueFromArmory);
 $("armoryRerollBtn").addEventListener("click",armoryReroll);
 ["masterSlider","musicSlider","sfxSlider","shakeSlider","impactSlider","particleSlider","crosshairSlider","hudSlider","fpsSelect","damageToggle","enemyBarsToggle","hitmarkerToggle","vignetteToggle","flashToggle","reducedMotionToggle","pauseBlurToggle","mobileAimToggle","fullscreenToggle"].forEach(id=>$(id).addEventListener("input",handleSettingsInput));$("resetSettingsBtn").addEventListener("click",resetSettings);
 $("ownerLoginBtn").addEventListener("click",tryOwnerLogin);$("ownerKeyInput").addEventListener("keydown",e=>{if(e.key==="Enter")tryOwnerLogin()});$("adminCloseBtn").addEventListener("click",closeAdminPanel);$("adminLogoutBtn").addEventListener("click",lockOwnerMode);document.querySelectorAll("[data-admin]").forEach(b=>b.addEventListener("click",()=>adminAction(b.dataset.admin)));
-// V18.8.20 fail-safe admin exit wiring. This remains functional even if the panel is opened repeatedly with F2.
+// V18.8.21 fail-safe admin exit wiring. This remains functional even if the panel is opened repeatedly with F2.
 document.addEventListener("click",e=>{if(e.target?.id==="adminCloseBtn"){e.preventDefault();e.stopPropagation();closeAdminPanel();}},true);
 document.addEventListener("keydown",e=>{if(e.key==="Escape"&&$("admin")?.classList.contains("active")){e.preventDefault();e.stopImmediatePropagation();closeAdminPanel();}},true);
 $("classBackBtn").addEventListener("click",()=>returnMenu());
@@ -4785,7 +4785,7 @@ if("serviceWorker" in navigator && location.protocol.startsWith("http")){
 }
 
 
-/* ===== V18.8.20 CLEAN ENHANCEMENT PATCH ===== */
+/* ===== V18.8.21 CLEAN ENHANCEMENT PATCH ===== */
 function rsClamp01(v){return Math.max(0,Math.min(1,v));}
 function rsRotate(x,y,a){const c=Math.cos(a),s=Math.sin(a);return{x:x*c-y*s,y:x*s+y*c};}
 function getBaseWeaponRig(slot=1,cls=G?.classId||"survivor"){
@@ -4911,7 +4911,7 @@ const rsOldNextWave=nextWave;nextWave=function(...args){const out=rsOldNextWave.
 const rsOldUpdate=update;update=function(dt){if(G?.map?.obstacles){for(const o of G.map.obstacles){if(!o.moving)continue;o.moveClock=(o.moveClock||0)+dt*(o.moveRate||1);o.x=o.baseX+Math.sin(o.moveClock)*(o.ampX||0);o.y=o.baseY+Math.sin(o.moveClock*1.06+1.2)*(o.ampY||0);}}const out=rsOldUpdate.apply(this,arguments);if(G?.running){updateSuperPickups(dt);updateFireFields(dt);if(G.enemies.some(e=>e.type==="behemoth"&&dist(e,G.player)<120))G.shake=Math.max(G.shake,2.2);}return out;};
 const rsOldDrawGame=drawGame;drawGame=function(){rsOldDrawGame.apply(this,arguments);if(!G?.running)return;X.save();if(G.map?.motionMode){X.globalAlpha=.09;X.strokeStyle=G.map.theme.accent;X.lineWidth=2;const speed=(G.time*180)%80;for(let y=-80+speed;y<H+80;y+=80){X.beginPath();X.moveTo(0,y);X.lineTo(W,y-35);X.stroke();}X.globalAlpha=1;}drawFireFields();drawSuperPickups();X.restore();};
 
-/* V18.8.20 realistic menu inferno: broad wall fire, jagged turbulent edges, layered cores, embers, smoke. */
+/* V18.8.21 realistic menu inferno: broad wall fire, jagged turbulent edges, layered cores, embers, smoke. */
 (function initMenuFlameCanvas(){
   const canvas=document.getElementById("menuFlameCanvas");if(!canvas)return;
   const ctx=canvas.getContext("2d"),flames=[],embers=[],smoke=[];let cw=0,ch=0,dpr=1,last=performance.now();
@@ -4938,7 +4938,7 @@ const rsOldDrawGame=drawGame;drawGame=function(){rsOldDrawGame.apply(this,argume
 
 
 
-/* ===== V18.8.20 PLAYER / MELEE / UTILITY PRESENTATION PATCH ===== */
+/* ===== V18.8.21 PLAYER / MELEE / UTILITY PRESENTATION PATCH ===== */
 function rs810AngleDelta(a,b){return Math.atan2(Math.sin(a-b),Math.cos(a-b));}
 function rs810VisualFacing(p){
   const target=Math.atan2(mouse.y-p.y,mouse.x-p.x);
@@ -5090,7 +5090,7 @@ update=function(dt){const out=rs810OldUpdate.apply(this,arguments);if(G?.running
 
 
 
-/* ===== V18.8.20 INPUT / AUDIO / AIM / PRESENCE POLISH ===== */
+/* ===== V18.8.21 INPUT / AUDIO / AIM / PRESENCE POLISH ===== */
 
 /* F2 FIX
    V18.8.11 had two F2 handlers: the later capture handler opened the admin panel,
@@ -5118,7 +5118,7 @@ rs810VisualFacing=function(p){
   return target;
 };
 
-/* TRUE TAB / APP AUDIO MUTE — V18.8.20
+/* TRUE TAB / APP AUDIO MUTE — V18.8.21
    Do NOT use the browser window blur event here. In an embedded game, ordinary
    pointer/focus changes can blur the iframe/window even though the tab is still
    visible. That caused clicks to cut the entire mix. Browser builds now mute only
@@ -5243,16 +5243,16 @@ v18PresencePayload=function(){
     if(G.paused||active==="pause")return{details:`PAUSED // WAVE ${G.wave} // ${biome}`,state:`${cls} // ${weapon}`,largeText:`${diff} PROTOCOL`,start:Math.floor(v18PresenceState.start/1000)};
     return{details:`WAVE ${G.wave} // ${biome}`,state:`${cls} // ${weapon}`,largeText:`${diff} // ${G.kills||0} KILLS`,start:Math.floor(v18PresenceState.start/1000)};
   }
-  if(active==="classSelect")return{details:"LOADOUT TERMINAL // CHOOSING OPERATIVE",state:"Preparing a new Rift deployment",largeText:"RIFTSHIFT // V18.8.20"};
+  if(active==="classSelect")return{details:"LOADOUT TERMINAL // CHOOSING OPERATIVE",state:"Preparing a new Rift deployment",largeText:"RIFTSHIFT // V18.8.21"};
   if(active==="gameover"&&G)return{details:`RUN COMPLETE // WAVE ${G.wave}`,state:`${G.kills} KILLS // ${Math.round(G.score).toLocaleString()} SCORE`,largeText:"RIFTSHIFT // RUN TELEMETRY",start:Math.floor(v18PresenceState.start/1000)};
-  if(active==="v17Hub")return{details:"SHIP TERMINAL // CONFIGURING RUN",state:"Reviewing protocols, arsenal and contracts",largeText:"RIFTSHIFT // V18.8.20"};
-  return{details:"SHIP TERMINAL // IDLE",state:"Preparing to enter the Rift",largeText:"RIFTSHIFT // V18.8.20"};
+  if(active==="v17Hub")return{details:"SHIP TERMINAL // CONFIGURING RUN",state:"Reviewing protocols, arsenal and contracts",largeText:"RIFTSHIFT // V18.8.21"};
+  return{details:"SHIP TERMINAL // IDLE",state:"Preparing to enter the Rift",largeText:"RIFTSHIFT // V18.8.21"};
 };
 try{$("discordPresenceBadge")?.classList.remove("on")}catch(_){}
 
 
 
-/* ===== V18.8.20 MARKSMAN + PLAYER MODEL REWORK ===== */
+/* ===== V18.8.21 MARKSMAN + PLAYER MODEL REWORK ===== */
 (function rs814Install(){
   /* --- New sniper / marksman class --- */
   CLASS_DEFS.marksman={
@@ -5556,10 +5556,10 @@ try{$("discordPresenceBadge")?.classList.remove("on")}catch(_){}
 
   /* Rich Presence gets the new class automatically; force the current version label. */
   const rs814PrevPresence=v18PresencePayload;
-  v18PresencePayload=function(){const q=rs814PrevPresence();if(q&&typeof q.largeText==="string")q.largeText=q.largeText.replace(/V18\.8\.13/g,"V18.8.20");return q;};
+  v18PresencePayload=function(){const q=rs814PrevPresence();if(q&&typeof q.largeText==="string")q.largeText=q.largeText.replace(/V18\.8\.13/g,"V18.8.21");return q;};
 
 
-  /* ===== V18.8.20 MARKSMAN ANTI-MATERIAL PATCH ===== */
+  /* ===== V18.8.21 MARKSMAN ANTI-MATERIAL PATCH ===== */
   CLASS_DEFS.marksman.desc="A brutal anti-material sniper. The VLR-7 launches a supersonic penetrator that tears through walls, kicks off shockwaves, and leaves collapsed cover and debris behind the shot.";
   CLASS_DEFS.marksman.stats=["ANTI-MATERIAL","SONIC SHOCKWAVE","WALLBREAKER"];
   CLASS_ABILITIES.marksman.desc="Enter DEAD CALM to stabilize the rifle, amplify the shot, and drive a screaming anti-material round through enemies and architecture alike.";
@@ -5664,9 +5664,9 @@ try{$("discordPresenceBadge")?.classList.remove("on")}catch(_){}
   };
 
   const rs815PrevPresence=v18PresencePayload;
-  v18PresencePayload=function(){const q=rs815PrevPresence();if(q&&typeof q.largeText==="string")q.largeText=q.largeText.replace(/V18\.8\.14/g,"V18.8.20");return q;};
+  v18PresencePayload=function(){const q=rs815PrevPresence();if(q&&typeof q.largeText==="string")q.largeText=q.largeText.replace(/V18\.8\.14/g,"V18.8.21");return q;};
 
-  /* ===== V18.8.20 ABILITY + HELD-ITEM HUD REWORK ===== */
+  /* ===== V18.8.21 ABILITY + HELD-ITEM HUD REWORK ===== */
   Object.assign(CLASS_ABILITIES,{
     survivor:{name:"TRAUMA OVERRIDE",cost:45,desc:"Emergency combat cocktail: heal, cleanse pressure, reset Dash, then gain a strong movement, fire-rate, and damage surge."},
     rifleman:{name:"KILLBOX LOCK",cost:55,desc:"Paint a kill zone around the cursor. Mark nearby hostiles, boost fire rate and crit, and convert every second shot into a heavy rail penetrator."},
@@ -5780,11 +5780,11 @@ try{$("discordPresenceBadge")?.classList.remove("on")}catch(_){}
   };
 
   const rs816PrevPresence=v18PresencePayload;
-  v18PresencePayload=function(){const q=rs816PrevPresence();if(q&&typeof q.largeText==="string")q.largeText=q.largeText.replace(/V18\.8\.15/g,"V18.8.20");return q;};
+  v18PresencePayload=function(){const q=rs816PrevPresence();if(q&&typeof q.largeText==="string")q.largeText=q.largeText.replace(/V18\.8\.15/g,"V18.8.21");return q;};
 
 
 
-  /* ===== V18.8.20 MARKSMAN WAVEBREAKER OVERHAUL ===== */
+  /* ===== V18.8.21 MARKSMAN WAVEBREAKER OVERHAUL ===== */
   const rs817PrevDrawSharp=drawSharpElectricLine;
   drawSharpElectricLine=function(l){
     if(!l||!l.wave)return rs817PrevDrawSharp(l);
@@ -5968,12 +5968,12 @@ try{$("discordPresenceBadge")?.classList.remove("on")}catch(_){}
   };
 
   const rs817PrevPresence=v18PresencePayload;
-  v18PresencePayload=function(){const q=rs817PrevPresence();if(q&&typeof q.largeText==='string')q.largeText=q.largeText.replace(/V18\.8\.16/g,'V18.8.20');return q;};
+  v18PresencePayload=function(){const q=rs817PrevPresence();if(q&&typeof q.largeText==='string')q.largeText=q.largeText.replace(/V18\.8\.16/g,'V18.8.21');return q;};
 
 
 
 
-  /* ===== V18.8.20 MARKSMAN PERFORMANCE PASS ===== */
+  /* ===== V18.8.21 MARKSMAN PERFORMANCE PASS ===== */
   CLASS_DEFS.marksman.desc="A precision anti-materiel sniper built around long sightlines, supersonic pressure waves, controlled pacing, and extreme target penetration without destroying arena walls.";
   CLASS_DEFS.marksman.stats=["HIGH CALIBER","SONIC PRESSURE","DEEP PENETRATION"];
 
@@ -6067,12 +6067,12 @@ try{$("discordPresenceBadge")?.classList.remove("on")}catch(_){}
   };
 
   const rs818PrevPresence=v18PresencePayload;
-  v18PresencePayload=function(){const q=rs818PrevPresence();if(q&&typeof q.largeText==='string')q.largeText=q.largeText.replace(/V18\.8\.17/g,'V18.8.20');return q;};
+  v18PresencePayload=function(){const q=rs818PrevPresence();if(q&&typeof q.largeText==='string')q.largeText=q.largeText.replace(/V18\.8\.17/g,'V18.8.21');return q;};
 
 
 
 
-  /* ===== V18.8.20 CLASS MASTERY + COMPLEX GEOMETRY + TRUE MACH RINGS ===== */
+  /* ===== V18.8.21 CLASS MASTERY + COMPLEX GEOMETRY + TRUE MACH RINGS ===== */
   const RS819_CLASS_IDS=["survivor","rifleman","soldier","explosive","conduit","marksman","cosmic"];
   const RS819_MASTERY_MAX=20;
   const RS819_PROTOCOLS={
@@ -6212,13 +6212,13 @@ try{$("discordPresenceBadge")?.classList.remove("on")}catch(_){}
   updateHUD=function(){rs819PrevUpdateHUD.apply(this,arguments);if(G?.player){const m=rs819MasteryLevel(G.classId),mode=rs819MasteryMode(G.classId);if($("weaponName"))$("weaponName").title=`${CLASS_DEFS[G.classId].name} Mastery ${m}${mode==="mastery"?" // "+RS819_PROTOCOLS[G.classId].name:""}`}};
 
   const rs819PrevPresence=v18PresencePayload;
-  v18PresencePayload=function(){const q=rs819PrevPresence();if(q&&typeof q.largeText==="string")q.largeText=q.largeText.replace(/V18\.8\.18/g,"V18.8.20");return q;};
+  v18PresencePayload=function(){const q=rs819PrevPresence();if(q&&typeof q.largeText==="string")q.largeText=q.largeText.replace(/V18\.8\.18/g,"V18.8.21");return q;};
 
 
 
 
-  /* ===== V18.8.20 CO-OP + AUDIO/PHYSICS/PERFORMANCE + ENEMY VARIANTS ===== */
-  const RS820_VERSION="18.8.20";
+  /* ===== V18.8.21 CO-OP + AUDIO/PHYSICS/PERFORMANCE + ENEMY VARIANTS ===== */
+  const RS820_VERSION="18.8.21";
 
   /* --- Destroyed-cover cleanup: dead geometry leaves collision + render state immediately. --- */
   function rs820ObstacleAlive(o){
@@ -6449,7 +6449,124 @@ try{$("discordPresenceBadge")?.classList.remove("on")}catch(_){}
 
   /* Current version label. */
   const rs820PrevPresence=v18PresencePayload;
-  v18PresencePayload=function(){const q=rs820PrevPresence();if(q&&typeof q.largeText==='string')q.largeText=q.largeText.replace(/V18\.8\.19/g,'V18.8.20');return q};
+  v18PresencePayload=function(){const q=rs820PrevPresence();if(q&&typeof q.largeText==='string')q.largeText=q.largeText.replace(/V18\.8\.19/g,'V18.8.21');return q};
+
+
+  /* ===== V18.8.21 SQUAD NETCODE + MULTIPLAYER PERFORMANCE REWORK ===== */
+  const RS821Net={stateTick:0,worldTick:0,rosterTick:0,pingTick:0,forceFull:true,fullClock:0,seq:0,known:new Set(),clientSeq:0,rosterDirty:true,clientEnemies:[],lastPacketAt:0};
+  RS820Coop.squadName=localStorage.getItem('riftshift_squad_name')||'RIFT SQUAD';
+  RS820Coop.ready=false;RS820Coop.ping=0;RS820Coop.lastPing=0;
+
+  function rs821Safe(s,max=24){return String(s||'').replace(/[<>]/g,'').trim().slice(0,max)}
+  function rs821EnsureName(){
+    if(localStorage.getItem('riftshift_player_named')==='1')return;
+    if($('rs821NameGate'))return;
+    const st=document.createElement('style');st.textContent=`#rs821NameGate{position:fixed;inset:0;z-index:12000;background:radial-gradient(circle at 50% 40%,rgba(24,43,61,.34),rgba(2,5,9,.96) 58%);display:grid;place-items:center;padding:18px}#rs821NameCard{width:min(430px,94vw);background:linear-gradient(180deg,#111a29,#080d15);border:1px solid rgba(155,216,255,.26);border-radius:16px;padding:24px;box-shadow:0 32px 100px rgba(0,0,0,.72)}#rs821NameCard h2{margin:0 0 8px;font-size:20px;letter-spacing:.11em}#rs821NameCard p{margin:0 0 18px;color:#8294aa;font-size:9px;line-height:1.55}#rs821NameInput{width:100%;box-sizing:border-box;background:#050911;color:#fff;border:1px solid rgba(155,216,255,.22);border-radius:9px;padding:12px;font:900 12px Inter,Arial;letter-spacing:.06em;outline:none}#rs821NameSave{width:100%;margin-top:10px;border:1px solid rgba(155,216,255,.3);background:rgba(86,160,205,.11);color:#e9f8ff;border-radius:9px;padding:11px;font:950 9px Inter,Arial;letter-spacing:.12em;cursor:pointer}`;document.head.appendChild(st);
+    document.body.insertAdjacentHTML('beforeend',`<div id="rs821NameGate"><div id="rs821NameCard"><h2>IDENTIFY YOUR SHIFT</h2><p>This is the name your squad will see in multiplayer. You can change it later from the Squad menu.</p><input id="rs821NameInput" maxlength="18" placeholder="ENTER YOUR NAME" autocomplete="off"><button id="rs821NameSave">ENTER RIFTSHIFT</button></div></div>`);
+    const save=()=>{const n=rs821Safe($('rs821NameInput').value,18);if(n.length<2){toast('NAME MUST BE AT LEAST 2 CHARACTERS');return}RS820Coop.name=n;localStorage.setItem('riftshift_callsign',n);localStorage.setItem('riftshift_player_named','1');$('rs820Callsign')&&($('rs820Callsign').value=n);$('rs821NameGate').remove();rs820RefreshLobby()};
+    $('rs821NameSave').onclick=save;$('rs821NameInput').onkeydown=e=>{if(e.key==='Enter')save()};setTimeout(()=>$('rs821NameInput')?.focus(),60);
+  }
+  setTimeout(rs821EnsureName,0);
+
+  /* Make the multiplayer screen an actual Squad screen with squad naming, ready state and host start. */
+  (function rs821UpgradeSquadUI(){
+    const panel=$('rs820Coop');if(!panel)return;
+    const h=panel.querySelector('.rs820Head h2');if(h)h.textContent='RIFTSHIFT // SQUAD';
+    const box=panel.querySelector('.rs820Box');if(box&&!$('rs821SquadName')){
+      box.querySelector('h3')?.insertAdjacentHTML('afterend',`<div class="rs821SquadLabel">SQUAD NAME</div><input id="rs821SquadName" maxlength="24" placeholder="SQUAD NAME"><div class="rs821SquadLabel">YOUR NAME</div>`);
+      box.insertAdjacentHTML('beforeend',`<div class="rs820Btns"><button id="rs821ReadyBtn">READY UP</button><button id="rs821StartBtn">START SQUAD RUN</button></div>`);
+    }
+    const style=document.createElement('style');style.textContent=`.rs821SquadLabel{font-size:7px;color:#667b93;font-weight:950;letter-spacing:.12em;margin:7px 0 5px}#rs821StartBtn{border-color:rgba(101,228,154,.38)!important;color:#bdfad7!important}#rs821StartBtn:disabled{opacity:.28;cursor:default}.rs820Peer.rs821Ready{background:rgba(101,228,154,.035)}.rs820Peer i.rs821Host{color:#ffd97c}.rs820Peer i.rs821ReadyText{color:#65e49a}#rs821SquadHUD{position:absolute;left:18px;top:78px;z-index:120;display:none;min-width:184px;pointer-events:none}#rs821SquadHUD.show{display:block}.rs821HudTitle{font:950 7px Inter,Arial;letter-spacing:.12em;color:#7e91a8;margin-bottom:5px}.rs821HudRow{display:grid;grid-template-columns:22px 1fr 46px;gap:6px;align-items:center;background:rgba(5,10,17,.66);border:1px solid rgba(255,255,255,.055);border-radius:7px;padding:5px 7px;margin-bottom:4px;backdrop-filter:blur(4px)}.rs821HudIco{width:20px;height:20px;border-radius:50%;display:grid;place-items:center;border:1px solid rgba(155,216,255,.16);font-size:10px;color:#dff7ff}.rs821HudName{font:900 7px Inter,Arial;color:#dbe9f6;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.rs821HudHp{height:3px;background:rgba(255,255,255,.08);border-radius:2px;overflow:hidden}.rs821HudHp b{display:block;height:100%;background:#65e49a}.rs821Ping{font:800 6px Inter,Arial;color:#6f8399;text-align:right}`;document.head.appendChild(style);
+    const hud=document.createElement('div');hud.id='rs821SquadHUD';document.getElementById('game')?.appendChild(hud);
+    const sn=$('rs821SquadName');if(sn){sn.value=RS820Coop.squadName;sn.onchange=()=>{if(!RS820Coop.isHost&&RS820Coop.connected){sn.value=RS820Coop.squadName;toast('ONLY THE SQUAD LEADER CAN RENAME THE SQUAD');return}const v=rs821Safe(sn.value,24)||'RIFT SQUAD';RS820Coop.squadName=v;localStorage.setItem('riftshift_squad_name',v);rs820SendAll({t:'squad',name:v});RS821Net.rosterDirty=true;rs820RefreshLobby()}}
+    if($('rs821ReadyBtn'))$('rs821ReadyBtn').onclick=()=>{RS820Coop.ready=!RS820Coop.ready;RS821Net.rosterDirty=true;rs820SendAll({t:'state',...rs820PeerState()});rs820RefreshLobby()};
+    if($('rs821StartBtn'))$('rs821StartBtn').onclick=()=>{if(!RS820Coop.isHost){toast('ONLY THE SQUAD LEADER CAN START');return}const peers=Object.values(RS820Coop.remote).filter(q=>q.connected!==false);if(peers.some(q=>!q.ready)){toast('WAITING FOR SQUAD TO READY');return}$('rs820Coop').classList.remove('show');newGame()};
+  })();
+
+  /* Smaller, cleaner frequent packets. */
+  rs820Send=function(link,obj){try{if(!link?.dc||link.dc.readyState!=='open')return;const control=['hello','roster','run','squad','ping','pong'].includes(obj?.t);if(!control&&link.dc.bufferedAmount>64000)return;link.dc.send(JSON.stringify(obj))}catch(e){}};
+  rs820Hello=function(){return{t:'hello',id:RS820Coop.id,name:RS820Coop.name,classId:G?.classId||selectedClass||'survivor',icon:CLASS_DEFS[G?.classId||selectedClass||'survivor']?.icon||'◆',ready:!!RS820Coop.ready,host:!!RS820Coop.isHost,squadName:RS820Coop.squadName}};
+  rs820PeerState=function(){const p=G?.player;return{id:RS820Coop.id,name:RS820Coop.name,classId:G?.classId||selectedClass||'survivor',icon:CLASS_DEFS[G?.classId||selectedClass||'survivor']?.icon||'◆',x:p?.x??W/2,y:p?.y??H/2,floor:p?.floor??0,hp:+(p?.hp??100).toFixed(1),maxHp:+(p?.maxHp??100).toFixed(1),aim:+(p?Math.atan2(mouse.y-p.y,mouse.x-p.x):0).toFixed(3),slot:p?.equippedSlot||1,inRun:!!G?.running,connected:true,ready:!!RS820Coop.ready,host:!!RS820Coop.isHost,squadName:RS820Coop.squadName,ping:Math.round(RS820Coop.ping||0)}};
+
+  const rs821PrevRefreshLobby=rs820RefreshLobby;
+  rs820RefreshLobby=function(){
+    const list=$('rs820PeerList');if(!list)return rs821PrevRefreshLobby();const peers=[rs820PeerState(),...Object.values(RS820Coop.remote).filter((q,i,a)=>q.id&&q.id!==RS820Coop.id&&a.findIndex(z=>z.id===q.id)===i)].slice(0,4);
+    list.innerHTML=peers.map(q=>`<div class="rs820Peer ${q.ready?'rs821Ready':''}"><div class="rs820PeerIcon">${CLASS_DEFS[q.classId]?.icon||'◆'}</div><div><b>${rs821Safe(q.name||'SHIFT',18)}</b><span>${CLASS_DEFS[q.classId]?.name||q.classId||'UNKNOWN'}${q.id===RS820Coop.id?' // YOU':''}</span></div><i class="${q.host?'rs821Host':q.ready?'rs821ReadyText':''}">${q.host?'LEADER':q.ready?'READY':q.connected===false?'OFFLINE':q.inRun?'IN RUN':'NOT READY'}${q.ping?` // ${q.ping}ms`:''}</i></div>`).join('');
+    const st=$('rs820NetStatus');if(st)st.textContent=RS820Coop.connected?`${RS820Coop.squadName.toUpperCase()} // ${peers.length}/4 // ${RS820Coop.isHost?'SQUAD LEADER':'SQUAD MEMBER'}`:`${RS820Coop.squadName.toUpperCase()} // OFFLINE`;
+    if($('rs821SquadName')){$('rs821SquadName').value=RS820Coop.squadName;$('rs821SquadName').readOnly=RS820Coop.connected&&!RS820Coop.isHost}
+    if($('rs821ReadyBtn'))$('rs821ReadyBtn').textContent=RS820Coop.ready?'READY ✓':'READY UP';
+    if($('rs821StartBtn')){const others=peers.filter(q=>q.id!==RS820Coop.id);$('rs821StartBtn').disabled=!RS820Coop.isHost||others.some(q=>!q.ready)}
+    rs821RefreshSquadHUD();
+  };
+  function rs821RefreshSquadHUD(){const hud=$('rs821SquadHUD');if(!hud)return;const peers=[rs820PeerState(),...Object.values(RS820Coop.remote).filter(q=>q.id!==RS820Coop.id&&q.connected!==false)].slice(0,4);hud.classList.toggle('show',!!(RS820Coop.connected&&G?.running));hud.innerHTML=`<div class="rs821HudTitle">${rs821Safe(RS820Coop.squadName,24).toUpperCase()}</div>`+peers.map(q=>{const hp=clamp((q.hp||0)/(q.maxHp||100),0,1);return`<div class="rs821HudRow"><div class="rs821HudIco">${CLASS_DEFS[q.classId]?.icon||'◆'}</div><div><div class="rs821HudName">${rs821Safe(q.name,16)}</div><div class="rs821HudHp"><b style="width:${Math.round(hp*100)}%"></b></div></div><div class="rs821Ping">${q.id===RS820Coop.id?'YOU':q.ping?Math.round(q.ping)+' ms':''}</div></div>`}).join('')}
+
+  /* Host-authoritative delta snapshots instead of rebuilding 150 full enemies six times every second. */
+  function rs821EnemyMeta(e){const s=rs820SerializeEnemy(e);delete s.x;delete s.y;delete s.hp;delete s.vx;delete s.vy;delete s.hit;delete s.slow;delete s.shootCd;delete s.chargeCd;delete s.charge;delete s.rs820AbilityCd;return s}
+  rs820WorldPacket=function(){
+    if(!G)return null;const enemies=G.enemies.slice(0,180),current=new Set(),newMeta=[],updates=[];RS821Net.fullClock-=Math.max(.05,RS821Net.worldPeriod||.14);const full=RS821Net.forceFull||RS821Net.fullClock<=0;if(full){RS821Net.forceFull=false;RS821Net.fullClock=2.8;RS821Net.known.clear()}
+    for(const e of enemies){const id=e.rs820NetId||(e.rs820NetId='E'+Math.random().toString(36).slice(2,9));current.add(id);if(full||!RS821Net.known.has(id)){RS821Net.known.add(id);newMeta.push(rs821EnemyMeta(e))}updates.push([id,Math.round(e.x*2),Math.round(e.y*2),Math.round(e.hp*2),Math.round((e.vx||0)*2),Math.round((e.vy||0)*2),Math.round((e.hit||0)*100),Math.round((e.slow||0)*100),Math.round((e.rs820AbilityCd||0)*20)])}
+    const removed=[];for(const id of RS821Net.known)if(!current.has(id)){removed.push(id);RS821Net.known.delete(id)}
+    const eb=G.enemyBullets.slice(0,220).map(b=>[Math.round(b.x*2),Math.round(b.y*2),Math.round(b.vx),Math.round(b.vy),Math.round((b.r||4)*10),Math.round((b.life||1)*20),Math.round((b.damage||8)*2),b.floor??0]);
+    const es=(G.enemyStrikes||[]).slice(0,24).map(q=>[Math.round(q.x*2),Math.round(q.y*2),Math.round(q.r),Math.round(q.damage*2),Math.round(q.t*20),Math.round(q.max*20),q.color||'#9c7cff',q.floor??0]);
+    return{t:'world',v:2,s:++RS821Net.seq,f:full?1:0,seed:G.mapSeed,w:G.wave,wt:G.waveTarget,sp:G.spawned,mn:G.mapName,sc:Math.round(G.score),k:G.kills,n:newMeta,u:updates,r:removed,eb,es};
+  };
+  rs820ApplyWorld=function(m){
+    if(RS820Coop.isHost||!m||m.v!==2)return;if(m.s&&m.s<=RS821Net.clientSeq)return;RS821Net.clientSeq=m.s||RS821Net.clientSeq;RS821Net.lastPacketAt=performance.now();
+    if(!G?.running){RS820Coop.pendingSeed=m.seed;newGame()}if(G.mapSeed!==m.seed){G.mapSeed=m.seed;buildMap();setupWaveObjective()}
+    G.wave=m.w;G.waveTarget=m.wt;G.spawned=m.sp;G.mapName=m.mn||G.mapName;G.score=m.sc??G.score;G.kills=m.k??G.kills;
+    const byId=new Map((G.enemies||[]).filter(e=>e.rs820NetId).map(e=>[e.rs820NetId,e]));
+    for(const s of m.n||[]){let e=byId.get(s.id);if(!e){e={x:W/2,y:H/2,r:s.r||16,hp:s.maxHp||1,maxHp:s.maxHp||1,speed:s.speed||60,damage:s.damage||10,score:s.score||100,type:s.type||'chaser',color:s.color||'#ff6978',vx:0,vy:0,hit:0,slow:0,anim:Math.random()*TAU,floor:s.floor??0,elevation:0,platformId:null,isEnemy:true,stairRoute:null,routeStuck:0,routeLastDist:Infinity,rs820NetId:s.id};G.enemies.push(e);byId.set(s.id,e)}Object.assign(e,s,{rs820NetId:s.id,isEnemy:true})}
+    const present=new Set();for(const a of m.u||[]){const [id,x,y,hp,vx,vy,hit,slow,ac]=a;present.add(id);let e=byId.get(id);if(!e){e={x:x/2,y:y/2,r:16,hp:hp/2,maxHp:Math.max(1,hp/2),speed:60,damage:10,score:100,type:'chaser',color:'#ff6978',vx:0,vy:0,hit:0,slow:0,anim:Math.random()*TAU,floor:0,elevation:0,isEnemy:true,rs820NetId:id};G.enemies.push(e);byId.set(id,e)}e.rs821TargetX=x/2;e.rs821TargetY=y/2;e.hp=hp/2;e.vx=vx/2;e.vy=vy/2;e.hit=hit/100;e.slow=slow/100;e.rs820AbilityCd=ac/20;if(e.rs821Init!==true){e.x=e.rs821TargetX;e.y=e.rs821TargetY;e.rs821Init=true}}
+    const remove=new Set(m.r||[]);if(m.f)for(const e of G.enemies)if(e.rs820NetId&&!present.has(e.rs820NetId))remove.add(e.rs820NetId);if(remove.size)G.enemies=G.enemies.filter(e=>!remove.has(e.rs820NetId));
+    const rows=m.eb||[],arr=G.enemyBullets;for(let i=0;i<rows.length;i++){const a=rows[i],b=arr[i]||{};Object.assign(b,{x:a[0]/2,y:a[1]/2,vx:a[2],vy:a[3],r:a[4]/10,life:a[5]/20,damage:a[6]/2,floor:a[7]||0});arr[i]=b}arr.length=rows.length;
+    const sr=m.es||[],strikes=G.enemyStrikes||[];for(let i=0;i<sr.length;i++){const a=sr[i],q=strikes[i]||{};Object.assign(q,{x:a[0]/2,y:a[1]/2,r:a[2],damage:a[3]/2,t:a[4]/20,max:a[5]/20,color:a[6],floor:a[7]||0});strikes[i]=q}strikes.length=sr.length;G.enemyStrikes=strikes;
+    G.boss=G.enemies.find(e=>e.type==='boss')||null;G.miniboss=G.enemies.find(e=>e.type==='miniboss')||null;
+  };
+
+  const rs821PrevNetMessage=rs820NetMessage;
+  rs820NetMessage=function(link,m){
+    if(!m)return;if(m.t==='ping'){rs820Send(link,{t:'pong',id:m.id,at:m.at});return}if(m.t==='pong'){const p=Math.max(0,performance.now()-(m.at||performance.now()));RS820Coop.ping=RS820Coop.ping?RS820Coop.ping*.72+p*.28:p;rs820RefreshLobby();return}if(m.t==='squad'){if(!RS820Coop.isHost){RS820Coop.squadName=rs821Safe(m.name,24)||'RIFT SQUAD';$('rs821SquadName')&&($('rs821SquadName').value=RS820Coop.squadName);rs820RefreshLobby()}return}
+    if(m.t==='world'&&m.v===2){rs820ApplyWorld(m);return}
+    const prev=RS820Coop.remote[m.id];const oldX=prev?.x,oldY=prev?.y;rs821PrevNetMessage(link,m);
+    if(m.t==='hello'){if(m.host&&!RS820Coop.isHost&&m.squadName){RS820Coop.squadName=rs821Safe(m.squadName,24);$('rs821SquadName')&&($('rs821SquadName').value=RS820Coop.squadName)}if(RS820Coop.isHost)RS821Net.forceFull=true;RS821Net.rosterDirty=true}
+    if(m.t==='state'){const q=RS820Coop.remote[m.id];if(q){q.renderX??=oldX??q.x;q.renderY??=oldY??q.y;q.ping=m.ping||q.ping||0}if(RS820Coop.isHost){rs820SendAll(m,link);RS821Net.rosterDirty=true}}
+    if(m.t==='roster'){const host=(m.players||[]).find(q=>q.host);if(host?.squadName&&!RS820Coop.isHost)RS820Coop.squadName=rs821Safe(host.squadName,24);RS821Net.rosterDirty=false}
+    rs820RefreshLobby();
+  };
+
+  /* Disable duplicate enemy simulation on non-host peers. The host owns enemy AI; clients interpolate snapshots. */
+  const rs821PrevVariants=rs820UpdateEnemyVariants;
+  rs820UpdateEnemyVariants=function(dt){if(RS820Coop.connected&&!RS820Coop.isHost)return;return rs821PrevVariants(dt)};
+  const rs821PrevUpdate=update;
+  update=function(dt){
+    let stash=null,boss=null,mini=null;const client=RS820Coop.connected&&!RS820Coop.isHost&&G?.running;
+    if(RS820Coop.connected){RS820Coop.netTick=9999;RS820Coop.worldTick=9999}
+    if(client&&G){stash=G.enemies;boss=G.boss;mini=G.miniboss;G.enemies=[];G.boss=null;G.miniboss=null}
+    const out=rs821PrevUpdate.apply(this,arguments);
+    if(client&&G){G.enemies=stash||[];G.boss=boss;G.miniboss=mini;const p=G.player;const lerp=1-Math.pow(.001,Math.min(dt,.05)*3.2);for(const e of G.enemies){if(Number.isFinite(e.rs821TargetX)){e.x+=(e.rs821TargetX-e.x)*lerp;e.y+=(e.rs821TargetY-e.y)*lerp}if((e.floor??0)===(p.floor??0)&&Math.hypot(e.x-p.x,e.y-p.y)<e.r+p.r&&p.invuln<=0){const a=Math.atan2(p.y-e.y,p.x-e.x);hurtPlayer(e.damage||8);moveEntity(p,Math.cos(a)*20,Math.sin(a)*20)}}G.boss=G.enemies.find(e=>e.type==='boss')||null;G.miniboss=G.enemies.find(e=>e.type==='miniboss')||null}
+    if(!RS820Coop.connected||!G)return out;
+    RS821Net.stateTick-=dt;RS821Net.worldTick-=dt;RS821Net.rosterTick-=dt;RS821Net.pingTick-=dt;
+    if(RS821Net.stateTick<=0){RS821Net.stateTick=.125;const s={t:'state',...rs820PeerState()};rs820SendAll(s);if(RS820Coop.isHost)Object.assign(RS820Coop.remote[RS820Coop.id]||{},s)}
+    if(RS820Coop.isHost&&RS821Net.worldTick<=0){const count=G.enemies.length;RS821Net.worldPeriod=count>120?.18:count>75?.15:.12;RS821Net.worldTick=RS821Net.worldPeriod;const packet=rs820WorldPacket();if(packet)rs820SendAll(packet)}
+    if(RS820Coop.isHost&&(RS821Net.rosterDirty||RS821Net.rosterTick<=0)){RS821Net.rosterDirty=false;RS821Net.rosterTick=1.25;rs820SendAll({t:'roster',players:[rs820PeerState(),...Object.values(RS820Coop.remote).filter(q=>q.id&&q.id!==RS820Coop.id&&q.connected!==false)].slice(0,4)})}
+    if(RS821Net.pingTick<=0){RS821Net.pingTick=2.25;const at=performance.now();for(const l of RS820Coop.links)rs820Send(l,{t:'ping',id:RS820Coop.id,at})}
+    G.rs821HudClock=(G.rs821HudClock||0)-dt;if(G.rs821HudClock<=0){G.rs821HudClock=.35;rs821RefreshSquadHUD()}
+    return out;
+  };
+
+  /* Smooth remote squadmates instead of snapping to 8 Hz network states. */
+  drawPlayer=function(){
+    const out=rs820PrevDrawPlayer.apply(this,arguments);if(!RS820Coop.connected||!G?.player)return out;
+    const dt=.16;for(const q of Object.values(RS820Coop.remote)){if(!q?.inRun||q.connected===false||(q.floor??0)!==(G.player.floor??0))continue;const cls=CLASS_DEFS[q.classId]?q.classId:'survivor',ang=Number.isFinite(q.aim)?q.aim:0;q.renderX??=q.x;q.renderY??=q.y;q.renderX+=(q.x-q.renderX)*.26;q.renderY+=(q.y-q.renderY)*.26;const px=q.renderX,py=q.renderY,accent=rs810ClassColors(cls)[2];X.save();X.translate(px,py);X.rotate(ang);X.globalAlpha=.9;rs810DrawBody(cls,q,q.slot||1);X.strokeStyle=accent;X.lineWidth=3.5;X.beginPath();X.moveTo(4,0);X.lineTo(27,0);X.stroke();X.restore();X.save();X.translate(px,py-35);X.fillStyle='rgba(5,10,17,.8)';X.beginPath();X.arc(0,0,10.5,0,TAU);X.fill();X.strokeStyle=accent;X.lineWidth=1.25;X.stroke();X.fillStyle='#eaf7ff';X.textAlign='center';X.textBaseline='middle';X.font='900 10px Inter,Arial';X.fillText(CLASS_DEFS[cls].icon||'◆',0,0);X.textBaseline='alphabetic';X.fillStyle='rgba(224,238,252,.78)';X.font='800 7px Inter,Arial';X.fillText(rs821Safe(q.name||'ALLY',14),0,-14);const hp=clamp((q.hp||0)/(q.maxHp||100),0,1);X.fillStyle='rgba(0,0,0,.55)';X.fillRect(-16,13,32,3);X.fillStyle=hp<.3?'#ff6b72':'#65e49a';X.fillRect(-16,13,32*hp,3);X.restore()}return out;
+  };
+
+  /* Better disconnect state + roster cleanup. */
+  for(const link of RS820Coop.links){if(link?.dc)link.dc.bufferedAmountLowThreshold=16000}
+  const rs821OldWire=rs820Wire;
+  rs820Wire=function(pc,dc){const link=rs821OldWire(pc,dc);if(dc)dc.bufferedAmountLowThreshold=16000;const oldOpen=dc.onopen,oldClose=dc.onclose;dc.onopen=e=>{oldOpen?.call(dc,e);RS821Net.forceFull=true;RS821Net.rosterDirty=true;rs820Send(link,{t:'squad',name:RS820Coop.squadName})};dc.onclose=e=>{oldClose?.call(dc,e);RS821Net.rosterDirty=true;if(!RS820Coop.connected&&!RS820Coop.isHost)toast('SQUAD LINK LOST')};return link};
+
+  const rs821PrevPresence=v18PresencePayload;
+  v18PresencePayload=function(){const q=rs821PrevPresence();if(q&&typeof q.largeText==='string')q.largeText=q.largeText.replace(/V18\.8\.20/g,'V18.8.21');return q};
 
 
   renderClasses();
