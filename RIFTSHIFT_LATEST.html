@@ -264,7 +264,7 @@ canvas{display:block}
 @media(prefers-reduced-motion:reduce){.eg,.engineSlash,.engineCoreCircle,.enginePulseRing,.engineLogoStage,.engineWordmark,.engineBuild,.engineHandoff,.engineFooter,.engineSplash:before,.engineSplash:after{animation-duration:.01ms!important;animation-delay:0ms!important}}
 
 
-/* V18.8.16 intro cinematic refresh */
+/* V18.8.17 intro cinematic refresh */
 .bootCinematicFX{position:absolute;inset:0;pointer-events:none;z-index:1;overflow:hidden}
 .bootHorizon{position:absolute;left:-10%;right:-10%;top:50%;height:1px;background:linear-gradient(90deg,transparent,rgba(255,126,68,.18),rgba(255,226,175,.75),rgba(117,233,255,.34),transparent);box-shadow:0 0 26px rgba(255,126,68,.25);opacity:0;animation:bootHorizonLife 4.1s .25s ease both}
 .bootScanline{position:absolute;left:0;right:0;height:2px;top:16%;background:linear-gradient(90deg,transparent,rgba(117,233,255,.05),rgba(255,255,255,.35),rgba(255,126,68,.08),transparent);opacity:0;animation:bootScanSweep 2.6s .65s cubic-bezier(.2,.72,.2,1) both}
@@ -651,7 +651,7 @@ canvas{display:block}
 @media(max-width:850px){.v9Grid{grid-template-columns:1fr 1fr}.settingsGrid{grid-template-columns:1fr}.historyRow{grid-template-columns:1fr 1fr 1fr}.historyRow span:nth-child(n+4){display:none}}
 @media(max-width:850px){.classes{grid-template-columns:1fr 1fr}.classCard{min-height:340px}.upCards{grid-template-columns:1fr}.upCard{min-height:155px}.classTop{align-items:flex-start;flex-direction:column}}
 
-/* V18.8.16 // CLASS SELECT FIT PASS */
+/* V18.8.17 // CLASS SELECT FIT PASS */
 #classSelect{padding:10px;overflow:hidden}
 #classSelect .classShell{
   width:1480px;max-width:none;max-height:none;overflow:visible;
@@ -691,7 +691,7 @@ canvas{display:block}
 }
 
 
-/* V18.8.16 // boot warp handoff + admin exit reliability */
+/* V18.8.17 // boot warp handoff + admin exit reliability */
 #bootWarpFX{position:absolute;inset:-8%;z-index:90;pointer-events:none;opacity:0;overflow:hidden;mix-blend-mode:screen}
 #bootWarpFX:before,#bootWarpFX:after{content:"";position:absolute;inset:0;opacity:0}
 #bootWarpFX:before{background:repeating-linear-gradient(90deg,rgba(117,233,255,.0) 0 6%,rgba(117,233,255,.13) 7%,rgba(255,114,72,.10) 8%,rgba(0,0,0,0) 10% 17%);filter:blur(3px);transform:scaleX(1.08)}
@@ -711,7 +711,7 @@ canvas{display:block}
 </style>
 
 <style id="v1886-polish">
-/* V18.8.16: side-slot branches use the normal upgrade-card presentation */
+/* V18.8.17: side-slot branches use the normal upgrade-card presentation */
 #kitBranch{align-items:center;justify-content:center;background:rgba(4,6,10,.82);backdrop-filter:blur(8px);pointer-events:auto}
 #kitBranch .kitBranchBox{width:min(980px,92vw);max-height:88vh;overflow:auto;background:rgba(13,19,31,.98);border:1px solid rgba(255,255,255,.10);border-radius:20px;padding:24px;box-sizing:border-box;box-shadow:0 28px 80px rgba(0,0,0,.55)}
 #kitBranch .upTitle{margin-bottom:6px}
@@ -836,7 +836,7 @@ canvas{display:block}
     <div class="menuTopRedux">
       <div class="menuTopLeft">
         <span class="menuKickerRedux">RIFTSHIFT // STRIKE DIRECTOR</span>
-        <span class="menuBuildChip">BUILD V18.8.16</span>
+        <span class="menuBuildChip">BUILD V18.8.17</span>
       </div>
       <div class="menuTopRight"><span class="menuPulse"></span> ORBITAL LINK GREEN</div>
     </div>
@@ -901,7 +901,7 @@ canvas{display:block}
           <div class="stageStatBar">
             <div class="stageStat"><span>CLASS CORES</span><b>4</b></div>
             <div class="stageStat"><span>RUN SEEDS</span><b>∞</b></div>
-            <div class="stageStat"><span>BUILD</span><b>V18.8.16</b></div>
+            <div class="stageStat"><span>BUILD</span><b>V18.8.17</b></div>
           </div>
         </div>
 
@@ -4808,7 +4808,7 @@ $("armoryContinueBtn").addEventListener("click",continueFromArmory);
 $("armoryRerollBtn").addEventListener("click",armoryReroll);
 ["masterSlider","musicSlider","sfxSlider","shakeSlider","impactSlider","particleSlider","crosshairSlider","hudSlider","fpsSelect","damageToggle","enemyBarsToggle","hitmarkerToggle","vignetteToggle","flashToggle","reducedMotionToggle","pauseBlurToggle","mobileAimToggle","fullscreenToggle"].forEach(id=>$(id).addEventListener("input",handleSettingsInput));$("resetSettingsBtn").addEventListener("click",resetSettings);
 $("ownerLoginBtn").addEventListener("click",tryOwnerLogin);$("ownerKeyInput").addEventListener("keydown",e=>{if(e.key==="Enter")tryOwnerLogin()});$("adminCloseBtn").addEventListener("click",closeAdminPanel);$("adminLogoutBtn").addEventListener("click",lockOwnerMode);document.querySelectorAll("[data-admin]").forEach(b=>b.addEventListener("click",()=>adminAction(b.dataset.admin)));
-// V18.8.16 fail-safe admin exit wiring. This remains functional even if the panel is opened repeatedly with F2.
+// V18.8.17 fail-safe admin exit wiring. This remains functional even if the panel is opened repeatedly with F2.
 document.addEventListener("click",e=>{if(e.target?.id==="adminCloseBtn"){e.preventDefault();e.stopPropagation();closeAdminPanel();}},true);
 document.addEventListener("keydown",e=>{if(e.key==="Escape"&&$("admin")?.classList.contains("active")){e.preventDefault();e.stopImmediatePropagation();closeAdminPanel();}},true);
 $("classBackBtn").addEventListener("click",()=>returnMenu());
@@ -4841,7 +4841,7 @@ if("serviceWorker" in navigator && location.protocol.startsWith("http")){
 }
 
 
-/* ===== V18.8.16 CLEAN ENHANCEMENT PATCH ===== */
+/* ===== V18.8.17 CLEAN ENHANCEMENT PATCH ===== */
 function rsClamp01(v){return Math.max(0,Math.min(1,v));}
 function rsRotate(x,y,a){const c=Math.cos(a),s=Math.sin(a);return{x:x*c-y*s,y:x*s+y*c};}
 function getBaseWeaponRig(slot=1,cls=G?.classId||"survivor"){
@@ -4967,7 +4967,7 @@ const rsOldNextWave=nextWave;nextWave=function(...args){const out=rsOldNextWave.
 const rsOldUpdate=update;update=function(dt){if(G?.map?.obstacles){for(const o of G.map.obstacles){if(!o.moving)continue;o.moveClock=(o.moveClock||0)+dt*(o.moveRate||1);o.x=o.baseX+Math.sin(o.moveClock)*(o.ampX||0);o.y=o.baseY+Math.sin(o.moveClock*1.06+1.2)*(o.ampY||0);}}const out=rsOldUpdate.apply(this,arguments);if(G?.running){updateSuperPickups(dt);updateFireFields(dt);if(G.enemies.some(e=>e.type==="behemoth"&&dist(e,G.player)<120))G.shake=Math.max(G.shake,2.2);}return out;};
 const rsOldDrawGame=drawGame;drawGame=function(){rsOldDrawGame.apply(this,arguments);if(!G?.running)return;X.save();if(G.map?.motionMode){X.globalAlpha=.09;X.strokeStyle=G.map.theme.accent;X.lineWidth=2;const speed=(G.time*180)%80;for(let y=-80+speed;y<H+80;y+=80){X.beginPath();X.moveTo(0,y);X.lineTo(W,y-35);X.stroke();}X.globalAlpha=1;}drawFireFields();drawSuperPickups();X.restore();};
 
-/* V18.8.16 realistic menu inferno: broad wall fire, jagged turbulent edges, layered cores, embers, smoke. */
+/* V18.8.17 realistic menu inferno: broad wall fire, jagged turbulent edges, layered cores, embers, smoke. */
 (function initMenuFlameCanvas(){
   const canvas=document.getElementById("menuFlameCanvas");if(!canvas)return;
   const ctx=canvas.getContext("2d"),flames=[],embers=[],smoke=[];let cw=0,ch=0,dpr=1,last=performance.now();
@@ -4994,7 +4994,7 @@ const rsOldDrawGame=drawGame;drawGame=function(){rsOldDrawGame.apply(this,argume
 
 
 
-/* ===== V18.8.16 PLAYER / MELEE / UTILITY PRESENTATION PATCH ===== */
+/* ===== V18.8.17 PLAYER / MELEE / UTILITY PRESENTATION PATCH ===== */
 function rs810AngleDelta(a,b){return Math.atan2(Math.sin(a-b),Math.cos(a-b));}
 function rs810VisualFacing(p){
   const target=Math.atan2(mouse.y-p.y,mouse.x-p.x);
@@ -5146,7 +5146,7 @@ update=function(dt){const out=rs810OldUpdate.apply(this,arguments);if(G?.running
 
 
 
-/* ===== V18.8.16 INPUT / AUDIO / AIM / PRESENCE POLISH ===== */
+/* ===== V18.8.17 INPUT / AUDIO / AIM / PRESENCE POLISH ===== */
 
 /* F2 FIX
    V18.8.11 had two F2 handlers: the later capture handler opened the admin panel,
@@ -5174,7 +5174,7 @@ rs810VisualFacing=function(p){
   return target;
 };
 
-/* TRUE TAB / APP AUDIO MUTE — V18.8.16
+/* TRUE TAB / APP AUDIO MUTE — V18.8.17
    Do NOT use the browser window blur event here. In an embedded game, ordinary
    pointer/focus changes can blur the iframe/window even though the tab is still
    visible. That caused clicks to cut the entire mix. Browser builds now mute only
@@ -5299,16 +5299,16 @@ v18PresencePayload=function(){
     if(G.paused||active==="pause")return{details:`PAUSED // WAVE ${G.wave} // ${biome}`,state:`${cls} // ${weapon}`,largeText:`${diff} PROTOCOL`,start:Math.floor(v18PresenceState.start/1000)};
     return{details:`WAVE ${G.wave} // ${biome}`,state:`${cls} // ${weapon}`,largeText:`${diff} // ${G.kills||0} KILLS`,start:Math.floor(v18PresenceState.start/1000)};
   }
-  if(active==="classSelect")return{details:"LOADOUT TERMINAL // CHOOSING OPERATIVE",state:"Preparing a new Rift deployment",largeText:"RIFTSHIFT // V18.8.16"};
+  if(active==="classSelect")return{details:"LOADOUT TERMINAL // CHOOSING OPERATIVE",state:"Preparing a new Rift deployment",largeText:"RIFTSHIFT // V18.8.17"};
   if(active==="gameover"&&G)return{details:`RUN COMPLETE // WAVE ${G.wave}`,state:`${G.kills} KILLS // ${Math.round(G.score).toLocaleString()} SCORE`,largeText:"RIFTSHIFT // RUN TELEMETRY",start:Math.floor(v18PresenceState.start/1000)};
-  if(active==="v17Hub")return{details:"SHIP TERMINAL // CONFIGURING RUN",state:"Reviewing protocols, arsenal and contracts",largeText:"RIFTSHIFT // V18.8.16"};
-  return{details:"SHIP TERMINAL // IDLE",state:"Preparing to enter the Rift",largeText:"RIFTSHIFT // V18.8.16"};
+  if(active==="v17Hub")return{details:"SHIP TERMINAL // CONFIGURING RUN",state:"Reviewing protocols, arsenal and contracts",largeText:"RIFTSHIFT // V18.8.17"};
+  return{details:"SHIP TERMINAL // IDLE",state:"Preparing to enter the Rift",largeText:"RIFTSHIFT // V18.8.17"};
 };
 try{$("discordPresenceBadge")?.classList.remove("on")}catch(_){}
 
 
 
-/* ===== V18.8.16 MARKSMAN + PLAYER MODEL REWORK ===== */
+/* ===== V18.8.17 MARKSMAN + PLAYER MODEL REWORK ===== */
 (function rs814Install(){
   /* --- New sniper / marksman class --- */
   CLASS_DEFS.marksman={
@@ -5612,10 +5612,10 @@ try{$("discordPresenceBadge")?.classList.remove("on")}catch(_){}
 
   /* Rich Presence gets the new class automatically; force the current version label. */
   const rs814PrevPresence=v18PresencePayload;
-  v18PresencePayload=function(){const q=rs814PrevPresence();if(q&&typeof q.largeText==="string")q.largeText=q.largeText.replace(/V18\.8\.13/g,"V18.8.16");return q;};
+  v18PresencePayload=function(){const q=rs814PrevPresence();if(q&&typeof q.largeText==="string")q.largeText=q.largeText.replace(/V18\.8\.13/g,"V18.8.17");return q;};
 
 
-  /* ===== V18.8.16 MARKSMAN ANTI-MATERIAL PATCH ===== */
+  /* ===== V18.8.17 MARKSMAN ANTI-MATERIAL PATCH ===== */
   CLASS_DEFS.marksman.desc="A brutal anti-material sniper. The VLR-7 launches a supersonic penetrator that tears through walls, kicks off shockwaves, and leaves collapsed cover and debris behind the shot.";
   CLASS_DEFS.marksman.stats=["ANTI-MATERIAL","SONIC SHOCKWAVE","WALLBREAKER"];
   CLASS_ABILITIES.marksman.desc="Enter DEAD CALM to stabilize the rifle, amplify the shot, and drive a screaming anti-material round through enemies and architecture alike.";
@@ -5720,9 +5720,9 @@ try{$("discordPresenceBadge")?.classList.remove("on")}catch(_){}
   };
 
   const rs815PrevPresence=v18PresencePayload;
-  v18PresencePayload=function(){const q=rs815PrevPresence();if(q&&typeof q.largeText==="string")q.largeText=q.largeText.replace(/V18\.8\.14/g,"V18.8.16");return q;};
+  v18PresencePayload=function(){const q=rs815PrevPresence();if(q&&typeof q.largeText==="string")q.largeText=q.largeText.replace(/V18\.8\.14/g,"V18.8.17");return q;};
 
-  /* ===== V18.8.16 ABILITY + HELD-ITEM HUD REWORK ===== */
+  /* ===== V18.8.17 ABILITY + HELD-ITEM HUD REWORK ===== */
   Object.assign(CLASS_ABILITIES,{
     survivor:{name:"TRAUMA OVERRIDE",cost:45,desc:"Emergency combat cocktail: heal, cleanse pressure, reset Dash, then gain a strong movement, fire-rate, and damage surge."},
     rifleman:{name:"KILLBOX LOCK",cost:55,desc:"Paint a kill zone around the cursor. Mark nearby hostiles, boost fire rate and crit, and convert every second shot into a heavy rail penetrator."},
@@ -5836,7 +5836,196 @@ try{$("discordPresenceBadge")?.classList.remove("on")}catch(_){}
   };
 
   const rs816PrevPresence=v18PresencePayload;
-  v18PresencePayload=function(){const q=rs816PrevPresence();if(q&&typeof q.largeText==="string")q.largeText=q.largeText.replace(/V18\.8\.15/g,"V18.8.16");return q;};
+  v18PresencePayload=function(){const q=rs816PrevPresence();if(q&&typeof q.largeText==="string")q.largeText=q.largeText.replace(/V18\.8\.15/g,"V18.8.17");return q;};
+
+
+
+  /* ===== V18.8.17 MARKSMAN WAVEBREAKER OVERHAUL ===== */
+  const rs817PrevDrawSharp=drawSharpElectricLine;
+  drawSharpElectricLine=function(l){
+    if(!l||!l.wave)return rs817PrevDrawSharp(l);
+    const life=clamp((l.life||0)/(l.max||1),0,1),amp=(l.amp||8)*(0.45+life*.8),freq=l.freq||5.5,count=l.count||22;
+    const dx=(l.x2-l.x1),dy=(l.y2-l.y1),len=Math.hypot(dx,dy)||1,nx=-dy/len,ny=dx/len;
+    X.save();
+    X.globalCompositeOperation='lighter';
+    X.shadowColor=l.color||'#9bd8ff';X.shadowBlur=(l.width||4)*2.1;
+    for(let pass=0;pass<2;pass++){
+      X.strokeStyle=pass?`rgba(239,252,255,${life*.95})`:`rgba(${l.rgb||'155,216,255'},${life*.78})`;
+      X.lineWidth=(l.width||4)*(pass?.42:1.05);
+      X.beginPath();
+      for(let i=0;i<=count;i++){
+        const t=i/count;
+        const px=l.x1+dx*t,py=l.y1+dy*t;
+        const wob=Math.sin((t*freq+(l.seed||0)+(G.time||0)*(l.speed||6))*TAU)*amp*(1-Math.abs(.5-t)*1.22);
+        const ox=nx*wob,oy=ny*wob;
+        if(i===0)X.moveTo(px+ox,py+oy);else X.lineTo(px+ox,py+oy);
+      }
+      X.stroke();
+    }
+    if(l.distort){
+      X.strokeStyle=`rgba(255,255,255,${life*.28})`;X.lineWidth=Math.max(1,(l.width||4)*.18);
+      for(let j=0;j<3;j++){
+        X.beginPath();
+        for(let i=0;i<=count;i++){
+          const t=i/count;
+          const px=l.x1+dx*t,py=l.y1+dy*t;
+          const wob=Math.sin((t*(freq+1.35)+j*.21+(l.seed||0)*1.7+(G.time||0)*(l.speed||6))*TAU)*(amp*.34);
+          const ox=nx*wob+Math.cos(t*21+j)*1.5,oy=ny*wob+Math.sin(t*17+j)*1.5;
+          if(i===0)X.moveTo(px+ox,py+oy);else X.lineTo(px+ox,py+oy);
+        }
+        X.stroke();
+      }
+    }
+    X.restore();
+  };
+
+  const rs817PrevDrawMap=drawMap;
+  drawMap=function(){
+    rs817PrevDrawMap();
+    if(!G?.map?.obstacles)return;
+    X.save();
+    for(const o of G.map.obstacles){
+      if(!o.rs817holes?.length)continue;
+      X.save();
+      roundedRect(o.x,o.y-(o.floor?7:0),o.w,o.h,o.type==='pillar'?10:6);X.clip();
+      for(const h of o.rs817holes){
+        const rg=X.createRadialGradient(h.x,h.y,0,h.x,h.y,h.r*1.45);
+        rg.addColorStop(0,'rgba(8,11,16,.94)');
+        rg.addColorStop(.45,'rgba(24,30,38,.88)');
+        rg.addColorStop(.75,'rgba(126,176,220,.26)');
+        rg.addColorStop(1,'rgba(0,0,0,0)');
+        X.fillStyle=rg;X.beginPath();X.arc(h.x,h.y,h.r*1.55,0,TAU);X.fill();
+        X.strokeStyle='rgba(215,236,255,.18)';X.lineWidth=1.2;
+        for(let k=0;k<4;k++){
+          const a=h.ang+(k-1.5)*.44,ln=h.r*(.72+Math.random()*.35);
+          X.beginPath();X.moveTo(h.x+Math.cos(a)*h.r*.35,h.y+Math.sin(a)*h.r*.35);X.lineTo(h.x+Math.cos(a)*ln,h.y+Math.sin(a)*ln);X.stroke();
+        }
+      }
+      X.restore();
+    }
+    const drone=G.marksmanDrone;
+    if(drone&&drone.life>0&&(drone.floor??0)===(G.player?.floor??0)){
+      X.save();X.translate(drone.x,drone.y+Math.sin((G.time||0)*4.4)*4);
+      X.globalCompositeOperation='lighter';
+      X.shadowColor='#9bd8ff';X.shadowBlur=18;
+      X.fillStyle='rgba(19,34,47,.95)';X.beginPath();X.arc(0,0,11,0,TAU);X.fill();
+      X.strokeStyle='rgba(155,216,255,.95)';X.lineWidth=2;X.beginPath();X.arc(0,0,7.5,0,TAU);X.stroke();
+      X.strokeStyle='rgba(226,246,255,.92)';X.lineWidth=1.2;X.beginPath();X.moveTo(-16,0);X.lineTo(-7,0);X.moveTo(7,0);X.lineTo(16,0);X.moveTo(0,-16);X.lineTo(0,-7);X.moveTo(0,7);X.lineTo(0,16);X.stroke();
+      X.restore();
+    }
+    X.restore();
+  };
+
+  const rs817PrevBulletObstacle=bulletObstacle;
+  bulletObstacle=function(b){
+    if(b?.marksmanBreaker&&G?.map?.obstacles){
+      const hit=G.map.obstacles.find(o=>(o.floor??0)===(b.floor??0)&&circleRect(b.x,b.y,b.r,o));
+      if(hit&&(["wall","bulkhead","movingbulkhead","barricade","crate","deckcrate","console","pillar"].includes(hit.type)||hit.destructible||hit.v17Destructible)){
+        if(!hit.destructible&&["wall","bulkhead","movingbulkhead","barricade","console"].includes(hit.type)){
+          hit.destructible=true;
+          hit.maxHp=hit.type==='bulkhead'||hit.type==='movingbulkhead'?150:hit.type==='wall'?110:72;
+          hit.hp=hit.hp??hit.maxHp;
+        }
+        const ang=Math.atan2(b.vy,b.vx),ix=clamp(b.x,hit.x,hit.x+hit.w),iy=clamp(b.y,hit.y,hit.y+hit.h),archDmg=Math.max(22,b.archDamage||b.damage||14);
+        const holeR=clamp((b.crit?18:13)+(b.specialRound?5:0)+(b.wallPierce||0)*.65,10,24);
+        hit.rs817holes=hit.rs817holes||[];
+        hit.rs817holes.push({x:ix,y:iy,r:holeR,ang,life:9});
+        if(hit.rs817holes.length>8)hit.rs817holes.shift();
+        const localRadius=holeR*(b.crit?1.35:1.15);
+        if(hit.v17Destructible)v17DamageCover(hit,archDmg*.75,ix,iy);
+        if(hit.destructible){hit.hp=(hit.hp??hit.maxHp??90)-Math.max(10,archDmg*.12+(b.specialRound?6:0));if(hit.hp<=0){const idx=G.map.obstacles.indexOf(hit);if(idx>=0)G.map.obstacles.splice(idx,1);for(let n=0;n<16;n++)particle(ix,iy,Math.cos(ang+rand(-1.2,1.2))*rand(80,250),Math.sin(ang+rand(-1.2,1.2))*rand(80,250),rand(2.2,5.8),Math.random()<.5?'#6d7580':'#d3dee7',rand(.28,.7));}}
+        damageMapArchitecture(ix,iy,localRadius,archDmg*.42,b.floor??0);
+        for(let k=0;k<22;k++){
+          const aa=ang+rand(-1.05,1.05),sp=rand(100,320),col=Math.random()<.48?'#6b7582':Math.random()<.75?'#d4dee8':'#9bd8ff';
+          particle(ix,iy,Math.cos(aa)*sp,Math.sin(aa)*sp,rand(2.2,6),col,rand(.26,.76));
+        }
+        G.energyLines.push({x1:ix-Math.cos(ang)*16,y1:iy-Math.sin(ang)*16,x2:ix+Math.cos(ang)*160,y2:iy+Math.sin(ang)*160,life:.16,max:.16,width:6,wave:true,amp:9,freq:4.5,color:b.specialRound?'#fff0b8':'#9bd8ff',rgb:b.specialRound?'255,240,184':'155,216,255',speed:5.2,seed:Math.random(),distort:true});
+        G.energyLines.push({x1:ix+Math.cos(ang)*4,y1:iy+Math.sin(ang)*4,x2:ix+Math.cos(ang)*105,y2:iy+Math.sin(ang)*105,life:.12,max:.12,width:3.5,wave:true,amp:5,freq:6.5,color:'#e8f8ff',rgb:'232,248,255',speed:6.8,seed:Math.random()});
+        G.blasts.push({x:ix,y:iy,radius:localRadius*1.75,life:.18,max:.18,floor:b.floor,color:'#9bd8ff'});
+        G.blasts.push({x:ix,y:iy,radius:localRadius*.95,life:.1,max:.1,floor:b.floor,color:'#effcff'});
+        G.marksmanBreachLines=G.marksmanBreachLines||[];
+        G.marksmanBreachLines.push({x1:ix,y1:iy,x2:ix+Math.cos(ang)*(140+(b.overPenStacks||0)*18),y2:iy+Math.sin(ang)*(140+(b.overPenStacks||0)*18),life:2.6,max:2.6,floor:b.floor,power:.08+Math.min(.12,(b.overPenStacks||0)*.02)});
+        for(let i=G.enemies.length-1;i>=0;i--){
+          const e=G.enemies[i];if((e.floor??0)!==(b.floor??0))continue;const dseg=pointSegmentDistance(e.x,e.y,ix,iy,ix+Math.cos(ang)*155,iy+Math.sin(ang)*155);if(dseg<=38+e.r){const sd=(b.baseDamage||b.damage)*(.18+(b.crit?.08:0));e.hp-=sd;e.slow=Math.max(e.slow||0,1.25);e.hit=.08;floatText(e.x,e.y-e.r,Math.round(sd),'#9bd8ff',12);if(e.hp<=0)killEnemy(e,i);}}
+        G.shake=Math.max(G.shake,b.crit?7.8:6.2);sfx.impact(ix);
+        if((b.wallPierce||0)>0){
+          b.wallPierce--;b.overPenStacks=(b.overPenStacks||0)+1;b.damage*=1.06;b.archDamage=(b.archDamage||b.damage)*1.04;
+          let step=0;do{b.x+=Math.cos(ang)*10;b.y+=Math.sin(ang)*10;step++;}while(step<20&&circleRect(b.x,b.y,b.r,hit));
+          return false;
+        }
+        return true;
+      }
+    }
+    return rs817PrevBulletObstacle(b);
+  };
+
+  const rs817PrevPlayerShoot=playerShoot;
+  playerShoot=function(){
+    const p=G?.player,slot=p?.equippedSlot||1;if(!p||G.classId!=='marksman'||slot!==1||p.superWeapon)return rs817PrevPlayerShoot.apply(this,arguments);
+    const preLen=G.bullets.length,special=((p.shotCounter||0)+1)%5===0,perfectReady=(p.marksmanPerfectReady||0)>0,hold=((keys.ShiftLeft||keys.ShiftRight)&&Math.abs((mobile.moveX||0))+Math.abs((mobile.moveY||0))<.1&&(p.marksmanSettle||0)>.7);
+    const out=rs817PrevPlayerShoot.apply(this,arguments);
+    const shot=G.bullets.slice(preLen).find(q=>q.marksmanBreaker);
+    if(shot){
+      shot.baseDamage=shot.damage;shot.spawnX=shot.x;shot.spawnY=shot.y;shot.trailTick=0;shot.distortTrail=true;shot.overPenStacks=shot.overPenStacks||0;shot.breakPartial=true;
+      if(special){shot.specialRound=true;shot.damage*=1.22;shot.baseDamage=shot.damage;shot.archDamage=(shot.archDamage||shot.damage)*1.2;shot.wallPierce=(shot.wallPierce||0)+1;shot.sonicWidth=(shot.sonicWidth||54)+16;shot.sonicColor='#fff0b8';msg('LAST ROUND PROTOCOL // CHAMBERED',.45);}
+      if(perfectReady){shot.damage*=1.18;shot.baseDamage=shot.damage;shot.archDamage=(shot.archDamage||shot.damage)*1.14;shot.wallPierce=(shot.wallPierce||0)+1;shot.crit=true;p.marksmanPerfectReady=0;G.energyLines.push({x1:shot.x,y1:shot.y,x2:shot.x+Math.cos(Math.atan2(shot.vy,shot.vx))*185,y2:shot.y+Math.sin(Math.atan2(shot.vy,shot.vx))*185,life:.16,max:.16,width:5,wave:true,amp:7,freq:4.2,color:'#fff1b7',rgb:'255,241,183',speed:4.6,seed:Math.random(),distort:true});}
+      if(hold){shot.damage*=1.08;shot.baseDamage=shot.damage;shot.archDamage=(shot.archDamage||shot.damage)*1.08;shot.holdBreath=true;}
+    }
+    return out;
+  };
+
+  const rs817PrevUseUtility=useUtility;
+  useUtility=function(fromSlotFire=false){
+    if(G?.classId!=='marksman')return rs817PrevUseUtility.apply(this,arguments);
+    const tx=clamp(mouse.x,45,W-45),ty=clamp(mouse.y,45,H-45),p=G.player;
+    const out=rs817PrevUseUtility.apply(this,arguments);
+    if((p.utilityCd||0)>0){G.marksmanDrone={x:tx,y:ty,life:(p.utilityWide?10:8.2),pulse:.32,floor:p.floor,markCd:.22};}
+    return out;
+  };
+
+  const rs817PrevKillEnemy=killEnemy;
+  killEnemy=function(e,i){
+    if(G?.classId==='marksman'&&e){
+      const near=G.enemies.filter(q=>q!==e&&(q.floor??0)===(e.floor??0)&&dist(q,e)<230).sort((a,b)=>dist(a,e)-dist(b,e))[0];
+      if(near){near.vulnTime=Math.max(near.vulnTime||0,3.8);near.vulnPower=Math.max(near.vulnPower||0,.22);G.energyLines.push({x1:e.x,y1:e.y,x2:near.x,y2:near.y,life:.22,max:.22,width:4,wave:true,amp:4.5,freq:5.6,color:'#9bd8ff',rgb:'155,216,255',speed:4.8,seed:Math.random()});}
+      if(e.type==='miniboss'||e.type==='boss'||e.eliteArmor){const p=G.player;p.energy=clamp(p.energy+12,0,p.maxEnergy);}
+    }
+    return rs817PrevKillEnemy.apply(this,arguments);
+  };
+
+  const rs817PrevUpdate=update;
+  update=function(dt){
+    const out=rs817PrevUpdate.apply(this,arguments);
+    if(!G?.running||!G?.player)return out;
+    const p=G.player;
+    G.marksmanBreachLines=G.marksmanBreachLines||[];
+    for(let i=G.marksmanBreachLines.length-1;i>=0;i--){const l=G.marksmanBreachLines[i];l.life-=dt;l.tick=(l.tick||0)-dt;if(l.tick<=0){l.tick=.26;for(let j=G.enemies.length-1;j>=0;j--){const e=G.enemies[j];if((e.floor??0)!==(l.floor??0))continue;if(pointSegmentDistance(e.x,e.y,l.x1,l.y1,l.x2,l.y2)<=26+e.r){const d=(p.damage||18)*(l.power||.08);e.hp-=d;e.vulnTime=Math.max(e.vulnTime||0,1.4);e.vulnPower=Math.max(e.vulnPower||0,.12);e.slow=Math.max(e.slow||0,.7);if(e.hp<=0)killEnemy(e,j);}}}if(l.life<=0)G.marksmanBreachLines.splice(i,1);else G.energyLines.push({x1:l.x1,y1:l.y1,x2:l.x2,y2:l.y2,life:Math.min(.12,l.life),max:.12,width:3.8,wave:true,amp:3.8,freq:6,color:'#9bd8ff',rgb:'155,216,255',speed:5.1,seed:i*.17+G.time,distort:true});}
+    if(G.marksmanDrone&&G.marksmanDrone.life>0){const d=G.marksmanDrone;d.life-=dt;d.pulse=(d.pulse||0)-dt;d.markCd=(d.markCd||0)-dt;const tgt=G.enemies.filter(e=>(e.floor??0)===(d.floor??0)).sort((a,b)=>Math.hypot(a.x-d.x,a.y-d.y)-Math.hypot(b.x-d.x,b.y-d.y))[0];if(tgt){d.x+=(tgt.x-d.x)*Math.min(1,dt*1.4);d.y+=(tgt.y-40-d.y)*Math.min(1,dt*1.4);}if(d.markCd<=0){d.markCd=.5;for(const e of G.enemies){if((e.floor??0)!==(d.floor??0)||Math.hypot(e.x-d.x,e.y-d.y)>140+e.r)continue;e.vulnTime=Math.max(e.vulnTime||0,2.6);e.vulnPower=Math.max(e.vulnPower||0,.18);G.energyLines.push({x1:d.x,y1:d.y,x2:e.x,y2:e.y,life:.14,max:.14,width:3,wave:true,amp:3.2,freq:7,color:'#dff7ff',rgb:'223,247,255',speed:6.4,seed:Math.random()});}}if(d.life<=0)G.marksmanDrone=null;}
+    if(G.classId==='marksman'){
+      const moving=Math.abs((mobile.moveX||0))+Math.abs((mobile.moveY||0))+(keys.KeyW||keys.KeyA||keys.KeyS||keys.KeyD?1:0);
+      p.marksmanPerfectClock=(p.marksmanPerfectClock||0)+(((p.marksmanSettle||0)>.98&&moving===0)?dt:-dt*2.4);p.marksmanPerfectClock=clamp(p.marksmanPerfectClock,0,.55);
+      if(p.marksmanPerfectClock>=.42)p.marksmanPerfectReady=.8; else p.marksmanPerfectReady=Math.max(0,(p.marksmanPerfectReady||0)-dt);
+      for(const e of G.enemies){if((e.floor??0)!==(p.floor??0))continue;if(e.type==='shooter'||e.type==='turret'){e.vulnTime=Math.max(e.vulnTime||0,.35);e.vulnPower=Math.max(e.vulnPower||0,.08);}}
+    }
+    for(const b of G.bullets){
+      if(!b.marksmanBreaker)continue;
+      b.trailTick=(b.trailTick||0)-dt;
+      if(b.spawnX==null){b.spawnX=b.x;b.spawnY=b.y;b.baseDamage=b.baseDamage||b.damage;}
+      const travel=Math.hypot(b.x-b.spawnX,b.y-b.spawnY),rangeBonus=Math.min(.35,travel/920),penBonus=Math.min(.28,(b.overPenStacks||0)*.06);b.damage=(b.baseDamage||b.damage)*(1+rangeBonus+penBonus);
+      if(b.trailTick<=0){b.trailTick=.018;const ang=Math.atan2(b.vy,b.vx),back=28+(b.specialRound?12:0),x2=b.x-Math.cos(ang)*back,y2=b.y-Math.sin(ang)*back;G.energyLines.push({x1:b.x,y1:b.y,x2,y2,life:.075,max:.075,width:b.specialRound?4.2:3.2,wave:true,amp:b.specialRound?6:4.2,freq:7.2,color:b.specialRound?'#fff0b8':'#9bd8ff',rgb:b.specialRound?'255,240,184':'155,216,255',speed:7.2,seed:Math.random(),distort:true});}
+    }
+    return out;
+  };
+
+  const rs817PrevHUD=updateHUD;
+  updateHUD=function(){
+    rs817PrevHUD.apply(this,arguments);
+    if(G?.classId==='marksman'&&G?.player){const p=G.player;const tags=[];if((p.marksmanPerfectReady||0)>0)tags.push('PERFECT SIGHTLINE');if(((p.shotCounter||0)+1)%5===0)tags.push('LAST ROUND');if(tags.length){$('abilityText').textContent=`Q • DEAD CALM // ${Math.round((p.marksmanSettle||0)*100)}% STEADY // ${tags.join(' • ')}`;}}
+  };
+
+  const rs817PrevPresence=v18PresencePayload;
+  v18PresencePayload=function(){const q=rs817PrevPresence();if(q&&typeof q.largeText==='string')q.largeText=q.largeText.replace(/V18\.8\.16/g,'V18.8.17');return q;};
+
 
   renderClasses();
 })();
