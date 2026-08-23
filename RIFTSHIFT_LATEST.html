@@ -264,7 +264,7 @@ canvas{display:block}
 @media(prefers-reduced-motion:reduce){.eg,.engineSlash,.engineCoreCircle,.enginePulseRing,.engineLogoStage,.engineWordmark,.engineBuild,.engineHandoff,.engineFooter,.engineSplash:before,.engineSplash:after{animation-duration:.01ms!important;animation-delay:0ms!important}}
 
 
-/* V18.8.19 intro cinematic refresh */
+/* V18.8.20 intro cinematic refresh */
 .bootCinematicFX{position:absolute;inset:0;pointer-events:none;z-index:1;overflow:hidden}
 .bootHorizon{position:absolute;left:-10%;right:-10%;top:50%;height:1px;background:linear-gradient(90deg,transparent,rgba(255,126,68,.18),rgba(255,226,175,.75),rgba(117,233,255,.34),transparent);box-shadow:0 0 26px rgba(255,126,68,.25);opacity:0;animation:bootHorizonLife 4.1s .25s ease both}
 .bootScanline{position:absolute;left:0;right:0;height:2px;top:16%;background:linear-gradient(90deg,transparent,rgba(117,233,255,.05),rgba(255,255,255,.35),rgba(255,126,68,.08),transparent);opacity:0;animation:bootScanSweep 2.6s .65s cubic-bezier(.2,.72,.2,1) both}
@@ -651,7 +651,7 @@ canvas{display:block}
 @media(max-width:850px){.v9Grid{grid-template-columns:1fr 1fr}.settingsGrid{grid-template-columns:1fr}.historyRow{grid-template-columns:1fr 1fr 1fr}.historyRow span:nth-child(n+4){display:none}}
 @media(max-width:850px){.classes{grid-template-columns:1fr 1fr}.classCard{min-height:340px}.upCards{grid-template-columns:1fr}.upCard{min-height:155px}.classTop{align-items:flex-start;flex-direction:column}}
 
-/* V18.8.19 // CLASS SELECT FIT PASS */
+/* V18.8.20 // CLASS SELECT FIT PASS */
 #classSelect{padding:10px;overflow:hidden}
 #classSelect .classShell{
   width:1480px;max-width:none;max-height:none;overflow:visible;
@@ -691,7 +691,7 @@ canvas{display:block}
 }
 
 
-/* V18.8.19 // boot warp handoff + admin exit reliability */
+/* V18.8.20 // boot warp handoff + admin exit reliability */
 #bootWarpFX{position:absolute;inset:-8%;z-index:90;pointer-events:none;opacity:0;overflow:hidden;mix-blend-mode:screen}
 #bootWarpFX:before,#bootWarpFX:after{content:"";position:absolute;inset:0;opacity:0}
 #bootWarpFX:before{background:repeating-linear-gradient(90deg,rgba(117,233,255,.0) 0 6%,rgba(117,233,255,.13) 7%,rgba(255,114,72,.10) 8%,rgba(0,0,0,0) 10% 17%);filter:blur(3px);transform:scaleX(1.08)}
@@ -711,7 +711,7 @@ canvas{display:block}
 </style>
 
 <style id="v1886-polish">
-/* V18.8.19: side-slot branches use the normal upgrade-card presentation */
+/* V18.8.20: side-slot branches use the normal upgrade-card presentation */
 #kitBranch{align-items:center;justify-content:center;background:rgba(4,6,10,.82);backdrop-filter:blur(8px);pointer-events:auto}
 #kitBranch .kitBranchBox{width:min(980px,92vw);max-height:88vh;overflow:auto;background:rgba(13,19,31,.98);border:1px solid rgba(255,255,255,.10);border-radius:20px;padding:24px;box-sizing:border-box;box-shadow:0 28px 80px rgba(0,0,0,.55)}
 #kitBranch .upTitle{margin-bottom:6px}
@@ -734,7 +734,7 @@ canvas{display:block}
 
 
 <style id="rs819Style">
-/* V18.8.19 // cinematic intro, mastery UI, denser map geometry */
+/* V18.8.20 // cinematic intro, mastery UI, denser map geometry */
 #boot{background:#020307!important;overflow:hidden!important;isolation:isolate}
 #boot .engineSplash{position:absolute;inset:0;background:#020307;overflow:hidden}
 .rs819IntroField{position:absolute;inset:0;overflow:hidden;background:radial-gradient(circle at 50% 50%,rgba(23,43,63,.28),transparent 28%),linear-gradient(180deg,#010205,#05070d 58%,#020307)}
@@ -772,7 +772,7 @@ canvas{display:block}
       <div class="rs819Corner tl">RIFTCORE FIELD NODE 07<br>RECOVERY CHANNEL // OPEN</div>
       <div class="rs819Corner tr">SECTOR: UNMAPPED<br>LOCAL TIME: --:--:--</div>
       <div class="rs819Corner bl">SIGNAL LOSS 82.4%<br>RECONSTRUCTION ACTIVE</div>
-      <div class="rs819Corner br">RIFTSHIFT V18.8.19<br>COMBAT LINK // STANDBY</div>
+      <div class="rs819Corner br">RIFTSHIFT V18.8.20<br>COMBAT LINK // STANDBY</div>
       <div id="bootPrelude">
         <div class="rs819SignalStack">
           <div class="rs819Status">RECOVERING FIELD TELEMETRY</div>
@@ -819,7 +819,7 @@ canvas{display:block}
     <div class="menuTopRedux">
       <div class="menuTopLeft">
         <span class="menuKickerRedux">RIFTSHIFT // STRIKE DIRECTOR</span>
-        <span class="menuBuildChip">BUILD V18.8.19</span>
+        <span class="menuBuildChip">BUILD V18.8.20</span>
       </div>
       <div class="menuTopRight"><span class="menuPulse"></span> ORBITAL LINK GREEN</div>
     </div>
@@ -884,7 +884,7 @@ canvas{display:block}
           <div class="stageStatBar">
             <div class="stageStat"><span>CLASS CORES</span><b>4</b></div>
             <div class="stageStat"><span>RUN SEEDS</span><b>∞</b></div>
-            <div class="stageStat"><span>BUILD</span><b>V18.8.19</b></div>
+            <div class="stageStat"><span>BUILD</span><b>V18.8.20</b></div>
           </div>
         </div>
 
@@ -4752,7 +4752,7 @@ $("armoryContinueBtn").addEventListener("click",continueFromArmory);
 $("armoryRerollBtn").addEventListener("click",armoryReroll);
 ["masterSlider","musicSlider","sfxSlider","shakeSlider","impactSlider","particleSlider","crosshairSlider","hudSlider","fpsSelect","damageToggle","enemyBarsToggle","hitmarkerToggle","vignetteToggle","flashToggle","reducedMotionToggle","pauseBlurToggle","mobileAimToggle","fullscreenToggle"].forEach(id=>$(id).addEventListener("input",handleSettingsInput));$("resetSettingsBtn").addEventListener("click",resetSettings);
 $("ownerLoginBtn").addEventListener("click",tryOwnerLogin);$("ownerKeyInput").addEventListener("keydown",e=>{if(e.key==="Enter")tryOwnerLogin()});$("adminCloseBtn").addEventListener("click",closeAdminPanel);$("adminLogoutBtn").addEventListener("click",lockOwnerMode);document.querySelectorAll("[data-admin]").forEach(b=>b.addEventListener("click",()=>adminAction(b.dataset.admin)));
-// V18.8.19 fail-safe admin exit wiring. This remains functional even if the panel is opened repeatedly with F2.
+// V18.8.20 fail-safe admin exit wiring. This remains functional even if the panel is opened repeatedly with F2.
 document.addEventListener("click",e=>{if(e.target?.id==="adminCloseBtn"){e.preventDefault();e.stopPropagation();closeAdminPanel();}},true);
 document.addEventListener("keydown",e=>{if(e.key==="Escape"&&$("admin")?.classList.contains("active")){e.preventDefault();e.stopImmediatePropagation();closeAdminPanel();}},true);
 $("classBackBtn").addEventListener("click",()=>returnMenu());
@@ -4785,7 +4785,7 @@ if("serviceWorker" in navigator && location.protocol.startsWith("http")){
 }
 
 
-/* ===== V18.8.19 CLEAN ENHANCEMENT PATCH ===== */
+/* ===== V18.8.20 CLEAN ENHANCEMENT PATCH ===== */
 function rsClamp01(v){return Math.max(0,Math.min(1,v));}
 function rsRotate(x,y,a){const c=Math.cos(a),s=Math.sin(a);return{x:x*c-y*s,y:x*s+y*c};}
 function getBaseWeaponRig(slot=1,cls=G?.classId||"survivor"){
@@ -4911,7 +4911,7 @@ const rsOldNextWave=nextWave;nextWave=function(...args){const out=rsOldNextWave.
 const rsOldUpdate=update;update=function(dt){if(G?.map?.obstacles){for(const o of G.map.obstacles){if(!o.moving)continue;o.moveClock=(o.moveClock||0)+dt*(o.moveRate||1);o.x=o.baseX+Math.sin(o.moveClock)*(o.ampX||0);o.y=o.baseY+Math.sin(o.moveClock*1.06+1.2)*(o.ampY||0);}}const out=rsOldUpdate.apply(this,arguments);if(G?.running){updateSuperPickups(dt);updateFireFields(dt);if(G.enemies.some(e=>e.type==="behemoth"&&dist(e,G.player)<120))G.shake=Math.max(G.shake,2.2);}return out;};
 const rsOldDrawGame=drawGame;drawGame=function(){rsOldDrawGame.apply(this,arguments);if(!G?.running)return;X.save();if(G.map?.motionMode){X.globalAlpha=.09;X.strokeStyle=G.map.theme.accent;X.lineWidth=2;const speed=(G.time*180)%80;for(let y=-80+speed;y<H+80;y+=80){X.beginPath();X.moveTo(0,y);X.lineTo(W,y-35);X.stroke();}X.globalAlpha=1;}drawFireFields();drawSuperPickups();X.restore();};
 
-/* V18.8.19 realistic menu inferno: broad wall fire, jagged turbulent edges, layered cores, embers, smoke. */
+/* V18.8.20 realistic menu inferno: broad wall fire, jagged turbulent edges, layered cores, embers, smoke. */
 (function initMenuFlameCanvas(){
   const canvas=document.getElementById("menuFlameCanvas");if(!canvas)return;
   const ctx=canvas.getContext("2d"),flames=[],embers=[],smoke=[];let cw=0,ch=0,dpr=1,last=performance.now();
@@ -4938,7 +4938,7 @@ const rsOldDrawGame=drawGame;drawGame=function(){rsOldDrawGame.apply(this,argume
 
 
 
-/* ===== V18.8.19 PLAYER / MELEE / UTILITY PRESENTATION PATCH ===== */
+/* ===== V18.8.20 PLAYER / MELEE / UTILITY PRESENTATION PATCH ===== */
 function rs810AngleDelta(a,b){return Math.atan2(Math.sin(a-b),Math.cos(a-b));}
 function rs810VisualFacing(p){
   const target=Math.atan2(mouse.y-p.y,mouse.x-p.x);
@@ -5090,7 +5090,7 @@ update=function(dt){const out=rs810OldUpdate.apply(this,arguments);if(G?.running
 
 
 
-/* ===== V18.8.19 INPUT / AUDIO / AIM / PRESENCE POLISH ===== */
+/* ===== V18.8.20 INPUT / AUDIO / AIM / PRESENCE POLISH ===== */
 
 /* F2 FIX
    V18.8.11 had two F2 handlers: the later capture handler opened the admin panel,
@@ -5118,7 +5118,7 @@ rs810VisualFacing=function(p){
   return target;
 };
 
-/* TRUE TAB / APP AUDIO MUTE — V18.8.19
+/* TRUE TAB / APP AUDIO MUTE — V18.8.20
    Do NOT use the browser window blur event here. In an embedded game, ordinary
    pointer/focus changes can blur the iframe/window even though the tab is still
    visible. That caused clicks to cut the entire mix. Browser builds now mute only
@@ -5243,16 +5243,16 @@ v18PresencePayload=function(){
     if(G.paused||active==="pause")return{details:`PAUSED // WAVE ${G.wave} // ${biome}`,state:`${cls} // ${weapon}`,largeText:`${diff} PROTOCOL`,start:Math.floor(v18PresenceState.start/1000)};
     return{details:`WAVE ${G.wave} // ${biome}`,state:`${cls} // ${weapon}`,largeText:`${diff} // ${G.kills||0} KILLS`,start:Math.floor(v18PresenceState.start/1000)};
   }
-  if(active==="classSelect")return{details:"LOADOUT TERMINAL // CHOOSING OPERATIVE",state:"Preparing a new Rift deployment",largeText:"RIFTSHIFT // V18.8.19"};
+  if(active==="classSelect")return{details:"LOADOUT TERMINAL // CHOOSING OPERATIVE",state:"Preparing a new Rift deployment",largeText:"RIFTSHIFT // V18.8.20"};
   if(active==="gameover"&&G)return{details:`RUN COMPLETE // WAVE ${G.wave}`,state:`${G.kills} KILLS // ${Math.round(G.score).toLocaleString()} SCORE`,largeText:"RIFTSHIFT // RUN TELEMETRY",start:Math.floor(v18PresenceState.start/1000)};
-  if(active==="v17Hub")return{details:"SHIP TERMINAL // CONFIGURING RUN",state:"Reviewing protocols, arsenal and contracts",largeText:"RIFTSHIFT // V18.8.19"};
-  return{details:"SHIP TERMINAL // IDLE",state:"Preparing to enter the Rift",largeText:"RIFTSHIFT // V18.8.19"};
+  if(active==="v17Hub")return{details:"SHIP TERMINAL // CONFIGURING RUN",state:"Reviewing protocols, arsenal and contracts",largeText:"RIFTSHIFT // V18.8.20"};
+  return{details:"SHIP TERMINAL // IDLE",state:"Preparing to enter the Rift",largeText:"RIFTSHIFT // V18.8.20"};
 };
 try{$("discordPresenceBadge")?.classList.remove("on")}catch(_){}
 
 
 
-/* ===== V18.8.19 MARKSMAN + PLAYER MODEL REWORK ===== */
+/* ===== V18.8.20 MARKSMAN + PLAYER MODEL REWORK ===== */
 (function rs814Install(){
   /* --- New sniper / marksman class --- */
   CLASS_DEFS.marksman={
@@ -5556,10 +5556,10 @@ try{$("discordPresenceBadge")?.classList.remove("on")}catch(_){}
 
   /* Rich Presence gets the new class automatically; force the current version label. */
   const rs814PrevPresence=v18PresencePayload;
-  v18PresencePayload=function(){const q=rs814PrevPresence();if(q&&typeof q.largeText==="string")q.largeText=q.largeText.replace(/V18\.8\.13/g,"V18.8.19");return q;};
+  v18PresencePayload=function(){const q=rs814PrevPresence();if(q&&typeof q.largeText==="string")q.largeText=q.largeText.replace(/V18\.8\.13/g,"V18.8.20");return q;};
 
 
-  /* ===== V18.8.19 MARKSMAN ANTI-MATERIAL PATCH ===== */
+  /* ===== V18.8.20 MARKSMAN ANTI-MATERIAL PATCH ===== */
   CLASS_DEFS.marksman.desc="A brutal anti-material sniper. The VLR-7 launches a supersonic penetrator that tears through walls, kicks off shockwaves, and leaves collapsed cover and debris behind the shot.";
   CLASS_DEFS.marksman.stats=["ANTI-MATERIAL","SONIC SHOCKWAVE","WALLBREAKER"];
   CLASS_ABILITIES.marksman.desc="Enter DEAD CALM to stabilize the rifle, amplify the shot, and drive a screaming anti-material round through enemies and architecture alike.";
@@ -5664,9 +5664,9 @@ try{$("discordPresenceBadge")?.classList.remove("on")}catch(_){}
   };
 
   const rs815PrevPresence=v18PresencePayload;
-  v18PresencePayload=function(){const q=rs815PrevPresence();if(q&&typeof q.largeText==="string")q.largeText=q.largeText.replace(/V18\.8\.14/g,"V18.8.19");return q;};
+  v18PresencePayload=function(){const q=rs815PrevPresence();if(q&&typeof q.largeText==="string")q.largeText=q.largeText.replace(/V18\.8\.14/g,"V18.8.20");return q;};
 
-  /* ===== V18.8.19 ABILITY + HELD-ITEM HUD REWORK ===== */
+  /* ===== V18.8.20 ABILITY + HELD-ITEM HUD REWORK ===== */
   Object.assign(CLASS_ABILITIES,{
     survivor:{name:"TRAUMA OVERRIDE",cost:45,desc:"Emergency combat cocktail: heal, cleanse pressure, reset Dash, then gain a strong movement, fire-rate, and damage surge."},
     rifleman:{name:"KILLBOX LOCK",cost:55,desc:"Paint a kill zone around the cursor. Mark nearby hostiles, boost fire rate and crit, and convert every second shot into a heavy rail penetrator."},
@@ -5780,11 +5780,11 @@ try{$("discordPresenceBadge")?.classList.remove("on")}catch(_){}
   };
 
   const rs816PrevPresence=v18PresencePayload;
-  v18PresencePayload=function(){const q=rs816PrevPresence();if(q&&typeof q.largeText==="string")q.largeText=q.largeText.replace(/V18\.8\.15/g,"V18.8.19");return q;};
+  v18PresencePayload=function(){const q=rs816PrevPresence();if(q&&typeof q.largeText==="string")q.largeText=q.largeText.replace(/V18\.8\.15/g,"V18.8.20");return q;};
 
 
 
-  /* ===== V18.8.19 MARKSMAN WAVEBREAKER OVERHAUL ===== */
+  /* ===== V18.8.20 MARKSMAN WAVEBREAKER OVERHAUL ===== */
   const rs817PrevDrawSharp=drawSharpElectricLine;
   drawSharpElectricLine=function(l){
     if(!l||!l.wave)return rs817PrevDrawSharp(l);
@@ -5968,12 +5968,12 @@ try{$("discordPresenceBadge")?.classList.remove("on")}catch(_){}
   };
 
   const rs817PrevPresence=v18PresencePayload;
-  v18PresencePayload=function(){const q=rs817PrevPresence();if(q&&typeof q.largeText==='string')q.largeText=q.largeText.replace(/V18\.8\.16/g,'V18.8.19');return q;};
+  v18PresencePayload=function(){const q=rs817PrevPresence();if(q&&typeof q.largeText==='string')q.largeText=q.largeText.replace(/V18\.8\.16/g,'V18.8.20');return q;};
 
 
 
 
-  /* ===== V18.8.19 MARKSMAN PERFORMANCE PASS ===== */
+  /* ===== V18.8.20 MARKSMAN PERFORMANCE PASS ===== */
   CLASS_DEFS.marksman.desc="A precision anti-materiel sniper built around long sightlines, supersonic pressure waves, controlled pacing, and extreme target penetration without destroying arena walls.";
   CLASS_DEFS.marksman.stats=["HIGH CALIBER","SONIC PRESSURE","DEEP PENETRATION"];
 
@@ -6067,12 +6067,12 @@ try{$("discordPresenceBadge")?.classList.remove("on")}catch(_){}
   };
 
   const rs818PrevPresence=v18PresencePayload;
-  v18PresencePayload=function(){const q=rs818PrevPresence();if(q&&typeof q.largeText==='string')q.largeText=q.largeText.replace(/V18\.8\.17/g,'V18.8.19');return q;};
+  v18PresencePayload=function(){const q=rs818PrevPresence();if(q&&typeof q.largeText==='string')q.largeText=q.largeText.replace(/V18\.8\.17/g,'V18.8.20');return q;};
 
 
 
 
-  /* ===== V18.8.19 CLASS MASTERY + COMPLEX GEOMETRY + TRUE MACH RINGS ===== */
+  /* ===== V18.8.20 CLASS MASTERY + COMPLEX GEOMETRY + TRUE MACH RINGS ===== */
   const RS819_CLASS_IDS=["survivor","rifleman","soldier","explosive","conduit","marksman","cosmic"];
   const RS819_MASTERY_MAX=20;
   const RS819_PROTOCOLS={
@@ -6212,7 +6212,244 @@ try{$("discordPresenceBadge")?.classList.remove("on")}catch(_){}
   updateHUD=function(){rs819PrevUpdateHUD.apply(this,arguments);if(G?.player){const m=rs819MasteryLevel(G.classId),mode=rs819MasteryMode(G.classId);if($("weaponName"))$("weaponName").title=`${CLASS_DEFS[G.classId].name} Mastery ${m}${mode==="mastery"?" // "+RS819_PROTOCOLS[G.classId].name:""}`}};
 
   const rs819PrevPresence=v18PresencePayload;
-  v18PresencePayload=function(){const q=rs819PrevPresence();if(q&&typeof q.largeText==="string")q.largeText=q.largeText.replace(/V18\.8\.18/g,"V18.8.19");return q;};
+  v18PresencePayload=function(){const q=rs819PrevPresence();if(q&&typeof q.largeText==="string")q.largeText=q.largeText.replace(/V18\.8\.18/g,"V18.8.20");return q;};
+
+
+
+
+  /* ===== V18.8.20 CO-OP + AUDIO/PHYSICS/PERFORMANCE + ENEMY VARIANTS ===== */
+  const RS820_VERSION="18.8.20";
+
+  /* --- Destroyed-cover cleanup: dead geometry leaves collision + render state immediately. --- */
+  function rs820ObstacleAlive(o){
+    if(!o||o.dead||o.rs820Destroyed||o.collision===false)return false;
+    if(o.v17Destructible&&Number.isFinite(o.v17Hp)&&o.v17Hp<=0)return false;
+    if(o.destructible&&Number.isFinite(o.hp)&&o.hp<=0)return false;
+    return true;
+  }
+  function rs820CleanupDestroyed(forceCache=false){
+    if(!G?.map?.obstacles)return;
+    const before=G.map.obstacles.length;
+    G.map.obstacles=G.map.obstacles.filter(rs820ObstacleAlive);
+    if(G.map.rs819Geo){
+      const alive=new Set(G.map.obstacles);
+      G.map.rs819Geo=G.map.rs819Geo.filter(g=>g.kind!=="solid"||!g.ref||alive.has(g.ref));
+    }
+    if(forceCache||G.map.obstacles.length!==before)G.map.rs820GeoCacheDirty=true;
+  }
+  const rs820PrevV17DamageCover=v17DamageCover;
+  v17DamageCover=function(o,dmg,x,y){
+    const out=rs820PrevV17DamageCover.apply(this,arguments);
+    if(o&&o.v17Destructible&&o.v17Hp<=0){o.dead=true;o.rs820Destroyed=true;o.collision=false;rs820CleanupDestroyed(true)}
+    return out;
+  };
+  const rs820PrevDamageArchitecture=damageMapArchitecture;
+  damageMapArchitecture=function(){const before=G?.map?.obstacles?.length||0,out=rs820PrevDamageArchitecture.apply(this,arguments);if(G?.map?.obstacles?.length!==before)rs820CleanupDestroyed(true);return out};
+  const rs820PrevHitsObstacle=hitsObstacle;
+  hitsObstacle=function(x,y,r=1,floor=0){if(!G?.map?.obstacles)return false;return G.map.obstacles.some(o=>rs820ObstacleAlive(o)&&(o.floor??0)===floor&&rectCircleHit(x,y,r,o))};
+  const rs820PrevBulletObstacle=bulletObstacle;
+  bulletObstacle=function(b){
+    if(G?.map?.obstacles?.some(o=>!rs820ObstacleAlive(o)))rs820CleanupDestroyed(true);
+    return rs820PrevBulletObstacle.apply(this,arguments);
+  };
+
+  /* --- Static geometry cache: keep the dense maps, stop redrawing every decorative module every frame. --- */
+  function rs820RoundRect(C,x,y,w,h,r){r=Math.min(r,w*.5,h*.5);C.beginPath();C.moveTo(x+r,y);C.lineTo(x+w-r,y);C.quadraticCurveTo(x+w,y,x+w,y+r);C.lineTo(x+w,y+h-r);C.quadraticCurveTo(x+w,y+h,x+w-r,y+h);C.lineTo(x+r,y+h);C.quadraticCurveTo(x,y+h,x,y+h-r);C.lineTo(x,y+r);C.quadraticCurveTo(x,y,x+r,y);C.closePath()}
+  function rs820BuildGeoCache(){
+    if(!G?.map?.rs819Geo)return;
+    const c=document.createElement('canvas');c.width=W;c.height=H;const C=c.getContext('2d',{alpha:true});const accent=G.map.theme?.accent||'#75e9ff';
+    for(const g of G.map.rs819Geo){
+      if(g.kind==='solid'&&g.ref){const o=g.ref;if(!rs820ObstacleAlive(o))continue;C.strokeStyle='rgba(222,236,250,.16)';C.lineWidth=1;C.fillStyle='rgba(8,13,19,.26)';for(let k=6;k<o.w-4;k+=12)C.fillRect(o.x+k,o.y+4,2,o.h-8);C.fillStyle=accent+'4d';if(o.w>o.h)C.fillRect(o.x+7,o.y+o.h*.5-1,o.w-14,2);else C.fillRect(o.x+o.w*.5-1,o.y+7,2,o.h-14);C.strokeRect(o.x+4,o.y+4,o.w-8,o.h-8);continue}
+      C.save();C.translate(g.x||0,g.y||0);if(g.a)C.rotate(g.a);
+      if(g.kind==='truss'){C.strokeStyle='rgba(163,185,210,.16)';C.lineWidth=3;C.beginPath();C.moveTo(0,0);C.lineTo(g.w,0);C.stroke();C.lineWidth=1;for(let x=5;x<g.w;x+=18){C.beginPath();C.moveTo(x,-5);C.lineTo(x+10,5);C.stroke()}}
+      else if(g.kind==='pipe'){C.strokeStyle='rgba(76,97,119,.42)';C.lineWidth=7;C.beginPath();C.moveTo(0,0);C.lineTo(g.w,0);C.stroke();C.strokeStyle=accent+'4d';C.lineWidth=1.4;C.beginPath();C.moveTo(0,-2);C.lineTo(g.w,-2);C.stroke();for(let x=12;x<g.w;x+=28){C.fillStyle='#151d27';C.fillRect(x,-6,5,12)}}
+      else if(g.kind==='panel'){C.fillStyle='rgba(12,19,28,.38)';C.fillRect(0,0,g.w,g.h);C.strokeStyle='rgba(180,205,230,.11)';C.strokeRect(1,1,g.w-2,g.h-2);C.fillStyle=accent+'3f';for(let x=8;x<g.w-5;x+=16)C.fillRect(x,6,6,2)}
+      else if(g.kind==='rail'){C.strokeStyle='rgba(170,190,214,.22)';C.lineWidth=2;C.beginPath();C.moveTo(0,0);C.lineTo(g.w,0);C.stroke();for(let x=0;x<g.w;x+=24){C.beginPath();C.moveTo(x,-6);C.lineTo(x,6);C.stroke()}}
+      else if(g.kind==='tank'){C.fillStyle='rgba(21,31,42,.46)';rs820RoundRect(C,0,0,g.w,g.h,Math.min(12,g.h*.3));C.fill();C.strokeStyle='rgba(190,216,236,.13)';C.stroke();C.fillStyle=accent+'2f';C.fillRect(6,g.h*.48,g.w-12,3)}
+      else if(g.kind==='cabletray'){C.strokeStyle='rgba(88,107,132,.3)';C.lineWidth=1.4;for(let q=0;q<4;q++){C.beginPath();C.moveTo(0,q*3);C.bezierCurveTo(g.w*.3,q*3+Math.sin(g.seed+q)*8,g.w*.7,q*3-Math.cos(g.seed+q)*8,g.w,q*3);C.stroke()}}
+      else if(g.kind==='floorwell'){C.fillStyle='rgba(0,0,0,.2)';rs820RoundRect(C,0,0,g.w,g.h,6);C.fill();C.strokeStyle=accent+'2d';C.stroke();C.strokeStyle='rgba(255,255,255,.06)';for(let x=8;x<g.w;x+=12){C.beginPath();C.moveTo(x,4);C.lineTo(x,g.h-4);C.stroke()}}
+      else if(g.kind==='landmark'){if(g.theme==='cryo'||g.theme==='bio'){C.fillStyle=g.theme==='cryo'?'rgba(100,190,220,.1)':'rgba(78,192,125,.1)';C.beginPath();C.ellipse(g.w*.5,g.h*.5,g.w*.38,g.h*.48,0,0,TAU);C.fill();C.strokeStyle=accent+'55';C.stroke();C.fillStyle='rgba(220,245,255,.08)';C.fillRect(g.w*.46,4,g.w*.08,g.h-8)}else if(g.theme==='server'){C.fillStyle='rgba(8,14,23,.48)';for(let x=0;x<g.w;x+=18){C.fillRect(x,0,14,g.h);C.fillStyle=accent+'4d';for(let y=8;y<g.h;y+=12)C.fillRect(x+4,y,6,2);C.fillStyle='rgba(8,14,23,.48)'}}else if(g.theme==='orbital'){C.strokeStyle=accent+'4d';C.lineWidth=2;C.beginPath();C.arc(g.w*.5,g.h*.5,Math.min(g.w,g.h)*.36,0,TAU);C.stroke();C.beginPath();C.moveTo(0,g.h*.5);C.lineTo(g.w,g.h*.5);C.moveTo(g.w*.5,0);C.lineTo(g.w*.5,g.h);C.stroke()}else{C.strokeStyle=accent+'3d';C.lineWidth=2;C.beginPath();C.moveTo(g.w*.5,0);C.lineTo(g.w,g.h*.5);C.lineTo(g.w*.5,g.h);C.lineTo(0,g.h*.5);C.closePath();C.stroke()}}
+      C.restore();
+    }
+    G.map.rs820GeoCache=c;G.map.rs820GeoCacheDirty=false;G.map.rs820GeoCacheW=W;G.map.rs820GeoCacheH=H;
+  }
+  const rs820PrevBuildMap=buildMap;
+  buildMap=function(){const out=rs820PrevBuildMap.apply(this,arguments);if(G?.map){G.map.rs820GeoCacheDirty=true;rs820BuildGeoCache()}return out};
+  const rs820PrevDrawMap=drawMap;
+  drawMap=function(){
+    if(!G?.map?.rs819Geo)return rs820PrevDrawMap.apply(this,arguments);
+    const geo=G.map.rs819Geo;G.map.rs819Geo=[];const out=rs820PrevDrawMap.apply(this,arguments);G.map.rs819Geo=geo;
+    if(G.map.rs820GeoCacheDirty||!G.map.rs820GeoCache||G.map.rs820GeoCacheW!==W||G.map.rs820GeoCacheH!==H)rs820BuildGeoCache();
+    if(G.map.rs820GeoCache)X.drawImage(G.map.rs820GeoCache,0,0);return out;
+  };
+
+  /* --- Audio overload protection: dedicated limiter + adaptive voice budget + burst coalescing. --- */
+  function rs820ConfigureAudio(a){
+    if(!a?.ctx||a.rs820AudioConfigured)return;a.rs820AudioConfigured=true;a.rs820ActiveVoices=0;a.rs820ShotAt={};a.rs820ExplosionAt=0;
+    try{
+      if(a.compressor){a.compressor.threshold.value=-17;a.compressor.knee.value=8;a.compressor.ratio.value=10;a.compressor.attack.value=.002;a.compressor.release.value=.14}
+      a.sfxLimiter=a.ctx.createDynamicsCompressor();a.sfxLimiter.threshold.value=-11;a.sfxLimiter.knee.value=4;a.sfxLimiter.ratio.value=18;a.sfxLimiter.attack.value=.001;a.sfxLimiter.release.value=.09;
+      a.sfxGain.disconnect();a.sfxGain.connect(a.sfxLimiter);a.sfxLimiter.connect(a.master);a.sfxGain.gain.value=Math.min(a.sfxGain.gain.value,.68);
+    }catch(e){console.warn('RIFTSHIFT audio limiter fallback',e)}
+  }
+  const rs820PrevAudioStart=AudioSystem.prototype.start;
+  AudioSystem.prototype.start=function(){const out=rs820PrevAudioStart.apply(this,arguments);rs820ConfigureAudio(this);return out};
+  const rs820PrevTone=AudioSystem.prototype.tone;
+  AudioSystem.prototype.tone=function(f,d,type='sine',v=.05,to=null,pan=0,destination=null,wet=0){
+    rs820ConfigureAudio(this);const music=destination&&destination===this.musicGain;if(!music){const n=this.rs820ActiveVoices||0;if(n>=58||(n>=44&&v<.028))return;this.rs820ActiveVoices=n+1;setTimeout(()=>this.rs820ActiveVoices=Math.max(0,(this.rs820ActiveVoices||1)-1),Math.max(80,(d||.05)*1000+80));if(n>34)v*=.82}
+    return rs820PrevTone.call(this,f,d,type,v,to,pan,destination,wet);
+  };
+  const rs820PrevNoise=AudioSystem.prototype.noise;
+  AudioSystem.prototype.noise=function(d,v,freq,pan=0,type='bandpass',destination=null,wet=0){
+    rs820ConfigureAudio(this);const music=destination&&destination===this.musicGain;if(!music){const n=this.rs820ActiveVoices||0;if(n>=58||(n>=42&&v<.03))return;this.rs820ActiveVoices=n+1;setTimeout(()=>this.rs820ActiveVoices=Math.max(0,(this.rs820ActiveVoices||1)-1),Math.max(80,(d||.05)*1000+70));if(n>34)v*=.78}
+    return rs820PrevNoise.call(this,d,v,freq,pan,type,destination,wet);
+  };
+  const rs820PrevShootAudio=AudioSystem.prototype.shoot;
+  AudioSystem.prototype.shoot=function(cls,x){
+    const now=performance.now(),mins={survivor:34,rifleman:42,soldier:48,explosive:92,conduit:76,cosmic:34,marksman:150},min=mins[cls]||38,last=this.rs820ShotAt?.[cls]||0;if(now-last<min)return;this.rs820ShotAt=this.rs820ShotAt||{};this.rs820ShotAt[cls]=now;return rs820PrevShootAudio.call(this,cls,x)
+  };
+  const rs820PrevExplosionAudio=AudioSystem.prototype.explosion;
+  AudioSystem.prototype.explosion=function(x,radius=76){const now=performance.now();if(now-(this.rs820ExplosionAt||0)<34&&radius<120)return;this.rs820ExplosionAt=now;return rs820PrevExplosionAudio.call(this,x,radius)};
+
+  /* --- Marksman sonic boom correctness: a wave/boom exists only if a projectile actually spawned. --- */
+  const rs820PrevPlayerShoot=playerShoot;
+  playerShoot=function(){
+    const beforeBullets=G?.bullets?.length||0,beforeWaves=G?.marksmanWaves?.length||0,cls=G?.classId,slot=G?.player?.equippedSlot||1;
+    const out=rs820PrevPlayerShoot.apply(this,arguments);
+    if(cls==='marksman'&&slot===1&&G){
+      const fresh=(G.bullets||[]).slice(beforeBullets).filter(b=>b.marksman||b.marksmanLite);
+      if(!fresh.length){if(G.marksmanWaves&&G.marksmanWaves.length>beforeWaves)G.marksmanWaves.splice(beforeWaves);return out}
+      const b=fresh[0],a=Math.atan2(b.vy,b.vx),full=(G.player.marksmanSettle||0)>.9;G.marksmanWaves=G.marksmanWaves||[];
+      // compressed Mach cones: multiple edge-on rings trail behind the projectile axis.
+      for(let n=0;n<3;n++)G.marksmanWaves.push({x:b.x-Math.cos(a)*(10+n*15),y:b.y-Math.sin(a)*(10+n*15),a,life:.20+n*.025,max:.20+n*.025,r:5+n*2,maxR:(full?70:56)+n*12,width:full?3.8:3,color:b.specialRound?'#fff0b8':'#bfeeff',floor:b.floor,rs820Mach:true});
+      if(G.marksmanWaves.length>12)G.marksmanWaves.splice(0,G.marksmanWaves.length-12);
+    }
+    return out;
+  };
+  const rs820PrevAbility=activateClassAbility;
+  activateClassAbility=function(){const bw=G?.marksmanWaves?.length||0,cls=G?.classId,out=rs820PrevAbility.apply(this,arguments);if(cls==='marksman'&&G?.marksmanWaves&&G.marksmanWaves.length>bw)G.marksmanWaves.splice(bw);return out};
+
+  /* --- Expanded enemy variant director. Each variant adds behavior, not just stats. --- */
+  const RS820_VARIANTS={
+    blinker:{name:'BLINKER',color:'#b78dff'},artillerist:{name:'ARTILLERIST',color:'#ffb269'},bulwark:{name:'BULWARK',color:'#b7c8e8'},disruptor:{name:'DISRUPTOR',color:'#6cecff'},pouncer:{name:'POUNCER',color:'#ff7b77'},brood:{name:'BROODMOTHER',color:'#72e5a0'},stormer:{name:'STORMER',color:'#8e9dff'},executioner:{name:'EXECUTIONER',color:'#ff5f6d'}
+  };
+  function rs820AssignVariant(e,forced=null){
+    if(!e||e.rs820Variant||['boss','miniboss','pylon','turret','mini','behemoth'].includes(e.type))return e;
+    const w=G?.wave||1,chance=clamp(.10+w*.012,.10,.34);if(!forced&&(w<2||Math.random()>chance))return e;
+    let pool=e.type==='shooter'?['artillerist','disruptor','stormer']:e.type==='charger'?['pouncer','blinker','executioner']:e.type==='splitter'?['brood','blinker','stormer']:e.type==='brute'?['bulwark','executioner','stormer']:['blinker','disruptor','executioner'];
+    const id=forced||pool[Math.floor(Math.random()*pool.length)],d=RS820_VARIANTS[id];e.rs820Variant=id;e.rs820VariantName=d.name;e.rs820VariantColor=d.color;e.rs820AbilityCd=rand(1.2,2.8);e.score=Math.round((e.score||100)*1.28);e.maxHp*=1.12;e.hp=e.maxHp;
+    if(id==='executioner'){e.damage*=1.18;e.speed*=1.08}if(id==='bulwark')e.maxHp=e.hp*=1.18;if(id==='blinker')e.speed*=1.06;return e;
+  }
+  const rs820PrevSpawnEnemy=spawnEnemy;
+  spawnEnemy=function(){const e=rs820PrevSpawnEnemy.apply(this,arguments);if(e)rs820AssignVariant(e);return e};
+  const rs820PrevSpecial=v17SpawnSpecial;
+  v17SpawnSpecial=function(type){const e=rs820PrevSpecial.apply(this,arguments);if(e)rs820AssignVariant(e,Math.random()<.45?(type==='sniper'?'artillerist':type==='shield'?'bulwark':type==='minelayer'?'stormer':null):null);return e};
+  function rs820EnemyTarget(e){const allies=[G?.player,...Object.values(RS820Coop.remote||{}).filter(q=>q&&q.connected!==false&&q.inRun)];let best=G.player,bd=Infinity;for(const q of allies){if(!q)continue;const d=Math.hypot(e.x-q.x,e.y-q.y);if(d<bd){bd=d;best=q}}return best}
+  function rs820UpdateEnemyVariants(dt){
+    if(!G?.enemies)return;const p=G.player;
+    for(let i=G.enemies.length-1;i>=0;i--){const e=G.enemies[i],v=e.rs820Variant;if(!v)continue;e.rs820AbilityCd=(e.rs820AbilityCd||1)-dt;const target=rs820EnemyTarget(e),d=Math.hypot(e.x-target.x,e.y-target.y);
+      if(v==='executioner'&&!e.rs820Enraged&&e.hp/e.maxHp<.5){e.rs820Enraged=true;e.speed*=1.32;e.damage*=1.24;e.rs820AbilityCd=.25;G.spawnFx.push({x:e.x,y:e.y,r:e.r+8,color:'#ff5f6d',life:.4,max:.4,floor:e.floor??0});}
+      if(v==='brood'&&!e.rs820BroodSplit&&e.hp/e.maxHp<.48){e.rs820BroodSplit=true;for(let n=0;n<3;n++)spawnMini(e.x+rand(-22,22),e.y+rand(-22,22));}
+      if(e.rs820AbilityCd>0)continue;
+      if(v==='blinker'){e.rs820AbilityCd=3.4;const a=Math.atan2(target.y-e.y,target.x-e.x),tx=clamp(target.x-Math.cos(a)*rand(70,115),35,W-35),ty=clamp(target.y-Math.sin(a)*rand(70,115),35,H-35);if(canOccupy(e,tx,ty)){G.spawnFx.push({x:e.x,y:e.y,r:e.r,color:e.rs820VariantColor,life:.26,max:.26,floor:e.floor??0});e.x=tx;e.y=ty;G.spawnFx.push({x:e.x,y:e.y,r:e.r,color:e.rs820VariantColor,life:.3,max:.3,floor:e.floor??0});}}
+      else if(v==='artillerist'){e.rs820AbilityCd=3.1;if(d<520)addEnemyStrike(target.x+rand(-28,28),target.y+rand(-28,28),34,Math.max(9,e.damage*.78),.72,e.rs820VariantColor);}
+      else if(v==='bulwark'){e.rs820AbilityCd=2.25;let count=0;for(const q of G.enemies){if(q===e||dist(q,e)>150)continue;q.hp=Math.min(q.maxHp,q.hp+q.maxHp*.045);q.slow=Math.max(0,(q.slow||0)-.25);count++;if(count>=7)break}G.blasts.push({x:e.x,y:e.y,radius:145,life:.22,max:.22,floor:e.floor??0,color:e.rs820VariantColor});}
+      else if(v==='disruptor'){e.rs820AbilityCd=2.6;if(d<210&&target===p){p.energy=Math.max(0,p.energy-16);p.abilityCd=Math.max(p.abilityCd,.55);G.energyLines.push({x1:e.x,y1:e.y,x2:p.x,y2:p.y,life:.14,max:.14,width:5});}}
+      else if(v==='pouncer'){e.rs820AbilityCd=2.85;if(d<330){const a=Math.atan2(target.y-e.y,target.x-e.x);e.vx=Math.cos(a)*520;e.vy=Math.sin(a)*520;e.charge=.26;G.blasts.push({x:e.x,y:e.y,radius:48,life:.18,max:.18,floor:e.floor??0,color:e.rs820VariantColor});}}
+      else if(v==='stormer'){e.rs820AbilityCd=3.5;for(let n=0;n<8;n++){const a=n/8*TAU;G.enemyBullets.push({x:e.x,y:e.y,vx:Math.cos(a)*245,vy:Math.sin(a)*245,r:4.5,life:2.4,damage:e.damage*.42,floor:e.floor??0});}}
+      else if(v==='executioner'){e.rs820AbilityCd=2.2;if(d<280){const a=Math.atan2(target.y-e.y,target.x-e.x);e.vx=Math.cos(a)*430;e.vy=Math.sin(a)*430;}}
+    }
+  }
+  const rs820PrevDrawEnemy=drawEnemy;
+  drawEnemy=function(e){const out=rs820PrevDrawEnemy.apply(this,arguments);if(e?.rs820Variant){const c=e.rs820VariantColor||'#9bd8ff',pulse=.55+.45*Math.sin((G?.time||0)*5+e.anim);X.save();X.translate(e.x,e.y-(e.elevation||0)*8);X.globalCompositeOperation='lighter';X.strokeStyle=c;X.globalAlpha=.34+.2*pulse;X.lineWidth=1.4;X.setLineDash([3,5]);X.beginPath();X.arc(0,0,e.r+7+2*pulse,0,TAU);X.stroke();X.setLineDash([]);X.fillStyle=c;X.globalAlpha=.8;X.font='900 7px Inter,Arial';X.textAlign='center';X.fillText(e.rs820VariantName,0,-e.r-11);X.restore()}return out};
+
+  /* --- Real P2P co-op. Manual invite/response codes provide signaling without a game backend. --- */
+  const RS820Coop=window.RS820Coop={id:(crypto.randomUUID?crypto.randomUUID():Math.random().toString(36).slice(2)),name:localStorage.getItem('riftshift_callsign')||('SHIFT-'+Math.floor(100+Math.random()*900)),isHost:false,connected:false,links:[],remote:{},pendingHost:null,netTick:0,worldTick:0,pendingSeed:null,lastWorld:null};
+  function rs820Enc(o){return btoa(unescape(encodeURIComponent(JSON.stringify(o))))}
+  function rs820Dec(s){return JSON.parse(decodeURIComponent(escape(atob(String(s||'').trim()))))}
+  function rs820WaitIce(pc){return new Promise(resolve=>{if(pc.iceGatheringState==='complete')return resolve();const done=()=>{if(pc.iceGatheringState==='complete'){pc.removeEventListener('icegatheringstatechange',done);resolve()}};pc.addEventListener('icegatheringstatechange',done);setTimeout(resolve,2600)})}
+  function rs820Send(link,obj){try{if(link?.dc?.readyState==='open'&&link.dc.bufferedAmount<180000)link.dc.send(JSON.stringify(obj))}catch(e){}}
+  function rs820SendAll(obj,except=null){for(const l of RS820Coop.links)if(l!==except)rs820Send(l,obj)}
+  function rs820Hello(){return{t:'hello',id:RS820Coop.id,name:RS820Coop.name,classId:G?.classId||selectedClass||'survivor',icon:CLASS_DEFS[G?.classId||selectedClass||'survivor']?.icon||'◆'}}
+  function rs820PeerState(){const p=G?.player;return{id:RS820Coop.id,name:RS820Coop.name,classId:G?.classId||selectedClass||'survivor',icon:CLASS_DEFS[G?.classId||selectedClass||'survivor']?.icon||'◆',x:p?.x??W/2,y:p?.y??H/2,floor:p?.floor??0,hp:p?.hp??100,maxHp:p?.maxHp??100,aim:p?Math.atan2(mouse.y-p.y,mouse.x-p.x):0,slot:p?.equippedSlot||1,inRun:!!G?.running,connected:true}}
+  function rs820RefreshLobby(){
+    const list=$('rs820PeerList');if(!list)return;const peers=[rs820PeerState(),...Object.values(RS820Coop.remote)];list.innerHTML=peers.map(q=>`<div class="rs820Peer"><div class="rs820PeerIcon">${CLASS_DEFS[q.classId]?.icon||'◆'}</div><div><b>${(q.name||'SHIFT').replace(/[<>]/g,'')}</b><span>${CLASS_DEFS[q.classId]?.name||q.classId||'UNKNOWN'}${q.id===RS820Coop.id?' // YOU':''}</span></div><i>${q.connected===false?'OFFLINE':q.inRun?'IN RUN':'READY'}</i></div>`).join('');const st=$('rs820NetStatus');if(st)st.textContent=RS820Coop.connected?(RS820Coop.isHost?'HOST // P2P LINK ACTIVE':'JOINED // P2P LINK ACTIVE'):'OFFLINE // CREATE OR JOIN A SQUAD';
+  }
+  function rs820Wire(pc,dc){
+    const link={pc,dc,id:null,name:'CONNECTING',classId:'survivor'};RS820Coop.links.push(link);
+    dc.onopen=()=>{RS820Coop.connected=true;rs820Send(link,rs820Hello());if(RS820Coop.isHost&&G?.running)rs820Send(link,{t:'run',seed:G.mapSeed});rs820RefreshLobby();toast('CO-OP LINK ESTABLISHED')};
+    dc.onclose=()=>{if(link.id&&RS820Coop.remote[link.id])RS820Coop.remote[link.id].connected=false;RS820Coop.links=RS820Coop.links.filter(x=>x!==link);RS820Coop.connected=RS820Coop.links.some(x=>x.dc?.readyState==='open');rs820RefreshLobby()};
+    dc.onmessage=ev=>{let m;try{m=JSON.parse(ev.data)}catch(e){return}rs820NetMessage(link,m)};return link;
+  }
+  async function rs820CreateInvite(){
+    if(!window.RTCPeerConnection){toast('WEBRTC UNAVAILABLE');return}RS820Coop.isHost=true;const pc=new RTCPeerConnection({iceServers:[{urls:'stun:stun.l.google.com:19302'}]});const dc=pc.createDataChannel('riftshift-coop');const link=rs820Wire(pc,dc);RS820Coop.pendingHost=link;await pc.setLocalDescription(await pc.createOffer());await rs820WaitIce(pc);$('rs820InviteOut').value=rs820Enc(pc.localDescription);$('rs820ResponseIn').value='';rs820RefreshLobby();
+  }
+  async function rs820JoinInvite(){
+    try{const offer=rs820Dec($('rs820InviteIn').value);RS820Coop.isHost=false;const pc=new RTCPeerConnection({iceServers:[{urls:'stun:stun.l.google.com:19302'}]});pc.ondatachannel=e=>rs820Wire(pc,e.channel);await pc.setRemoteDescription(offer);await pc.setLocalDescription(await pc.createAnswer());await rs820WaitIce(pc);$('rs820JoinResponse').value=rs820Enc(pc.localDescription);rs820RefreshLobby()}catch(e){console.error(e);toast('INVALID INVITE CODE')}
+  }
+  async function rs820AcceptResponse(){try{if(!RS820Coop.pendingHost?.pc)throw new Error('No pending invite');await RS820Coop.pendingHost.pc.setRemoteDescription(rs820Dec($('rs820ResponseIn').value));toast('RESPONSE ACCEPTED // CONNECTING')}catch(e){console.error(e);toast('INVALID RESPONSE CODE')}}
+  function rs820Copy(id){const el=$(id);if(!el)return;el.select();try{navigator.clipboard?.writeText(el.value)}catch(e){}toast('CODE COPIED')}
+  function rs820SerializeEnemy(e){return{id:e.rs820NetId||(e.rs820NetId='E'+Math.random().toString(36).slice(2,9)),x:+e.x.toFixed(1),y:+e.y.toFixed(1),r:e.r,hp:+e.hp.toFixed(1),maxHp:+e.maxHp.toFixed(1),speed:+(e.speed||0).toFixed(1),damage:+(e.damage||0).toFixed(1),score:e.score||0,type:e.type,color:e.color,floor:e.floor??0,vx:+(e.vx||0).toFixed(1),vy:+(e.vy||0).toFixed(1),hit:+(e.hit||0).toFixed(2),slow:+(e.slow||0).toFixed(2),shootCd:+(e.shootCd||0).toFixed(2),chargeCd:+(e.chargeCd||0).toFixed(2),charge:+(e.charge||0).toFixed(2),eliteKind:e.eliteKind||null,eliteColor:e.eliteColor||null,eliteName:e.eliteName||null,bossKind:e.bossKind||null,bossName:e.bossName||null,bossPhase:e.bossPhase||null,miniBossKind:e.miniBossKind||null,miniBossName:e.miniBossName||null,v17Behavior:e.v17Behavior||null,rs820Variant:e.rs820Variant||null,rs820VariantName:e.rs820VariantName||null,rs820VariantColor:e.rs820VariantColor||null,rs820AbilityCd:+(e.rs820AbilityCd||0).toFixed(2)}}
+  function rs820WorldPacket(){if(!G)return null;return{t:'world',seed:G.mapSeed,wave:G.wave,waveTarget:G.waveTarget,spawned:G.spawned,mapName:G.mapName,score:G.score,kills:G.kills,enemies:G.enemies.slice(0,150).map(rs820SerializeEnemy)}}
+  function rs820ApplyWorld(m){
+    if(RS820Coop.isHost||!m)return;if(!G?.running){RS820Coop.pendingSeed=m.seed;newGame()}if(G.mapSeed!==m.seed){G.mapSeed=m.seed;buildMap();setupWaveObjective()}
+    G.wave=m.wave;G.waveTarget=m.waveTarget;G.spawned=m.spawned;G.mapName=m.mapName||G.mapName;G.score=m.score??G.score;G.kills=m.kills??G.kills;
+    const old=new Map((G.enemies||[]).filter(e=>e.rs820NetId).map(e=>[e.rs820NetId,e])),next=[];
+    for(const s of m.enemies||[]){let e=old.get(s.id);if(!e)e={x:s.x,y:s.y,r:s.r||16,hp:s.hp,maxHp:s.maxHp,speed:s.speed||60,damage:s.damage||10,score:s.score||100,type:s.type||'chaser',color:s.color||'#ff6978',vx:0,vy:0,hit:0,slow:0,anim:Math.random()*TAU,floor:s.floor??0,elevation:0,platformId:null,isEnemy:true,stairRoute:null,routeStuck:0,routeLastDist:Infinity};Object.assign(e,s,{rs820NetId:s.id,isEnemy:true});next.push(e)}
+    G.enemies=next;G.boss=G.enemies.find(e=>e.type==='boss')||null;G.miniboss=G.enemies.find(e=>e.type==='miniboss')||null;
+  }
+  function rs820ApplyRemoteFire(m){if(!G?.running||m.id===RS820Coop.id)return;for(const s of (m.bullets||[]).slice(0,8)){G.bullets.push({x:s.x,y:s.y,vx:s.vx,vy:s.vy,r:s.r,life:s.life,damage:s.damage,pierce:s.pierce||0,bounce:s.bounce||0,crit:!!s.crit,explosive:!!s.explosive,radius:s.radius||0,floor:s.floor??0,marksmanLite:!!s.marksmanLite,specialRound:!!s.specialRound,netAlly:true,ownerShot:true})}}
+  function rs820ApplyRemoteAbility(m){if(!G?.running||m.id===RS820Coop.id)return;const cls=m.classId,x=m.x,y=m.y,tx=m.tx,ty=m.ty,p=G.player;if(cls==='explosive')explode(tx,ty,62,(p.damage||20)*.55,false,true,p.floor);else if(cls==='conduit'){for(let i=G.enemies.length-1;i>=0;i--){const e=G.enemies[i];if(Math.hypot(e.x-tx,e.y-ty)<150+e.r){e.hp-=(p.damage||20)*.35;e.slow=Math.max(e.slow||0,1.1);if(e.hp<=0)killEnemy(e,i)}}G.blasts.push({x:tx,y:ty,radius:150,life:.25,max:.25,floor:p.floor,color:'#70ecff'})}else if(cls==='rifleman'){for(const e of G.enemies){if(Math.hypot(e.x-tx,e.y-ty)<150+e.r){e.vulnTime=Math.max(e.vulnTime||0,2.5);e.vulnPower=Math.max(e.vulnPower||0,.16)}}}else if(cls==='soldier'){for(const e of G.enemies){if(Math.hypot(e.x-x,e.y-y)<150+e.r)e.slow=Math.max(e.slow||0,.8)}G.blasts.push({x,y,radius:150,life:.22,max:.22,floor:p.floor,color:'#9ea9ff'})}else if(cls==='cosmic'){for(let n=0;n<12;n++){const a=n/12*TAU;G.bullets.push({x,y,vx:Math.cos(a)*600,vy:Math.sin(a)*600,r:4,life:1,damage:(p.damage||20)*.22,pierce:0,bounce:3,crit:false,explosive:false,floor:p.floor,netAlly:true})}}}
+  function rs820NetMessage(link,m){
+    if(m.t==='hello'){link.id=m.id;link.name=m.name;link.classId=m.classId;RS820Coop.remote[m.id]={...(RS820Coop.remote[m.id]||{}),...m,connected:true,inRun:false};if(RS820Coop.isHost)rs820SendAll({t:'roster',players:[rs820PeerState(),...Object.values(RS820Coop.remote)]});rs820RefreshLobby()}
+    else if(m.t==='state'){RS820Coop.remote[m.id]={...(RS820Coop.remote[m.id]||{}),...m,connected:true}}
+    else if(m.t==='roster'){for(const q of m.players||[])if(q.id!==RS820Coop.id)RS820Coop.remote[q.id]={...(RS820Coop.remote[q.id]||{}),...q,connected:true};rs820RefreshLobby()}
+    else if(m.t==='fire'){rs820ApplyRemoteFire(m);if(RS820Coop.isHost)rs820SendAll(m,link)}
+    else if(m.t==='ability'){rs820ApplyRemoteAbility(m);if(RS820Coop.isHost)rs820SendAll(m,link)}
+    else if(m.t==='run'&&!RS820Coop.isHost){RS820Coop.pendingSeed=m.seed;if(!G?.running)newGame();else if(G.mapSeed!==m.seed){G.mapSeed=m.seed;buildMap();setupWaveObjective()}}
+    else if(m.t==='world'&&!RS820Coop.isHost)rs820ApplyWorld(m);
+  }
+  function rs820BroadcastFire(fresh){if(!RS820Coop.connected||!fresh.length)return;const bullets=fresh.slice(0,8).map(b=>({x:+b.x.toFixed(1),y:+b.y.toFixed(1),vx:+b.vx.toFixed(1),vy:+b.vy.toFixed(1),r:b.r,life:b.life,damage:b.damage,pierce:b.pierce||0,bounce:b.bounce||0,crit:!!b.crit,explosive:!!b.explosive,radius:b.radius||0,floor:b.floor??0,marksmanLite:!!b.marksmanLite,specialRound:!!b.specialRound})),m={t:'fire',id:RS820Coop.id,classId:G.classId,bullets};rs820SendAll(m)}
+
+  /* Inject compact multiplayer UI. */
+  (function rs820InstallCoopUI(){
+    const st=document.createElement('style');st.textContent=`#rs820Coop{position:fixed;inset:0;z-index:10040;background:rgba(3,6,11,.88);backdrop-filter:blur(14px);display:none;align-items:center;justify-content:center;padding:18px}#rs820Coop.show{display:flex}.rs820Panel{width:min(880px,96vw);max-height:92vh;overflow:auto;background:linear-gradient(180deg,#101827,#080d15);border:1px solid rgba(117,233,255,.22);border-radius:15px;padding:18px;box-shadow:0 28px 80px rgba(0,0,0,.55)}.rs820Head{display:flex;justify-content:space-between;align-items:center;gap:12px}.rs820Head h2{margin:0;font-size:20px;letter-spacing:.08em}.rs820Status{font-size:8px;color:#75e9ff;letter-spacing:.12em;font-weight:950}.rs820Grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}.rs820Box{border:1px solid rgba(255,255,255,.07);border-radius:10px;padding:12px;background:rgba(5,10,17,.6)}.rs820Box h3{font-size:9px;letter-spacing:.12em;margin:0 0 8px;color:#aab9cc}.rs820Box textarea{width:100%;min-height:82px;resize:vertical;background:#050911;color:#d9f7ff;border:1px solid rgba(117,233,255,.14);border-radius:7px;padding:8px;font-size:7px;box-sizing:border-box}.rs820Box input{width:100%;box-sizing:border-box;background:#050911;color:#fff;border:1px solid rgba(255,255,255,.09);border-radius:7px;padding:9px;margin-bottom:8px}.rs820Btns{display:flex;gap:6px;flex-wrap:wrap;margin-top:7px}.rs820Btns button,#rs820Close{border:1px solid rgba(117,233,255,.2);background:#0c1622;color:#dff7ff;border-radius:7px;padding:8px 10px;font-size:8px;font-weight:950;cursor:pointer}.rs820Peer{display:grid;grid-template-columns:34px 1fr auto;gap:9px;align-items:center;padding:8px;border-bottom:1px solid rgba(255,255,255,.05)}.rs820PeerIcon{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;background:rgba(117,233,255,.08);border:1px solid rgba(117,233,255,.2);font-size:16px;color:#bfefff}.rs820Peer b{display:block;font-size:9px}.rs820Peer span,.rs820Peer i{font-size:7px;color:#74879e;font-style:normal}.rs820Note{font-size:7px;line-height:1.45;color:#718299;margin-top:8px}@media(max-width:700px){.rs820Grid{grid-template-columns:1fr}}`;document.head.appendChild(st);
+    document.body.insertAdjacentHTML('beforeend',`<div id="rs820Coop"><div class="rs820Panel"><div class="rs820Head"><div><h2>RIFTSHIFT // CO-OP LINK</h2><div id="rs820NetStatus" class="rs820Status">OFFLINE // CREATE OR JOIN A SQUAD</div></div><button id="rs820Close">CLOSE</button></div><div class="rs820Grid"><div class="rs820Box"><h3>SQUAD</h3><input id="rs820Callsign" maxlength="18" placeholder="CALLSIGN"><div id="rs820PeerList"></div><div class="rs820Note">Up to four players. Player rounds are tagged as ally fire and never collide with squad members.</div></div><div class="rs820Box"><h3>HOST // CREATE INVITE</h3><textarea id="rs820InviteOut" readonly placeholder="CREATE AN INVITE CODE"></textarea><div class="rs820Btns"><button id="rs820CreateInvite">CREATE INVITE</button><button data-copy="rs820InviteOut">COPY INVITE</button></div><h3 style="margin-top:13px">HOST // ACCEPT JOIN RESPONSE</h3><textarea id="rs820ResponseIn" placeholder="PASTE FRIEND'S RESPONSE CODE"></textarea><div class="rs820Btns"><button id="rs820AcceptResponse">ACCEPT RESPONSE</button></div></div><div class="rs820Box"><h3>JOIN // PASTE INVITE</h3><textarea id="rs820InviteIn" placeholder="PASTE HOST INVITE CODE"></textarea><div class="rs820Btns"><button id="rs820JoinInvite">GENERATE JOIN RESPONSE</button></div><textarea id="rs820JoinResponse" readonly placeholder="SEND THIS RESPONSE BACK TO THE HOST"></textarea><div class="rs820Btns"><button data-copy="rs820JoinResponse">COPY RESPONSE</button></div></div><div class="rs820Box"><h3>HOW IT WORKS</h3><div class="rs820Note">The host creates an invite and sends it to a friend. The friend pastes it, generates a response, and sends that response back once. The host accepts it and the direct WebRTC link opens. No RIFTSHIFT account or matchmaking server is required.</div></div></div></div></div>`);
+    const btn=document.createElement('button');btn.className='metaButton';btn.id='rs820MultiplayerBtn';btn.textContent='MULTIPLAYER';$('metaButtons')?.appendChild(btn);btn.onclick=()=>{$('rs820Coop').classList.add('show');rs820RefreshLobby()};$('rs820Close').onclick=()=>$('rs820Coop').classList.remove('show');$('rs820CreateInvite').onclick=rs820CreateInvite;$('rs820JoinInvite').onclick=rs820JoinInvite;$('rs820AcceptResponse').onclick=rs820AcceptResponse;document.querySelectorAll('[data-copy]').forEach(b=>b.onclick=()=>rs820Copy(b.dataset.copy));$('rs820Callsign').value=RS820Coop.name;$('rs820Callsign').onchange=()=>{RS820Coop.name=$('rs820Callsign').value.trim().slice(0,18)||RS820Coop.name;localStorage.setItem('riftshift_callsign',RS820Coop.name);rs820SendAll(rs820Hello());rs820RefreshLobby()};rs820RefreshLobby();
+  })();
+
+  const rs820PrevNewGame=newGame;
+  newGame=function(){const forced=RS820Coop.pendingSeed;RS820Coop.pendingSeed=null;const out=rs820PrevNewGame.apply(this,arguments);if(forced&&G){G.mapSeed=forced;buildMap();setupWaveObjective()}if(RS820Coop.connected&&RS820Coop.isHost&&G)rs820SendAll({t:'run',seed:G.mapSeed});return out};
+  const rs820PrevFinishWave=finishWave;finishWave=function(){if(RS820Coop.connected&&!RS820Coop.isHost)return;return rs820PrevFinishWave.apply(this,arguments)};
+  const rs820PrevNextWave=nextWave;nextWave=function(){if(RS820Coop.connected&&!RS820Coop.isHost)return;return rs820PrevNextWave.apply(this,arguments)};
+  const rs820PrevEnemyNav=enemyNavTarget;
+  enemyNavTarget=function(e,p){if(RS820Coop.connected){const t=rs820EnemyTarget(e);return rs820PrevEnemyNav(e,t)}return rs820PrevEnemyNav(e,p)};
+
+  /* Network shooting + abilities are event-driven, not polled. */
+  const rs820NetPrevShoot=playerShoot;
+  playerShoot=function(){const before=G?.bullets?.length||0,out=rs820NetPrevShoot.apply(this,arguments);if(RS820Coop.connected&&G){const fresh=G.bullets.slice(before).filter(b=>!b.netAlly);rs820BroadcastFire(fresh)}return out};
+  const rs820NetPrevAbility=activateClassAbility;
+  activateClassAbility=function(){const p=G?.player,before=p?.energy??0,cls=G?.classId,out=rs820NetPrevAbility.apply(this,arguments);if(RS820Coop.connected&&p&&p.energy<before){rs820SendAll({t:'ability',id:RS820Coop.id,classId:cls,x:+p.x.toFixed(1),y:+p.y.toFixed(1),tx:+clamp(mouse.x,0,W).toFixed(1),ty:+clamp(mouse.y,0,H).toFixed(1)})}return out};
+
+  /* Remote player model + class icon. */
+  const rs820PrevDrawPlayer=drawPlayer;
+  drawPlayer=function(){const out=rs820PrevDrawPlayer.apply(this,arguments);if(!RS820Coop.connected||!G?.player)return out;for(const q of Object.values(RS820Coop.remote)){if(!q?.inRun||q.connected===false||(q.floor??0)!==(G.player.floor??0))continue;const cls=CLASS_DEFS[q.classId]?q.classId:'survivor',ang=Number.isFinite(q.aim)?q.aim:0;X.save();X.translate(q.x,q.y);X.rotate(ang);X.globalAlpha=.86;X.shadowColor=rs810ClassColors(cls)[2];X.shadowBlur=8;rs810DrawBody(cls,q,q.slot||1);X.strokeStyle=rs810ClassColors(cls)[2];X.lineWidth=4;X.beginPath();X.moveTo(4,0);X.lineTo(28,0);X.stroke();X.restore();X.save();X.translate(q.x,q.y-35);X.fillStyle='rgba(5,10,17,.84)';X.beginPath();X.arc(0,0,11,0,TAU);X.fill();X.strokeStyle=rs810ClassColors(cls)[2];X.lineWidth=1.4;X.stroke();X.fillStyle='#eaf7ff';X.textAlign='center';X.textBaseline='middle';X.font='900 11px Inter,Arial';X.fillText(CLASS_DEFS[cls].icon||'◆',0,0);X.textBaseline='alphabetic';X.fillStyle='rgba(224,238,252,.75)';X.font='800 7px Inter,Arial';X.fillText((q.name||'ALLY').slice(0,14),0,-15);X.restore()}return out};
+
+  /* One consolidated update pass: variant abilities, networking, cleanup and hard visual budgets. */
+  const rs820PrevUpdate=update;
+  update=function(dt){
+    if(RS820Coop.connected&&!RS820Coop.isHost&&G){G.spawned=G.waveTarget;}
+    const out=rs820PrevUpdate.apply(this,arguments);if(!G)return out;if(RS820Coop.connected&&!RS820Coop.isHost)G.nextWaveDelay=0;
+    rs820UpdateEnemyVariants(dt);
+    G.rs820CleanupClock=(G.rs820CleanupClock||0)-dt;if(G.rs820CleanupClock<=0){G.rs820CleanupClock=.28;rs820CleanupDestroyed(false)}
+    const mobileBudget=W<760,quality=clamp(settings?.particleDensity??1,.35,1.5),caps={particles:Math.round((mobileBudget?240:420)*quality),energyLines:mobileBudget?70:110,blasts:mobileBudget?55:85,enemyBullets:mobileBudget?320:520,bullets:mobileBudget?220:340,spawnFx:80,enemyDeaths:42,gasSegments:90};for(const [k,cap] of Object.entries(caps)){const a=G[k];if(Array.isArray(a)&&a.length>cap)a.splice(0,a.length-cap)}
+    if(RS820Coop.connected){RS820Coop.netTick-=dt;RS820Coop.worldTick-=dt;if(RS820Coop.netTick<=0){RS820Coop.netTick=.09;const s={t:'state',...rs820PeerState()};if(RS820Coop.isHost){Object.assign(RS820Coop.remote[RS820Coop.id]||{},s);rs820SendAll({t:'roster',players:[s,...Object.values(RS820Coop.remote).filter(q=>q.id!==RS820Coop.id)]})}else rs820SendAll(s)}if(RS820Coop.isHost&&RS820Coop.worldTick<=0){RS820Coop.worldTick=.16;const packet=rs820WorldPacket();if(packet)rs820SendAll(packet)}}
+    return out;
+  };
+
+  /* Current version label. */
+  const rs820PrevPresence=v18PresencePayload;
+  v18PresencePayload=function(){const q=rs820PrevPresence();if(q&&typeof q.largeText==='string')q.largeText=q.largeText.replace(/V18\.8\.19/g,'V18.8.20');return q};
 
 
   renderClasses();

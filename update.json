@@ -1,11 +1,11 @@
 {
-  "version": "18.8.19",
+  "version": "18.8.20",
   "gameUrl": "https://raw.githubusercontent.com/C0SMIC58/RIFTSHIFT/main/RIFTSHIFT_LATEST.html",
-  "sha256": "67165da4ad92e676ef2ed6a44ef2a76cb3b2d96cb9f4a0dcd9f459710c287f34",
+  "sha256": "991af8207c39bc323f96e3274be88a07a9bc6944be7de60e8de1103559110073",
   "iconUrl": "https://raw.githubusercontent.com/C0SMIC58/RIFTSHIFT/main/RIFTSHIFT_ICON.ico",
   "iconSha256": "d1493025ba3162b8511d26ac342611fe5e977e9308ebadb4658551fb79b1e314",
   "iconPngUrl": "https://raw.githubusercontent.com/C0SMIC58/RIFTSHIFT/main/RIFTSHIFT_ICON.png",
   "overhaul": false,
   "priority": "normal",
-  "notes": "V18.8.19 adds M0-M20 class masteries with M5 Q protocols and milestone cosmetics, much denser procedural map geometry, true edge-on Marksman Mach rings, and a rewritten startup cinematic."
+  "notes": "V18.8.20 adds P2P co-op, fixes destroyed-wall ghost collision, stabilizes loud audio, optimizes dense map geometry, and adds eight enemy ability variants."
 }
