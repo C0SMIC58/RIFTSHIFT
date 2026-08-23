@@ -383,21 +383,38 @@ canvas{display:block}
   linear-gradient(180deg,rgba(18,10,10,.45),rgba(12,6,5,.9))}
 
 .menuWarField{display:none}
-.menuFlameField{position:absolute;inset:0;pointer-events:none;overflow:hidden;opacity:.96;filter:saturate(1.15) contrast(1.08)}
-.menuFlameField:before{content:"";position:absolute;left:-8%;right:-8%;bottom:-6%;height:68%;background:radial-gradient(circle at 16% 100%,rgba(255,166,92,.18),transparent 32%),radial-gradient(circle at 50% 100%,rgba(255,120,72,.26),transparent 34%),radial-gradient(circle at 82% 100%,rgba(255,190,116,.18),transparent 30%);filter:blur(18px)}
-.flameColumn{position:absolute;bottom:-8%;width:22%;height:78%;background:radial-gradient(circle at 50% 100%,rgba(255,244,210,.94) 0 8%,rgba(255,202,112,.88) 9%,rgba(255,123,65,.88) 32%,rgba(255,84,28,.62) 54%,rgba(255,84,28,0) 74%);filter:blur(3px) drop-shadow(0 0 34px rgba(255,112,52,.38));transform-origin:50% 100%;border-radius:48% 48% 38% 38%/76% 76% 24% 24%;mix-blend-mode:screen;animation:menuFlameRise 6.4s ease-in-out infinite}
-.flameColumn:before,.flameColumn:after{content:"";position:absolute;bottom:8%;left:18%;width:64%;height:78%;background:radial-gradient(circle at 50% 100%,rgba(255,248,214,.88) 0 10%,rgba(255,210,104,.78) 16%,rgba(255,126,58,.52) 42%,rgba(255,126,58,0) 76%);border-radius:50% 50% 40% 40%/82% 82% 18% 18%;filter:blur(5px)}
-.flameColumn:after{left:auto;right:10%;width:44%;height:60%;opacity:.72;animation:menuFlameLick 3.4s ease-in-out infinite}
-.flameColumn.f1{left:-2%;height:70%;animation-delay:-.5s;transform:scaleX(1.02) rotate(-4deg)}
-.flameColumn.f2{left:16%;width:18%;height:82%;animation-delay:-2.1s;transform:rotate(3deg)}
-.flameColumn.f3{left:34%;width:28%;height:88%;animation-delay:-1.2s}
-.flameColumn.f4{left:58%;width:24%;height:80%;animation-delay:-2.8s;transform:rotate(4deg)}
-.flameColumn.f5{right:-4%;width:26%;height:76%;animation-delay:-1.7s;transform:rotate(-3deg)}
-.flameEmber{position:absolute;width:5px;height:5px;border-radius:50%;background:rgba(255,220,154,.9);box-shadow:0 0 14px rgba(255,158,90,.9);animation:menuEmberLift linear infinite}
-.flameVeil{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.62) 0%,rgba(0,0,0,.18) 28%,rgba(0,0,0,.08) 64%,rgba(0,0,0,.34) 100%),radial-gradient(circle at 50% 70%,rgba(255,128,66,.12),transparent 36%)}
-@keyframes menuFlameRise{0%,100%{transform:scaleY(.92) scaleX(.94) translateY(0)}25%{transform:scaleY(1.03) scaleX(1.06) translateY(-10px)}50%{transform:scaleY(1.12) scaleX(.96) translateY(-18px)}75%{transform:scaleY(1.02) scaleX(1.02) translateY(-8px)}}
-@keyframes menuFlameLick{0%,100%{transform:translateY(0) scaleY(.96)}50%{transform:translateY(-18px) scaleY(1.14)}}
-@keyframes menuEmberLift{0%{transform:translate3d(0,0,0) scale(.7);opacity:0}10%{opacity:.9}100%{transform:translate3d(var(--tx),-340px,0) scale(1.45);opacity:0}}
+.menuFlameField{position:absolute;inset:0;pointer-events:none;overflow:hidden;opacity:1;filter:saturate(1.28) contrast(1.12)}
+.menuFlameField:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 110%,rgba(255,173,79,.18),transparent 32%),radial-gradient(circle at 12% 92%,rgba(255,103,39,.24),transparent 28%),radial-gradient(circle at 84% 94%,rgba(255,122,58,.22),transparent 30%),linear-gradient(180deg,rgba(255,102,34,.03) 0%,rgba(255,92,38,.08) 52%,rgba(255,145,74,.12) 100%);filter:blur(6px)}
+.menuFlameField:after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 84%,rgba(255,214,136,.08),transparent 24%),linear-gradient(180deg,rgba(0,0,0,.58) 0%,rgba(0,0,0,.18) 28%,rgba(0,0,0,.10) 70%,rgba(0,0,0,.48) 100%)}
+.flameBackwash{position:absolute;left:-8%;right:-8%;bottom:-12%;height:72%;background:radial-gradient(circle at 14% 100%,rgba(255,150,68,.26),transparent 28%),radial-gradient(circle at 31% 100%,rgba(255,119,51,.30),transparent 34%),radial-gradient(circle at 52% 100%,rgba(255,167,79,.26),transparent 33%),radial-gradient(circle at 73% 100%,rgba(255,111,46,.28),transparent 30%),radial-gradient(circle at 92% 100%,rgba(255,184,104,.22),transparent 27%);filter:blur(18px)}
+.flameColumn{position:absolute;bottom:-9%;width:16%;height:90%;transform-origin:50% 100%;mix-blend-mode:screen;animation:menuFlameRise 6.4s ease-in-out infinite}
+.flameColumn:before,.flameColumn:after{content:"";position:absolute;left:50%;transform:translateX(-50%);bottom:0;border-radius:48% 48% 36% 36%/84% 84% 16% 16%;filter:blur(2px)}
+.flameColumn:before{width:100%;height:100%;background:radial-gradient(circle at 50% 100%,rgba(255,250,228,.98) 0 6%,rgba(255,226,136,.92) 12%,rgba(255,166,82,.86) 28%,rgba(255,98,40,.78) 48%,rgba(255,84,28,.34) 62%,rgba(255,84,28,0) 78%);box-shadow:0 0 40px rgba(255,128,58,.32),0 0 100px rgba(255,96,40,.18)}
+.flameColumn:after{width:54%;height:70%;bottom:10%;background:radial-gradient(circle at 50% 100%,rgba(255,252,240,.96) 0 12%,rgba(255,231,162,.88) 18%,rgba(255,188,92,.58) 38%,rgba(255,140,60,0) 74%);animation:menuFlameCore 2.8s ease-in-out infinite}
+.flameColumn i,.flameColumn b{position:absolute;display:block;bottom:8%;border-radius:50% 50% 38% 38%/78% 78% 22% 22%;filter:blur(2px)}
+.flameColumn i{left:8%;width:44%;height:58%;background:radial-gradient(circle at 50% 100%,rgba(255,242,190,.7) 0 10%,rgba(255,188,98,.45) 26%,rgba(255,138,58,0) 76%);animation:menuFlameLick 3.2s ease-in-out infinite}
+.flameColumn b{right:10%;width:36%;height:46%;background:radial-gradient(circle at 50% 100%,rgba(255,237,172,.66) 0 10%,rgba(255,176,92,.42) 28%,rgba(255,125,48,0) 72%);animation:menuFlameLick 2.5s ease-in-out infinite reverse}
+.flameColumn.f1{left:-3%;width:20%;height:70%;animation-delay:-.4s;transform:rotate(-5deg)}
+.flameColumn.f2{left:10%;width:14%;height:86%;animation-delay:-2.2s;transform:rotate(3deg)}
+.flameColumn.f3{left:22%;width:17%;height:78%;animation-delay:-1.6s;transform:rotate(-2deg)}
+.flameColumn.f4{left:35%;width:22%;height:94%;animation-delay:-2.8s}
+.flameColumn.f5{left:52%;width:18%;height:82%;animation-delay:-1.1s;transform:rotate(4deg)}
+.flameColumn.f6{left:65%;width:16%;height:88%;animation-delay:-2.5s;transform:rotate(-3deg)}
+.flameColumn.f7{right:7%;width:18%;height:78%;animation-delay:-1.8s;transform:rotate(4deg)}
+.flameColumn.f8{right:-4%;width:22%;height:72%;animation-delay:-.8s;transform:rotate(-5deg)}
+.flameTongue{position:absolute;bottom:-4%;width:10%;height:64%;background:radial-gradient(circle at 50% 100%,rgba(255,250,236,.8) 0 10%,rgba(255,212,118,.74) 16%,rgba(255,132,58,.32) 46%,rgba(255,132,58,0) 78%);border-radius:48% 48% 36% 36%/84% 84% 16% 16%;filter:blur(3px) drop-shadow(0 0 18px rgba(255,126,56,.24));mix-blend-mode:screen;animation:menuTongue 4.3s ease-in-out infinite}
+.flameTongue.t1{left:6%;animation-delay:-.9s}
+.flameTongue.t2{left:24%;height:68%;animation-delay:-2.7s}
+.flameTongue.t3{left:46%;height:72%;animation-delay:-1.4s}
+.flameTongue.t4{left:70%;height:66%;animation-delay:-3.2s}
+.flameTongue.t5{right:5%;height:62%;animation-delay:-2.1s}
+.flameEmber{position:absolute;width:5px;height:5px;border-radius:50%;background:rgba(255,223,155,.96);box-shadow:0 0 16px rgba(255,158,90,.95),0 0 34px rgba(255,121,51,.46);animation:menuEmberLift linear infinite}
+.flameVeil{position:absolute;inset:0;background:radial-gradient(circle at 50% 82%,rgba(255,141,74,.14),transparent 26%),linear-gradient(180deg,rgba(0,0,0,.68) 0%,rgba(0,0,0,.14) 20%,rgba(0,0,0,.06) 70%,rgba(0,0,0,.54) 100%)}
+@keyframes menuFlameRise{0%,100%{transform:scaleY(.88) scaleX(.94) translateY(0)}20%{transform:scaleY(1.02) scaleX(1.05) translateY(-12px)}50%{transform:scaleY(1.18) scaleX(.94) translateY(-28px)}75%{transform:scaleY(1.04) scaleX(1.02) translateY(-10px)}}
+@keyframes menuFlameCore{0%,100%{transform:translateX(-50%) scaleY(.95)}50%{transform:translateX(-50%) scaleY(1.16) translateY(-8px)}}
+@keyframes menuFlameLick{0%,100%{transform:translateY(0) scaleY(.92)}50%{transform:translateY(-22px) scaleY(1.2)}}
+@keyframes menuTongue{0%,100%{transform:translateY(0) scale(.94)}35%{transform:translateY(-20px) scale(1.08,.98)}65%{transform:translateY(-34px) scale(.9,1.15)}}
+@keyframes menuEmberLift{0%{transform:translate3d(0,0,0) scale(.65);opacity:0}8%{opacity:.95}100%{transform:translate3d(var(--tx),-440px,0) scale(1.55);opacity:0}}
 
 .mrbGlow{position:absolute;border-radius:50%;filter:blur(38px);opacity:.52;animation:mrbFloat 12s ease-in-out infinite}
 .mrbGlow.g1{width:420px;height:420px;left:-120px;bottom:-120px;background:radial-gradient(circle,rgba(255,135,79,.24),transparent 70%)}
@@ -615,7 +632,7 @@ canvas{display:block}
 @media(max-width:850px){.v9Grid{grid-template-columns:1fr 1fr}.settingsGrid{grid-template-columns:1fr}.historyRow{grid-template-columns:1fr 1fr 1fr}.historyRow span:nth-child(n+4){display:none}}
 @media(max-width:850px){.classes{grid-template-columns:1fr 1fr}.classCard{min-height:340px}.upCards{grid-template-columns:1fr}.upCard{min-height:155px}.classTop{align-items:flex-start;flex-direction:column}}
 
-/* V18.8.2 // CLASS SELECT FIT PASS */
+/* V18.8.3 // CLASS SELECT FIT PASS */
 #classSelect{padding:10px;overflow:hidden}
 #classSelect .classShell{
   width:1480px;max-width:none;max-height:none;overflow:visible;
@@ -708,7 +725,7 @@ canvas{display:block}
         <div class="engineHandoffTop"><span>RIFTSHIFT // COMBAT OPERATING SYSTEM</span><span class="live">● RIFT LINK STABLE</span></div>
         <div class="engineHandoffFrame">
           <div class="engineHandoffPane">
-            <div class="engineHandoffCode">FIELD TERMINAL / RS-18.8.2</div>
+            <div class="engineHandoffCode">FIELD TERMINAL / RS-18.8.3</div>
             <h1 class="engineHandoffTitle"><span class="rift">RIFT</span><span class="shift">SHIFT</span></h1>
             <div class="engineHandoffSlash"></div>
             <div class="engineHandoffSub">RIFT LINK STABLE // MENU UPLINK READY</div>
@@ -732,8 +749,10 @@ canvas{display:block}
 <section id="menu" class="screen">
   <div class="menuReduxBackdrop" aria-hidden="true">
     <div class="menuFlameField">
-      <div class="flameColumn f1"></div><div class="flameColumn f2"></div><div class="flameColumn f3"></div><div class="flameColumn f4"></div><div class="flameColumn f5"></div>
-      <div class="flameEmber" style="left:12%;bottom:12%;animation-duration:4.9s;--tx:26px"></div><div class="flameEmber" style="left:18%;bottom:18%;animation-duration:6.2s;--tx:-18px"></div><div class="flameEmber" style="left:29%;bottom:10%;animation-duration:5.4s;--tx:34px"></div><div class="flameEmber" style="left:42%;bottom:15%;animation-duration:6.8s;--tx:-22px"></div><div class="flameEmber" style="left:57%;bottom:12%;animation-duration:5.7s;--tx:28px"></div><div class="flameEmber" style="left:68%;bottom:18%;animation-duration:6.5s;--tx:-16px"></div><div class="flameEmber" style="left:81%;bottom:11%;animation-duration:5.1s;--tx:20px"></div>
+      <div class="flameBackwash"></div>
+      <div class="flameColumn f1"><i></i><b></b></div><div class="flameColumn f2"><i></i><b></b></div><div class="flameColumn f3"><i></i><b></b></div><div class="flameColumn f4"><i></i><b></b></div><div class="flameColumn f5"><i></i><b></b></div><div class="flameColumn f6"><i></i><b></b></div><div class="flameColumn f7"><i></i><b></b></div><div class="flameColumn f8"><i></i><b></b></div>
+      <div class="flameTongue t1"></div><div class="flameTongue t2"></div><div class="flameTongue t3"></div><div class="flameTongue t4"></div><div class="flameTongue t5"></div>
+      <div class="flameEmber" style="left:8%;bottom:10%;animation-duration:4.4s;--tx:38px"></div><div class="flameEmber" style="left:14%;bottom:18%;animation-duration:5.9s;--tx:-21px"></div><div class="flameEmber" style="left:22%;bottom:12%;animation-duration:5.1s;--tx:30px"></div><div class="flameEmber" style="left:31%;bottom:16%;animation-duration:6.6s;--tx:-28px"></div><div class="flameEmber" style="left:42%;bottom:11%;animation-duration:5.0s;--tx:36px"></div><div class="flameEmber" style="left:50%;bottom:20%;animation-duration:7.0s;--tx:-20px"></div><div class="flameEmber" style="left:61%;bottom:12%;animation-duration:5.6s;--tx:25px"></div><div class="flameEmber" style="left:69%;bottom:18%;animation-duration:6.1s;--tx:-18px"></div><div class="flameEmber" style="left:77%;bottom:10%;animation-duration:4.8s;--tx:24px"></div><div class="flameEmber" style="left:86%;bottom:16%;animation-duration:6.4s;--tx:-15px"></div>
       <div class="flameVeil"></div>
     </div>
     <div class="menuWarField">
@@ -754,14 +773,14 @@ canvas{display:block}
     <div class="menuTopRedux">
       <div class="menuTopLeft">
         <span class="menuKickerRedux">RIFTSHIFT // STRIKE DIRECTOR</span>
-        <span class="menuBuildChip">BUILD V18.8.2</span>
+        <span class="menuBuildChip">BUILD V18.8.3</span>
       </div>
       <div class="menuTopRight"><span class="menuPulse"></span> ORBITAL LINK GREEN</div>
     </div>
 
     <div class="menuHeroRedux">
       <div class="menuBrandRedux">
-        <div class="brandCode">FIELD TERMINAL / RS-18.8.2</div>
+        <div class="brandCode">FIELD TERMINAL / RS-18.8.3</div>
         <h1 class="brandMain"><span class="rift">RIFT</span><span class="shift">SHIFT</span></h1>
         <div class="brandSlash"></div>
         <p class="commandCopy">Drop into a collapsing warfront where every run rebuilds the battlefield, every class carries a full combat kit, and every wave pushes harder than the last. Build momentum, evolve your weapons, and survive the rupture long enough to turn the front line back on itself.</p>
@@ -819,7 +838,7 @@ canvas{display:block}
           <div class="stageStatBar">
             <div class="stageStat"><span>CLASS CORES</span><b>4</b></div>
             <div class="stageStat"><span>RUN SEEDS</span><b>∞</b></div>
-            <div class="stageStat"><span>BUILD</span><b>V18.8.2</b></div>
+            <div class="stageStat"><span>BUILD</span><b>V18.8.3</b></div>
           </div>
         </div>
 
@@ -1065,6 +1084,7 @@ const CLASS_LOADOUTS={
   cosmic:{primary:"Banana Accelerator",secondary:"Comet Popper",melee:"Star Wrench",utility:"Gremlin Gadget"}
 };
 const EVOLVED_LOADOUTS={bloodline:"Bloodline Repeater",scrapstorm:"Scrapstorm Volleygun",phantom:"Phantom Vector",railcaster:"Railcaster Mk II",deadeye:"Deadeye Longshot",stormline:"Stormline Array",aegis:"Aegis Breaker",fireteam:"Fireteam Platform",vanguard:"Vanguard Pulsecarbine",mortar:"Siegebreaker Mortar",clusterstorm:"Clusterstorm Howitzer",singularity:"Singularity Launcher",ion_spear:"Ion Spear",stormrail:"Stormrail Coilgun",tesla_spine:"Tesla Spine Array"};
+function secondaryFireMode(){const name=(CLASS_LOADOUTS[G?.classId||selectedClass||"survivor"]?.secondary||"").toLowerCase();return /pistol|revolver|sidearm|popper/.test(name)?"semi":"auto";}
 function getDisplayedPrimary(){if(!G)return CLASS_LOADOUTS[selectedClass||"survivor"]?.primary||"PRIMARY";return EVOLVED_LOADOUTS[G.evolution]||G.weaponName||CLASS_LOADOUTS[G.classId]?.primary||"PRIMARY"}
 function renderLoadoutBar(){
   const root=$("loadoutBar");if(!root)return;
@@ -2091,12 +2111,12 @@ function useSecondary(fromSlotFire=false){
   else if(id==="explosive"){G.bullets.push({x:p.x+Math.cos(a)*20,y:p.y+Math.sin(a)*20,vx:Math.cos(a)*p.projectileSpeed*.78,vy:Math.sin(a)*p.projectileSpeed*.78,r:5.2,life:1.55,damage:p.damage*.95,pierce:0,bounce:0,crit:false,explosive:false,floor:p.floor,gasTrail:true,gasTick:0,gasBurst:true});G.muzzleFlash=Math.max(G.muzzleFlash||0,.09);G.weaponKick=Math.max(G.weaponKick||0,5.5);p.secondaryCd=4;}
   else if(id==="conduit"){kitBullet(a,1.18,1.45,{pierce:2,r:4.5,flash:.1,kick:5});const near=G.enemies.filter(e=>(e.floor??0)===(p.floor??0)&&dist(e,p)<320).sort((x,y)=>dist(x,p)-dist(y,p)).slice(0,3);near.forEach((e,i)=>{e.hp-=p.damage*(.28-i*.05);e.slow=Math.max(e.slow,1.1);G.energyLines.push({x1:p.x,y1:p.y,x2:e.x,y2:e.y,life:.16,max:.16,width:6});if(e.hp<=0){const j=G.enemies.indexOf(e);if(j>=0)killEnemy(e,j)}});p.secondaryCd=3.6;}
   else{for(let i=0;i<7;i++)kitBullet(a+rand(-.18,.18),.5,1.12,{bounce:4,crit:Math.random()<.3,r:5,flash:.1,kick:4});p.secondaryCd=2.2;}
-  try{sfx.shoot(id,p.x)}catch(e){};msg(`${CLASS_LOADOUTS[id]?.secondary||"SECONDARY"} // FIRED`,.7);renderLoadoutBar();
+  G.weaponAnim={slot:2,type:"secondary",t:.22,max:.22,classId:id};try{sfx.shoot(id,p.x)}catch(e){};msg(`${CLASS_LOADOUTS[id]?.secondary||"SECONDARY"} // FIRED`,.7);renderLoadoutBar();
 }
 function useMelee(fromSlotFire=false){
   const p=G.player;if((p.meleeCd||0)>0)return;setEquippedSlot(3,fromSlotFire?0:.4);const a=Math.atan2(mouse.y-p.y,mouse.x-p.x),mult={survivor:1.55,rifleman:1.75,soldier:1.9,explosive:2.2,conduit:1.7,cosmic:2.5}[G.classId]||1.6,range=76;let hits=0;
   for(let i=G.enemies.length-1;i>=0;i--){const e=G.enemies[i];if((e.floor??0)!==(p.floor??0))continue;const d=dist(e,p),ea=Math.atan2(e.y-p.y,e.x-p.x),diff=Math.abs(Math.atan2(Math.sin(ea-a),Math.cos(ea-a)));if(d<range+e.r&&diff<1.05){const dmg=p.damage*mult;e.hp-=dmg;e.hit=.15;e.slow=Math.max(e.slow,.38);e.vx=(e.vx||0)+Math.cos(a)*210;e.vy=(e.vy||0)+Math.sin(a)*210;floatText(e.x,e.y-e.r,Math.round(dmg),"#ffd8a6",15);for(let k=0;k<5;k++)particle(e.x,e.y,rand(-130,130),rand(-130,130),rand(1.5,3.5),"#ffc47e",.22);if(e.hp<=0)killEnemy(e,i);hits++;}}
-  p.meleeCd={survivor:1.15,rifleman:1.28,soldier:1.38,explosive:1.52,conduit:1.25,cosmic:.9}[G.classId]||1.3;G.shake=Math.max(G.shake,hits?5:2);try{sfx.impact(p.x)}catch(e){};msg(`${CLASS_LOADOUTS[G.classId]?.melee||"MELEE"}${hits?` // ${hits} HIT`:""}`,.65);renderLoadoutBar();
+  p.meleeCd={survivor:1.15,rifleman:1.28,soldier:1.38,explosive:1.52,conduit:1.25,cosmic:.9}[G.classId]||1.3;G.weaponAnim={slot:3,type:"melee",t:.28,max:.28,classId:G.classId,hits};G.shake=Math.max(G.shake,hits?5:2);try{sfx.impact(p.x)}catch(e){};msg(`${CLASS_LOADOUTS[G.classId]?.melee||"MELEE"}${hits?` // ${hits} HIT`:""}`,.65);renderLoadoutBar();
 }
 function useUtility(fromSlotFire=false){
   const p=G.player;if((p.utilityCd||0)>0)return;setEquippedSlot(4,fromSlotFire?0:.5);const id=G.classId,tx=clamp(mouse.x,45,W-45),ty=clamp(mouse.y,45,H-45);
@@ -2106,7 +2126,7 @@ function useUtility(fromSlotFire=false){
   else if(id==="explosive"){for(let i=0;i<4;i++){const aa=i/4*TAU,rr=i?44:0;G.delayedBlasts.push({t:.25+i*.08,x:tx+Math.cos(aa)*rr,y:ty+Math.sin(aa)*rr,radius:74,damage:p.damage*1.15,floor:p.floor})}p.utilityCd=12.5;}
   else if(id==="conduit"){p.energy=clamp(p.energy+62,0,p.maxEnergy);for(let i=G.enemies.length-1;i>=0;i--){const e=G.enemies[i];if((e.floor??0)===(p.floor??0)&&dist(e,p)<230){e.slow=Math.max(e.slow,2.2);e.hp-=p.damage*.3;G.energyLines.push({x1:p.x,y1:p.y,x2:e.x,y2:e.y,life:.24,max:.24,width:7});if(e.hp<=0)killEnemy(e,i)}}p.utilityCd=11;}
   else{for(let i=0;i<8;i++){const aa=i/8*TAU;G.delayedBlasts.push({t:.15+i*.04,x:p.x+Math.cos(aa)*90,y:p.y+Math.sin(aa)*90,radius:56,damage:p.damage*.72,floor:p.floor})}p.utilityCd=8;}
-  G.flash=Math.max(G.flash,.08);try{sfx.ability(id)}catch(e){};if(id!=="rifleman")msg(`${CLASS_LOADOUTS[id]?.utility||"UTILITY"} // DEPLOYED`,.75);renderLoadoutBar();
+  G.weaponAnim={slot:4,type:"utility",t:.22,max:.22,classId:id};G.flash=Math.max(G.flash,.08);try{sfx.ability(id)}catch(e){};if(id!=="rifleman")msg(`${CLASS_LOADOUTS[id]?.utility||"UTILITY"} // DEPLOYED`,.75);renderLoadoutBar();
 }
 function dash(){
   const p=G.player;if(p.dashCd>0)return;
@@ -2156,6 +2176,7 @@ function playerShoot(){
   if(G.classId==="conduit")G.railMuzzle=.11;
   G.muzzleFlash=G.classId==="explosive"?.16:G.classId==="conduit"?.1:.095;G.weaponHeat=clamp((G.weaponHeat||0)+(G.classId==="conduit"?.38:G.classId==="explosive"?.28:.16),0,1);
   G.weaponKick=Math.max(G.weaponKick,G.classId==="conduit"?8:G.classId==="explosive"?6:3.5);
+  G.weaponAnim={slot:1,type:"primary",t:.18,max:.18,classId:G.classId};
   sfx.shoot(G.classId,p.x);
 }
 
@@ -2703,7 +2724,12 @@ function update(dt){
       if(p.stepClock<=0){p.stepClock=.28/(p.overActive>0?1.15:1);sfx.foot(G.classId,p.onStair!=null);}
     }else p.stepClock=Math.min(p.stepClock,.08);
   }
-  if(mouse.down)playerShoot();
+  if(mouse.down){
+    const slot=G.player?.equippedSlot||1;
+    const semiSecondary=slot===2&&secondaryFireMode()==="semi";
+    if(semiSecondary){if(!mouse._semiLatch){playerShoot();mouse._semiLatch=true;}}
+    else playerShoot();
+  }else mouse._semiLatch=false;
 
   if(!G.boss){
     G.spawnTimer-=dt;
@@ -2857,7 +2883,7 @@ function update(dt){
   }
   for(let i=G.blasts.length-1;i>=0;i--){
     const b=G.blasts[i];b.life-=dt;if(b.life<=0)G.blasts.splice(i,1);
-  }  for(let i=G.energyLines.length-1;i>=0;i--){G.energyLines[i].life-=dt;if(G.energyLines[i].life<=0)G.energyLines.splice(i,1);}for(let i=G.railImpacts.length-1;i>=0;i--){G.railImpacts[i].life-=dt;if(G.railImpacts[i].life<=0)G.railImpacts.splice(i,1);}G.railMuzzle=Math.max(0,(G.railMuzzle||0)-dt);G.muzzleFlash=Math.max(0,(G.muzzleFlash||0)-dt);G.weaponHeat=Math.max(0,(G.weaponHeat||0)-dt*.78);G.phasePulse=Math.max(0,(G.phasePulse||0)-dt);if(G.bossIntro){G.bossIntro.t-=dt;if(G.bossIntro.t<=0)G.bossIntro=null;}G.weaponKick=Math.max(0,(G.weaponKick||0)-dt*34);for(let i=G.spawnFx.length-1;i>=0;i--){G.spawnFx[i].life-=dt;if(G.spawnFx[i].life<=0)G.spawnFx.splice(i,1);}
+  }  for(let i=G.energyLines.length-1;i>=0;i--){G.energyLines[i].life-=dt;if(G.energyLines[i].life<=0)G.energyLines.splice(i,1);}for(let i=G.railImpacts.length-1;i>=0;i--){G.railImpacts[i].life-=dt;if(G.railImpacts[i].life<=0)G.railImpacts.splice(i,1);}G.railMuzzle=Math.max(0,(G.railMuzzle||0)-dt);G.muzzleFlash=Math.max(0,(G.muzzleFlash||0)-dt);G.weaponHeat=Math.max(0,(G.weaponHeat||0)-dt*.78);G.phasePulse=Math.max(0,(G.phasePulse||0)-dt);if(G.weaponAnim){G.weaponAnim.t=Math.max(0,G.weaponAnim.t-dt);if(G.weaponAnim.t<=0)G.weaponAnim=null;}if(G.bossIntro){G.bossIntro.t-=dt;if(G.bossIntro.t<=0)G.bossIntro=null;}G.weaponKick=Math.max(0,(G.weaponKick||0)-dt*34);for(let i=G.spawnFx.length-1;i>=0;i--){G.spawnFx[i].life-=dt;if(G.spawnFx[i].life<=0)G.spawnFx.splice(i,1);}
 
   for(let i=G.delayedBlasts.length-1;i>=0;i--){const b=G.delayedBlasts[i];b.t-=dt;if(b.t<=0){explode(b.x,b.y,b.radius,b.damage,false,true,b.floor);G.delayedBlasts.splice(i,1);}}
   for(let i=G.texts.length-1;i>=0;i--){
@@ -3368,11 +3394,12 @@ function drawPhysicalWeaponModel(cls,p,evolved=false){
   const palette={survivor:["#33433c","#92d8b6","#17201d"],rifleman:["#283742","#a8d6e5","#121a20"],soldier:["#30345e","#8e96ef","#191b33"],explosive:["#4b3322","#d39455","#23180f"],conduit:["#193746","#7cefff","#0b202b"],cosmic:["#5a4920","#ffe064","#261f0c"]}[cls]||["#2d3947","#9dcfe1","#151b22"];
   const dark=palette[0],accent=palette[1],black=palette[2];
   if(slot===2){
-    X.rotate(-.12);X.fillStyle=black;X.beginPath();X.moveTo(-2,3);X.lineTo(7,6);X.lineTo(4,17);X.lineTo(-4,14);X.closePath();X.fill();
-    X.fillStyle=dark;roundedRect(4,-6,28,12,4);X.fill();X.strokeStyle="rgba(255,255,255,.22)";X.strokeRect(6,-5,24,10);
-    X.fillStyle=accent;roundedRect(25,-5,22,10,4);X.fill();X.fillStyle=evolved?"#ffe2a8":"#d8f8ff";X.fillRect(43,-2,10,4);
-    if(cls==="explosive"){X.fillStyle="#f0bb74";X.fillRect(15,-8,12,3);X.strokeStyle="#ffd48a";X.beginPath();X.moveTo(46,0);X.lineTo(58,0);X.stroke();}
-    if(cls==="conduit"){for(let i=0;i<3;i++){X.strokeStyle=`rgba(124,239,255,${.42+i*.12})`;X.beginPath();X.arc(31+i*5,0,4.5+i*.2,0,TAU);X.stroke();}}
+    X.rotate(-.18);X.fillStyle=black;X.beginPath();X.moveTo(-6,6);X.lineTo(3,9);X.lineTo(-1,22);X.lineTo(-9,17);X.closePath();X.fill();
+    X.fillStyle=dark;roundedRect(-1,-6,26,12,4);X.fill();X.strokeStyle="rgba(255,255,255,.24)";X.strokeRect(1,-5,22,10);
+    X.fillStyle=accent;roundedRect(20,-5,18,10,4);X.fill();X.fillStyle=evolved?"#ffe2a8":"#d8f8ff";X.fillRect(34,-2,14,4);X.fillStyle=black;X.fillRect(8,-10,8,4);
+    X.fillStyle="#8fa0aa";X.fillRect(0,-2,4,4);
+    if(cls==="explosive"){X.fillStyle="#f0bb74";X.fillRect(9,-8,10,3);X.strokeStyle="#ffd48a";X.beginPath();X.moveTo(39,0);X.lineTo(57,0);X.stroke();}
+    if(cls==="conduit"){for(let i=0;i<3;i++){X.strokeStyle=`rgba(124,239,255,${.42+i*.12})`;X.beginPath();X.arc(24+i*5,0,4.5+i*.2,0,TAU);X.stroke();}}
   }else if(slot===3){
     if(/knife|shiv|blade/i.test(CLASS_LOADOUTS[cls]?.melee||"")){
       X.rotate(.28);X.fillStyle=dark;X.fillRect(-2,-2,18,4);X.fillStyle=accent;X.beginPath();X.moveTo(16,0);X.lineTo(46,-5);X.lineTo(58,0);X.lineTo(46,5);X.closePath();X.fill();
@@ -3444,13 +3471,51 @@ function drawPlayerUpgradeVisuals(cls,p){
 }
 
 function drawSideWeaponRig(cls,p,evolved=false){
-  const slot=p.equippedSlot||1;
+  const slot=p.equippedSlot||1,anim=G.weaponAnim&&G.weaponAnim.slot===slot?G.weaponAnim:null;
+  const t=anim?1-anim.t/Math.max(.001,anim.max||.2):0;
+  const pulse=anim?(Math.sin(t*Math.PI)):0;
+  const rigs={
+    1:{x:28,y:-2,r:0,sc:.96},
+    2:{x:24,y:4,r:-.18,sc:.82},
+    3:{x:14,y:18,r:.82,sc:.82},
+    4:{x:20,y:12,r:.22,sc:.8}
+  };
+  const rig={...(rigs[slot]||rigs[1])};
+  if(cls==="explosive"&&slot===1){rig.x=30;rig.y=1;rig.sc=1.05}
+  if(cls==="conduit"&&slot===1){rig.x=31;rig.y=-5;rig.sc=1.02}
+  if(cls==="rifleman"&&slot===2){rig.x=25;rig.y=1;rig.r=-.24;rig.sc=.84}
+  if(anim){
+    if(slot===1){rig.x-=8*pulse;rig.y+=2*pulse;rig.r-=.1*pulse;}
+    if(slot===2){rig.x-=10*pulse;rig.y+=3*pulse;rig.r-=.22*pulse;}
+    if(slot===3){rig.r=.98-1.55*pulse;rig.x+=10*pulse;rig.y-=12*Math.sin(t*Math.PI);rig.sc=.9+.08*pulse;}
+    if(slot===4){rig.x-=5*pulse;rig.y+=2*pulse;}
+  }
   X.save();
-  if(slot===3){X.translate(16,18);X.rotate(.95);X.scale(.78,.78);}
-  else if(slot===4){X.translate(14,20);X.rotate(.5);X.scale(.76,.76);}
-  else if(slot===2){X.translate(18,16);X.rotate(.22);X.scale(.84,.84);}
-  else{X.translate(18,16);X.rotate(.28);X.scale(.9,.9);}
+  X.translate(rig.x,rig.y);X.rotate(rig.r);X.scale(rig.sc,rig.sc);
   drawPhysicalWeaponModel(cls,{...p,equippedSlot:slot},evolved);
+  if(anim&&slot===3){
+    X.globalCompositeOperation="lighter";
+    X.strokeStyle=cls==="explosive"?`rgba(255,176,96,${.34+.22*pulse})`:cls==="conduit"?`rgba(112,236,255,${.34+.22*pulse})`:`rgba(245,248,255,${.3+.18*pulse})`;
+    X.lineWidth=4;X.beginPath();X.arc(-4,0,46,-1.3,.85);X.stroke();
+    X.lineWidth=9;X.strokeStyle=cls==="explosive"?`rgba(255,114,56,${.12+.08*pulse})`:`rgba(255,255,255,${.08+.06*pulse})`;X.beginPath();X.arc(-4,0,49,-1.32,.87);X.stroke();
+    X.globalCompositeOperation="source-over";
+  }
+  X.restore();
+}
+
+function drawWeaponActionFX(cls,p){
+  const slot=p.equippedSlot||1,anim=G.weaponAnim&&G.weaponAnim.slot===slot?G.weaponAnim:null;if(!anim)return;
+  const t=1-anim.t/Math.max(.001,anim.max||.2),pulse=Math.sin(t*Math.PI);
+  X.save();
+  if(slot===1||slot===2){
+    const ox=slot===2?30:38, oy=slot===2?0:-1;
+    X.globalCompositeOperation="lighter";
+    X.strokeStyle=cls==="conduit"?`rgba(112,236,255,${.24+.24*pulse})`:cls==="explosive"?`rgba(255,140,72,${.24+.24*pulse})`:`rgba(255,255,255,${.18+.18*pulse})`;
+    X.lineWidth=2.4;
+    for(let i=0;i<3;i++){X.beginPath();X.moveTo(ox-8-i*6,oy-1+i*2);X.lineTo(ox-20-i*12,oy-3+i*4);X.stroke();}
+    X.fillStyle=`rgba(255,255,255,${.08+.08*pulse})`;X.beginPath();X.arc(ox-6,oy,8+6*pulse,0,TAU);X.fill();
+    X.globalCompositeOperation="source-over";
+  }
   X.restore();
 }
 
@@ -3467,6 +3532,7 @@ function drawPlayer(){
   if(slot===2){X.fillStyle="rgba(255,255,255,.16)";X.fillRect(-7,-14,8,5);}else if(slot===3){X.fillStyle="rgba(255,255,255,.16)";X.fillRect(-10,-2,7,4);X.fillRect(-7,8,5,4);}else if(slot===4){X.fillStyle="rgba(255,255,255,.16)";X.fillRect(-8,-9,6,6);}
   drawPlayerUpgradeVisuals(cls,p);
   drawSideWeaponRig(cls,p,evolved);
+  drawWeaponActionFX(cls,p);
   X.shadowColor="transparent";X.restore();
 }
 
@@ -4413,8 +4479,8 @@ for(const id of ["announcerSlider","announcerEngineSelect","announcerVoiceToggle
 /* startup */
 setTimeout(()=>{applyAudioSettings();v18Presence(true)},650);
 
-const APP_VERSION="18.8.2";
-const APP_VERSION_LABEL="18.8.2";
+const APP_VERSION="18.8.3";
+const APP_VERSION_LABEL="18.8.3";
 let pendingDesktopUpdate=null;
 
 function compareVersionStrings(a,b){

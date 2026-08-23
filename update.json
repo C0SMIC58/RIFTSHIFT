@@ -1,8 +1,8 @@
 {
-  "version": "18.8.2",
+  "version": "18.8.3",
   "gameUrl": "https://raw.githubusercontent.com/C0SMIC58/RIFTSHIFT/main/RIFTSHIFT_LATEST.html",
-  "sha256": "f1b1f6c67baed9b64966fabbd2d4d5abba185af4bd6340831e821004b81082bd",
+  "sha256": "38a52ab19dcad5525b1c3d0509d8fe1770d5b44de54db8452b2f27638405605e",
   "overhaul": false,
   "priority": "normal",
-  "notes": "Weapon/loadout presentation update with persistent weapon switching, player upgrade visuals, improved gun audio, flame-based Ignition Pistol presentation, and flames-only menu backdrop."
+  "notes": "Weapon alignment pass, semi-auto secondary sidearms, new gun/melee animation FX, and a much stronger flame-driven main menu backdrop."
 }
