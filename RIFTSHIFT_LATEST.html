@@ -263,6 +263,25 @@ canvas{display:block}
 @media(max-width:620px){.engineGlyphWrap{width:122px;height:122px}.engineWordmark span{font-size:18px}.engineWordmark b{font-size:7px}.engineBuild{font-size:6px}.engineFooter{bottom:22px;font-size:6px}}
 @media(prefers-reduced-motion:reduce){.eg,.engineSlash,.engineCoreCircle,.enginePulseRing,.engineLogoStage,.engineWordmark,.engineBuild,.engineHandoff,.engineFooter,.engineSplash:before,.engineSplash:after{animation-duration:.01ms!important;animation-delay:0ms!important}}
 
+
+/* V18.8.7 intro cinematic refresh */
+.bootCinematicFX{position:absolute;inset:0;pointer-events:none;z-index:1;overflow:hidden}
+.bootHorizon{position:absolute;left:-10%;right:-10%;top:50%;height:1px;background:linear-gradient(90deg,transparent,rgba(255,126,68,.18),rgba(255,226,175,.75),rgba(117,233,255,.34),transparent);box-shadow:0 0 26px rgba(255,126,68,.25);opacity:0;animation:bootHorizonLife 4.1s .25s ease both}
+.bootScanline{position:absolute;left:0;right:0;height:2px;top:16%;background:linear-gradient(90deg,transparent,rgba(117,233,255,.05),rgba(255,255,255,.35),rgba(255,126,68,.08),transparent);opacity:0;animation:bootScanSweep 2.6s .65s cubic-bezier(.2,.72,.2,1) both}
+.bootRiftFlash{position:absolute;left:50%;top:50%;width:4px;height:4px;transform:translate(-50%,-50%);border-radius:50%;background:#fff;box-shadow:0 0 30px 8px rgba(255,255,255,.9),0 0 80px 28px rgba(117,233,255,.35),0 0 150px 48px rgba(255,128,72,.24);opacity:0;animation:bootRiftFlash 1.1s 3.55s ease-out both}
+.bootFragments i{position:absolute;left:50%;top:50%;width:70px;height:2px;background:linear-gradient(90deg,transparent,rgba(255,201,140,.75),transparent);transform-origin:left center;opacity:0}
+.bootFragments i:nth-child(1){--a:12deg;--d:190px}.bootFragments i:nth-child(2){--a:54deg;--d:240px}.bootFragments i:nth-child(3){--a:102deg;--d:205px}.bootFragments i:nth-child(4){--a:147deg;--d:260px}.bootFragments i:nth-child(5){--a:197deg;--d:220px}.bootFragments i:nth-child(6){--a:235deg;--d:250px}.bootFragments i:nth-child(7){--a:291deg;--d:210px}.bootFragments i:nth-child(8){--a:337deg;--d:245px}
+.bootFragments i{animation:bootFragmentBurst .9s 3.62s cubic-bezier(.2,.7,.1,1) both}
+.engineSequence.go .engineGlyphWrap{animation:engineGlyphImpact .9s .08s cubic-bezier(.18,.9,.18,1) both}
+.engineSequence.go .engineWordmark{filter:drop-shadow(0 0 22px rgba(117,233,255,.22))}
+.engineHandoffPanel.go .engineHandoffTitle{animation:handoffTitlePunch .7s .12s cubic-bezier(.2,.85,.15,1) both}
+@keyframes bootHorizonLife{0%{opacity:0;transform:scaleX(.1)}22%{opacity:.85;transform:scaleX(1)}72%{opacity:.3}100%{opacity:0;transform:scaleX(1.25)}}
+@keyframes bootScanSweep{0%{opacity:0;transform:translateY(-12vh)}18%{opacity:.65}82%{opacity:.42}100%{opacity:0;transform:translateY(74vh)}}
+@keyframes bootRiftFlash{0%{opacity:0;transform:translate(-50%,-50%) scale(.15)}18%{opacity:1}48%{opacity:.86;transform:translate(-50%,-50%) scale(8)}100%{opacity:0;transform:translate(-50%,-50%) scale(26)}}
+@keyframes bootFragmentBurst{0%{opacity:0;transform:rotate(var(--a)) translateX(0) scaleX(.1)}18%{opacity:.9}100%{opacity:0;transform:rotate(var(--a)) translateX(var(--d)) scaleX(1.3)}}
+@keyframes engineGlyphImpact{0%{transform:scale(.72) rotate(-7deg);filter:blur(3px)}55%{transform:scale(1.08) rotate(1deg);filter:blur(0)}100%{transform:scale(1) rotate(0)}}
+@keyframes handoffTitlePunch{0%{opacity:0;transform:translateY(18px) scale(.95);filter:blur(8px)}55%{opacity:1;transform:translateY(-2px) scale(1.015);filter:blur(0)}100%{opacity:1;transform:none}}
+
 /* V18.3 // BOOT CINEMATIC + MENU BACKDROP */
 #menu{overflow:hidden}
 .frontShell{z-index:2}
@@ -632,7 +651,7 @@ canvas{display:block}
 @media(max-width:850px){.v9Grid{grid-template-columns:1fr 1fr}.settingsGrid{grid-template-columns:1fr}.historyRow{grid-template-columns:1fr 1fr 1fr}.historyRow span:nth-child(n+4){display:none}}
 @media(max-width:850px){.classes{grid-template-columns:1fr 1fr}.classCard{min-height:340px}.upCards{grid-template-columns:1fr}.upCard{min-height:155px}.classTop{align-items:flex-start;flex-direction:column}}
 
-/* V18.8.6 // CLASS SELECT FIT PASS */
+/* V18.8.7 // CLASS SELECT FIT PASS */
 #classSelect{padding:10px;overflow:hidden}
 #classSelect .classShell{
   width:1480px;max-width:none;max-height:none;overflow:visible;
@@ -674,23 +693,25 @@ canvas{display:block}
 </style>
 
 <style id="v1886-polish">
-/* V18.8.6: regularized side-slot branch UI */
-#kitBranch .v9Shell{width:min(980px,94vw)}
-#kitBranchGrid{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:12px!important}
-#kitBranchGrid .evoCard{min-height:230px!important;background:linear-gradient(180deg,#171f31,#101521)!important;border:1px solid rgba(255,255,255,.1)!important;border-radius:18px!important;padding:20px!important;box-sizing:border-box!important;position:relative!important;overflow:hidden!important;display:block!important}
-#kitBranchGrid .evoCard:hover{transform:translateY(-5px)!important;border-color:rgba(117,233,255,.38)!important}
-#kitBranchGrid .evoCard:before{content:"";position:absolute;width:150px;height:150px;border-radius:50%;right:-65px;top:-70px;background:radial-gradient(circle,rgba(117,233,255,.13),transparent 70%)}
-#kitBranchGrid .evoIcon{font-size:29px!important;margin-bottom:18px!important}
-#kitBranchGrid .evoName{font-size:20px!important;font-weight:950!important}
-#kitBranchGrid .evoDesc{color:#a5b1c7!important;line-height:1.55!important;font-size:13px!important;margin-top:9px!important;padding-bottom:32px}
-#kitBranchGrid .evoTag{left:20px!important;bottom:17px!important;font-size:9px!important;letter-spacing:.14em!important;color:#75e9ff!important;font-weight:900!important}
-@media(max-width:700px){#kitBranchGrid{grid-template-columns:1fr!important}}
+/* V18.8.7: side-slot branches use the normal upgrade-card presentation */
+#kitBranch{align-items:center;justify-content:center;background:rgba(4,6,10,.82);backdrop-filter:blur(8px);pointer-events:auto}
+#kitBranch .kitBranchBox{width:min(980px,92vw);max-height:88vh;overflow:auto;background:rgba(13,19,31,.98);border:1px solid rgba(255,255,255,.10);border-radius:20px;padding:24px;box-sizing:border-box;box-shadow:0 28px 80px rgba(0,0,0,.55)}
+#kitBranch .upTitle{margin-bottom:6px}
+#kitBranch .upHead{font-size:clamp(34px,5vw,58px);line-height:.95;margin:0 0 8px}
+#kitBranchSub{font-size:11px;color:#8795ad;line-height:1.55;margin:0 0 18px}
+#kitBranchGrid{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:12px!important;align-items:stretch}
+#kitBranchGrid .upCard{min-height:230px!important;height:100%!important;box-sizing:border-box!important}
+#kitBranchGrid .upCard.branchPick{border-color:rgba(117,233,255,.2)!important}
+#kitBranchGrid .upCard.branchPick:hover{border-color:rgba(117,233,255,.5)!important}
+#kitBranchGrid .upTag{padding-right:100px}
+.slotBranch{display:block;margin-top:2px;font-size:7px;letter-spacing:.12em;color:#ffd166;font-weight:900;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:150px}
+@media(max-width:700px){#kitBranchGrid{grid-template-columns:1fr!important}#kitBranch .kitBranchBox{width:94vw;padding:18px}}
 
 /* Procedural menu flame renderer replaces the old cartoon flame DOM. */
 .menuFlameField{position:absolute;inset:0;overflow:hidden;filter:none!important;opacity:1!important;background:linear-gradient(180deg,#090707 0%,#100706 48%,#210704 100%)}
 .menuFlameField>.flameBackwash,.menuFlameField>.flameColumn,.menuFlameField>.flameTongue,.menuFlameField>.flameEmber{display:none!important}
-#menuFlameCanvas{position:absolute;inset:0;width:100%;height:100%;display:block;z-index:0;filter:saturate(1.08) contrast(1.12)}
-.menuFlameField .flameVeil{z-index:1;pointer-events:none;background:linear-gradient(180deg,rgba(0,0,0,.52) 0%,rgba(0,0,0,.16) 32%,rgba(0,0,0,.02) 72%,rgba(0,0,0,.12) 100%)!important}
+#menuFlameCanvas{position:absolute;inset:0;width:100%;height:100%;display:block;z-index:0;filter:saturate(1.18) contrast(1.16) brightness(.98)}
+.menuFlameField .flameVeil{z-index:1;pointer-events:none;background:linear-gradient(180deg,rgba(0,0,0,.42) 0%,rgba(0,0,0,.10) 27%,rgba(0,0,0,.015) 70%,rgba(0,0,0,.08) 100%)!important}
 </style>
 
 </head>
@@ -699,6 +720,7 @@ canvas{display:block}
 
 <section id="boot" class="screen active">
   <div class="engineSplash" aria-label="RIFTCORE Engine startup">
+    <div class="bootCinematicFX" aria-hidden="true"><div class="bootHorizon"></div><div class="bootScanline"></div><div class="bootRiftFlash"></div><div class="bootFragments"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
     <div id="bootPrelude" class="bootPrelude">
       <div class="bootPreludeCamera">
         <div class="bootDiamondRig">
@@ -746,7 +768,7 @@ canvas{display:block}
         <div class="engineHandoffTop"><span>RIFTSHIFT // COMBAT OPERATING SYSTEM</span><span class="live">● RIFT LINK STABLE</span></div>
         <div class="engineHandoffFrame">
           <div class="engineHandoffPane">
-            <div class="engineHandoffCode">FIELD TERMINAL / RS-18.8.6</div>
+            <div class="engineHandoffCode">FIELD TERMINAL / RS-18.8.7</div>
             <h1 class="engineHandoffTitle"><span class="rift">RIFT</span><span class="shift">SHIFT</span></h1>
             <div class="engineHandoffSlash"></div>
             <div class="engineHandoffSub">RIFT LINK STABLE // MENU UPLINK READY</div>
@@ -795,14 +817,14 @@ canvas{display:block}
     <div class="menuTopRedux">
       <div class="menuTopLeft">
         <span class="menuKickerRedux">RIFTSHIFT // STRIKE DIRECTOR</span>
-        <span class="menuBuildChip">BUILD V18.8.6</span>
+        <span class="menuBuildChip">BUILD V18.8.7</span>
       </div>
       <div class="menuTopRight"><span class="menuPulse"></span> ORBITAL LINK GREEN</div>
     </div>
 
     <div class="menuHeroRedux">
       <div class="menuBrandRedux">
-        <div class="brandCode">FIELD TERMINAL / RS-18.8.6</div>
+        <div class="brandCode">FIELD TERMINAL / RS-18.8.7</div>
         <h1 class="brandMain"><span class="rift">RIFT</span><span class="shift">SHIFT</span></h1>
         <div class="brandSlash"></div>
         <p class="commandCopy">Drop into a collapsing warfront where every run rebuilds the battlefield, every class carries a full combat kit, and every wave pushes harder than the last. Build momentum, evolve your weapons, and survive the rupture long enough to turn the front line back on itself.</p>
@@ -860,7 +882,7 @@ canvas{display:block}
           <div class="stageStatBar">
             <div class="stageStat"><span>CLASS CORES</span><b>4</b></div>
             <div class="stageStat"><span>RUN SEEDS</span><b>∞</b></div>
-            <div class="stageStat"><span>BUILD</span><b>V18.8.6</b></div>
+            <div class="stageStat"><span>BUILD</span><b>V18.8.7</b></div>
           </div>
         </div>
 
@@ -948,7 +970,7 @@ canvas{display:block}
 
 <section id="armory" class="screen"><div class="v9Shell"><div class="v9Top"><div><div class="titleKicker">BETWEEN WAVES</div><h2>FIELD ARMORY</h2><p>Spend scrap on run upgrades. The Armory appears every three cleared waves.</p></div><div id="armoryScrap" class="v9Currency">0 SCRAP</div></div><div id="armoryGrid" class="v9Grid"></div><div class="classActions"><button id="armoryRerollBtn" class="secondary">REROLL STOCK // 18</button><button id="armoryContinueBtn" class="primary">CONTINUE RUN</button></div></div></section>
 <section id="evolution" class="screen"><div class="v9Shell"><div class="v9Top"><div><div class="titleKicker">WEAPON BREAKPOINT</div><h2>EVOLVE YOUR WEAPON</h2><p>Your class build has reached critical mass. Choose one evolution for the rest of the run.</p></div></div><div id="evolutionGrid" class="v9Grid"></div></div></section>
-<section id="kitBranch" class="screen"><div class="v9Shell"><div class="v9Top"><div><div class="titleKicker">LOADOUT BREAKPOINT</div><h2 id="kitBranchTitle">BRANCH YOUR LOADOUT</h2><p id="kitBranchSub">Choose one permanent branch. The other path locks for this run.</p></div></div><div id="kitBranchGrid" class="v9Grid"></div></div></section>
+<section id="kitBranch" class="screen"><div class="kitBranchBox"><div class="upTitle">LOADOUT BREAKPOINT</div><div class="upHead" id="kitBranchTitle">BRANCH YOUR LOADOUT</div><p id="kitBranchSub">Choose one permanent branch. The other path locks for this run.</p><div id="kitBranchGrid" class="upCards"></div></div></section>
 <section id="settings" class="screen"><div class="v9Shell"><div class="v9Top"><div><div class="titleKicker">SYSTEM</div><h2>SETTINGS</h2><p>Reorganized controls, audio, video, HUD, and announcer options. Saved locally on this device.</p></div></div><div class="settingsGrid">
 <div class="settingsGroup"><h3>AUDIO MIX</h3><p>Control the full sound mix, menu score, combat feedback, and announcer level.</p><div class="innerGrid">
 <div class="settingRow"><label><span>MASTER VOLUME</span><span id="masterValue">100%</span></label><input id="masterSlider" type="range" min="0" max="100" value="100"></div>
@@ -1001,11 +1023,11 @@ canvas{display:block}
 <div class="adminHeader"><div><div class="titleKicker">PRIVATE OWNER TOOLS</div><h2>ADMIN PANEL</h2><p style="font-size:10px;color:#8090a5">Press F2 to open. Owner login is remembered on this device.</p></div><div id="adminOwnerBadge" class="ownerBadge">LOCKED</div></div>
 <div id="adminLoginPane" class="adminLogin"><b>OWNER AUTHENTICATION</b><div style="font-size:10px;color:#8492a8;margin-top:7px;line-height:1.5">Enter the private owner key from the separate owner-access file.</div><input id="ownerKeyInput" type="password" autocomplete="off" placeholder="RS-••••••••••••"><div id="ownerLoginStatus" style="min-height:18px;color:#ff8698;font-size:9px"></div><button id="ownerLoginBtn" class="primary">UNLOCK OWNER MODE</button></div>
 <div id="adminBody" hidden><div class="adminSection">LIVE TOGGLES</div><div class="adminGrid">
-<button class="adminCard" data-admin="god"><b>GOD MODE</b><span>Ignore all incoming damage.</span></button><button class="adminCard" data-admin="energy"><b>INFINITE ENERGY</b><span>Energy stays full.</span></button><button class="adminCard" data-admin="over"><b>INFINITE OVERDRIVE</b><span>Overdrive stays ready.</span></button><button class="adminCard" data-admin="damage"><b>5× DAMAGE</b><span>Multiply all player projectile damage.</span></button>
+<button class="adminCard" data-admin="god"><b>GOD MODE</b><span>Ignore all incoming damage.</span></button><button class="adminCard" data-admin="energy"><b>INFINITE ENERGY</b><span>Energy stays full.</span></button><button class="adminCard" data-admin="over"><b>INFINITE OVERDRIVE</b><span>Overdrive stays ready.</span></button><button class="adminCard" data-admin="damage"><b>5× DAMAGE</b><span>Multiply all player projectile damage.</span></button><button class="adminCard" data-admin="cooldowns"><b>NO COOLDOWNS</b><span>Weapon, utility, dash, and ability cooldowns instantly refill.</span></button><button class="adminCard" data-admin="freeze"><b>FREEZE HOSTILES</b><span>Locks non-boss enemy movement in place.</span></button>
 </div><div class="adminSection">PLAYER / PROGRESSION</div><div class="adminGrid">
-<button class="adminCard" data-admin="heal"><b>FULL HEAL</b><span>Restore current HP.</span></button><button class="adminCard" data-admin="scrap"><b>+1,000 SCRAP</b><span>Add run currency.</span></button><button class="adminCard" data-admin="cores"><b>+5 RIFT CORES</b><span>Add persistent Cores.</span></button><button class="adminCard" data-admin="unlock"><b>UNLOCK PROGRESSION</b><span>Unlock normal progression requirements.</span></button><button class="adminCard" data-admin="cosmic"><b>COSMIC GREMLIN</b><span>Select your private silly class.</span></button>
+<button class="adminCard" data-admin="heal"><b>FULL HEAL</b><span>Restore current HP.</span></button><button class="adminCard" data-admin="scrap"><b>+1,000 SCRAP</b><span>Add run currency.</span></button><button class="adminCard" data-admin="cores"><b>+5 RIFT CORES</b><span>Add persistent Cores.</span></button><button class="adminCard" data-admin="levels"><b>+5 LEVELS</b><span>Grant five upgrade levels immediately.</span></button><button class="adminCard" data-admin="rerolls"><b>+5 REROLLS</b><span>Add five upgrade rerolls to the current run.</span></button><button class="adminCard" data-admin="super"><b>DROP SUPER WEAPON</b><span>Spawn a temporary super weapon beside you.</span></button><button class="adminCard" data-admin="unlock"><b>UNLOCK PROGRESSION</b><span>Unlock normal progression requirements.</span></button><button class="adminCard" data-admin="cosmic"><b>COSMIC GREMLIN</b><span>Select your private silly class.</span></button>
 </div><div class="adminSection">RUN CONTROL</div><div class="adminGrid">
-<button class="adminCard" data-admin="clear"><b>CLEAR ENEMIES</b><span>Remove all current hostiles.</span></button><button class="adminCard" data-admin="elite"><b>SPAWN COMMANDER</b><span>Spawn an elite brute.</span></button><button class="adminCard" data-admin="wave5"><b>JUMP TO WAVE 5</b><span>Fast-forward the run.</span></button><button class="adminCard" data-admin="wave10"><b>JUMP TO WAVE 10</b><span>Fast-forward farther.</span></button>
+<button class="adminCard" data-admin="clear"><b>CLEAR ENEMIES</b><span>Remove all current hostiles.</span></button><button class="adminCard" data-admin="elite"><b>SPAWN COMMANDER</b><span>Spawn an elite brute.</span></button><button class="adminCard" data-admin="behemoth"><b>SPAWN BEHEMOTH</b><span>Spawn the massive roaming enemy.</span></button><button class="adminCard" data-admin="boss"><b>SPAWN BOSS</b><span>Force a boss encounter now.</span></button><button class="adminCard" data-admin="branch"><b>FORCE LOADOUT BRANCH</b><span>Open the next unchosen secondary/melee/utility branch.</span></button><button class="adminCard" data-admin="wave5"><b>JUMP TO WAVE 5</b><span>Fast-forward the run.</span></button><button class="adminCard" data-admin="wave10"><b>JUMP TO WAVE 10</b><span>Fast-forward farther.</span></button><button class="adminCard" data-admin="wave20"><b>JUMP TO WAVE 20</b><span>Jump straight into deep-run pressure.</span></button>
 </div></div><div class="classActions"><button id="adminLogoutBtn" class="secondary" hidden>LOCK OWNER MODE</button><button id="adminCloseBtn" class="primary">BACK</button></div></div></section>
 <section id="gameover" class="screen"><div class="scorePanel"><div class="titleKicker">RUN OVER</div><h2>YOU GOT COOKED</h2><div id="finalScore" class="finalScore">0</div><div class="summary"><div><strong id="sumWave">0</strong><span>WAVE</span></div><div><strong id="sumKills">0</strong><span>KILLS</span></div><div><strong id="sumLevel">0</strong><span>LEVEL</span></div><div><strong id="sumTime">0:00</strong><span>TIME</span></div></div><div id="gameoverMeta"></div><div class="classActions" style="justify-content:center"><button id="againBtn" class="primary">RUN IT BACK</button><button id="menuBtn" class="secondary">MAIN MENU</button></div></div></section>
 
@@ -1143,11 +1165,13 @@ const KIT_BRANCH_MILESTONES={secondary:4,melee:8,utility:12};
 
 function secondaryFireMode(){const name=(CLASS_LOADOUTS[G?.classId||selectedClass||"survivor"]?.secondary||"").toLowerCase();return /pistol|revolver|sidearm|popper/.test(name)?"semi":"auto";}
 function getDisplayedPrimary(){if(!G)return CLASS_LOADOUTS[selectedClass||"survivor"]?.primary||"PRIMARY";return EVOLVED_LOADOUTS[G.evolution]||G.weaponName||CLASS_LOADOUTS[G.classId]?.primary||"PRIMARY"}
+function getKitBranchDef(slot){if(!G?.kitBranches?.[slot])return null;return (KIT_BRANCHES[G.classId]?.[slot]||[]).find(b=>b.id===G.kitBranches[slot])||null;}
 function renderLoadoutBar(){
   const root=$("loadoutBar");if(!root)return;
   const cid=G?.classId||selectedClass||"survivor",load=CLASS_LOADOUTS[cid]||CLASS_LOADOUTS.survivor,primary=getDisplayedPrimary(),p=G?.player,selected=G?.player?.equippedSlot||1;
-  const slots=[{k:"1",t:"PRIMARY",n:primary,cd:0,max:1,c:"primarySlot"},{k:"2",t:"SECONDARY",n:load.secondary,cd:p?.secondaryCd||0,max:.25,c:"secondarySlot"},{k:"3",t:"MELEE",n:load.melee,cd:p?.meleeCd||0,max:1.55,c:"meleeSlot"},{k:"4",t:"UTILITY",n:load.utility,cd:p?.utilityCd||0,max:13,c:"utilitySlot"}];
-  root.innerHTML=slots.map(q=>{const ready=q.cd<=.03,frac=clamp(q.cd/q.max,0,1),isSel=selected===Number(q.k);const state=!G?"READY":isSel?"EQUIPPED":ready?(q.k==="1"?"EQUIPPED":"READY"):q.cd.toFixed(1)+"s";return `<div class="loadoutSlot ${q.c} ${ready?"ready":"cooling"} ${isSel?"selected":""}" style="--cd:${frac}"><div class="slotKey">${q.k}</div><div><span class="slotType">${q.t}</span><span class="slotName">${q.n}</span></div><span class="slotState">${state}</span></div>`}).join("");
+  const branches={secondary:getKitBranchDef("secondary"),melee:getKitBranchDef("melee"),utility:getKitBranchDef("utility")};
+  const slots=[{k:"1",t:"PRIMARY",n:primary,b:null,cd:0,max:1,c:"primarySlot"},{k:"2",t:"SECONDARY",n:load.secondary,b:branches.secondary,cd:p?.secondaryCd||0,max:.25,c:"secondarySlot"},{k:"3",t:"MELEE",n:load.melee,b:branches.melee,cd:p?.meleeCd||0,max:1.55,c:"meleeSlot"},{k:"4",t:"UTILITY",n:load.utility,b:branches.utility,cd:p?.utilityCd||0,max:13,c:"utilitySlot"}];
+  root.innerHTML=slots.map(q=>{const ready=q.cd<=.03,frac=clamp(q.cd/q.max,0,1),isSel=selected===Number(q.k);const state=!G?"READY":isSel?"EQUIPPED":ready?(q.k==="1"?"EQUIPPED":"READY"):q.cd.toFixed(1)+"s";return `<div class="loadoutSlot ${q.c} ${ready?"ready":"cooling"} ${isSel?"selected":""}" style="--cd:${frac}"><div class="slotKey">${q.k}</div><div><span class="slotType">${q.t}</span><span class="slotName">${q.n}</span>${q.b?`<span class="slotBranch">${q.b.name}</span>`:""}</div><span class="slotState">${state}</span></div>`}).join("");
 }
 
 const COMMON_UPGRADES=[
@@ -1606,17 +1630,17 @@ function beginBoot(){
   try{unlockBootAudio();sfx.bootPower();sfx.bootPrelude()}catch(e){}
 
   const reduced=!!settings.reducedMotion;
-  const tPreludeEnd=reduced?980:4200;
-  const tPhase2=reduced?1280:4700;
-  const tHandoff=reduced?1720:8400;
-  const settle=reduced?2350:9600;
-  const fade=reduced?340:980;
+  const tPreludeEnd=reduced?850:3600;
+  const tPhase2=reduced?1100:3950;
+  const tHandoff=reduced?1550:6550;
+  const settle=reduced?2150:7600;
+  const fade=reduced?320:820;
 
   // Faux-3D prelude spinner
   if(!reduced){
     [540,1180,1860,2580,3280,3820].forEach((t,i)=>setTimeout(()=>{try{sfx.bootDiamondPass(i)}catch(e){}},t));
-    [4860,5030,5200,5370,5540,5710,5880,6050,6220,6390,6560,6730].forEach((t,i)=>setTimeout(()=>{try{sfx.bootLoadTick(i)}catch(e){}},t));
-    setTimeout(()=>{try{sfx.bootLoaderBurst()}catch(e){}},6900);
+    [4100,4250,4400,4550,4700,4850,5000,5150,5300,5450,5600,5750].forEach((t,i)=>setTimeout(()=>{try{sfx.bootLoadTick(i)}catch(e){}},t));
+    setTimeout(()=>{try{sfx.bootLoaderBurst()}catch(e){}},5920);
     setTimeout(()=>{try{sfx.bootBlackout()}catch(e){}},tPreludeEnd-120);
     setTimeout(()=>{try{sfx.bootReveal()}catch(e){}},tPhase2+120);
     setTimeout(()=>{try{sfx.bootHandoff()}catch(e){}},tHandoff+80);
@@ -1711,16 +1735,39 @@ function renderArchive(){
 const OWNER_KEY_HASH="b48d43e39592dda918720442efc5d2d7db219bcdd1c27dc5dab0ec7909aeb694";
 let ownerAuth=localStorage.getItem("riftshift_owner_auth_v13")==="1";
 let adminReturnScreen="menu";
-const adminState={god:false,infiniteEnergy:false,infiniteOverdrive:false,megaDamage:false};
+const adminState={god:false,infiniteEnergy:false,infiniteOverdrive:false,megaDamage:false,noCooldowns:false,freezeEnemies:false};
 async function ownerDigest(text){const buf=await crypto.subtle.digest("SHA-256",new TextEncoder().encode(text));return Array.from(new Uint8Array(buf)).map(b=>b.toString(16).padStart(2,"0")).join("")}
 async function tryOwnerLogin(){const v=$("ownerKeyInput").value.trim();$("ownerLoginStatus").textContent="CHECKING…";try{if(await ownerDigest(v)!==OWNER_KEY_HASH){$("ownerLoginStatus").textContent="INVALID OWNER KEY";return}ownerAuth=true;localStorage.setItem("riftshift_owner_auth_v13","1");$("ownerKeyInput").value="";$("ownerLoginStatus").textContent="";renderAdminPanel();renderClasses();refreshMetaUI();toast("OWNER MODE UNLOCKED")}catch(e){$("ownerLoginStatus").textContent="OWNER LOGIN REQUIRES HTTPS OR DESKTOP"}}
-function lockOwnerMode(){ownerAuth=false;localStorage.removeItem("riftshift_owner_auth_v13");Object.assign(adminState,{god:false,infiniteEnergy:false,infiniteOverdrive:false,megaDamage:false});if(selectedClass==="cosmic")selectedClass="survivor";renderClasses();refreshMetaUI();renderAdminPanel();toast("OWNER MODE LOCKED")}
+function lockOwnerMode(){ownerAuth=false;localStorage.removeItem("riftshift_owner_auth_v13");Object.assign(adminState,{god:false,infiniteEnergy:false,infiniteOverdrive:false,megaDamage:false,noCooldowns:false,freezeEnemies:false});if(selectedClass==="cosmic")selectedClass="survivor";renderClasses();refreshMetaUI();renderAdminPanel();toast("OWNER MODE LOCKED")}
 function openAdminPanel(){const active=document.querySelector(".screen.active")?.id||"menu";adminReturnScreen=active==="hud"?"pause":active;if(G&&G.running&&!G.choosing){G.paused=true;setMobileGameActive(false);adminReturnScreen="pause"}showOnly("admin");renderAdminPanel();setTimeout(()=>$("ownerKeyInput")?.focus(),20)}
 function closeAdminPanel(){showOnly(adminReturnScreen||"menu")}
-function renderAdminPanel(){$("adminLoginPane").hidden=ownerAuth;$("adminBody").hidden=!ownerAuth;$("adminLogoutBtn").hidden=!ownerAuth;$("adminOwnerBadge").textContent=ownerAuth?"OWNER AUTHENTICATED":"LOCKED";$("ownerPanelBtn").hidden=!ownerAuth||!$("menu").classList.contains("active");const st={god:adminState.god,energy:adminState.infiniteEnergy,over:adminState.infiniteOverdrive,damage:adminState.megaDamage};document.querySelectorAll("[data-admin]").forEach(b=>b.classList.toggle("on",!!st[b.dataset.admin]))}
-function requireRun(){if(!G||!G.running){toast("START A RUN FIRST");return false}return true}
-function adminJumpWave(t){if(!requireRun())return;G.enemies=[];G.boss=null;$("bossWrap").style.display="none";G.wave=Math.max(1,t-1);G.nextWaveDelay=0;nextWave();toast(`JUMPED TO WAVE ${t}`)}
-function adminAction(a){if(!ownerAuth)return;if(a==="god")adminState.god=!adminState.god;else if(a==="energy")adminState.infiniteEnergy=!adminState.infiniteEnergy;else if(a==="over")adminState.infiniteOverdrive=!adminState.infiniteOverdrive;else if(a==="damage")adminState.megaDamage=!adminState.megaDamage;else if(a==="heal"&&requireRun())G.player.hp=G.player.maxHp;else if(a==="scrap"&&requireRun())G.scrap+=1000;else if(a==="cores"){profile.cores+=5;saveProfile();refreshMetaUI()}else if(a==="unlock"){profile.cores=Math.max(profile.cores,99);profile.bestScore=Math.max(profile.bestScore,999999);safeSetBest(999999);saveProfile();refreshMetaUI();renderClasses();toast("PROGRESSION UNLOCKED")}else if(a==="cosmic"){selectedClass="cosmic";renderClasses();toast("COSMIC GREMLIN SELECTED")}else if(a==="clear"&&requireRun()){G.enemies=[];G.boss=null;$("bossWrap").style.display="none"}else if(a==="elite"&&requireRun())spawnEnemy("brute",null,null,"commander");else if(a==="wave5")adminJumpWave(5);else if(a==="wave10")adminJumpWave(10);if(G)updateHUD();renderAdminPanel()}
+function renderAdminPanel(){$("adminLoginPane").hidden=ownerAuth;$("adminBody").hidden=!ownerAuth;$("adminLogoutBtn").hidden=!ownerAuth;$("adminOwnerBadge").textContent=ownerAuth?"OWNER AUTHENTICATED":"LOCKED";$("ownerPanelBtn").hidden=!ownerAuth||!$("menu").classList.contains("active");const st={god:adminState.god,energy:adminState.infiniteEnergy,over:adminState.infiniteOverdrive,damage:adminState.megaDamage,cooldowns:adminState.noCooldowns,freeze:adminState.freezeEnemies};document.querySelectorAll("[data-admin]").forEach(b=>b.classList.toggle("on",!!st[b.dataset.admin]))}
+function adminAction(a){
+  if(!ownerAuth)return;
+  if(a==="god")adminState.god=!adminState.god;
+  else if(a==="energy")adminState.infiniteEnergy=!adminState.infiniteEnergy;
+  else if(a==="over")adminState.infiniteOverdrive=!adminState.infiniteOverdrive;
+  else if(a==="damage")adminState.megaDamage=!adminState.megaDamage;
+  else if(a==="cooldowns")adminState.noCooldowns=!adminState.noCooldowns;
+  else if(a==="freeze")adminState.freezeEnemies=!adminState.freezeEnemies;
+  else if(a==="heal"&&requireRun())G.player.hp=G.player.maxHp;
+  else if(a==="scrap"&&requireRun())G.scrap+=1000;
+  else if(a==="cores"){profile.cores+=5;saveProfile();refreshMetaUI()}
+  else if(a==="levels"&&requireRun()){for(let i=0;i<5;i++){G.level++;G.xp=0;G.xpNeed=Math.round(G.xpNeed*1.24+12);}G.guaranteedEpic=(G.guaranteedEpic||0)+2;toast("+5 LEVELS // NEXT UPGRADE EPIC");}
+  else if(a==="rerolls"&&requireRun()){G.rerolls=(G.rerolls||0)+5;toast("+5 REROLLS");}
+  else if(a==="super"&&requireRun()){if(typeof spawnSuperPickup==="function")spawnSuperPickup(clamp(G.player.x+55,45,W-45),clamp(G.player.y,45,H-45));}
+  else if(a==="unlock"){profile.cores=Math.max(profile.cores,99);profile.bestScore=Math.max(profile.bestScore,999999);safeSetBest(999999);saveProfile();refreshMetaUI();renderClasses();toast("PROGRESSION UNLOCKED")}
+  else if(a==="cosmic"){selectedClass="cosmic";renderClasses();toast("COSMIC GREMLIN SELECTED")}
+  else if(a==="clear"&&requireRun()){G.enemies=[];G.boss=null;$("bossWrap").style.display="none"}
+  else if(a==="elite"&&requireRun())spawnEnemy("brute",null,null,"commander");
+  else if(a==="behemoth"&&requireRun())spawnEnemy("behemoth");
+  else if(a==="boss"&&requireRun()){if(!G.boss){G.spawned=G.waveTarget;spawnBoss();}}
+  else if(a==="branch"&&requireRun()){const slot=nextKitBranchSlot()||["secondary","melee","utility"].find(s=>!G.kitBranches?.[s]);if(slot)showKitBranch(slot);else toast("ALL LOADOUT BRANCHES ALREADY CHOSEN");}
+  else if(a==="wave5")adminJumpWave(5);
+  else if(a==="wave10")adminJumpWave(10);
+  else if(a==="wave20")adminJumpWave(20);
+  if(G)updateHUD();renderAdminPanel();
+}
 let selectedClass="survivor",pendingChaos=false,pendingChallenge=false,selectedVariant=false,selectedChroma=false,settingsReturn="menu";
 const keys={},mouse={x:W/2,y:H/2,down:false};const mobile={moveX:0,moveY:0,moveTouch:null,aimTouch:null,fireHeld:false};
 addEventListener("keydown",e=>{if(e.code==="F2"){e.preventDefault();if(!e.repeat)openAdminPanel();return}keys[e.code]=true;if(!e.repeat)handleKey(e.code)});
@@ -2159,16 +2206,16 @@ function activateClassAbility(){
 }
 function kitBullet(angle,damageMult=1,speedMult=1,opts={}){
   const p=G.player,m=getWeaponMuzzleWorld(2,G.classId);
-  G.bullets.push({x:m.x,y:m.y,vx:Math.cos(angle)*p.projectileSpeed*speedMult,vy:Math.sin(angle)*p.projectileSpeed*speedMult,r:opts.r||4,life:opts.life||1.15,damage:p.damage*damageMult,pierce:opts.pierce??0,bounce:opts.bounce??0,crit:opts.crit??false,explosive:!!opts.explosive,radius:opts.radius||0,floor:p.floor,proximity:opts.proximity||0,kitShot:true});
+  G.bullets.push({x:m.x,y:m.y,vx:Math.cos(angle)*p.projectileSpeed*speedMult,vy:Math.sin(angle)*p.projectileSpeed*speedMult,r:opts.r||4,life:opts.life||1.15,damage:p.damage*damageMult,pierce:opts.pierce??0,bounce:opts.bounce??0,crit:opts.crit??false,explosive:!!opts.explosive,radius:opts.radius||0,floor:p.floor,proximity:opts.proximity||0,kitShot:true,kitTrace:opts.trace||0});
   G.lastMuzzle={x:m.x,y:m.y,angle,slot:2,cls:G.classId};G.muzzleFlash=Math.max(G.muzzleFlash||0,opts.flash||.1);G.weaponKick=Math.max(G.weaponKick||0,opts.kick||4);G.weaponHeat=clamp((G.weaponHeat||0)+.12,0,1);
 }
 function useSecondary(fromSlotFire=false){
   const p=G.player;if((p.secondaryCd||0)>0)return;const shotInfo=getWeaponShotInfo(2,G.classId),a=shotInfo.angle,id=G.classId,dm=p.secondaryDamageMult||1,pc=p.secondaryPierce||0,crit=p.secondaryCrit||0;setEquippedSlot(2,fromSlotFire?0:.65);
-  const shot=(ang,mult=1,opts={})=>kitBullet(ang,mult*dm,opts.speed||1.35,{pierce:(opts.pierce||0)+pc,crit:opts.crit??(Math.random()<crit),r:opts.r||4.2,flash:.095,kick:4.8});
+  const shot=(ang,mult=1,opts={})=>kitBullet(ang,mult*dm,opts.speed||1.35,{pierce:(opts.pierce||0)+pc,crit:opts.crit??(Math.random()<crit),r:opts.r||4.2,flash:.095,kick:4.8,trace:opts.trace||0});
   if(id==="survivor"){
     shot(a,.82,{pierce:0});if(p.secondaryTwin)setTimeout(()=>{if(G?.running)shot(a+rand(-.018,.018),.82,{pierce:0})},70);
   }else if(id==="rifleman"){
-    shot(a,1.05,{pierce:1,speed:1.5});
+    shot(a,1.05,{pierce:1,speed:1.5,trace:p.secondaryTrace||0});
   }else if(id==="soldier"){
     shot(a,1.18,{speed:1.32});if(p.secondaryFan){[-.045,.045].forEach((o,i)=>setTimeout(()=>{if(G?.running)shot(a+o,1.0,{speed:1.28})},55+i*48));}
   }else if(id==="explosive"){
@@ -2768,36 +2815,64 @@ function nextKitBranchSlot(){
 }
 function maybeOfferKitBranch(){const slot=nextKitBranchSlot();if(!slot)return false;showKitBranch(slot);return true;}
 function showKitBranch(slot){
+  if(!G||!KIT_BRANCHES[G.classId]?.[slot])return;
   G.choosing=true;G.paused=true;G.pendingKitBranch=slot;showOnly("kitBranch");
   const pretty={secondary:"SECONDARY",melee:"MELEE",utility:"UTILITY"}[slot],arr=KIT_BRANCHES[G.classId]?.[slot]||[];
   $("kitBranchTitle").textContent=`${pretty} // CHOOSE A BRANCH`;
-  $("kitBranchSub").textContent=`This permanently changes your ${pretty.toLowerCase()} for this run. The other path locks.`;
-  $("kitBranchGrid").innerHTML=arr.map((b,i)=>`<div class="evoCard" data-kitbranch="${b.id}"><div class="evoIcon">${i?"◆":"◇"}</div><div class="evoName">${b.name}</div><div class="evoDesc">${b.desc}</div><div class="evoTag">${b.tag} // PERMANENT</div></div>`).join("");
-  document.querySelectorAll("[data-kitbranch]").forEach(c=>c.addEventListener("click",()=>applyKitBranch(c.dataset.kitbranch)));sfx.level();
+  $("kitBranchSub").textContent=`This permanently changes your ${pretty.toLowerCase()} for this run. Choose one path; the other locks.`;
+  $("kitBranchGrid").innerHTML=arr.map((b,i)=>`<div class="upCard branchPick rarity-rare" data-kitbranch="${b.id}"><div class="upTier">ONE OF TWO</div><div class="upIcon">${i?"◆":"◇"}</div><div class="upName">${b.name}</div><div class="upDesc">${b.desc}</div><div class="upTag">${b.tag} // PERMANENT</div><div class="rarityLabel">BRANCH</div></div>`).join("");
+  document.querySelectorAll("[data-kitbranch]").forEach(c=>c.addEventListener("click",()=>applyKitBranch(c.dataset.kitbranch),{once:true}));
+  try{sfx.level()}catch(_){}
 }
 function applyKitBranch(id){
-  const slot=G.pendingKitBranch,arr=KIT_BRANCHES[G.classId]?.[slot]||[],b=arr.find(x=>x.id===id);if(!slot||!b)return;
-  const p=G.player;G.kitBranches[slot]=id;G.pendingKitBranch=null;
-  if(id==="surv_sec_hollow"){p.secondaryDamageMult=1.55;p.secondaryPierce=1;p.secondaryCrit=.24;}else if(id==="surv_sec_twin"){p.secondaryTwin=true;p.secondaryDamageMult=.72;}
-  else if(id==="surv_melee_serrated"){p.meleeDamageMult=1.35;p.meleeRangeMult=1.18;p.meleeKillHeal=5;}else if(id==="surv_melee_ghost"){p.meleeLunge=34;p.meleeDashRefund=.42;p.meleeInvuln=.22;}
-  else if(id==="surv_util_medic"){p.utilityMedic=true;}else if(id==="surv_util_overstim"){p.utilityOverstim=true;}
-  else if(id==="rifle_sec_magnum"){p.secondaryDamageMult=1.65;p.secondaryPierce=2;}else if(id==="rifle_sec_trace"){p.secondaryCrit=.42;p.secondaryTrace=.28;}
-  else if(id==="rifle_melee_ap"){p.meleeVuln=.30;}else if(id==="rifle_melee_snap"){p.meleeLunge=28;p.meleeDashRefund=.5;p.meleeRangeMult=1.18;}
-  else if(id==="rifle_util_wide"){p.utilityWide=true;}else if(id==="rifle_util_killbox"){p.utilityKillbox=true;}
-  else if(id==="sold_sec_bigiron"){p.secondaryDamageMult=1.62;p.secondaryCrit=.28;}else if(id==="sold_sec_fan"){p.secondaryFan=true;p.secondaryDamageMult=.54;}
-  else if(id==="sold_melee_arc"){p.meleeShock=.34;}else if(id==="sold_melee_breaker"){p.meleeDamageMult=1.48;p.meleeRangeMult=1.22;p.meleeKnock=1.65;}
-  else if(id==="sold_util_cluster"){p.utilityCluster=true;}else if(id==="sold_util_emp"){p.utilityEMP=true;}
-  else if(id==="exp_sec_napalm"){p.secondaryGasRadius=1.45;p.secondaryGasDuration=1.65;p.secondaryFlameDamage=1.25;}else if(id==="exp_sec_pilot"){p.secondaryGasDensity=.55;p.secondaryFlameDamage=1.7;}
-  else if(id==="exp_melee_cleave"){p.meleeDamageMult=1.45;p.meleeRangeMult=1.35;p.meleeArc=1.38;}else if(id==="exp_melee_charge"){p.meleeCharge=.95;}
-  else if(id==="exp_util_shaped"){p.utilityShaped=true;}else if(id==="exp_util_web"){p.utilityWeb=true;}
-  else if(id==="cond_sec_chain"){p.secondaryChain=4;}else if(id==="cond_sec_ion"){p.secondaryDamageMult=1.55;p.secondaryPierce=3;}
-  else if(id==="cond_melee_reclaim"){p.meleeEnergy=14;p.meleeRangeMult=1.2;}else if(id==="cond_melee_arc"){p.meleeShock=.42;}
-  else if(id==="cond_util_surge"){p.utilitySurge=true;}else if(id==="cond_util_emp"){p.utilityEMP=true;}
-  else if(id==="cos_sec_split"){p.secondarySplit=true;}else if(id==="cos_sec_nova"){p.secondaryDamageMult=1.8;p.secondaryNova=true;}
-  else if(id==="cos_melee_spin"){p.meleeRangeMult=1.45;p.meleeArc=1.55;p.meleeKnock=1.8;}else if(id==="cos_melee_bonk"){p.meleeDamageMult=2.1;}
-  else if(id==="cos_util_confetti"){p.utilityConfetti=true;}else if(id==="cos_util_warp"){p.utilityWarp=true;}
-  renderLoadoutBar();msg(`${b.name} // BRANCH LOCKED`,1.3);
-  if(maybeOfferKitBranch())return;if(maybeOfferEvolution())return;G.choosing=false;G.paused=false;showHUD();G.last=performance.now();requestAnimationFrame(loop);
+  if(!G||!G.pendingKitBranch)return;
+  const slot=G.pendingKitBranch,arr=KIT_BRANCHES[G.classId]?.[slot]||[],b=arr.find(x=>x.id===id);if(!b)return;
+  const p=G.player;if(!p)return;
+  G.kitBranches=G.kitBranches||{secondary:null,melee:null,utility:null};
+  G.kitBranches[slot]=id;G.pendingKitBranch=null;
+  if(id==="surv_sec_hollow"){p.secondaryDamageMult=1.55;p.secondaryPierce=1;p.secondaryCrit=.24;}
+  else if(id==="surv_sec_twin"){p.secondaryTwin=true;p.secondaryDamageMult=.72;}
+  else if(id==="surv_melee_serrated"){p.meleeDamageMult=1.35;p.meleeRangeMult=1.18;p.meleeKillHeal=5;}
+  else if(id==="surv_melee_ghost"){p.meleeLunge=34;p.meleeDashRefund=.42;p.meleeInvuln=.22;}
+  else if(id==="surv_util_medic"){p.utilityMedic=true;}
+  else if(id==="surv_util_overstim"){p.utilityOverstim=true;}
+  else if(id==="rifle_sec_magnum"){p.secondaryDamageMult=1.65;p.secondaryPierce=2;}
+  else if(id==="rifle_sec_trace"){p.secondaryCrit=.42;p.secondaryTrace=.30;}
+  else if(id==="rifle_melee_ap"){p.meleeVuln=.30;}
+  else if(id==="rifle_melee_snap"){p.meleeLunge=28;p.meleeDashRefund=.5;p.meleeRangeMult=1.18;}
+  else if(id==="rifle_util_wide"){p.utilityWide=true;}
+  else if(id==="rifle_util_killbox"){p.utilityKillbox=true;}
+  else if(id==="sold_sec_bigiron"){p.secondaryDamageMult=1.62;p.secondaryCrit=.28;}
+  else if(id==="sold_sec_fan"){p.secondaryFan=true;p.secondaryDamageMult=.54;}
+  else if(id==="sold_melee_arc"){p.meleeShock=.34;}
+  else if(id==="sold_melee_breaker"){p.meleeDamageMult=1.48;p.meleeRangeMult=1.22;p.meleeKnock=1.65;}
+  else if(id==="sold_util_cluster"){p.utilityCluster=true;}
+  else if(id==="sold_util_emp"){p.utilityEMP=true;}
+  else if(id==="exp_sec_napalm"){p.secondaryGasRadius=1.45;p.secondaryGasDuration=1.65;p.secondaryFlameDamage=1.25;}
+  else if(id==="exp_sec_pilot"){p.secondaryGasDensity=.55;p.secondaryFlameDamage=1.7;}
+  else if(id==="exp_melee_cleave"){p.meleeDamageMult=1.45;p.meleeRangeMult=1.35;p.meleeArc=1.38;}
+  else if(id==="exp_melee_charge"){p.meleeCharge=.95;}
+  else if(id==="exp_util_shaped"){p.utilityShaped=true;}
+  else if(id==="exp_util_web"){p.utilityWeb=true;}
+  else if(id==="cond_sec_chain"){p.secondaryChain=4;}
+  else if(id==="cond_sec_ion"){p.secondaryDamageMult=1.55;p.secondaryPierce=3;}
+  else if(id==="cond_melee_reclaim"){p.meleeEnergy=14;p.meleeRangeMult=1.2;}
+  else if(id==="cond_melee_arc"){p.meleeShock=.42;}
+  else if(id==="cond_util_surge"){p.utilitySurge=true;}
+  else if(id==="cond_util_emp"){p.utilityEMP=true;}
+  else if(id==="cos_sec_split"){p.secondarySplit=true;}
+  else if(id==="cos_sec_nova"){p.secondaryDamageMult=1.8;p.secondaryNova=true;}
+  else if(id==="cos_melee_spin"){p.meleeRangeMult=1.45;p.meleeArc=1.55;p.meleeKnock=1.8;}
+  else if(id==="cos_melee_bonk"){p.meleeDamageMult=2.1;}
+  else if(id==="cos_util_confetti"){p.utilityConfetti=true;}
+  else if(id==="cos_util_warp"){p.utilityWarp=true;}
+  p.invuln=Math.max(p.invuln||0,.35);
+  renderLoadoutBar();
+  try{sfx.level()}catch(_){}
+  msg(`${b.name} // BRANCH INSTALLED`,1.35);toast(`${b.name} ACTIVE`);
+  if(maybeOfferKitBranch())return;
+  if(maybeOfferEvolution())return;
+  G.choosing=false;G.paused=false;showHUD();G.last=performance.now();requestAnimationFrame(loop);
 }
 function classUpgradeTierCount(){return (CLASS_UPGRADES[G.classId]||[]).reduce((n,u)=>n+upgradeLevel(u.id),0)}
 function maybeOfferEvolution(){if(G.evolution||G.evolutionOffered||G.level<7||classUpgradeTierCount()<6)return false;G.evolutionOffered=true;showEvolution();return true}
@@ -2815,7 +2890,8 @@ function update(dt){
   const p=G.player;
   G.time+=dt;G.shake=Math.max(0,G.shake-dt*24);G.flash=Math.max(0,G.flash-dt);G.hitmarker=Math.max(0,(G.hitmarker||0)-dt);
   p.fireCd-=dt;p.dashCd=Math.max(0,p.dashCd-dt);p.invuln=Math.max(0,p.invuln-dt);p.postDashArmor=Math.max(0,(p.postDashArmor||0)-dt);p.dashCritTime=Math.max(0,(p.dashCritTime||0)-dt);p.aegisTime=Math.max(0,(p.aegisTime||0)-dt);
-  p.abilityCd=Math.max(0,(p.abilityCd||0)-dt);p.secondaryCd=Math.max(0,(p.secondaryCd||0)-dt);p.meleeCd=Math.max(0,(p.meleeCd||0)-dt);p.utilityCd=Math.max(0,(p.utilityCd||0)-dt);p.stimTime=Math.max(0,(p.stimTime||0)-dt);p.focusAbilityTime=Math.max(0,(p.focusAbilityTime||0)-dt);p.abilityAegisTime=Math.max(0,(p.abilityAegisTime||0)-dt);p.fluxSpeedTime=Math.max(0,(p.fluxSpeedTime||0)-dt);p.slotHold=Math.max(0,(p.slotHold||0)-dt);
+  p.abilityCd=Math.max(0,(p.abilityCd||0)-dt);p.secondaryCd=Math.max(0,(p.secondaryCd||0)-dt);p.meleeCd=Math.max(0,(p.meleeCd||0)-dt);p.utilityCd=Math.max(0,(p.utilityCd||0)-dt);p.stimTime=Math.max(0,(p.stimTime||0)-dt);p.focusAbilityTime=Math.max(0,(p.focusAbilityTime||0)-dt);p.abilityAegisTime=Math.max(0,(p.abilityAegisTime||0)-dt);p.fluxSpeedTime=Math.max(0,(p.fluxSpeedTime||0)-dt);p.slotHold=Math.max(0,(p.slotHold||0)-dt);if(ownerAuth&&adminState.noCooldowns){p.fireCd=0;p.secondaryCd=0;p.meleeCd=0;p.utilityCd=0;p.abilityCd=0;p.dashCd=0;}
+
   p.energy=clamp(p.energy+(p.energyRegen||0)*dt,0,p.maxEnergy);if(ownerAuth&&adminState.infiniteEnergy)p.energy=p.maxEnergy;if(ownerAuth&&adminState.infiniteOverdrive)p.over=100;
   const wasOver=p.overActive>0;p.overActive=Math.max(0,p.overActive-dt);
   if(wasOver&&p.overActive<=0)sfx.setMusic(G.boss?"boss":G.wave>=7?"danger":"combat");
@@ -2887,7 +2963,7 @@ function update(dt){
         if(e.vulnTime>0)dmg*=1+(e.vulnPower||0);
         if(p.executeBonus&&e.hp/e.maxHp<.35)dmg*=1+p.executeBonus;
         if(G.classId==="rifleman"&&p.focus){p.focusStack=clamp(p.focusStack+.04,0,p.focusMax||.35);p.focusTimer=1;dmg*=1+p.focusStack;}
-        if(b.crit&&p.markPower){e.vulnTime=2.2;e.vulnPower=Math.max(e.vulnPower||0,p.markPower);}
+        if(b.crit&&p.markPower){e.vulnTime=2.2;e.vulnPower=Math.max(e.vulnPower||0,p.markPower);}if(b.crit&&b.kitTrace){e.vulnTime=Math.max(e.vulnTime||0,3.4);e.vulnPower=Math.max(e.vulnPower||0,b.kitTrace);}
         if(b.crit&&p.critChain){const other=G.enemies.filter(q=>q!==e&&(q.floor??0)===(e.floor??0)&&dist(q,e)<230).sort((a,b)=>dist(a,e)-dist(b,e))[0];if(other){other.hp-=dmg*.55;other.hit=.08;floatText(other.x,other.y-other.r,Math.round(dmg*.55),"#75e9ff",12)}}
         e.hp-=dmg;e.hit=.09;e.lastHitAngle=Math.atan2(b.vy,b.vx);G.hitmarker=.11;p.energy=clamp(p.energy+(b.conduitRail?(1.6+(p.railEnergyGain||0)+(p.zeroResistance?1.25:0)):1.15),0,p.maxEnergy);if(p.suppress)e.slow=Math.max(e.slow,p.suppressDuration||.55);if(b.conduitRail)spawnRailImpact(b.x,b.y,Math.atan2(b.vy,b.vx),b.crit,b.floor);else{G.shake=Math.max(G.shake,b.crit?5:2);sfx.hit(e.x);}
         floatText(e.x,e.y-Math.max(16,e.r),Math.round(dmg),b.crit?"#ffd166":"#dfeaff",b.crit?18:13);
@@ -2917,7 +2993,8 @@ function update(dt){
   }
 
   for(const e of G.enemies){
-    e.hit=Math.max(0,e.hit-dt);e.slow=Math.max(0,e.slow-dt);e.vulnTime=Math.max(0,(e.vulnTime||0)-dt);if(e.vulnTime<=0)e.vulnPower=0;e.anim+=dt;
+    e.hit=Math.max(0,e.hit-dt);e.slow=Math.max(0,e.slow-dt);e.vulnTime=Math.max(0,(e.vulnTime||0)-dt);if(e.vulnTime<=0)e.vulnPower=0;e.anim+=dt;if(ownerAuth&&adminState.freezeEnemies&&e.type!=="boss"){e.vx=0;e.vy=0;continue;}
+
     if(e.eliteKind==="phase"&&e.type!=="boss"){e.phaseTimer-=dt;if(e.phaseTimer<=0){e.phaseTimer=rand(1.5,2.5);for(let tries=0;tries<10;tries++){const aa=rand(0,TAU),dd=rand(45,105),nx=e.x+Math.cos(aa)*dd,ny=e.y+Math.sin(aa)*dd;if(canOccupy(e,nx,ny)){e.x=nx;e.y=ny;break}}}}
     const commanderBoost=G.enemies.some(q=>q!==e&&q.commander&&(q.floor??0)===(e.floor??0)&&dist(q,e)<180)?1.2:1;
     const target=enemyNavTarget(e,p),routing=!!(e.stairRoute&&e.stairRoute.length),a=Math.atan2(target.y-e.y,target.x-e.x),d=dist(e,p),sm=(e.slow>0?.45:1)*commanderBoost;
@@ -4583,8 +4660,8 @@ for(const id of ["announcerSlider","announcerEngineSelect","announcerVoiceToggle
 /* startup */
 setTimeout(()=>{applyAudioSettings();v18Presence(true)},650);
 
-const APP_VERSION="18.8.6";
-const APP_VERSION_LABEL="18.8.6";
+const APP_VERSION="18.8.7";
+const APP_VERSION_LABEL="18.8.7";
 let pendingDesktopUpdate=null;
 
 function compareVersionStrings(a,b){
@@ -4713,7 +4790,7 @@ if("serviceWorker" in navigator && location.protocol.startsWith("http")){
 }
 
 
-/* ===== V18.8.6 CLEAN ENHANCEMENT PATCH ===== */
+/* ===== V18.8.7 CLEAN ENHANCEMENT PATCH ===== */
 function rsClamp01(v){return Math.max(0,Math.min(1,v));}
 function rsRotate(x,y,a){const c=Math.cos(a),s=Math.sin(a);return{x:x*c-y*s,y:x*s+y*c};}
 function getBaseWeaponRig(slot=1,cls=G?.classId||"survivor"){
@@ -4839,15 +4916,28 @@ const rsOldNextWave=nextWave;nextWave=function(...args){const out=rsOldNextWave.
 const rsOldUpdate=update;update=function(dt){if(G?.map?.obstacles){for(const o of G.map.obstacles){if(!o.moving)continue;o.moveClock=(o.moveClock||0)+dt*(o.moveRate||1);o.x=o.baseX+Math.sin(o.moveClock)*(o.ampX||0);o.y=o.baseY+Math.sin(o.moveClock*1.06+1.2)*(o.ampY||0);}}const out=rsOldUpdate.apply(this,arguments);if(G?.running){updateSuperPickups(dt);updateFireFields(dt);if(G.enemies.some(e=>e.type==="behemoth"&&dist(e,G.player)<120))G.shake=Math.max(G.shake,2.2);}return out;};
 const rsOldDrawGame=drawGame;drawGame=function(){rsOldDrawGame.apply(this,arguments);if(!G?.running)return;X.save();if(G.map?.motionMode){X.globalAlpha=.09;X.strokeStyle=G.map.theme.accent;X.lineWidth=2;const speed=(G.time*180)%80;for(let y=-80+speed;y<H+80;y+=80){X.beginPath();X.moveTo(0,y);X.lineTo(W,y-35);X.stroke();}X.globalAlpha=1;}drawFireFields();drawSuperPickups();X.restore();};
 
-/* Procedural realistic menu fire: irregular tongues, turbulent drift, dark smoke, and embers. */
+/* V18.8.7 realistic menu inferno: broad wall fire, jagged turbulent edges, layered cores, embers, smoke. */
 (function initMenuFlameCanvas(){
-  const canvas=document.getElementById("menuFlameCanvas");if(!canvas)return;const ctx=canvas.getContext("2d"),flames=[],embers=[],smoke=[];let cw=0,ch=0,dpr=1,last=performance.now();
-  function resizeFlame(){const r=canvas.getBoundingClientRect();dpr=Math.min(devicePixelRatio||1,1.5);cw=Math.max(1,r.width);ch=Math.max(1,r.height);canvas.width=Math.round(cw*dpr);canvas.height=Math.round(ch*dpr);ctx.setTransform(dpr,0,0,dpr,0,0);flames.length=0;embers.length=0;smoke.length=0;for(let i=0;i<58;i++)resetFlame({});}
-  function resetFlame(f){f.x=Math.random()*cw;f.y=ch+Math.random()*60;f.w=18+Math.random()*48;f.h=100+Math.random()*210;f.speed=55+Math.random()*115;f.life=1;f.decay=.28+Math.random()*.42;f.phase=Math.random()*TAU;f.wave=18+Math.random()*45;f.tilt=(Math.random()-.5)*.55;f.core=Math.random();flames.push(f);return f;}
-  function activeMenu(){const m=document.getElementById("menu");return m&&getComputedStyle(m).display!=="none";}
-  function drawTongue(f,time){const age=1-f.life,yy=f.y,ww=f.w*(.65+.35*f.life),hh=f.h*(.7+.3*f.life),wave=Math.sin(time*2.8+f.phase+age*7)*f.wave*(.35+.65*age),tipX=f.x+wave+f.tilt*hh*.15,baseX=f.x;const g=ctx.createLinearGradient(0,yy,0,yy-hh);g.addColorStop(0,`rgba(255,248,218,${.78*f.life})`);g.addColorStop(.12,`rgba(255,218,122,${.86*f.life})`);g.addColorStop(.38,`rgba(255,137,49,${.72*f.life})`);g.addColorStop(.72,`rgba(221,58,18,${.38*f.life})`);g.addColorStop(1,"rgba(120,15,5,0)");ctx.fillStyle=g;ctx.beginPath();ctx.moveTo(baseX-ww*.55,yy);for(let i=1;i<=5;i++){const q=i/6,edgeJ=Math.sin(time*5.1+f.phase+i*1.9)*ww*(.05+.08*q),x=baseX-ww*(.52*(1-q)) + wave*q*q+edgeJ,y=yy-hh*q;ctx.lineTo(x,y);}ctx.lineTo(tipX,yy-hh);for(let i=5;i>=1;i--){const q=i/6,edgeJ=Math.cos(time*4.6+f.phase+i*2.1)*ww*(.05+.09*q),x=baseX+ww*(.52*(1-q))+wave*q*q+edgeJ,y=yy-hh*q;ctx.lineTo(x,y);}ctx.closePath();ctx.fill();if(f.core>.42){const cg=ctx.createLinearGradient(0,yy,0,yy-hh*.66);cg.addColorStop(0,`rgba(255,255,243,${.62*f.life})`);cg.addColorStop(.28,`rgba(255,232,150,${.54*f.life})`);cg.addColorStop(1,"rgba(255,175,70,0)");ctx.fillStyle=cg;ctx.beginPath();ctx.moveTo(baseX-ww*.19,yy);ctx.quadraticCurveTo(baseX-ww*.24+wave*.25,yy-hh*.3,tipX*.25+baseX*.75,yy-hh*.66);ctx.quadraticCurveTo(baseX+ww*.22+wave*.25,yy-hh*.28,baseX+ww*.19,yy);ctx.closePath();ctx.fill();}}
-  function frame(now){requestAnimationFrame(frame);if(!activeMenu())return;const dt=Math.min(.033,(now-last)/1000||.016);last=now;if(canvas.clientWidth!==cw||canvas.clientHeight!==ch)resizeFlame();ctx.clearRect(0,0,cw,ch);ctx.globalCompositeOperation="source-over";const base=ctx.createRadialGradient(cw*.5,ch*1.02,0,cw*.5,ch*1.02,Math.max(cw,ch)*.65);base.addColorStop(0,"rgba(255,111,34,.30)");base.addColorStop(.35,"rgba(165,35,10,.16)");base.addColorStop(1,"rgba(0,0,0,0)");ctx.fillStyle=base;ctx.fillRect(0,0,cw,ch);ctx.globalCompositeOperation="screen";for(let i=flames.length-1;i>=0;i--){const f=flames[i];f.y-=f.speed*dt;f.life-=f.decay*dt;f.x+=Math.sin(now*.0019+f.phase)*12*dt;drawTongue(f,now*.001);if(f.life<=0||f.y<-f.h){flames.splice(i,1);resetFlame({});}}
-    if(Math.random()<dt*18)embers.push({x:Math.random()*cw,y:ch-20-Math.random()*100,vx:(Math.random()-.5)*35,vy:-70-Math.random()*120,life:1,size:1+Math.random()*2.2});ctx.globalCompositeOperation="lighter";for(let i=embers.length-1;i>=0;i--){const e=embers[i];e.x+=e.vx*dt+Math.sin(now*.004+i)*8*dt;e.y+=e.vy*dt;e.life-=dt*(.35+Math.random()*.18);ctx.fillStyle=`rgba(255,190,86,${Math.max(0,e.life)*.8})`;ctx.beginPath();ctx.arc(e.x,e.y,e.size,0,TAU);ctx.fill();if(e.life<=0)embers.splice(i,1);}ctx.globalCompositeOperation="source-over";}
+  const canvas=document.getElementById("menuFlameCanvas");if(!canvas)return;
+  const ctx=canvas.getContext("2d"),flames=[],embers=[],smoke=[];let cw=0,ch=0,dpr=1,last=performance.now();
+  function activeMenu(){const m=document.getElementById("menu");return !!(m&&getComputedStyle(m).display!=="none")}
+  function makeFlame(depth=0){return{x:Math.random()*cw,baseW:(28+Math.random()*72)*(depth?1.15:.9),baseH:ch*(depth?(.34+Math.random()*.46):(.22+Math.random()*.34)),phase:Math.random()*TAU,speed:1.1+Math.random()*2.6,lean:(Math.random()-.5)*.5,flutter:8+Math.random()*20,depth,heat:.72+Math.random()*.28}}
+  function resizeFlame(){const r=canvas.getBoundingClientRect();dpr=Math.min(devicePixelRatio||1,1.5);cw=Math.max(1,r.width);ch=Math.max(1,r.height);canvas.width=Math.round(cw*dpr);canvas.height=Math.round(ch*dpr);ctx.setTransform(dpr,0,0,dpr,0,0);flames.length=0;embers.length=0;smoke.length=0;const count=Math.max(42,Math.round(cw/22));for(let i=0;i<count;i++)flames.push(makeFlame(i%3===0?1:0));}
+  function edgeNoise(f,q,time,side){const a=Math.sin(time*f.speed+f.phase+q*10.7)*.52+Math.sin(time*(f.speed*1.73)+f.phase*2.1+q*21.4)*.28+Math.sin(time*.84+f.phase*.55+q*43.1)*.2;return a*f.flutter*(.2+.8*q)*side}
+  function flamePath(f,time,scale=1,offsetY=0){const baseY=ch+18+offsetY,h=f.baseH*scale*(.9+.13*Math.sin(time*1.7+f.phase)),w=f.baseW*scale,tipDrift=Math.sin(time*f.speed*.65+f.phase)*w*.55+f.lean*h*.20;const seg=11;ctx.beginPath();ctx.moveTo(f.x-w*.62,baseY);for(let i=1;i<seg;i++){const q=i/seg,y=baseY-h*q,width=w*Math.pow(1-q,.72),x=f.x-width*.58+tipDrift*q*q+edgeNoise(f,q,time,-1);ctx.lineTo(x,y)}ctx.lineTo(f.x+tipDrift,baseY-h);for(let i=seg-1;i>=1;i--){const q=i/seg,y=baseY-h*q,width=w*Math.pow(1-q,.72),x=f.x+width*.58+tipDrift*q*q+edgeNoise(f,q,time,1);ctx.lineTo(x,y)}ctx.closePath()}
+  function drawFlame(f,time){const h=f.baseH*(.9+.13*Math.sin(time*1.7+f.phase)),baseY=ch+18;
+    ctx.save();ctx.globalCompositeOperation="screen";
+    let g=ctx.createLinearGradient(0,baseY,0,baseY-h);g.addColorStop(0,`rgba(255,225,150,${.22*f.heat})`);g.addColorStop(.16,`rgba(255,130,38,${.66*f.heat})`);g.addColorStop(.48,`rgba(238,66,12,${.53*f.heat})`);g.addColorStop(.78,`rgba(132,14,4,${.20*f.heat})`);g.addColorStop(1,"rgba(40,0,0,0)");ctx.fillStyle=g;flamePath(f,time,1,0);ctx.fill();
+    g=ctx.createLinearGradient(0,baseY,0,baseY-h*.78);g.addColorStop(0,`rgba(255,255,234,${.50*f.heat})`);g.addColorStop(.18,`rgba(255,227,135,${.62*f.heat})`);g.addColorStop(.48,`rgba(255,151,45,${.38*f.heat})`);g.addColorStop(1,"rgba(255,80,20,0)");ctx.fillStyle=g;ctx.save();ctx.translate(0,h*.02);flamePath(f,time+0.27,.58,0);ctx.fill();ctx.restore();
+    g=ctx.createLinearGradient(0,baseY,0,baseY-h*.48);g.addColorStop(0,`rgba(255,255,255,${.58*f.heat})`);g.addColorStop(.28,`rgba(255,248,198,${.52*f.heat})`);g.addColorStop(1,"rgba(255,196,90,0)");ctx.fillStyle=g;ctx.save();ctx.translate(Math.sin(time*2+f.phase)*f.baseW*.08,h*.06);flamePath(f,time+0.61,.29,0);ctx.fill();ctx.restore();ctx.restore();}
+  function frame(now){requestAnimationFrame(frame);if(!activeMenu())return;const dt=Math.min(.033,(now-last)/1000||.016);last=now;if(Math.abs(canvas.clientWidth-cw)>1||Math.abs(canvas.clientHeight-ch)>1)resizeFlame();const t=now*.001;ctx.clearRect(0,0,cw,ch);
+    const glow=ctx.createRadialGradient(cw*.5,ch*1.05,0,cw*.5,ch*1.05,Math.max(cw,ch)*.78);glow.addColorStop(0,"rgba(255,123,40,.34)");glow.addColorStop(.24,"rgba(142,35,8,.22)");glow.addColorStop(.68,"rgba(55,8,3,.06)");glow.addColorStop(1,"rgba(0,0,0,0)");ctx.fillStyle=glow;ctx.fillRect(0,0,cw,ch);
+    flames.sort((a,b)=>a.depth-b.depth);for(const f of flames)drawFlame(f,t);
+    if(Math.random()<dt*30)embers.push({x:Math.random()*cw,y:ch-15-Math.random()*ch*.22,vx:(Math.random()-.5)*48,vy:-80-Math.random()*170,life:.7+Math.random()*.9,size:.8+Math.random()*2.2});
+    if(Math.random()<dt*3)smoke.push({x:Math.random()*cw,y:ch*.7+Math.random()*ch*.16,vx:(Math.random()-.5)*18,vy:-18-Math.random()*28,life:1,size:35+Math.random()*80});
+    ctx.globalCompositeOperation="lighter";for(let i=embers.length-1;i>=0;i--){const e=embers[i];e.x+=e.vx*dt+Math.sin(t*4+i)*12*dt;e.y+=e.vy*dt;e.life-=dt*(.5+Math.random()*.12);ctx.fillStyle=`rgba(255,191,88,${Math.max(0,e.life)*.9})`;ctx.beginPath();ctx.arc(e.x,e.y,e.size,0,TAU);ctx.fill();if(e.life<=0||e.y<0)embers.splice(i,1)}
+    ctx.globalCompositeOperation="source-over";for(let i=smoke.length-1;i>=0;i--){const s=smoke[i];s.x+=s.vx*dt;s.y+=s.vy*dt;s.life-=dt*.28;ctx.fillStyle=`rgba(24,18,16,${Math.max(0,s.life)*.10})`;ctx.beginPath();ctx.arc(s.x,s.y,s.size*(1+(1-s.life)*.6),0,TAU);ctx.fill();if(s.life<=0)smoke.splice(i,1)}
+  }
   resizeFlame();addEventListener("resize",resizeFlame);requestAnimationFrame(frame);
 })();
 

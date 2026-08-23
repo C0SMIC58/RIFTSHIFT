@@ -1,8 +1,8 @@
 {
-  "version": "18.8.6",
+  "version": "18.8.7",
   "gameUrl": "https://raw.githubusercontent.com/C0SMIC58/RIFTSHIFT/main/RIFTSHIFT_LATEST.html",
-  "sha256": "37700a9d6dd7464e0b6b987dc0313189f034ed633db25ee3168b3fd6f1fd2ffb",
+  "sha256": "a9f2fad4fbc974de84e9dcb3fd0f67bc97afb65c0be4c3866d96365e721fc99d",
   "overhaul": false,
   "priority": "normal",
-  "notes": "Combat polish hotfix: melee VFX crash removed, weapon muzzle/cursor ballistic alignment, muzzle-position flash, improved melee models/VFX, realistic procedural menu fire, while preserving roaming Behemoths, super weapons, moving/multi-level arenas, destructible architecture and spreading fire."
+  "notes": "Loadout branch UI/mechanics repair, larger realistic procedural menu inferno, boot cinematic revamp, and expanded owner/admin controls."
 }
