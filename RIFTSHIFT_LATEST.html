@@ -309,12 +309,12 @@ canvas{display:block}
 .bootPrelude.fade{opacity:0}
 .bootPreludeCamera{position:relative;width:100%;height:100%;display:grid;place-items:center;perspective:2200px;perspective-origin:50% 44%;overflow:hidden;animation:preludeCamMove 4.8s cubic-bezier(.18,.74,.14,1) both}
 .bootPreludeTag{position:absolute;left:50%;bottom:11%;transform:translateX(-50%);font-size:9px;letter-spacing:.34em;color:#8ca0ba;font-weight:950;opacity:0;animation:bootTagIn 1.15s .8s ease forwards}
-.bootDiamondRig{position:relative;width:min(460px,58vw);aspect-ratio:1;transform-style:preserve-3d;filter:drop-shadow(0 0 26px rgba(117,233,255,.24));animation:bootCameraMove 4.8s cubic-bezier(.18,.74,.14,1) both}
+.bootDiamondRig{position:relative;width:min(500px,60vw);aspect-ratio:1;transform-style:preserve-3d;filter:drop-shadow(0 0 34px rgba(117,233,255,.28));animation:bootCameraMove 4.8s cubic-bezier(.18,.74,.14,1) both}
 .bootDiamondLayer{position:absolute;left:50%;top:50%;width:60%;height:60%;transform-style:preserve-3d;border:1px solid rgba(191,247,255,.28);background:linear-gradient(145deg,rgba(117,233,255,.26),rgba(71,109,255,.16) 52%,rgba(159,118,255,.18));box-shadow:0 0 26px rgba(117,233,255,.12),inset 0 0 18px rgba(255,255,255,.04)}
 .bootDiamondLayer:after{content:"";position:absolute;inset:18%;border:1px solid rgba(255,255,255,.08)}
-.dl1{transform:translate(-50%,-50%) rotateX(64deg) rotateY(0deg) rotateZ(45deg) scale(1.05);animation:diamondSpin1 2.4s cubic-bezier(.18,.74,.18,1) both}
-.dl2{transform:translate(-50%,-50%) translateZ(34px) rotateX(64deg) rotateY(0deg) rotateZ(45deg) scale(.82);opacity:.85;animation:diamondSpin2 2.4s cubic-bezier(.18,.74,.18,1) both}
-.dl3{transform:translate(-50%,-50%) translateZ(-34px) rotateX(64deg) rotateY(0deg) rotateZ(45deg) scale(.82);opacity:.56;animation:diamondSpin3 2.4s cubic-bezier(.18,.74,.18,1) both}
+.dl1{transform:translate(-50%,-50%) rotateX(64deg) rotateY(0deg) rotateZ(45deg) scale(1.05);animation:diamondSpin1 2.65s linear infinite}
+.dl2{transform:translate(-50%,-50%) translateZ(34px) rotateX(64deg) rotateY(0deg) rotateZ(45deg) scale(.82);opacity:.92;animation:diamondSpin2 2.15s linear infinite}
+.dl3{transform:translate(-50%,-50%) translateZ(-34px) rotateX(64deg) rotateY(0deg) rotateZ(45deg) scale(.82);opacity:.64;animation:diamondSpin3 2.95s linear infinite}
 .bootDiamondEdge{position:absolute;left:50%;top:50%;width:190px;height:2px;background:linear-gradient(90deg,transparent,rgba(191,247,255,.9),transparent);transform-origin:center center;opacity:.68}
 .e1{transform:translate(-50%,-50%) rotate(45deg);animation:edgePulse 1.1s ease-in-out infinite}
 .e2{transform:translate(-50%,-50%) rotate(-45deg);animation:edgePulse 1.1s .18s ease-in-out infinite}
@@ -323,10 +323,10 @@ canvas{display:block}
 .bootDiamondCoreGlow{position:absolute;left:50%;top:50%;width:33%;height:33%;transform:translate(-50%,-50%) rotate(45deg);background:radial-gradient(circle,rgba(255,255,255,.82),rgba(117,233,255,.6) 35%,rgba(117,233,255,.08) 72%,transparent 78%);filter:blur(.15px);box-shadow:0 0 44px rgba(117,233,255,.58);animation:coreGlint 3.2s ease-in-out both}
 .bootDiamondShadow{position:absolute;left:50%;top:62%;width:42%;height:12%;transform:translate(-50%,-50%);background:radial-gradient(circle,rgba(117,233,255,.18),transparent 70%);filter:blur(14px);opacity:.28;animation:shadowFloat 2.4s ease-in-out both}
 @keyframes preludeCamMove{0%{transform:scale(1.5) translateY(4vh)}22%{transform:scale(1.08) translateY(0)}58%{transform:scale(.96) translateY(-1vh)}100%{transform:scale(2.3) translateY(-9vh)}}
-@keyframes bootCameraMove{0%{transform:translateY(85px) rotateX(78deg) rotateY(-44deg) scale(.34);opacity:0}10%{opacity:1}28%{transform:translateY(40px) rotateX(72deg) rotateY(-8deg) scale(.7)}58%{transform:translateY(2px) rotateX(64deg) rotateY(150deg) scale(1.12)}82%{transform:translateY(-22px) rotateX(58deg) rotateY(290deg) scale(1.58)}100%{transform:translateY(-70px) rotateX(52deg) rotateY(430deg) scale(2.18);filter:blur(2.5px);opacity:0}}
-@keyframes diamondSpin1{0%{transform:translate(-50%,-50%) rotateX(76deg) rotateY(-200deg) rotateZ(45deg) scale(.54)}100%{transform:translate(-50%,-50%) rotateX(57deg) rotateY(560deg) rotateZ(45deg) scale(1.32)}}
-@keyframes diamondSpin2{0%{transform:translate(-50%,-50%) translateZ(28px) rotateX(76deg) rotateY(-200deg) rotateZ(45deg) scale(.48)}100%{transform:translate(-50%,-50%) translateZ(62px) rotateX(57deg) rotateY(560deg) rotateZ(45deg) scale(1.06)}}
-@keyframes diamondSpin3{0%{transform:translate(-50%,-50%) translateZ(-28px) rotateX(76deg) rotateY(-200deg) rotateZ(45deg) scale(.48)}100%{transform:translate(-50%,-50%) translateZ(-62px) rotateX(57deg) rotateY(560deg) rotateZ(45deg) scale(1.06)}}
+@keyframes bootCameraMove{0%{transform:translateY(108px) rotateX(78deg) rotateY(-30deg) scale(.28);opacity:0}10%{opacity:1}28%{transform:translateY(48px) rotateX(72deg) rotateY(22deg) scale(.72)}58%{transform:translateY(6px) rotateX(62deg) rotateY(118deg) scale(1.1)}82%{transform:translateY(-18px) rotateX(55deg) rotateY(240deg) scale(1.52)}100%{transform:translateY(-62px) rotateX(50deg) rotateY(360deg) scale(2.08);filter:blur(2.2px);opacity:0}}
+@keyframes diamondSpin1{0%{transform:translate(-50%,-50%) rotateX(70deg) rotateY(0deg) rotateZ(45deg) scale(1.02)}100%{transform:translate(-50%,-50%) rotateX(55deg) rotateY(360deg) rotateZ(45deg) scale(1.18)}}
+@keyframes diamondSpin2{0%{transform:translate(-50%,-50%) translateZ(36px) rotateX(70deg) rotateY(0deg) rotateZ(45deg) scale(.84)}100%{transform:translate(-50%,-50%) translateZ(56px) rotateX(55deg) rotateY(-360deg) rotateZ(45deg) scale(1.02)}}
+@keyframes diamondSpin3{0%{transform:translate(-50%,-50%) translateZ(-36px) rotateX(70deg) rotateY(0deg) rotateZ(45deg) scale(.84)}100%{transform:translate(-50%,-50%) translateZ(-56px) rotateX(55deg) rotateY(360deg) rotateZ(45deg) scale(1.02)}}
 @keyframes edgePulse{0%,100%{opacity:.16;filter:blur(0px)}50%{opacity:.72;filter:blur(.35px)}}
 @keyframes coreGlint{0%{opacity:0;transform:translate(-50%,-50%) rotate(45deg) scale(.6)}35%{opacity:1;transform:translate(-50%,-50%) rotate(45deg) scale(1.08)}100%{opacity:0;transform:translate(-50%,-50%) rotate(45deg) scale(1.35)}}
 @keyframes shadowFloat{0%{transform:translate(-50%,-50%) scale(.65);opacity:0}28%{opacity:.34}100%{transform:translate(-50%,-50%) scale(1.08);opacity:0}}
@@ -517,6 +517,49 @@ canvas{display:block}
 .v17Breakdown{margin-top:16px;padding-top:14px;border-top:1px solid rgba(255,255,255,.08)}.v17BreakGrid{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin-bottom:12px}.v17BreakGrid div{padding:8px;background:#0b111a;border:1px solid rgba(255,255,255,.055);border-radius:7px;font-size:7px;color:#77869a}.v17BreakGrid b{display:block;font-size:13px;color:#dce8f7}.v17Graph{height:62px;display:flex;align-items:flex-end;gap:3px;padding:8px;background:#080d14;border-radius:8px;border:1px solid rgba(255,255,255,.05)}.v17Graph i{display:block;flex:1;min-width:5px;background:linear-gradient(180deg,#75e9ff,#7886ff);border-radius:2px 2px 0 0;opacity:.75}
 #v17ShipButton{position:relative}
 @media(max-width:760px){.v17Grid,.v17ChoiceGrid{grid-template-columns:1fr}.v17Section.full{grid-column:auto}.v17Statline,.v17BreakGrid{grid-template-columns:repeat(2,1fr)}#v17Heat{top:82px;right:8px;width:112px}}
+/* V18.6 refresh */
+.menuBottomRedux,.controlStripRedux{display:none!important}
+#v17Heat{display:none}
+.modeDeckRedux{gap:14px}.reduxMode{border-radius:22px;position:relative;overflow:hidden;background:linear-gradient(180deg,rgba(16,22,34,.96),rgba(8,12,19,.92));border:1px solid rgba(255,255,255,.08);box-shadow:0 20px 55px rgba(0,0,0,.28), inset 0 1px 0 rgba(255,255,255,.04)}
+.reduxMode:before{content:"";position:absolute;inset:0;background:linear-gradient(135deg,rgba(117,233,255,.08),transparent 44%,rgba(255,120,120,.06));pointer-events:none}
+.reduxMode b{font-size:14px;letter-spacing:.08em}.reduxMode small{color:#90a0b8;line-height:1.6}
+.metaButton,.updateButton{border-radius:16px}
+.menuStageRedux{align-items:stretch}.stageWindowRedux{background:linear-gradient(180deg,rgba(10,15,24,.92),rgba(5,8,13,.95));border:1px solid rgba(255,255,255,.09);box-shadow:0 34px 90px rgba(0,0,0,.42)}
+.stageViewport{position:relative;overflow:hidden;background:radial-gradient(circle at 50% 16%,rgba(117,233,255,.14),transparent 24%),linear-gradient(180deg,#162235 0%,#0e1521 38%,#0b0f17 100%)}
+.battleSky,.battleHorizon,.battleSmoke,.battleTracer,.battleWalker,.battleTurret,.battleBlast{position:absolute;pointer-events:none}.battleSky{inset:0;background:radial-gradient(circle at 22% 28%,rgba(117,233,255,.14),transparent 26%),radial-gradient(circle at 78% 22%,rgba(255,91,122,.12),transparent 22%),linear-gradient(180deg,rgba(255,255,255,.02),transparent 60%)}
+.battleHorizon{left:-5%;right:-5%;bottom:0;height:42%;background:linear-gradient(180deg,rgba(0,0,0,0),rgba(0,0,0,.12) 22%,rgba(7,10,15,.84) 23%),linear-gradient(180deg,transparent 0 60%,rgba(255,120,88,.06) 60% 64%,transparent 64%);clip-path:polygon(0 62%,8% 57%,17% 65%,24% 54%,34% 61%,46% 48%,59% 63%,70% 52%,82% 60%,92% 49%,100% 55%,100% 100%,0 100%)}
+.battleSmoke{inset:auto 0 12% 0;height:32%;background:radial-gradient(circle at 18% 60%,rgba(255,130,84,.14),transparent 20%),radial-gradient(circle at 46% 55%,rgba(117,233,255,.10),transparent 22%),radial-gradient(circle at 74% 62%,rgba(255,130,84,.11),transparent 19%);filter:blur(18px);opacity:.86;animation:smokeDrift 9s linear infinite alternate}
+.battleBlast{width:92px;height:92px;border-radius:50%;background:radial-gradient(circle,rgba(255,235,180,.85),rgba(255,123,74,.35) 34%,transparent 70%);filter:blur(2px);opacity:.72;animation:blastPulse 2.3s ease-in-out infinite}.battleBlast.bb1{left:14%;bottom:16%}.battleBlast.bb2{right:18%;bottom:22%;animation-delay:.8s}.battleBlast.bb3{left:57%;bottom:28%;animation-delay:1.4s}
+.battleTracer{height:2px;background:linear-gradient(90deg,rgba(255,255,255,0),rgba(255,184,124,.95),rgba(255,255,255,0));filter:drop-shadow(0 0 7px rgba(255,184,124,.6));animation:tracerFly 1.8s linear infinite}.battleTracer.t1{width:150px;left:-18%;top:34%;transform:rotate(10deg);animation-delay:.1s}.battleTracer.t2{width:170px;left:-25%;top:48%;transform:rotate(-6deg);animation-delay:.7s}.battleTracer.t3{width:120px;right:-18%;top:29%;transform:rotate(188deg);animation-delay:.35s}.battleTracer.t4{width:135px;right:-22%;top:58%;transform:rotate(172deg);animation-delay:1.05s}
+.battleWalker{bottom:18%;width:72px;height:84px;opacity:.82;filter:drop-shadow(0 10px 18px rgba(0,0,0,.4))}.battleWalker:before,.battleWalker:after,.battleWalker i,.battleWalker b{content:"";position:absolute;display:block;background:linear-gradient(180deg,#0f1723,#27364a)}
+.battleWalker:before{left:20px;bottom:25px;width:32px;height:32px;border-radius:8px 8px 12px 12px;box-shadow:0 -15px 0 -5px #354862 inset}.battleWalker:after{left:26px;bottom:54px;width:20px;height:16px;border-radius:6px 6px 3px 3px}
+.battleWalker i:nth-child(1){left:24px;bottom:0;width:8px;height:34px;transform:skewX(-7deg)}.battleWalker i:nth-child(2){left:40px;bottom:0;width:8px;height:34px;transform:skewX(7deg)}
+.battleWalker b{left:8px;bottom:42px;width:18px;height:8px;transform:rotate(-20deg);border-radius:5px}.battleWalker.bw1{left:16%;transform:scale(1.08)}.battleWalker.bw2{right:12%;bottom:20%;transform:scale(.88)}
+.battleTurret{left:50%;bottom:16%;width:140px;height:60px;transform:translateX(-50%);opacity:.88}.battleTurret:before,.battleTurret:after{content:"";position:absolute;background:linear-gradient(180deg,#243244,#121b28)}
+.battleTurret:before{left:18px;right:18px;bottom:0;height:22px;border-radius:12px 12px 8px 8px}.battleTurret:after{left:54px;bottom:16px;width:76px;height:10px;border-radius:8px;box-shadow:0 0 0 2px rgba(117,233,255,.08)}
+.stageMachine{top:47%;transform:translate(-50%,-50%) scale(1.12)}
+.stageStatBar{background:linear-gradient(180deg,rgba(7,11,18,.86),rgba(3,5,8,.94));border-top:1px solid rgba(255,255,255,.06)}
+#top .stat,#objectiveHUD,#bottomLeft,#bottomRight,.scorePanel,.upBox,.v9Shell,.classShell,.panel{border:1px solid rgba(255,255,255,.08);box-shadow:0 25px 80px rgba(0,0,0,.28), inset 0 1px 0 rgba(255,255,255,.03)}
+#top .stat{background:linear-gradient(180deg,rgba(14,21,33,.88),rgba(8,12,18,.9));border-radius:15px;padding:12px 14px}.stat .lab{color:#8da0bb}.stat .val{font-size:19px}
+#objectiveHUD{background:linear-gradient(180deg,rgba(10,16,25,.9),rgba(6,9,15,.92));border-radius:18px;padding:15px 17px 14px}
+#bottomLeft,#bottomRight{background:linear-gradient(180deg,rgba(10,16,25,.88),rgba(5,8,13,.92));backdrop-filter:blur(8px);border-radius:18px;padding:14px 15px}
+#bottomRight{text-align:left;min-width:248px}#weaponName{font-size:14px;letter-spacing:.12em;margin-bottom:5px}#dashText,#overText,#abilityText,#trackName{font-size:10px;letter-spacing:.09em}
+.loadoutBar{position:absolute;left:50%;bottom:18px;transform:translateX(-50%);display:flex;gap:10px;z-index:12;pointer-events:none}.loadoutSlot{min-width:160px;padding:10px 12px;border-radius:15px;background:linear-gradient(180deg,rgba(9,13,21,.94),rgba(5,7,11,.96));border:1px solid rgba(255,255,255,.08);box-shadow:0 14px 34px rgba(0,0,0,.32);display:flex;align-items:center;gap:10px}.loadoutSlot .slotKey{width:26px;height:26px;border-radius:9px;display:grid;place-items:center;background:rgba(117,233,255,.12);color:#dff8ff;font-weight:900;font-size:10px;flex:0 0 auto}.loadoutSlot .slotType{display:block;font-size:8px;letter-spacing:.16em;color:#79ddff;font-weight:900}.loadoutSlot .slotName{display:block;font-size:10px;font-weight:800;color:#eff6ff;margin-top:3px;line-height:1.3}.loadoutSlot.primarySlot{border-color:rgba(117,233,255,.22)}.loadoutSlot.secondarySlot{border-color:rgba(129,149,255,.18)}.loadoutSlot.meleeSlot{border-color:rgba(255,169,102,.18)}.loadoutSlot.utilitySlot{border-color:rgba(116,231,161,.18)}
+.upBox,.v9Shell,.scorePanel{background:linear-gradient(180deg,rgba(13,20,31,.97),rgba(5,8,12,.97));border-radius:24px}.upTitle,.titleKicker,.v17Kicker{letter-spacing:.22em}.upHead{font-size:34px;letter-spacing:-.05em}
+.upCard,.evoCard,.v9Card,.armoryCard{position:relative;overflow:hidden;border-radius:18px;background:linear-gradient(180deg,rgba(16,22,34,.96),rgba(9,13,21,.98));border:1px solid rgba(255,255,255,.08);box-shadow:0 16px 45px rgba(0,0,0,.22);transition:transform .16s ease,border-color .16s ease,box-shadow .16s ease}
+.upCard:before,.evoCard:before{content:"";position:absolute;inset:0 0 auto 0;height:4px;background:linear-gradient(90deg,rgba(255,255,255,.24),transparent)}
+.upCard:hover,.evoCard:hover,.armoryCard:hover{transform:translateY(-4px);box-shadow:0 24px 60px rgba(0,0,0,.28)}
+.upCard .rarityLabel{display:inline-flex;align-items:center;gap:6px;padding:5px 9px;border-radius:999px;background:rgba(255,255,255,.05);font-size:8px;letter-spacing:.14em}
+.upCard.rarity-common{box-shadow:0 16px 45px rgba(0,0,0,.22),0 0 0 1px rgba(150,162,182,.14) inset}.upCard.rarity-common:before{background:linear-gradient(90deg,#a8b4c6,#5f6d80)}
+.upCard.rarity-rare{box-shadow:0 16px 45px rgba(0,0,0,.22),0 0 0 1px rgba(117,233,255,.18) inset}.upCard.rarity-rare:before{background:linear-gradient(90deg,#75e9ff,#3f7fff)}
+.upCard.rarity-epic{box-shadow:0 16px 45px rgba(0,0,0,.22),0 0 0 1px rgba(175,132,255,.18) inset,0 0 35px rgba(159,118,255,.12)}.upCard.rarity-epic:before{background:linear-gradient(90deg,#b47cff,#6e65ff)}
+.upCard.rarity-legendary{box-shadow:0 16px 45px rgba(0,0,0,.22),0 0 0 1px rgba(255,208,110,.22) inset,0 0 42px rgba(255,186,90,.15)}.upCard.rarity-legendary:before{background:linear-gradient(90deg,#ffd166,#ff8b56)}
+.evoCard{min-height:218px}.evoCard:before{background:linear-gradient(90deg,#75e9ff,#ff6f99)}
+.settingsGrid{display:grid;grid-template-columns:1fr;gap:18px}.settingsGroup{border:1px solid rgba(255,255,255,.08);border-radius:18px;background:linear-gradient(180deg,rgba(13,20,31,.92),rgba(8,12,18,.95));padding:18px}.settingsGroup h3{margin:0 0 6px;font-size:14px;letter-spacing:.08em}.settingsGroup p{margin:0 0 12px;color:#7e8ea6;font-size:9px;line-height:1.6}.settingsGroup .innerGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.settingsGuide{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}.guidePill{padding:10px 11px;border-radius:14px;background:#0b1018;border:1px solid rgba(255,255,255,.06);font-size:8px;line-height:1.55;color:#7c8da5}.guidePill b{display:block;color:#e8f4ff;font-size:10px;margin-bottom:3px}.settingRow{margin:0}.settingRow.toggleRow{padding:10px 12px;border-radius:14px;background:#0c1119;border:1px solid rgba(255,255,255,.05)}
+@keyframes smokeDrift{0%{transform:translateX(-2%) scale(1)}100%{transform:translateX(2%) scale(1.06)}}@keyframes blastPulse{0%,100%{transform:scale(.92);opacity:.54}50%{transform:scale(1.08);opacity:.92}}@keyframes tracerFly{0%{transform:translateX(0) rotate(var(--rot,0deg));opacity:0}12%{opacity:1}100%{transform:translateX(520px) rotate(var(--rot,0deg));opacity:0}}
+@media(max-width:980px){.loadoutBar{flex-wrap:wrap;justify-content:center;bottom:10px}.loadoutSlot{min-width:140px}.settingsGroup .innerGrid,.settingsGuide{grid-template-columns:1fr 1fr}}
+@media(max-width:620px){.loadoutBar{position:static;transform:none;margin:12px auto 0;justify-content:center}.loadoutSlot{min-width:calc(50vw - 22px);padding:9px 10px}.settingsGuide,.settingsGroup .innerGrid{grid-template-columns:1fr}}
+
 
 #announcerHUD{position:fixed;left:50%;top:76px;transform:translate(-50%,-12px);z-index:176;width:min(640px,88vw);opacity:0;pointer-events:none;transition:opacity .16s ease,transform .2s cubic-bezier(.2,.8,.2,1)}
 #announcerHUD.show{opacity:1;transform:translate(-50%,0)}
@@ -638,22 +681,22 @@ canvas{display:block}
         <div class="brandCode">FIELD TERMINAL / RS-18.5</div>
         <h1 class="brandMain"><span class="rift">RIFT</span><span class="shift">SHIFT</span></h1>
         <div class="brandSlash"></div>
-        <p class="commandCopy">Deploy into a procedural combat rupture, build a class-specific loadout, trigger abilities and overdrives, and hold the line until the rift tears the run apart. Every run re-rolls the combat site, pacing, and escalation.</p>
+        <p class="commandCopy">Drop into a collapsing warfront where every run rebuilds the battlefield, every class carries a full combat kit, and every wave pushes harder than the last. Build momentum, evolve your weapons, and survive the rupture long enough to turn the front line back on itself.</p>
 
         <div class="modeDeckRedux">
           <button id="startBtn" class="modeButton reduxMode">
             <span class="num">01</span>
-            <span><b>STANDARD DEPLOYMENT</b><small>Balanced pressure. Full class builds, armories, events, and boss waves.</small></span>
+            <span><b>FRONTLINE SORTIE</b><small>Balanced combat flow with objectives, boss waves, armories, contracts, and weapon evolutions.</small></span>
             <span class="arrow">→</span>
           </button>
           <button id="chaosBtn" class="modeButton chaos reduxMode">
             <span class="num">02</span>
-            <span><b>CHAOS PROTOCOL</b><small>Higher aggression, denser waves, faster mistakes, harder recoveries.</small></span>
+            <span><b>RUPTURE ONSLAUGHT</b><small>Faster spawns, heavier pressure, nastier elites, and less time to recover between mistakes.</small></span>
             <span class="arrow">→</span>
           </button>
           <button id="challengeBtn" class="modeButton reduxMode">
             <span class="num">03</span>
-            <span><b>OVERRUN PROTOCOL</b><small id="challengeDesc">Locked — earn 3 Rift Cores through completed runs.</small></span>
+            <span><b>BLACKSITE OVERRUN</b><small id="challengeDesc">Locked — earn 3 Rift Cores through completed runs.</small></span>
             <span class="arrow">◆</span>
           </button>
         </div>
@@ -680,6 +723,10 @@ canvas{display:block}
         <div class="stageWindowRedux">
           <div class="stageTopline">LIVE SIMULATION // VISUAL FEED</div>
           <div class="stageViewport">
+            <div class="battleSky"></div><div class="battleHorizon"></div><div class="battleSmoke"></div>
+            <div class="battleBlast bb1"></div><div class="battleBlast bb2"></div><div class="battleBlast bb3"></div>
+            <div class="battleTracer t1" style="--rot:10deg"></div><div class="battleTracer t2" style="--rot:-6deg"></div><div class="battleTracer t3" style="--rot:188deg"></div><div class="battleTracer t4" style="--rot:172deg"></div>
+            <div class="battleWalker bw1"><i></i><i></i><b></b></div><div class="battleWalker bw2"><i></i><i></i><b></b></div><div class="battleTurret"></div>
             <div class="stageAura sa1"></div><div class="stageAura sa2"></div><div class="stageAura sa3"></div>
             <div class="stageCoreLines l1"></div><div class="stageCoreLines l2"></div>
             <div class="riftMachine stageMachine" aria-hidden="true">
@@ -690,20 +737,20 @@ canvas{display:block}
           <div class="stageStatBar">
             <div class="stageStat"><span>CLASS CORES</span><b>4</b></div>
             <div class="stageStat"><span>RUN SEEDS</span><b>∞</b></div>
-            <div class="stageStat"><span>BUILD</span><b>V18.5</b></div>
+            <div class="stageStat"><span>BUILD</span><b>V18.6</b></div>
           </div>
         </div>
 
         <div class="stageRailRedux">
           <div class="stageCardRedux">
-            <span>RIFT STATUS</span>
-            <b>PROCEDURAL HOT ZONES ACTIVE</b>
-            <small>Maps, elevation, combat lanes, and encounter pacing are re-generated every run.</small>
+            <span>WARFRONT STATUS</span>
+            <b>ACTIVE THEATER // MULTI-ZONE COLLAPSE</b>
+            <small>Procedural battlegrounds now spawn with heavier atmosphere, more cover detail, and evolving combat lanes.</small>
           </div>
           <div class="stageCardRedux soundtrackRedux">
             <span>NOW PLAYING</span>
-            <b id="menuTrack">SOUNDTRACK // NULL VECTOR</b>
-            <small>Combat channel ready. Audio reacts during live play.</small>
+            <b id="menuTrack">SOUNDTRACK // WARSPINE</b>
+            <small>Heavier layered synth score. The mix escalates with danger, bosses, and Overdrive.</small>
           </div>
         </div>
       </div>
@@ -755,7 +802,7 @@ canvas{display:block}
     <div class="meterTitle"><span>OVERDRIVE</span><span id="overPct">0%</span></div><div class="bar"><div id="overFill" class="fill"></div></div>
     <div class="meterTitle"><span>ENERGY</span><span id="energyText">100/100</span></div><div class="bar"><div id="energyFill" class="fill"></div></div>
   </div>
-  <div id="bottomRight"><div id="weaponName">WEAPON</div><div id="dashText">DASH READY</div><div id="overText">E • OVERDRIVE</div><div id="abilityText">Q • CLASS ABILITY</div><div id="trackName">♪ KINETIC BREACH</div></div>
+  <div id="bottomRight"><div id="weaponName">WEAPON</div><div id="dashText">DASH READY</div><div id="overText">E • OVERDRIVE</div><div id="abilityText">Q • CLASS ABILITY</div><div id="trackName">♪ KINETIC BREACH</div></div><div id="loadoutBar" class="loadoutBar"></div>
   <div id="message"></div><div id="toast"></div>
 </section>
 <div id="eventBanner"><b id="eventName">RIFT EVENT</b><span id="eventText"></span></div>
@@ -778,18 +825,23 @@ canvas{display:block}
 
 <section id="armory" class="screen"><div class="v9Shell"><div class="v9Top"><div><div class="titleKicker">BETWEEN WAVES</div><h2>FIELD ARMORY</h2><p>Spend scrap on run upgrades. The Armory appears every three cleared waves.</p></div><div id="armoryScrap" class="v9Currency">0 SCRAP</div></div><div id="armoryGrid" class="v9Grid"></div><div class="classActions"><button id="armoryRerollBtn" class="secondary">REROLL STOCK // 18</button><button id="armoryContinueBtn" class="primary">CONTINUE RUN</button></div></div></section>
 <section id="evolution" class="screen"><div class="v9Shell"><div class="v9Top"><div><div class="titleKicker">WEAPON BREAKPOINT</div><h2>EVOLVE YOUR WEAPON</h2><p>Your class build has reached critical mass. Choose one evolution for the rest of the run.</p></div></div><div id="evolutionGrid" class="v9Grid"></div></div></section>
-<section id="settings" class="screen"><div class="v9Shell"><div class="v9Top"><div><div class="titleKicker">SYSTEM</div><h2>SETTINGS</h2><p>Audio, visual, accessibility, HUD, and mobile controls. Saved locally.</p></div></div><div class="settingsGrid">
+<section id="settings" class="screen"><div class="v9Shell"><div class="v9Top"><div><div class="titleKicker">SYSTEM</div><h2>SETTINGS</h2><p>Reorganized controls, audio, video, HUD, and announcer options. Saved locally on this device.</p></div></div><div class="settingsGrid">
+<div class="settingsGroup"><h3>AUDIO MIX</h3><p>Control the full sound mix, menu score, combat feedback, and announcer level.</p><div class="innerGrid">
 <div class="settingRow"><label><span>MASTER VOLUME</span><span id="masterValue">100%</span></label><input id="masterSlider" type="range" min="0" max="100" value="100"></div>
 <div class="settingRow"><label><span>MUSIC VOLUME</span><span id="musicValue">100%</span></label><input id="musicSlider" type="range" min="0" max="100" value="100"></div>
 <div class="settingRow"><label><span>SFX VOLUME</span><span id="sfxValue">100%</span></label><input id="sfxSlider" type="range" min="0" max="100" value="100"></div>
 <div class="settingRow"><label><span>ANNOUNCER VOLUME</span><span id="announcerValue">80%</span></label><input id="announcerSlider" type="range" min="0" max="100" value="80"></div>
+</div></div>
+<div class="settingsGroup"><h3>ANNOUNCER</h3><p>The announcer now queues callouts instead of cutting himself off. Choose how he sounds here.</p><div class="innerGrid">
 <div class="settingRow toggleRow"><label style="margin:0">ANNOUNCER VOICE</label><input id="announcerVoiceToggle" type="checkbox" checked></div>
+<div class="settingRow toggleRow"><label style="margin:0">ANNOUNCER SUBTITLES</label><input id="announcerSubtitleToggle" type="checkbox" checked></div>
 <div class="settingRow"><label><span>VOICE ENGINE</span></label><select id="announcerEngineSelect"><option value="riftcore">RIFTCORE VOX // CUSTOM</option><option value="system">SYSTEM TTS // FALLBACK</option></select></div>
 <div class="settingRow"><label><span>VOICE STYLE</span></label><select id="announcerStyleSelect"><option value="command">TACTICAL COMMAND</option><option value="natural">NATURAL</option><option value="synthetic">SYNTHETIC</option></select></div>
 <div class="settingRow"><label><span>SYSTEM VOICE</span></label><select id="announcerVoiceSelect"><option value="auto">AUTO // BEST AVAILABLE</option></select></div>
-<div class="settingRow"><label><span>VOICE PREVIEW</span></label><button id="announcerTestBtn" class="secondary" type="button" style="margin:0;width:100%">TEST VOICE</button></div><div class="settingRow" style="grid-column:1/-1"><div style="font-size:8px;line-height:1.5;color:#6f7d90"><b style="color:#9beeff">RIFTCORE VOX</b> uses the game’s own pre-rendered command voice and sounds the same on every machine. SYSTEM TTS uses voices installed by Windows/Chromium and is kept only as a fallback.</div></div>
-<div class="settingRow toggleRow"><label style="margin:0">ANNOUNCER SUBTITLES</label><input id="announcerSubtitleToggle" type="checkbox" checked></div>
-<div class="settingRow toggleRow"><label style="margin:0">DISCORD GAME ACTIVITY <span style="color:#647287;font-size:8px">(DESKTOP)</span></label><input id="discordActivityToggle" type="checkbox" checked></div>
+<div class="settingRow"><label><span>VOICE PREVIEW</span></label><button id="announcerTestBtn" class="secondary" type="button" style="margin:0;width:100%">TEST VOICE</button></div>
+<div class="settingRow" style="grid-column:1/-1"><div style="font-size:8px;line-height:1.6;color:#6f7d90"><b style="color:#9beeff">RIFTCORE VOX</b> uses the game’s own pre-rendered command voice for consistent playback. SYSTEM TTS uses locally available voices and remains a fallback option.</div></div>
+</div></div>
+<div class="settingsGroup"><h3>VIDEO & HUD</h3><p>Shape the battlefield readability, screen effects, and UI scale.</p><div class="innerGrid">
 <div class="settingRow"><label><span>CAMERA SHAKE</span><span id="shakeValue">100%</span></label><input id="shakeSlider" type="range" min="0" max="100" value="100"></div>
 <div class="settingRow"><label><span>IMPACT FLASH</span><span id="impactValue">100%</span></label><input id="impactSlider" type="range" min="0" max="100" value="100"></div>
 <div class="settingRow"><label><span>PARTICLE DENSITY</span><span id="particleValue">100%</span></label><input id="particleSlider" type="range" min="25" max="150" value="100"></div>
@@ -802,10 +854,23 @@ canvas{display:block}
 <div class="settingRow toggleRow"><label style="margin:0">SCREEN VIGNETTE</label><input id="vignetteToggle" type="checkbox" checked></div>
 <div class="settingRow toggleRow"><label style="margin:0">FLASH EFFECTS</label><input id="flashToggle" type="checkbox" checked></div>
 <div class="settingRow toggleRow"><label style="margin:0">REDUCED MOTION</label><input id="reducedMotionToggle" type="checkbox"></div>
+</div></div>
+<div class="settingsGroup"><h3>GAMEPLAY & PLATFORM</h3><p>Quality-of-life options for desktop, mobile, and multitasking.</p><div class="innerGrid">
 <div class="settingRow toggleRow"><label style="margin:0">PAUSE WHEN WINDOW LOSES FOCUS</label><input id="pauseBlurToggle" type="checkbox" checked></div>
 <div class="settingRow toggleRow"><label style="margin:0">MOBILE AIM ASSIST</label><input id="mobileAimToggle" type="checkbox" checked></div>
 <div class="settingRow toggleRow"><label style="margin:0">AUTO FULLSCREEN</label><input id="fullscreenToggle" type="checkbox" checked></div>
-</div><div class="classActions"><button id="resetSettingsBtn" class="secondary">RESET SETTINGS</button><button id="settingsBackBtn" class="primary">BACK</button></div></div></section>
+<div class="settingRow toggleRow"><label style="margin:0">DISCORD GAME ACTIVITY <span style="color:#647287;font-size:8px">(DESKTOP)</span></label><input id="discordActivityToggle" type="checkbox" checked></div>
+</div></div>
+<div class="settingsGroup"><h3>CONTROL GUIDE</h3><p>The menu control strip was moved here so the main menu stays cleaner.</p><div class="settingsGuide">
+<div class="guidePill"><b>MOVE</b>WASD</div>
+<div class="guidePill"><b>PRIMARY FIRE</b>MOUSE 1</div>
+<div class="guidePill"><b>DASH</b>SPACE</div>
+<div class="guidePill"><b>CLASS ABILITY</b>Q</div>
+<div class="guidePill"><b>OVERDRIVE</b>E</div>
+<div class="guidePill"><b>EXECUTE</b>F</div>
+<div class="guidePill"><b>PAUSE</b>ESC</div>
+<div class="guidePill"><b>LOADOUT</b>PRIMARY • SECONDARY • MELEE • UTILITY</div>
+</div></div></div><div class="classActions"><button id="resetSettingsBtn" class="secondary">RESET SETTINGS</button><button id="settingsBackBtn" class="primary">BACK</button></div></div></section>
 <section id="archive" class="screen"><div class="v9Shell"><div class="v9Top"><div><div class="titleKicker">PERSISTENT PROFILE</div><h2>RUN ARCHIVE</h2><p>Rift Cores unlock modes, alternate starting arsenals, and cosmetics — never permanent combat stat advantages.</p></div><div id="archiveCores" class="v9Currency">0 RIFT CORES</div></div><div id="archiveStats" class="archiveStats"></div><div id="unlockList" class="unlockList"></div><div id="historyList" style="margin-top:16px"></div><div class="classActions"><button id="archiveBackBtn" class="primary">BACK</button></div></div></section>
 
 <section id="admin" class="screen"><div class="adminShell">
@@ -825,12 +890,12 @@ canvas{display:block}
 
 <div id="v17Hub">
   <div class="v17Panel">
-    <div class="v17Head"><div><div class="v17Kicker">PERSISTENT COMMAND SHIP // TERMINAL 17</div><h2>RIFTSHIFT OPERATIONS</h2><div class="v17Sub">Configure runs, inspect discoveries, review achievements, select cosmetics, read field logs, and launch seeded challenges.</div></div><button id="v17HubClose" class="v17Close">CLOSE</button></div>
+    <div class="v17Head"><div><div class="v17Kicker">PERSISTENT COMMAND SHIP // TERMINAL 18.6</div><h2>RIFTSHIFT OPERATIONS</h2><div class="v17Sub">Configure runs, inspect discoveries, review achievements, select cosmetics, read field logs, and launch seeded challenges.</div></div><button id="v17HubClose" class="v17Close">CLOSE</button></div>
     <div class="v17Grid">
       <section class="v17Section"><h3>DIFFICULTY PROTOCOL</h3><p>Higher protocols change enemy pressure and rewards rather than only adding health.</p><div id="v17DifficultyBtns" class="v17Btns"></div></section>
       <section class="v17Section"><h3>STARTING ARSENAL</h3><p>Select Standard, Alternate, or Experimental starting weapon behavior.</p><div id="v17WeaponBtns" class="v17Btns"></div></section>
       <section class="v17Section full"><h3>RUN MUTATORS</h3><p>Stack optional rules. These are intentionally chaotic and remain separate from permanent progression.</p><div id="v17MutatorBtns" class="v17Btns"></div></section>
-      <section class="v17Section"><h3>SEEDED / CHALLENGE RUNS</h3><p>Daily seed and special rule sets. Daily uses the calendar date for its map and V17 encounter rolls.</p><div class="v17Btns"><button class="v17Btn" id="v17DailyBtn">DAILY RIFT</button><button class="v17Btn" data-v17challenge="glass">GLASS CANNON</button><button class="v17Btn" data-v17challenge="pacifist">ABILITY RUN</button><button class="v17Btn" data-v17challenge="bossrush">BOSS RUSH</button><button class="v17Btn" data-v17challenge="">CLEAR CHALLENGE</button></div></section>
+      <section class="v17Section"><h3>SEEDED / CHALLENGE RUNS</h3><p>Daily seed and special rule sets. Daily uses the calendar date for its map and current-version encounter rolls.</p><div class="v17Btns"><button class="v17Btn" id="v17DailyBtn">DAILY RIFT</button><button class="v17Btn" data-v17challenge="glass">GLASS CANNON</button><button class="v17Btn" data-v17challenge="pacifist">ABILITY RUN</button><button class="v17Btn" data-v17challenge="bossrush">BOSS RUSH</button><button class="v17Btn" data-v17challenge="">CLEAR CHALLENGE</button></div></section>
       <section class="v17Section"><h3>COSMETIC SHELL</h3><p>Cosmetics never change combat stats.</p><div id="v17CosmeticBtns" class="v17Btns"></div></section>
       <section class="v17Section full"><h3>OPERATIONS RECORD</h3><div id="v17MetaStats" class="v17Statline"></div></section>
       <section class="v17Section"><h3>CODEX / BESTIARY</h3><p>Discover factions, enemies, biomes, artifacts, bosses and anomaly signatures through play.</p><div id="v17Codex" class="v17List"></div></section>
@@ -908,6 +973,18 @@ const CLASS_DEFS={
   cosmic:{name:"Cosmic Gremlin",role:"OWNER // SILLY",icon:"☄",ownerOnly:true,desc:"An irresponsible pile of speed, bouncing bananas, confetti, and administrative privilege.",stats:["250 HP","TRIPLE BANANAS","CERTIFIED MENACE"],weapon:"BANANA ACCELERATOR",
     p:{hp:250,maxHp:250,speed:330,fireRate:.07,damage:34,armor:.22,regen:2.5,dashMax:.72,projectileSpeed:900,crit:.25,maxEnergy:250,energyRegen:18}}
 };
+
+const CLASS_LOADOUTS={
+  survivor:{primary:"Jury-Rigged SMG",secondary:"Rift-9 Sidearm",melee:"Combat Shiv",utility:"Stim Injector"},
+  rifleman:{primary:"VX-9 Rifle",secondary:"Aegis Pistol",melee:"Breach Knife",utility:"Target Beacon"},
+  soldier:{primary:"A-6 Carbine",secondary:"Bulldog Revolver",melee:"Shock Baton",utility:"Frag Grenade"},
+  explosive:{primary:"M77 Grenade Launcher",secondary:"Ignition Pistol",melee:"Demolition Axe",utility:"Breach Charge"},
+  conduit:{primary:"C-11 Rail Lance",secondary:"Arc Sidearm",melee:"Conductor Blade",utility:"Flux Cell"},
+  cosmic:{primary:"Banana Accelerator",secondary:"Comet Popper",melee:"Star Wrench",utility:"Gremlin Gadget"}
+};
+const EVOLVED_LOADOUTS={bloodline:"Bloodline Repeater",scrapstorm:"Scrapstorm Volleygun",phantom:"Phantom Vector",railcaster:"Railcaster Mk II",deadeye:"Deadeye Longshot",stormline:"Stormline Array",aegis:"Aegis Breaker",fireteam:"Fireteam Platform",vanguard:"Vanguard Pulsecarbine",mortar:"Siegebreaker Mortar",clusterstorm:"Clusterstorm Howitzer",singularity:"Singularity Launcher",ion_spear:"Ion Spear",stormrail:"Stormrail Coilgun",tesla_spine:"Tesla Spine Array"};
+function getDisplayedPrimary(){if(!G)return CLASS_LOADOUTS[selectedClass||"survivor"]?.primary||"PRIMARY";return EVOLVED_LOADOUTS[G.evolution]||G.weaponName||CLASS_LOADOUTS[G.classId]?.primary||"PRIMARY"}
+function renderLoadoutBar(){const root=$("loadoutBar");if(!root)return;const cid=G?.classId||selectedClass||"survivor",load=CLASS_LOADOUTS[cid]||CLASS_LOADOUTS.survivor,primary=getDisplayedPrimary();root.innerHTML=`<div class="loadoutSlot primarySlot"><div class="slotKey">1</div><div><span class="slotType">PRIMARY</span><span class="slotName">${primary}</span></div></div><div class="loadoutSlot secondarySlot"><div class="slotKey">2</div><div><span class="slotType">SECONDARY</span><span class="slotName">${load.secondary}</span></div></div><div class="loadoutSlot meleeSlot"><div class="slotKey">3</div><div><span class="slotType">MELEE</span><span class="slotName">${load.melee}</span></div></div><div class="loadoutSlot utilitySlot"><div class="slotKey">4</div><div><span class="slotType">UTILITY</span><span class="slotName">${load.utility}</span></div></div>`;}
 
 const COMMON_UPGRADES=[
   {id:"damage",icon:"✦",name:"HEAVY ROUNDS",tag:"ARSENAL",max:5},
@@ -1155,7 +1232,7 @@ class AudioSystem{
   constructor(){
     this.ctx=null;this.master=null;this.sfxGain=null;this.musicGain=null;this.reverb=null;this.reverbGain=null;
     this.beatTimer=null;this.step=0;this.mode="silent";this.disabled=false;
-    this.trackNames={menu:"NULL VECTOR",combat:"KINETIC BREACH",danger:"REDLINE",boss:"WARDEN PROTOCOL",overdrive:"BURN THE CLOCK"};
+    this.trackNames={menu:"WARSPINE",combat:"KINETIC BREACH",danger:"REDLINE CASCADE",boss:"SIEGEBREAKER",overdrive:"ABSOLUTE OVERDRIVE"};
   }
   start(){
     if(this.disabled)return;
@@ -1218,7 +1295,7 @@ class AudioSystem{
     if(this.mode===mode&&this.beatTimer)return;
     this.mode=mode;this.step=0;
     if(this.beatTimer)clearInterval(this.beatTimer);
-    const bpm={menu:112,combat:174,danger:188,boss:198,overdrive:212}[mode]||174;
+    const bpm={menu:126,combat:178,danger:192,boss:202,overdrive:216}[mode]||178;
     const sixteenth=60000/bpm/4;
     this.beatTimer=setInterval(()=>this.musicTick(),sixteenth);
     this.musicTick();
@@ -1235,9 +1312,15 @@ class AudioSystem{
     const root=roots[bar%roots.length];
 
     if(this.mode==="menu"){
-      if(beat%16===0){[1,1.5,2].forEach((m,i)=>this.tone(root*m,1.5,"sine",.054/(i+1),root*m*.985,(i-1)*.2,dest,.3));this.tone(root/2,1.1,"triangle",.046,root/2*.72,0,dest,.2);}
-      if([3,7,11,15,19,23,27,31].includes(beat))this.tone(root*2*(beat%8===3?1.5:1),.1,"triangle",.019,null,.25,dest,.1);
-      if(beat%4===0)this.hat(.017,dest);return;
+      const kick=[0,6,8,14,16,22,24,30],snare=[4,12,20,28],ghost=[10,18,26];
+      if(kick.includes(beat)){this.tone(138,.11,"sine",.085,44,0,dest,.08);this.noise(.05,.02,180,0,"lowpass",dest,.05);} 
+      if(snare.includes(beat)){this.noise(.11,.042,2100,rand(-.08,.08),"bandpass",dest,.12);this.tone(215,.055,"triangle",.022,110,0,dest,.06);} 
+      if(ghost.includes(beat))this.hat(.018,dest);
+      if(beat%2===0){const seq=[1,.75,1.5,1,1.25,2,1.5,1];const mul=seq[(beat/2)%seq.length];this.tone(root/2*mul,.16,"sawtooth",.042,root/2*mul*.68,-.06,dest,.1);} 
+      if([0,8,16,24].includes(beat)){[1,1.5,2].forEach((m,i)=>this.tone(root*m,.68,"triangle",.03/(1+i*.14),root*m*.98,(i-1)*.18,dest,.18));}
+      if([3,7,11,15,19,23,27,31].includes(beat))this.tone(root*2*(beat%8===3?1.5:1),.09,"square",.016,null,.22,dest,.07);
+      if(beat%2===0)this.hat(beat%4===0?.02:.014,dest);
+      return;
     }
 
     const patterns={
@@ -1407,8 +1490,9 @@ function beginBoot(){
   });
 }
 const screens=["boot","menu","classSelect","hud","pause","upgrade","armory","evolution","settings","archive","admin","gameover"];
-function showOnly(name){screens.forEach(id=>$(id).classList.toggle("active",id===name))}
-function showHUD(){screens.forEach(id=>$(id).classList.remove("active"));$("hud").classList.add("active")}
+function syncRuntimeUI(){const inHud=$("hud").classList.contains("active")&&!!G?.running;if($("v17Heat"))$("v17Heat").style.display=inHud?"block":"none";if($("ownerPanelBtn"))$("ownerPanelBtn").hidden=!ownerAuth||!$("menu").classList.contains("active");}
+function showOnly(name){screens.forEach(id=>$(id).classList.toggle("active",id===name));syncRuntimeUI()}
+function showHUD(){screens.forEach(id=>$(id).classList.remove("active"));$("hud").classList.add("active");syncRuntimeUI()}
 function msg(t,sec=1.2){$("message").textContent=t;$("message").style.opacity=1;clearTimeout(msg.t);msg.t=setTimeout(()=>$("message").style.opacity=0,sec*1000)}
 function toast(t){$("toast").textContent=t;$("toast").classList.add("show");clearTimeout(toast.t);toast.t=setTimeout(()=>$("toast").classList.remove("show"),950)}
 
@@ -1432,10 +1516,11 @@ function unlockAchievement(id,label){if(profile.achievements.includes(id))return
 function refreshMetaUI(){
  const u=profileUnlocks();
  if($("progressBtn"))$("progressBtn").textContent=`RIFT CORES // ${profile.cores}`;
- if($("challengeBtn")){$("challengeBtn").classList.toggle("locked",!u.overrun);$("challengeDesc").textContent=u.overrun?"Elite-heavy endless pressure with increased scrap and score.":"Locked — earn 3 Rift Cores through completed runs.";}
+ if($("challengeBtn")){$("challengeBtn").classList.toggle("locked",!u.overrun);$("challengeDesc").textContent=u.overrun?"Locked and live-run balanced Blacksite overrun with elite-heavy waves, bigger scrap payouts, and higher score potential.":"Locked — earn 3 Rift Cores through completed runs.";}
  if($("variantBtn")){$("variantBtn").disabled=!u.alt;$("variantBtn").textContent=u.alt?`ALT ARSENAL: ${selectedVariant?"ON":"OFF"}`:"ALT ARSENAL: LOCKED";}
  if($("chromaBtn")){$("chromaBtn").disabled=!u.chroma;$("chromaBtn").textContent=u.chroma?`CHROMA: ${selectedChroma?"ON":"OFF"}`:"CHROMA: LOCKED";}
- if($("ownerPanelBtn"))$("ownerPanelBtn").hidden=!ownerAuth;
+ if($("ownerPanelBtn"))$("ownerPanelBtn").hidden=!ownerAuth||!$("menu").classList.contains("active");
+ syncRuntimeUI();
 }
 function syncSettingsLabels(){
  $("masterValue").textContent=Math.round(settings.master*100)+"%";$("musicValue").textContent=Math.round(settings.music*100)+"%";$("sfxValue").textContent=Math.round(settings.sfx*100)+"%";$("announcerValue").textContent=Math.round((settings.announcerVolume??.8)*100)+"%";$("shakeValue").textContent=Math.round(settings.shake*100)+"%";
@@ -1844,7 +1929,7 @@ function newGame(){
   buildMap();setupWaveObjective();showHUD();setMobileGameActive(true);
   $("best").textContent=safeGetBest();
   $("classHUD").textContent=def.name.toUpperCase();
-  $("weaponName").textContent=G.weaponName||def.weapon;
+  $("weaponName").textContent=G.weaponName||def.weapon;renderLoadoutBar();
   $("bossWrap").style.display="none";
   try{sfx.setMusic("combat")}catch(err){console.warn(err)}
   msg(`${def.name.toUpperCase()} // ${G.mapName} // WAVE 1`,1.8);
@@ -1899,7 +1984,7 @@ function dash(){
 }
 function activateOverdrive(){
   const p=G.player;if(p.over<100||p.overActive>0)return;
-  p.over=0;p.overActive=6.4*p.overMult;sfx.over();sfx.setMusic("overdrive");G.flash=.25;msg("OVERDRIVE",1);
+  p.over=0;p.overActive=7.8*p.overMult;p.invuln=Math.max(p.invuln,.45);p.hp=clamp(p.hp+12,0,p.maxHp);p.energy=clamp(p.energy+18,0,p.maxEnergy);p.overSurge=.18;sfx.over();sfx.setMusic("overdrive");G.flash=.28;G.phasePulse=.45;msg("OVERDRIVE // SURGE",1.15);
 }
 function playerShoot(){
   const p=G.player;if(p.fireCd>0)return;
@@ -1917,7 +2002,7 @@ function playerShoot(){
     G.bullets.push({
       x:p.x+Math.cos(a)*18,y:p.y+Math.sin(a)*18,vx:Math.cos(a)*p.projectileSpeed,vy:Math.sin(a)*p.projectileSpeed,
       r:(G.classId==="explosive"?7:G.classId==="conduit"?5.25:4)*(p.projectileSize||1),life:G.classId==="explosive"?1.5:1.35,
-      damage:p.damage*(ownerAuth&&adminState.megaDamage?5:1)*(over?1.22:1)*(low?1.12:1)*(low&&p.resolveBonus?1+p.resolveBonus:1)*(over&&p.overDamage?1+p.overDamage:1)*(railShot?Math.max(p.railDamage||1,abilityRail?1.65:1):1),
+      damage:p.damage*(ownerAuth&&adminState.megaDamage?5:1)*(over?1.34+(p.overSurge||0):1)*(low?1.12:1)*(low&&p.resolveBonus?1+p.resolveBonus:1)*(over&&p.overDamage?1+p.overDamage:1)*(railShot?Math.max(p.railDamage||1,abilityRail?1.65:1):1),
       pierce:p.pierce+(railShot?6:0),conduitRail:G.classId==="conduit",ownerShot:G.classId==="cosmic",beamLen:G.classId==="conduit"?Math.round(52*(p.projectileSize||1)):0,beamWidth:G.classId==="conduit"?Math.round(11*(p.projectileSize||1)):0,bounce:G.classId==="explosive"?0:(p.bounce||0),rail:railShot,
       crit:G.classId==="explosive"?false:Math.random()<clamp(p.crit+(p.dashCritTime>0?p.dashCritBonus:0)+(p.focusAbilityTime>0?.35:0),0,.95),explosive:G.classId==="explosive",radius:p.explosionRadius,floor:p.floor,proximity:p.proximity||0
     });
@@ -2438,6 +2523,7 @@ function applyEvolution(id){const p=G.player,e=(EVOLUTIONS[G.classId]||[]).find(
  if(G.classId==="explosive"){if(id==="mortar"){p.explosionRadius*=1.55;p.damage*=1.34;p.fireRate*=1.2;p.projectileSpeed*=.88}if(id==="clusterstorm"){p.cluster=true;p.clusterCount=Math.max(p.clusterCount||0,9);p.shrapnel=Math.max(p.shrapnel||0,10)}if(id==="singularity"){p.implosion=Math.max(p.implosion||0,28);p.aftershock=Math.max(p.aftershock||0,.82);p.proximity=Math.max(p.proximity||0,42)}}
  if(G.classId==="conduit"){if(id==="ion_spear"){p.damage*=1.34;p.pierce+=5;p.projectileSize=(p.projectileSize||1)*1.35}if(id==="stormrail"){p.fireRate*=.72;p.energyRegen*=1.25;p.railEnergyGain=(p.railEnergyGain||0)+1.6;p.projectileSize=(p.projectileSize||1)*1.08}if(id==="tesla_spine"){p.currentWidth=Math.max(p.currentWidth||24,48);p.currentDamageMult=(p.currentDamageMult||1)*1.35;p.currentChains=Math.max(p.currentChains||0,3)}}
  if(!profile.evolutions.includes(G.weaponName)){profile.evolutions.push(G.weaponName);saveProfile();unlockAchievement("first_evolution","WEAPON EVOLUTION")}
+ renderLoadoutBar();
  G.choosing=false;showHUD();G.last=performance.now();sfx.over();msg(`${G.weaponName} // EVOLVED`,1.5);requestAnimationFrame(loop)}
 function update(dt){
   const p=G.player;
@@ -2655,7 +2741,7 @@ function updateHUD(){
   $("overText").textContent=p.over>=100?"E • OVERDRIVE READY":"E • OVERDRIVE";
   const ab=CLASS_ABILITIES[G.classId],abCost=Math.round(ab.cost*(G.classId==="conduit"?(p.currentCostMult||1):1));$("abilityText").textContent=`Q • ${ab.name} // ${abCost} ENERGY`;
   $("dashText").textContent=p.dashCd<=0?"DASH READY":`DASH ${p.dashCd.toFixed(1)}s`;
-  $("weaponName").textContent=(G.weaponName||def.weapon)+(G.evolution?" // EVOLVED":"");
+  $("weaponName").textContent=(G.weaponName||def.weapon)+(G.evolution?" // EVOLVED":"");renderLoadoutBar();
   if(G.boss)$("bossFill").style.width=clamp(G.boss.hp/G.boss.maxHp*100,0,100)+"%";
 }
 function gameOver(){
@@ -2865,6 +2951,11 @@ function drawMap(){
 
   X.strokeStyle=theme.accent+"55";X.lineWidth=2;X.strokeRect(10,10,W-20,H-20);
   X.fillStyle="rgba(220,230,244,.38)";X.font="800 9px Inter,Arial";X.textAlign="left";X.fillText(G.mapName+" // SEED "+(G.mapSeed>>>0).toString(16).toUpperCase(),18,31);
+  X.save();
+  const seedBase=(G.mapSeed>>>0)%997;
+  for(let i=0;i<10;i++){const xx=70+((seedBase*37+i*91)%(W-140)),yy=70+((seedBase*53+i*67)%(H-140));X.fillStyle=`rgba(255,120,82,${.025+(i%3)*.01})`;X.beginPath();X.arc(xx,yy,18+(i%4)*8,0,TAU);X.fill();X.strokeStyle=`rgba(255,180,120,${.05+(i%2)*.02})`;X.lineWidth=1;X.beginPath();X.arc(xx,yy,28+(i%4)*10,0,TAU);X.stroke();}
+  X.globalAlpha=.16;X.strokeStyle=theme.accent;X.setLineDash([8,14]);for(let i=0;i<4;i++){const yy=H*.18+i*H*.18;X.beginPath();X.moveTo(48,yy);X.lineTo(W-48,yy+Math.sin(i+G.time*.35)*12);X.stroke();}X.setLineDash([]);X.globalAlpha=1;
+  X.restore();
 }
 
 function drawConduitBeam(b){
@@ -3078,56 +3169,54 @@ function drawBlasts(){
 }
 
 function drawWeaponMechanics(cls,p){
-  const kick=G.weaponKick||0,heat=G.weaponHeat||0,flash=G.muzzleFlash||0;
+  const kick=G.weaponKick||0,heat=G.weaponHeat||0,flash=G.muzzleFlash||0,evolved=!!G?.evolution||!!G?.v17Ultimate;
   X.save();
   if(cls==="survivor"){
-    X.fillStyle="#b8d7c6";X.fillRect(8-kick*.55,-5,9,2);
-    X.fillStyle=`rgba(255,170,90,${heat*.5})`;X.fillRect(17,-2,7,4);
+    X.fillStyle="#b8d7c6";X.fillRect(7-kick*.55,-6,11,3);X.fillStyle="#2a343b";X.fillRect(12,2,6,7);
+    X.fillStyle=`rgba(255,170,90,${heat*.5})`;X.fillRect(18,-2,8,4);
   }else if(cls==="rifleman"){
-    X.fillStyle="#c9e5ef";X.fillRect(11-kick*.8,-6,10,3);
-    X.fillStyle="#1d2b33";X.fillRect(6,4,8,7);
-    X.strokeStyle=`rgba(117,233,255,${.18+heat*.35})`;X.beginPath();X.moveTo(3,-6);X.lineTo(24,-6);X.stroke();
+    X.fillStyle="#c9e5ef";X.fillRect(10-kick*.8,-6,13,3);X.fillStyle="#1d2b33";X.fillRect(5,3,9,8);X.fillRect(19,-8,4,16);
+    X.strokeStyle=`rgba(117,233,255,${.18+heat*.35})`;X.beginPath();X.moveTo(2,-7);X.lineTo(29,-7);X.stroke();
   }else if(cls==="soldier"){
-    X.fillStyle="#353b78";X.fillRect(5,4,9,11+kick*.12);
-    X.fillStyle=`rgba(255,119,88,${heat*.55})`;for(let i=0;i<3;i++)X.fillRect(14+i*4,-5,2,10);
+    X.fillStyle="#353b78";X.fillRect(4,4,10,12+kick*.12);X.fillStyle="#6168b8";X.fillRect(14,-4,12,8);X.fillStyle=`rgba(255,119,88,${heat*.55})`;for(let i=0;i<3;i++)X.fillRect(17+i*4,-6,2,12);
   }else if(cls==="explosive"){
-    X.strokeStyle="#f0c987";X.lineWidth=2;X.beginPath();X.arc(7,0,6,-1.4+G.time*2.5,-1.4+G.time*2.5+4.6);X.stroke();
+    X.strokeStyle="#f0c987";X.lineWidth=2;X.beginPath();X.arc(7,0,6,-1.4+G.time*2.5,-1.4+G.time*2.5+4.6);X.stroke();X.fillStyle="#3f2c19";X.fillRect(16,-7,10,14);
     X.fillStyle=`rgba(255,100,50,${heat*.45})`;X.beginPath();X.arc(7,0,3.5,0,TAU);X.fill();
   }else if(cls==="conduit"){
-    X.globalCompositeOperation="lighter";
-    const pulse=.45+.55*Math.sin(G.time*12);
+    X.globalCompositeOperation="lighter";const pulse=.45+.55*Math.sin(G.time*12);
     for(let i=0;i<3;i++){X.strokeStyle=`rgba(118,239,255,${.26+heat*.46})`;X.lineWidth=1.5;X.beginPath();X.ellipse(9+i*8,0,3.5,7+heat*3,0,0,TAU);X.stroke();}
-    X.fillStyle=`rgba(220,253,255,${.12+heat*.6*pulse})`;X.fillRect(5,-1,26,2);
-    X.globalCompositeOperation="source-over";
+    X.fillStyle=`rgba(220,253,255,${.12+heat*.6*pulse})`;X.fillRect(5,-1,30,2);X.globalCompositeOperation="source-over";
   }else if(cls==="cosmic"){
     X.fillStyle=`rgba(255,115,209,${.35+heat*.4})`;X.beginPath();X.arc(15,-7,2+heat*3,0,TAU);X.fill();
   }
-
+  if(evolved){X.strokeStyle=`rgba(255,214,118,${.5+.2*Math.sin(G.time*14)})`;X.lineWidth=1.5;X.beginPath();X.moveTo(0,-10);X.lineTo(33,-6);X.moveTo(0,10);X.lineTo(33,6);X.stroke();}
   if(flash>0&&cls!=="conduit"){
-    const m=clamp(flash/(cls==="explosive"?.13:.075),0,1),tip=cls==="explosive"?30:cls==="rifleman"?32:cls==="soldier"?29:28;
-    X.globalCompositeOperation="lighter";X.fillStyle=cls==="explosive"?`rgba(255,192,96,${m})`:`rgba(224,249,255,${m})`;
-    X.beginPath();X.moveTo(tip+18*m,0);X.lineTo(tip,-6*m);X.lineTo(tip+5*m,0);X.lineTo(tip,6*m);X.closePath();X.fill();X.globalCompositeOperation="source-over";
+    const m=clamp(flash/(cls==="explosive"?.13:.075),0,1),tip=cls==="explosive"?31:cls==="rifleman"?33:cls==="soldier"?31:29;
+    X.globalCompositeOperation="lighter";
+    const g=X.createRadialGradient(tip,0,0,tip,0,26+28*m);g.addColorStop(0,`rgba(255,255,255,${.85*m})`);g.addColorStop(.18,cls==="explosive"?`rgba(255,210,122,${.8*m})`:`rgba(255,241,209,${.72*m})`);g.addColorStop(.52,cls==="explosive"?`rgba(255,133,67,${.42*m})`:`rgba(255,185,115,${.3*m})`);g.addColorStop(1,'rgba(255,120,40,0)');
+    X.fillStyle=g;X.beginPath();X.arc(tip,0,26+28*m,0,TAU);X.fill();
+    X.fillStyle=cls==="explosive"?`rgba(255,222,158,${m})`:`rgba(245,250,255,${m})`;X.beginPath();X.moveTo(tip+22*m,0);X.lineTo(tip-2,-9*m);X.lineTo(tip+7*m,-2*m);X.lineTo(tip+2*m,0);X.lineTo(tip+7*m,2*m);X.lineTo(tip-2,9*m);X.closePath();X.fill();
+    X.globalCompositeOperation="source-over";
   }
   X.restore();
 }
 function drawPlayer(){
-  const p=G.player,a=Math.atan2(mouse.y-p.y,mouse.x-p.x),cls=G.classId;
+  const p=G.player,a=Math.atan2(mouse.y-p.y,mouse.x-p.x),cls=G.classId,evolved=!!G.evolution||!!G.v17Ultimate;
   X.save();X.translate(p.x,p.y-(p.elevation||0)*8);X.rotate(a);
-  if(p.dashTime>0&&!settings.reducedMotion){
-    const da=Math.atan2(p.dashVY||0,p.dashVX||0)-a;X.save();X.rotate(da);X.globalCompositeOperation="lighter";
-    for(let i=1;i<=4;i++){X.globalAlpha=.16/i;X.fillStyle="#9eefff";X.beginPath();X.moveTo(-10-i*14,-8+i);X.lineTo(8-i*10,0);X.lineTo(-10-i*14,8-i);X.closePath();X.fill();}
-    X.restore();X.globalAlpha=1;
-  }
-  if(p.overActive>0){X.strokeStyle=`rgba(255,209,102,${.26+.16*Math.sin(G.time*14)})`;X.lineWidth=3;X.beginPath();X.arc(0,0,25+Math.sin(G.time*10)*3,0,TAU);X.stroke();}
+  if(p.dashTime>0&&!settings.reducedMotion){const da=Math.atan2(p.dashVY||0,p.dashVX||0)-a;X.save();X.rotate(da);X.globalCompositeOperation="lighter";for(let i=1;i<=4;i++){X.globalAlpha=.16/i;X.fillStyle="#9eefff";X.beginPath();X.moveTo(-12-i*14,-9+i);X.lineTo(10-i*10,0);X.lineTo(-12-i*14,9-i);X.closePath();X.fill();}X.restore();X.globalAlpha=1;}
+  if(p.overActive>0){X.strokeStyle=`rgba(255,209,102,${.3+.18*Math.sin(G.time*14)})`;X.lineWidth=3;X.beginPath();X.arc(0,0,26+Math.sin(G.time*10)*3,0,TAU);X.stroke();}
   X.shadowColor=G.chroma?`hsl(${(G.time*80)%360} 90% 68%)`:cls==="explosive"?"#ffad5d":cls==="rifleman"?"#75e9ff":cls==="conduit"?"#70ecff":cls==="soldier"?"#9ea9ff":"#68e8a1";X.shadowBlur=G.chroma?22:13;
   const body=p.invuln>0&&Math.floor(G.time*18)%2?"#fff":cls==="explosive"?"#ffd09a":cls==="rifleman"?"#d8f8ff":cls==="conduit"?"#d8fbff":cls==="soldier"?"#dde0ff":"#dcffe9";
-  X.fillStyle=body;X.beginPath();X.moveTo(17,0);X.lineTo(-7,-11);X.lineTo(-13,-5);X.lineTo(-8,0);X.lineTo(-13,5);X.lineTo(-7,11);X.closePath();X.fill();
+  X.fillStyle=body;X.beginPath();X.moveTo(18,0);X.lineTo(-5,-12);X.lineTo(-14,-6);X.lineTo(-8,0);X.lineTo(-14,6);X.lineTo(-5,12);X.closePath();X.fill();
+  X.fillStyle="rgba(12,18,28,.42)";X.fillRect(-17,-4,7,14);X.fillRect(-15,-13,12,4);
+  X.fillStyle=cls==="explosive"?"#654123":cls==="soldier"?"#6b71bf":cls==="conduit"?"#4ebfdf":"#464f5f";X.fillRect(-18,8,13,3);
+  if(evolved){X.strokeStyle=`rgba(255,219,128,${.45+.2*Math.sin(G.time*12)})`;X.lineWidth=2;X.beginPath();X.arc(-2,0,19,0,TAU);X.stroke();}
   X.save();X.translate(-(G.weaponKick||0),0);X.fillStyle=cls==="explosive"?"#ff9d4a":cls==="survivor"?"#65e49a":cls==="conduit"?"#70ecff":cls==="soldier"?"#858bff":"#75e9ff";
-  if(cls==="explosive"){X.fillRect(2,-5,22,10);X.fillStyle="#47331d";X.fillRect(18,-7,8,14);}
-  else if(cls==="rifleman"){X.fillRect(0,-3,27,6);X.fillRect(17,-5,9,10);}
-  else if(cls==="soldier"){X.fillRect(1,-4,23,8);X.fillStyle="#54599f";X.fillRect(-3,-8,10,16);}
-  else if(cls==="conduit"){X.fillRect(-2,-4,34,8);X.fillStyle="#c7fbff";X.fillRect(20,-2,20,4);X.fillStyle="#244654";X.fillRect(4,-8,13,16);if(G.railMuzzle>0){const m=clamp(G.railMuzzle/.11,0,1);X.globalCompositeOperation="lighter";X.fillStyle=`rgba(220,252,255,${m})`;X.beginPath();X.moveTo(42,0);X.lineTo(22,-9*m);X.lineTo(70,0);X.lineTo(22,9*m);X.closePath();X.fill();X.globalCompositeOperation="source-over";}}
-  else X.fillRect(2,-3,20,6);
+  if(cls==="explosive"){X.fillRect(2,-6,24+(evolved?4:0),12);X.fillStyle="#47331d";X.fillRect(19,-8,9,16);if(evolved){X.fillStyle="#ffd166";X.fillRect(24,-4,8,8);}}
+  else if(cls==="rifleman"){X.fillRect(0,-3,29+(evolved?4:0),6);X.fillRect(18,-6,10,12);if(evolved){X.fillStyle="#dffcff";X.fillRect(26,-5,4,10);}}
+  else if(cls==="soldier"){X.fillRect(1,-4,25+(evolved?2:0),8);X.fillStyle="#54599f";X.fillRect(-3,-8,10,16);if(evolved){X.fillStyle="#ffd87a";X.fillRect(23,-3,5,6);}}
+  else if(cls==="conduit"){X.fillRect(-2,-4,36+(evolved?5:0),8);X.fillStyle="#c7fbff";X.fillRect(22,-2,20+(evolved?6:0),4);X.fillStyle="#244654";X.fillRect(4,-8,13,16);if(G.railMuzzle>0){const m=clamp(G.railMuzzle/.11,0,1);X.globalCompositeOperation="lighter";X.fillStyle=`rgba(220,252,255,${m})`;X.beginPath();X.moveTo(44,0);X.lineTo(22,-9*m);X.lineTo(72+(evolved?10:0),0);X.lineTo(22,9*m);X.closePath();X.fill();X.globalCompositeOperation="source-over";}}
+  else{X.fillRect(2,-3,21+(evolved?3:0),6);if(evolved){X.fillStyle="#fff0a8";X.fillRect(18,-4,4,8);}}
   drawWeaponMechanics(cls,p);X.restore();X.shadowColor="transparent";X.restore();
 }
 
@@ -3584,7 +3673,7 @@ function v17ApplyRunRules(){
 }
 function v17PostRunHTML(){
   const st=G.v17Stats||{},vals=st.waveKills||[],max=Math.max(1,...vals),bars=vals.map(v=>`<i title="${v} kills" style="height:${Math.max(4,v/max*100)}%"></i>`).join("");
-  return `<div class="v17Breakdown"><div class="v17Kicker">V17 RUN TELEMETRY</div><div class="v17BreakGrid"><div><b>${Math.round(st.damageTaken||0)}</b>DAMAGE TAKEN</div><div><b>${st.maxCombo||0}</b>MAX COMBO</div><div><b>${st.perfectDodges||0}</b>PERFECT DODGES</div><div><b>${st.executions||0}</b>EXECUTIONS</div><div><b>${G.v17Artifacts?.length||0}</b>ARTIFACTS</div><div><b>${G.v17Curses?.length||0}</b>CURSES</div><div><b>${st.environmentKills||0}</b>ENV KILLS</div><div><b>${G.difficulty?.toUpperCase()||"STANDARD"}</b>PROTOCOL</div></div><div class="v17Sub">KILLS PER CLEARED WAVE</div><div class="v17Graph">${bars||'<i style="height:4px"></i>'}</div></div>`;
+  return `<div class="v17Breakdown"><div class="v17Kicker">V${APP_VERSION_LABEL} RUN TELEMETRY</div><div class="v17BreakGrid"><div><b>${Math.round(st.damageTaken||0)}</b>DAMAGE TAKEN</div><div><b>${st.maxCombo||0}</b>MAX COMBO</div><div><b>${st.perfectDodges||0}</b>PERFECT DODGES</div><div><b>${st.executions||0}</b>EXECUTIONS</div><div><b>${G.v17Artifacts?.length||0}</b>ARTIFACTS</div><div><b>${G.v17Curses?.length||0}</b>CURSES</div><div><b>${st.environmentKills||0}</b>ENV KILLS</div><div><b>${G.difficulty?.toUpperCase()||"STANDARD"}</b>PROTOCOL</div></div><div class="v17Sub">KILLS PER CLEARED WAVE</div><div class="v17Graph">${bars||'<i style="height:4px"></i>'}</div></div>`;
 }
 
 /* -------- wrappers / hooks -------- */
@@ -3868,7 +3957,6 @@ class AnnouncerSystem{
     if((this.lastKeys.get(dedupe)||0)>now-4500)return;
     this.lastKeys.set(dedupe,now);
     const item={text:String(text),category,priority,key:dedupe,level,duration,voice};
-    if(this.current&&priority>=this.current.priority+25){this.stopCurrent(false);this.queue.unshift(item);this.next();return}
     this.queue.push(item);this.queue.sort((a,b)=>b.priority-a.priority);if(!this.current)this.next();
   }
   stopCurrent(clearVoice=true){
@@ -4074,7 +4162,8 @@ for(const id of ["announcerSlider","announcerEngineSelect","announcerVoiceToggle
 /* startup */
 setTimeout(()=>{applyAudioSettings();v18Presence(true)},650);
 
-const APP_VERSION="18.5.0";
+const APP_VERSION="18.6.0";
+const APP_VERSION_LABEL="18.6";
 let pendingDesktopUpdate=null;
 
 function compareVersionStrings(a,b){
@@ -4152,7 +4241,7 @@ function setupMobileControls(){
 }
 setupMobileControls();
 $("bootStart").addEventListener("click",beginBoot);
-setTimeout(beginBoot,60);
+setTimeout(beginBoot,60);syncRuntimeUI();
 $("contractAccept").addEventListener("click",acceptContract);$("contractDecline").addEventListener("click",declineContract);
 /* BUTTONS */
 $("updateBtn").addEventListener("click",()=>pendingDesktopUpdate?installDesktopUpdate():checkDesktopUpdate(false));
