@@ -1,8 +1,8 @@
 {
-  "version": "18.8.7",
+  "version": "18.8.8",
   "gameUrl": "https://raw.githubusercontent.com/C0SMIC58/RIFTSHIFT/main/RIFTSHIFT_LATEST.html",
-  "sha256": "a9f2fad4fbc974de84e9dcb3fd0f67bc97afb65c0be4c3866d96365e721fc99d",
+  "sha256": "f7115816b2a21aef92f45b803094c5b1aac8f46699167fd119b84f20cc4ff8dd",
   "overhaul": false,
   "priority": "normal",
-  "notes": "Loadout branch UI/mechanics repair, larger realistic procedural menu inferno, boot cinematic revamp, and expanded owner/admin controls."
+  "notes": "Owner authentication key reset. Gameplay content is unchanged from V18.8.7."
 }
