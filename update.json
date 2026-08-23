@@ -1,11 +1,11 @@
 {
-  "version": "18.8.11",
+  "version": "18.8.12",
   "gameUrl": "https://raw.githubusercontent.com/C0SMIC58/RIFTSHIFT/main/RIFTSHIFT_LATEST.html",
-  "sha256": "b73f791791dce9eca622ece14f934e7dde2a5b9a4a0de7399572298904805129",
+  "sha256": "1946e140a704e409975ebaa41c99237923b80e5ee2a7012fa97bc512feb82efb",
   "iconUrl": "https://raw.githubusercontent.com/C0SMIC58/RIFTSHIFT/main/RIFTSHIFT_ICON.ico",
   "iconSha256": "d1493025ba3162b8511d26ac342611fe5e977e9308ebadb4658551fb79b1e314",
   "iconPngUrl": "https://raw.githubusercontent.com/C0SMIC58/RIFTSHIFT/main/RIFTSHIFT_ICON.png",
   "overhaul": false,
   "priority": "normal",
-  "notes": "Desktop icon hotfix: cache-safe versioned shortcut icons and automatic icon synchronization from the update channel. Future icon changes update without rebuilding the whole desktop package."
+  "notes": "Input and presentation update: F2 admin toggle fix, hard mute on focus loss, improved footsteps, synchronized player/weapon turning, stronger physical utility throws, and richer Discord Rich Presence."
 }
