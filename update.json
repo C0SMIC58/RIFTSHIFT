@@ -1,8 +1,8 @@
 {
-  "version": "18.7.0",
+  "version": "18.8.0",
   "gameUrl": "https://raw.githubusercontent.com/C0SMIC58/RIFTSHIFT/main/RIFTSHIFT_LATEST.html",
-  "sha256": "fae1bf882ad96cf4ca6de762760ed67781bfd5da4e61d0b73cc2eb1bc3fdb0d3",
+  "sha256": "47425bae2fcb83091a96fd81d9898d3fc5262a141a9c5d073da823d6ebe3501c",
   "overhaul": false,
   "priority": "normal",
-  "notes": "Warfront menu backdrop; physical weapon model/evolution attachments; floor-lit muzzle flash; rebuilt enemies; usable secondary/melee/utility kits; structural procedural map expansion."
+  "notes": "Class selection loadout cleanup; true equipped secondary/melee/utility visuals; ignition pistol gasoline trails and ignition chaining; flame menu backdrop; subtitle-style announcer UI; denser procedural structures."
 }
