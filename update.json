@@ -1,6 +1,8 @@
 {
-  "version": "18.6.0",
+  "version": "18.7.0",
   "gameUrl": "https://raw.githubusercontent.com/C0SMIC58/RIFTSHIFT/main/RIFTSHIFT_LATEST.html",
-  "sha256": "0983953e65f81bf1f47efaec7aafa9014ba6899314c93811aab1974d6c702bfc",
-  "notes": "V18.6: UI refresh, warfront menu presentation, current-version telemetry, persistent loadout display, heavier menu/combat music, improved Overdrive, continuous boot diamond motion, revised announcer queueing, upgraded weapon visuals and muzzle flash, and richer procedural map dressing."
+  "sha256": "fae1bf882ad96cf4ca6de762760ed67781bfd5da4e61d0b73cc2eb1bc3fdb0d3",
+  "overhaul": false,
+  "priority": "normal",
+  "notes": "Warfront menu backdrop; physical weapon model/evolution attachments; floor-lit muzzle flash; rebuilt enemies; usable secondary/melee/utility kits; structural procedural map expansion."
 }
