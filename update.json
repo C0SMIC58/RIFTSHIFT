@@ -1,11 +1,11 @@
 {
-  "version": "18.8.22",
+  "version": "18.8.23",
   "gameUrl": "https://raw.githubusercontent.com/C0SMIC58/RIFTSHIFT/main/RIFTSHIFT_LATEST.html",
-  "sha256": "dd1ed963417af194f0746bbfd422f5aa0a82e8b8b29d588198925c52ece0d5e2",
+  "sha256": "2c54ef2a14d013fa92720d3494995f99443e6e3533379cb587470fdd6b7a8687",
   "iconUrl": "https://raw.githubusercontent.com/C0SMIC58/RIFTSHIFT/main/RIFTSHIFT_ICON.ico",
   "iconSha256": "d1493025ba3162b8511d26ac342611fe5e977e9308ebadb4658551fb79b1e314",
   "iconPngUrl": "https://raw.githubusercontent.com/C0SMIC58/RIFTSHIFT/main/RIFTSHIFT_ICON.png",
   "overhaul": false,
   "priority": "normal",
-  "notes": "V18.8.22 synchronizes the host map, full custom projectile/fire visuals, and detailed squadmate class models/weapons while reducing multiplayer bandwidth and render load."
+  "notes": "V18.8.23 keeps hosted squad runs alive from the main menu, adds headless host simulation, squad tactical links, assault groups, a threat director, and adaptive performance LOD."
 }
