@@ -264,7 +264,7 @@ canvas{display:block}
 @media(prefers-reduced-motion:reduce){.eg,.engineSlash,.engineCoreCircle,.enginePulseRing,.engineLogoStage,.engineWordmark,.engineBuild,.engineHandoff,.engineFooter,.engineSplash:before,.engineSplash:after{animation-duration:.01ms!important;animation-delay:0ms!important}}
 
 
-/* V18.8.17 intro cinematic refresh */
+/* V18.8.18 intro cinematic refresh */
 .bootCinematicFX{position:absolute;inset:0;pointer-events:none;z-index:1;overflow:hidden}
 .bootHorizon{position:absolute;left:-10%;right:-10%;top:50%;height:1px;background:linear-gradient(90deg,transparent,rgba(255,126,68,.18),rgba(255,226,175,.75),rgba(117,233,255,.34),transparent);box-shadow:0 0 26px rgba(255,126,68,.25);opacity:0;animation:bootHorizonLife 4.1s .25s ease both}
 .bootScanline{position:absolute;left:0;right:0;height:2px;top:16%;background:linear-gradient(90deg,transparent,rgba(117,233,255,.05),rgba(255,255,255,.35),rgba(255,126,68,.08),transparent);opacity:0;animation:bootScanSweep 2.6s .65s cubic-bezier(.2,.72,.2,1) both}
@@ -651,7 +651,7 @@ canvas{display:block}
 @media(max-width:850px){.v9Grid{grid-template-columns:1fr 1fr}.settingsGrid{grid-template-columns:1fr}.historyRow{grid-template-columns:1fr 1fr 1fr}.historyRow span:nth-child(n+4){display:none}}
 @media(max-width:850px){.classes{grid-template-columns:1fr 1fr}.classCard{min-height:340px}.upCards{grid-template-columns:1fr}.upCard{min-height:155px}.classTop{align-items:flex-start;flex-direction:column}}
 
-/* V18.8.17 // CLASS SELECT FIT PASS */
+/* V18.8.18 // CLASS SELECT FIT PASS */
 #classSelect{padding:10px;overflow:hidden}
 #classSelect .classShell{
   width:1480px;max-width:none;max-height:none;overflow:visible;
@@ -691,7 +691,7 @@ canvas{display:block}
 }
 
 
-/* V18.8.17 // boot warp handoff + admin exit reliability */
+/* V18.8.18 // boot warp handoff + admin exit reliability */
 #bootWarpFX{position:absolute;inset:-8%;z-index:90;pointer-events:none;opacity:0;overflow:hidden;mix-blend-mode:screen}
 #bootWarpFX:before,#bootWarpFX:after{content:"";position:absolute;inset:0;opacity:0}
 #bootWarpFX:before{background:repeating-linear-gradient(90deg,rgba(117,233,255,.0) 0 6%,rgba(117,233,255,.13) 7%,rgba(255,114,72,.10) 8%,rgba(0,0,0,0) 10% 17%);filter:blur(3px);transform:scaleX(1.08)}
@@ -711,7 +711,7 @@ canvas{display:block}
 </style>
 
 <style id="v1886-polish">
-/* V18.8.17: side-slot branches use the normal upgrade-card presentation */
+/* V18.8.18: side-slot branches use the normal upgrade-card presentation */
 #kitBranch{align-items:center;justify-content:center;background:rgba(4,6,10,.82);backdrop-filter:blur(8px);pointer-events:auto}
 #kitBranch .kitBranchBox{width:min(980px,92vw);max-height:88vh;overflow:auto;background:rgba(13,19,31,.98);border:1px solid rgba(255,255,255,.10);border-radius:20px;padding:24px;box-sizing:border-box;box-shadow:0 28px 80px rgba(0,0,0,.55)}
 #kitBranch .upTitle{margin-bottom:6px}
@@ -836,7 +836,7 @@ canvas{display:block}
     <div class="menuTopRedux">
       <div class="menuTopLeft">
         <span class="menuKickerRedux">RIFTSHIFT // STRIKE DIRECTOR</span>
-        <span class="menuBuildChip">BUILD V18.8.17</span>
+        <span class="menuBuildChip">BUILD V18.8.18</span>
       </div>
       <div class="menuTopRight"><span class="menuPulse"></span> ORBITAL LINK GREEN</div>
     </div>
@@ -901,7 +901,7 @@ canvas{display:block}
           <div class="stageStatBar">
             <div class="stageStat"><span>CLASS CORES</span><b>4</b></div>
             <div class="stageStat"><span>RUN SEEDS</span><b>∞</b></div>
-            <div class="stageStat"><span>BUILD</span><b>V18.8.17</b></div>
+            <div class="stageStat"><span>BUILD</span><b>V18.8.18</b></div>
           </div>
         </div>
 
@@ -4808,7 +4808,7 @@ $("armoryContinueBtn").addEventListener("click",continueFromArmory);
 $("armoryRerollBtn").addEventListener("click",armoryReroll);
 ["masterSlider","musicSlider","sfxSlider","shakeSlider","impactSlider","particleSlider","crosshairSlider","hudSlider","fpsSelect","damageToggle","enemyBarsToggle","hitmarkerToggle","vignetteToggle","flashToggle","reducedMotionToggle","pauseBlurToggle","mobileAimToggle","fullscreenToggle"].forEach(id=>$(id).addEventListener("input",handleSettingsInput));$("resetSettingsBtn").addEventListener("click",resetSettings);
 $("ownerLoginBtn").addEventListener("click",tryOwnerLogin);$("ownerKeyInput").addEventListener("keydown",e=>{if(e.key==="Enter")tryOwnerLogin()});$("adminCloseBtn").addEventListener("click",closeAdminPanel);$("adminLogoutBtn").addEventListener("click",lockOwnerMode);document.querySelectorAll("[data-admin]").forEach(b=>b.addEventListener("click",()=>adminAction(b.dataset.admin)));
-// V18.8.17 fail-safe admin exit wiring. This remains functional even if the panel is opened repeatedly with F2.
+// V18.8.18 fail-safe admin exit wiring. This remains functional even if the panel is opened repeatedly with F2.
 document.addEventListener("click",e=>{if(e.target?.id==="adminCloseBtn"){e.preventDefault();e.stopPropagation();closeAdminPanel();}},true);
 document.addEventListener("keydown",e=>{if(e.key==="Escape"&&$("admin")?.classList.contains("active")){e.preventDefault();e.stopImmediatePropagation();closeAdminPanel();}},true);
 $("classBackBtn").addEventListener("click",()=>returnMenu());
@@ -4841,7 +4841,7 @@ if("serviceWorker" in navigator && location.protocol.startsWith("http")){
 }
 
 
-/* ===== V18.8.17 CLEAN ENHANCEMENT PATCH ===== */
+/* ===== V18.8.18 CLEAN ENHANCEMENT PATCH ===== */
 function rsClamp01(v){return Math.max(0,Math.min(1,v));}
 function rsRotate(x,y,a){const c=Math.cos(a),s=Math.sin(a);return{x:x*c-y*s,y:x*s+y*c};}
 function getBaseWeaponRig(slot=1,cls=G?.classId||"survivor"){
@@ -4967,7 +4967,7 @@ const rsOldNextWave=nextWave;nextWave=function(...args){const out=rsOldNextWave.
 const rsOldUpdate=update;update=function(dt){if(G?.map?.obstacles){for(const o of G.map.obstacles){if(!o.moving)continue;o.moveClock=(o.moveClock||0)+dt*(o.moveRate||1);o.x=o.baseX+Math.sin(o.moveClock)*(o.ampX||0);o.y=o.baseY+Math.sin(o.moveClock*1.06+1.2)*(o.ampY||0);}}const out=rsOldUpdate.apply(this,arguments);if(G?.running){updateSuperPickups(dt);updateFireFields(dt);if(G.enemies.some(e=>e.type==="behemoth"&&dist(e,G.player)<120))G.shake=Math.max(G.shake,2.2);}return out;};
 const rsOldDrawGame=drawGame;drawGame=function(){rsOldDrawGame.apply(this,arguments);if(!G?.running)return;X.save();if(G.map?.motionMode){X.globalAlpha=.09;X.strokeStyle=G.map.theme.accent;X.lineWidth=2;const speed=(G.time*180)%80;for(let y=-80+speed;y<H+80;y+=80){X.beginPath();X.moveTo(0,y);X.lineTo(W,y-35);X.stroke();}X.globalAlpha=1;}drawFireFields();drawSuperPickups();X.restore();};
 
-/* V18.8.17 realistic menu inferno: broad wall fire, jagged turbulent edges, layered cores, embers, smoke. */
+/* V18.8.18 realistic menu inferno: broad wall fire, jagged turbulent edges, layered cores, embers, smoke. */
 (function initMenuFlameCanvas(){
   const canvas=document.getElementById("menuFlameCanvas");if(!canvas)return;
   const ctx=canvas.getContext("2d"),flames=[],embers=[],smoke=[];let cw=0,ch=0,dpr=1,last=performance.now();
@@ -4994,7 +4994,7 @@ const rsOldDrawGame=drawGame;drawGame=function(){rsOldDrawGame.apply(this,argume
 
 
 
-/* ===== V18.8.17 PLAYER / MELEE / UTILITY PRESENTATION PATCH ===== */
+/* ===== V18.8.18 PLAYER / MELEE / UTILITY PRESENTATION PATCH ===== */
 function rs810AngleDelta(a,b){return Math.atan2(Math.sin(a-b),Math.cos(a-b));}
 function rs810VisualFacing(p){
   const target=Math.atan2(mouse.y-p.y,mouse.x-p.x);
@@ -5146,7 +5146,7 @@ update=function(dt){const out=rs810OldUpdate.apply(this,arguments);if(G?.running
 
 
 
-/* ===== V18.8.17 INPUT / AUDIO / AIM / PRESENCE POLISH ===== */
+/* ===== V18.8.18 INPUT / AUDIO / AIM / PRESENCE POLISH ===== */
 
 /* F2 FIX
    V18.8.11 had two F2 handlers: the later capture handler opened the admin panel,
@@ -5174,7 +5174,7 @@ rs810VisualFacing=function(p){
   return target;
 };
 
-/* TRUE TAB / APP AUDIO MUTE — V18.8.17
+/* TRUE TAB / APP AUDIO MUTE — V18.8.18
    Do NOT use the browser window blur event here. In an embedded game, ordinary
    pointer/focus changes can blur the iframe/window even though the tab is still
    visible. That caused clicks to cut the entire mix. Browser builds now mute only
@@ -5299,16 +5299,16 @@ v18PresencePayload=function(){
     if(G.paused||active==="pause")return{details:`PAUSED // WAVE ${G.wave} // ${biome}`,state:`${cls} // ${weapon}`,largeText:`${diff} PROTOCOL`,start:Math.floor(v18PresenceState.start/1000)};
     return{details:`WAVE ${G.wave} // ${biome}`,state:`${cls} // ${weapon}`,largeText:`${diff} // ${G.kills||0} KILLS`,start:Math.floor(v18PresenceState.start/1000)};
   }
-  if(active==="classSelect")return{details:"LOADOUT TERMINAL // CHOOSING OPERATIVE",state:"Preparing a new Rift deployment",largeText:"RIFTSHIFT // V18.8.17"};
+  if(active==="classSelect")return{details:"LOADOUT TERMINAL // CHOOSING OPERATIVE",state:"Preparing a new Rift deployment",largeText:"RIFTSHIFT // V18.8.18"};
   if(active==="gameover"&&G)return{details:`RUN COMPLETE // WAVE ${G.wave}`,state:`${G.kills} KILLS // ${Math.round(G.score).toLocaleString()} SCORE`,largeText:"RIFTSHIFT // RUN TELEMETRY",start:Math.floor(v18PresenceState.start/1000)};
-  if(active==="v17Hub")return{details:"SHIP TERMINAL // CONFIGURING RUN",state:"Reviewing protocols, arsenal and contracts",largeText:"RIFTSHIFT // V18.8.17"};
-  return{details:"SHIP TERMINAL // IDLE",state:"Preparing to enter the Rift",largeText:"RIFTSHIFT // V18.8.17"};
+  if(active==="v17Hub")return{details:"SHIP TERMINAL // CONFIGURING RUN",state:"Reviewing protocols, arsenal and contracts",largeText:"RIFTSHIFT // V18.8.18"};
+  return{details:"SHIP TERMINAL // IDLE",state:"Preparing to enter the Rift",largeText:"RIFTSHIFT // V18.8.18"};
 };
 try{$("discordPresenceBadge")?.classList.remove("on")}catch(_){}
 
 
 
-/* ===== V18.8.17 MARKSMAN + PLAYER MODEL REWORK ===== */
+/* ===== V18.8.18 MARKSMAN + PLAYER MODEL REWORK ===== */
 (function rs814Install(){
   /* --- New sniper / marksman class --- */
   CLASS_DEFS.marksman={
@@ -5612,10 +5612,10 @@ try{$("discordPresenceBadge")?.classList.remove("on")}catch(_){}
 
   /* Rich Presence gets the new class automatically; force the current version label. */
   const rs814PrevPresence=v18PresencePayload;
-  v18PresencePayload=function(){const q=rs814PrevPresence();if(q&&typeof q.largeText==="string")q.largeText=q.largeText.replace(/V18\.8\.13/g,"V18.8.17");return q;};
+  v18PresencePayload=function(){const q=rs814PrevPresence();if(q&&typeof q.largeText==="string")q.largeText=q.largeText.replace(/V18\.8\.13/g,"V18.8.18");return q;};
 
 
-  /* ===== V18.8.17 MARKSMAN ANTI-MATERIAL PATCH ===== */
+  /* ===== V18.8.18 MARKSMAN ANTI-MATERIAL PATCH ===== */
   CLASS_DEFS.marksman.desc="A brutal anti-material sniper. The VLR-7 launches a supersonic penetrator that tears through walls, kicks off shockwaves, and leaves collapsed cover and debris behind the shot.";
   CLASS_DEFS.marksman.stats=["ANTI-MATERIAL","SONIC SHOCKWAVE","WALLBREAKER"];
   CLASS_ABILITIES.marksman.desc="Enter DEAD CALM to stabilize the rifle, amplify the shot, and drive a screaming anti-material round through enemies and architecture alike.";
@@ -5720,9 +5720,9 @@ try{$("discordPresenceBadge")?.classList.remove("on")}catch(_){}
   };
 
   const rs815PrevPresence=v18PresencePayload;
-  v18PresencePayload=function(){const q=rs815PrevPresence();if(q&&typeof q.largeText==="string")q.largeText=q.largeText.replace(/V18\.8\.14/g,"V18.8.17");return q;};
+  v18PresencePayload=function(){const q=rs815PrevPresence();if(q&&typeof q.largeText==="string")q.largeText=q.largeText.replace(/V18\.8\.14/g,"V18.8.18");return q;};
 
-  /* ===== V18.8.17 ABILITY + HELD-ITEM HUD REWORK ===== */
+  /* ===== V18.8.18 ABILITY + HELD-ITEM HUD REWORK ===== */
   Object.assign(CLASS_ABILITIES,{
     survivor:{name:"TRAUMA OVERRIDE",cost:45,desc:"Emergency combat cocktail: heal, cleanse pressure, reset Dash, then gain a strong movement, fire-rate, and damage surge."},
     rifleman:{name:"KILLBOX LOCK",cost:55,desc:"Paint a kill zone around the cursor. Mark nearby hostiles, boost fire rate and crit, and convert every second shot into a heavy rail penetrator."},
@@ -5836,11 +5836,11 @@ try{$("discordPresenceBadge")?.classList.remove("on")}catch(_){}
   };
 
   const rs816PrevPresence=v18PresencePayload;
-  v18PresencePayload=function(){const q=rs816PrevPresence();if(q&&typeof q.largeText==="string")q.largeText=q.largeText.replace(/V18\.8\.15/g,"V18.8.17");return q;};
+  v18PresencePayload=function(){const q=rs816PrevPresence();if(q&&typeof q.largeText==="string")q.largeText=q.largeText.replace(/V18\.8\.15/g,"V18.8.18");return q;};
 
 
 
-  /* ===== V18.8.17 MARKSMAN WAVEBREAKER OVERHAUL ===== */
+  /* ===== V18.8.18 MARKSMAN WAVEBREAKER OVERHAUL ===== */
   const rs817PrevDrawSharp=drawSharpElectricLine;
   drawSharpElectricLine=function(l){
     if(!l||!l.wave)return rs817PrevDrawSharp(l);
@@ -6024,7 +6024,106 @@ try{$("discordPresenceBadge")?.classList.remove("on")}catch(_){}
   };
 
   const rs817PrevPresence=v18PresencePayload;
-  v18PresencePayload=function(){const q=rs817PrevPresence();if(q&&typeof q.largeText==='string')q.largeText=q.largeText.replace(/V18\.8\.16/g,'V18.8.17');return q;};
+  v18PresencePayload=function(){const q=rs817PrevPresence();if(q&&typeof q.largeText==='string')q.largeText=q.largeText.replace(/V18\.8\.16/g,'V18.8.18');return q;};
+
+
+
+
+  /* ===== V18.8.18 MARKSMAN PERFORMANCE PASS ===== */
+  CLASS_DEFS.marksman.desc="A precision anti-materiel sniper built around long sightlines, supersonic pressure waves, controlled pacing, and extreme target penetration without destroying arena walls.";
+  CLASS_DEFS.marksman.stats=["HIGH CALIBER","SONIC PRESSURE","DEEP PENETRATION"];
+
+  const rs818PrevPlayerShoot=playerShoot;
+  playerShoot=function(){
+    const lineStart=G?.energyLines?.length||0,bulletStart=G?.bullets?.length||0;
+    const out=rs818PrevPlayerShoot.apply(this,arguments);
+    if(G?.classId==='marksman'&&G?.player&&(G.player.equippedSlot||1)===1){
+      if(G.energyLines&&G.energyLines.length>lineStart)G.energyLines.splice(lineStart);
+      const fresh=G.bullets?.slice(bulletStart)||[];
+      for(const b of fresh){
+        if(!b.marksman)continue;
+        b.marksmanBreaker=false;b.marksmanLite=true;b.wallPierce=0;b.breakPartial=false;b.overPenStacks=0;
+        b.spawnX=b.spawnX??b.x;b.spawnY=b.spawnY??b.y;b.baseDamage=b.baseDamage||b.damage;
+      }
+      const p=G.player,info=getWeaponShotInfo(1,'marksman'),a=info.angle,full=(p.marksmanSettle||0)>.94;
+      G.marksmanWaves=G.marksmanWaves||[];
+      G.marksmanWaves.push({x:info.muzzle.x+Math.cos(a)*18,y:info.muzzle.y+Math.sin(a)*18,a,life:.26,max:.26,r:8,maxR:full?92:72,width:full?4.5:3.5,color:full?'#edfaff':'#9bd8ff',floor:p.floor});
+      if(G.marksmanWaves.length>10)G.marksmanWaves.splice(0,G.marksmanWaves.length-10);
+    }
+    return out;
+  };
+
+  const rs818PrevBulletObstacle=bulletObstacle;
+  bulletObstacle=function(b){
+    if(b?.marksmanLite){
+      if(G?.map?.envProps){for(const q of G.map.envProps){if(!q.dead&&Math.hypot(b.x-q.x,b.y-q.y)<b.r+q.r)return true;}}
+      const hit=G?.map?.obstacles?.find(o=>(o.floor??0)===(b.floor??0)&&circleRect(b.x,b.y,b.r,o));
+      if(hit){
+        if(!b.rs818WallFx){
+          b.rs818WallFx=true;const a=Math.atan2(b.vy,b.vx),ix=clamp(b.x,hit.x,hit.x+hit.w),iy=clamp(b.y,hit.y,hit.y+hit.h);
+          G.marksmanWaves=G.marksmanWaves||[];
+          G.marksmanWaves.push({x:ix,y:iy,a,life:.22,max:.22,r:6,maxR:b.crit?78:60,width:b.crit?4:3,color:b.crit?'#fff1b7':'#9bd8ff',floor:b.floor});
+          if(G.marksmanWaves.length>10)G.marksmanWaves.splice(0,G.marksmanWaves.length-10);
+          const debrisCount=settings?.particleDensity<.7?5:9;
+          for(let k=0;k<debrisCount;k++){const aa=a+Math.PI+rand(-.75,.75),sp=rand(55,155);particle(ix,iy,Math.cos(aa)*sp,Math.sin(aa)*sp,rand(1.3,3.2),Math.random()<.55?'#8d99a6':'#d7e4ee',rand(.18,.38));}
+          G.shake=Math.max(G.shake,b.crit?4.6:3.2);sfx.impact(ix);
+        }
+        return true;
+      }
+      return b.x<10||b.x>W-10||b.y<10||b.y>H-10;
+    }
+    return rs818PrevBulletObstacle(b);
+  };
+
+  const rs818PrevDrawBullet=drawBullet;
+  drawBullet=function(b){
+    if(!b?.marksmanLite)return rs818PrevDrawBullet(b);
+    const a=Math.atan2(b.vy,b.vx),speed=Math.hypot(b.vx,b.vy)||1,trail=clamp(speed*.075,38,96),t=G?.time||0;
+    const nx=-Math.sin(a),ny=Math.cos(a),bx=b.x-Math.cos(a)*trail,by=b.y-Math.sin(a)*trail,w=Math.sin(t*30+b.x*.017+b.y*.013)*(b.specialRound?5.5:3.6);
+    X.save();X.globalCompositeOperation='lighter';
+    X.shadowColor=b.specialRound?'#fff0b8':'#9bd8ff';X.shadowBlur=b.specialRound?18:13;
+    X.strokeStyle=b.specialRound?'rgba(255,240,184,.34)':'rgba(155,216,255,.28)';X.lineWidth=b.specialRound?8:6;
+    X.beginPath();X.moveTo(b.x,b.y);X.quadraticCurveTo((b.x+bx)*.5+nx*w,(b.y+by)*.5+ny*w,bx,by);X.stroke();
+    X.strokeStyle='rgba(238,251,255,.82)';X.lineWidth=b.specialRound?2.2:1.7;
+    X.beginPath();X.moveTo(b.x,b.y);X.quadraticCurveTo((b.x+bx)*.5-nx*w*.65,(b.y+by)*.5-ny*w*.65,bx,by);X.stroke();
+    X.globalAlpha=.24;X.strokeStyle=b.specialRound?'#fff0b8':'#9bd8ff';X.lineWidth=1;
+    X.beginPath();X.moveTo(b.x+nx*5,b.y+ny*5);X.quadraticCurveTo((b.x+bx)*.5+nx*w*1.8,(b.y+by)*.5+ny*w*1.8,bx+nx*2,by+ny*2);X.stroke();
+    X.globalAlpha=1;X.fillStyle=b.crit?'#fff1b7':'#effcff';X.beginPath();X.ellipse(b.x,b.y,b.crit?6:5,b.crit?3.4:2.8,a,0,TAU);X.fill();X.restore();
+  };
+
+  const rs818PrevDrawBlasts=drawBlasts;
+  drawBlasts=function(){
+    rs818PrevDrawBlasts();
+    if(!G?.marksmanWaves?.length)return;
+    X.save();X.globalCompositeOperation='lighter';
+    for(const q of G.marksmanWaves){
+      if((q.floor??0)!==(G.player?.floor??0))continue;
+      const life=clamp(q.life/q.max,0,1),pct=1-life,r=q.r+(q.maxR-q.r)*(1-Math.pow(1-pct,2));
+      X.strokeStyle=q.color||'#9bd8ff';X.globalAlpha=life*.72;X.lineWidth=Math.max(.8,(q.width||3)*life);
+      X.shadowColor=q.color||'#9bd8ff';X.shadowBlur=10*life;
+      X.beginPath();X.arc(q.x,q.y,r,0,TAU);X.stroke();
+      X.globalAlpha=life*.24;X.lineWidth=Math.max(.7,(q.width||3)*.45*life);X.beginPath();X.arc(q.x,q.y,r*.72,0,TAU);X.stroke();
+    }
+    X.restore();
+  };
+
+  const rs818PrevUpdate=update;
+  update=function(dt){
+    if(G?.bullets){for(const b of G.bullets){if(b.marksmanBreaker||b.marksman){b.marksmanBreaker=false;b.marksmanLite=true;b.wallPierce=0;b.breakPartial=false;b.overPenStacks=0;b.baseDamage=b.baseDamage||b.damage;b.spawnX=b.spawnX??b.x;b.spawnY=b.spawnY??b.y;}}}
+    if(G?.marksmanBreachLines)G.marksmanBreachLines.length=0;
+    const savedDrone=G?.marksmanDrone||null;if(G&&savedDrone)G.marksmanDrone=null;
+    const out=rs818PrevUpdate.apply(this,arguments);
+    if(G&&savedDrone){G.marksmanDrone=savedDrone;const d=savedDrone;d.life-=dt;d.markCd=(d.markCd||0)-dt;const candidates=G.enemies.filter(e=>(e.floor??0)===(d.floor??0));const tgt=candidates.sort((a,b)=>Math.hypot(a.x-d.x,a.y-d.y)-Math.hypot(b.x-d.x,b.y-d.y))[0];if(tgt){d.x+=(tgt.x-d.x)*Math.min(1,dt*1.15);d.y+=(tgt.y-38-d.y)*Math.min(1,dt*1.15);}if(d.markCd<=0){d.markCd=.72;let marked=0;for(const e of candidates){if(marked>=5)break;if(Math.hypot(e.x-d.x,e.y-d.y)>135+e.r)continue;e.vulnTime=Math.max(e.vulnTime||0,2.2);e.vulnPower=Math.max(e.vulnPower||0,.16);marked++;}}if(d.life<=0)G.marksmanDrone=null;}
+    if(G?.marksmanWaves){for(let i=G.marksmanWaves.length-1;i>=0;i--){G.marksmanWaves[i].life-=dt;if(G.marksmanWaves[i].life<=0)G.marksmanWaves.splice(i,1);}}
+    if(G?.classId==='marksman'){
+      if(G.energyLines?.length>90)G.energyLines.splice(0,G.energyLines.length-90);
+      if(G.particles?.length>520)G.particles.splice(0,G.particles.length-520);
+    }
+    return out;
+  };
+
+  const rs818PrevPresence=v18PresencePayload;
+  v18PresencePayload=function(){const q=rs818PrevPresence();if(q&&typeof q.largeText==='string')q.largeText=q.largeText.replace(/V18\.8\.17/g,'V18.8.18');return q;};
 
 
   renderClasses();
