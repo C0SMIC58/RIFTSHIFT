@@ -1,11 +1,11 @@
 {
-  "version": "18.8.13",
+  "version": "18.8.14",
   "gameUrl": "https://raw.githubusercontent.com/C0SMIC58/RIFTSHIFT/main/RIFTSHIFT_LATEST.html",
-  "sha256": "27b6d9473cd3764ae47fd8f72d8a8617d003658473a7a3116141e55e2eab0e86",
+  "sha256": "f97b1377e1ac3a83d1cfc42747e9d274281bff02173b76f4dcd5fb417b16f454",
   "iconUrl": "https://raw.githubusercontent.com/C0SMIC58/RIFTSHIFT/main/RIFTSHIFT_ICON.ico",
   "iconSha256": "d1493025ba3162b8511d26ac342611fe5e977e9308ebadb4658551fb79b1e314",
   "iconPngUrl": "https://raw.githubusercontent.com/C0SMIC58/RIFTSHIFT/main/RIFTSHIFT_ICON.png",
   "overhaul": false,
   "priority": "normal",
-  "notes": "Focus audio hotfix: normal clicks no longer trigger tab-out muting; browser audio mutes only when actually hidden, while desktop uses native Electron Alt-Tab focus events."
+  "notes": "V18.8.14 adds the Marksman sniper class with full upgrades/evolutions/kit branches and reworks the player model, arm joints, and instant body/weapon facing."
 }

@@ -264,7 +264,7 @@ canvas{display:block}
 @media(prefers-reduced-motion:reduce){.eg,.engineSlash,.engineCoreCircle,.enginePulseRing,.engineLogoStage,.engineWordmark,.engineBuild,.engineHandoff,.engineFooter,.engineSplash:before,.engineSplash:after{animation-duration:.01ms!important;animation-delay:0ms!important}}
 
 
-/* V18.8.13 intro cinematic refresh */
+/* V18.8.14 intro cinematic refresh */
 .bootCinematicFX{position:absolute;inset:0;pointer-events:none;z-index:1;overflow:hidden}
 .bootHorizon{position:absolute;left:-10%;right:-10%;top:50%;height:1px;background:linear-gradient(90deg,transparent,rgba(255,126,68,.18),rgba(255,226,175,.75),rgba(117,233,255,.34),transparent);box-shadow:0 0 26px rgba(255,126,68,.25);opacity:0;animation:bootHorizonLife 4.1s .25s ease both}
 .bootScanline{position:absolute;left:0;right:0;height:2px;top:16%;background:linear-gradient(90deg,transparent,rgba(117,233,255,.05),rgba(255,255,255,.35),rgba(255,126,68,.08),transparent);opacity:0;animation:bootScanSweep 2.6s .65s cubic-bezier(.2,.72,.2,1) both}
@@ -651,7 +651,7 @@ canvas{display:block}
 @media(max-width:850px){.v9Grid{grid-template-columns:1fr 1fr}.settingsGrid{grid-template-columns:1fr}.historyRow{grid-template-columns:1fr 1fr 1fr}.historyRow span:nth-child(n+4){display:none}}
 @media(max-width:850px){.classes{grid-template-columns:1fr 1fr}.classCard{min-height:340px}.upCards{grid-template-columns:1fr}.upCard{min-height:155px}.classTop{align-items:flex-start;flex-direction:column}}
 
-/* V18.8.13 // CLASS SELECT FIT PASS */
+/* V18.8.14 // CLASS SELECT FIT PASS */
 #classSelect{padding:10px;overflow:hidden}
 #classSelect .classShell{
   width:1480px;max-width:none;max-height:none;overflow:visible;
@@ -691,7 +691,7 @@ canvas{display:block}
 }
 
 
-/* V18.8.13 // boot warp handoff + admin exit reliability */
+/* V18.8.14 // boot warp handoff + admin exit reliability */
 #bootWarpFX{position:absolute;inset:-8%;z-index:90;pointer-events:none;opacity:0;overflow:hidden;mix-blend-mode:screen}
 #bootWarpFX:before,#bootWarpFX:after{content:"";position:absolute;inset:0;opacity:0}
 #bootWarpFX:before{background:repeating-linear-gradient(90deg,rgba(117,233,255,.0) 0 6%,rgba(117,233,255,.13) 7%,rgba(255,114,72,.10) 8%,rgba(0,0,0,0) 10% 17%);filter:blur(3px);transform:scaleX(1.08)}
@@ -711,7 +711,7 @@ canvas{display:block}
 </style>
 
 <style id="v1886-polish">
-/* V18.8.13: side-slot branches use the normal upgrade-card presentation */
+/* V18.8.14: side-slot branches use the normal upgrade-card presentation */
 #kitBranch{align-items:center;justify-content:center;background:rgba(4,6,10,.82);backdrop-filter:blur(8px);pointer-events:auto}
 #kitBranch .kitBranchBox{width:min(980px,92vw);max-height:88vh;overflow:auto;background:rgba(13,19,31,.98);border:1px solid rgba(255,255,255,.10);border-radius:20px;padding:24px;box-sizing:border-box;box-shadow:0 28px 80px rgba(0,0,0,.55)}
 #kitBranch .upTitle{margin-bottom:6px}
@@ -787,7 +787,7 @@ canvas{display:block}
         <div class="engineHandoffTop"><span>RIFTSHIFT // COMBAT OPERATING SYSTEM</span><span class="live">● RIFT LINK STABLE</span></div>
         <div class="engineHandoffFrame">
           <div class="engineHandoffPane">
-            <div class="engineHandoffCode">FIELD TERMINAL / RS-18.8.13</div>
+            <div class="engineHandoffCode">FIELD TERMINAL / RS-18.8.14</div>
             <h1 class="engineHandoffTitle"><span class="rift">RIFT</span><span class="shift">SHIFT</span></h1>
             <div class="engineHandoffSlash"></div>
             <div class="engineHandoffSub">RIFT LINK STABLE // MENU UPLINK READY</div>
@@ -836,14 +836,14 @@ canvas{display:block}
     <div class="menuTopRedux">
       <div class="menuTopLeft">
         <span class="menuKickerRedux">RIFTSHIFT // STRIKE DIRECTOR</span>
-        <span class="menuBuildChip">BUILD V18.8.13</span>
+        <span class="menuBuildChip">BUILD V18.8.14</span>
       </div>
       <div class="menuTopRight"><span class="menuPulse"></span> ORBITAL LINK GREEN</div>
     </div>
 
     <div class="menuHeroRedux">
       <div class="menuBrandRedux">
-        <div class="brandCode">FIELD TERMINAL / RS-18.8.13</div>
+        <div class="brandCode">FIELD TERMINAL / RS-18.8.14</div>
         <h1 class="brandMain"><span class="rift">RIFT</span><span class="shift">SHIFT</span></h1>
         <div class="brandSlash"></div>
         <p class="commandCopy">Drop into a collapsing warfront where every run rebuilds the battlefield, every class carries a full combat kit, and every wave pushes harder than the last. Build momentum, evolve your weapons, and survive the rupture long enough to turn the front line back on itself.</p>
@@ -901,7 +901,7 @@ canvas{display:block}
           <div class="stageStatBar">
             <div class="stageStat"><span>CLASS CORES</span><b>4</b></div>
             <div class="stageStat"><span>RUN SEEDS</span><b>∞</b></div>
-            <div class="stageStat"><span>BUILD</span><b>V18.8.13</b></div>
+            <div class="stageStat"><span>BUILD</span><b>V18.8.14</b></div>
           </div>
         </div>
 
@@ -4708,8 +4708,8 @@ for(const id of ["announcerSlider","announcerEngineSelect","announcerVoiceToggle
 /* startup */
 setTimeout(()=>{applyAudioSettings();v18Presence(true)},650);
 
-const APP_VERSION="18.8.13";
-const APP_VERSION_LABEL="18.8.13";
+const APP_VERSION="18.8.14";
+const APP_VERSION_LABEL="18.8.14";
 let pendingDesktopUpdate=null;
 
 function compareVersionStrings(a,b){
@@ -4808,7 +4808,7 @@ $("armoryContinueBtn").addEventListener("click",continueFromArmory);
 $("armoryRerollBtn").addEventListener("click",armoryReroll);
 ["masterSlider","musicSlider","sfxSlider","shakeSlider","impactSlider","particleSlider","crosshairSlider","hudSlider","fpsSelect","damageToggle","enemyBarsToggle","hitmarkerToggle","vignetteToggle","flashToggle","reducedMotionToggle","pauseBlurToggle","mobileAimToggle","fullscreenToggle"].forEach(id=>$(id).addEventListener("input",handleSettingsInput));$("resetSettingsBtn").addEventListener("click",resetSettings);
 $("ownerLoginBtn").addEventListener("click",tryOwnerLogin);$("ownerKeyInput").addEventListener("keydown",e=>{if(e.key==="Enter")tryOwnerLogin()});$("adminCloseBtn").addEventListener("click",closeAdminPanel);$("adminLogoutBtn").addEventListener("click",lockOwnerMode);document.querySelectorAll("[data-admin]").forEach(b=>b.addEventListener("click",()=>adminAction(b.dataset.admin)));
-// V18.8.13 fail-safe admin exit wiring. This remains functional even if the panel is opened repeatedly with F2.
+// V18.8.14 fail-safe admin exit wiring. This remains functional even if the panel is opened repeatedly with F2.
 document.addEventListener("click",e=>{if(e.target?.id==="adminCloseBtn"){e.preventDefault();e.stopPropagation();closeAdminPanel();}},true);
 document.addEventListener("keydown",e=>{if(e.key==="Escape"&&$("admin")?.classList.contains("active")){e.preventDefault();e.stopImmediatePropagation();closeAdminPanel();}},true);
 $("classBackBtn").addEventListener("click",()=>returnMenu());
@@ -4841,7 +4841,7 @@ if("serviceWorker" in navigator && location.protocol.startsWith("http")){
 }
 
 
-/* ===== V18.8.13 CLEAN ENHANCEMENT PATCH ===== */
+/* ===== V18.8.14 CLEAN ENHANCEMENT PATCH ===== */
 function rsClamp01(v){return Math.max(0,Math.min(1,v));}
 function rsRotate(x,y,a){const c=Math.cos(a),s=Math.sin(a);return{x:x*c-y*s,y:x*s+y*c};}
 function getBaseWeaponRig(slot=1,cls=G?.classId||"survivor"){
@@ -4967,7 +4967,7 @@ const rsOldNextWave=nextWave;nextWave=function(...args){const out=rsOldNextWave.
 const rsOldUpdate=update;update=function(dt){if(G?.map?.obstacles){for(const o of G.map.obstacles){if(!o.moving)continue;o.moveClock=(o.moveClock||0)+dt*(o.moveRate||1);o.x=o.baseX+Math.sin(o.moveClock)*(o.ampX||0);o.y=o.baseY+Math.sin(o.moveClock*1.06+1.2)*(o.ampY||0);}}const out=rsOldUpdate.apply(this,arguments);if(G?.running){updateSuperPickups(dt);updateFireFields(dt);if(G.enemies.some(e=>e.type==="behemoth"&&dist(e,G.player)<120))G.shake=Math.max(G.shake,2.2);}return out;};
 const rsOldDrawGame=drawGame;drawGame=function(){rsOldDrawGame.apply(this,arguments);if(!G?.running)return;X.save();if(G.map?.motionMode){X.globalAlpha=.09;X.strokeStyle=G.map.theme.accent;X.lineWidth=2;const speed=(G.time*180)%80;for(let y=-80+speed;y<H+80;y+=80){X.beginPath();X.moveTo(0,y);X.lineTo(W,y-35);X.stroke();}X.globalAlpha=1;}drawFireFields();drawSuperPickups();X.restore();};
 
-/* V18.8.13 realistic menu inferno: broad wall fire, jagged turbulent edges, layered cores, embers, smoke. */
+/* V18.8.14 realistic menu inferno: broad wall fire, jagged turbulent edges, layered cores, embers, smoke. */
 (function initMenuFlameCanvas(){
   const canvas=document.getElementById("menuFlameCanvas");if(!canvas)return;
   const ctx=canvas.getContext("2d"),flames=[],embers=[],smoke=[];let cw=0,ch=0,dpr=1,last=performance.now();
@@ -4994,7 +4994,7 @@ const rsOldDrawGame=drawGame;drawGame=function(){rsOldDrawGame.apply(this,argume
 
 
 
-/* ===== V18.8.13 PLAYER / MELEE / UTILITY PRESENTATION PATCH ===== */
+/* ===== V18.8.14 PLAYER / MELEE / UTILITY PRESENTATION PATCH ===== */
 function rs810AngleDelta(a,b){return Math.atan2(Math.sin(a-b),Math.cos(a-b));}
 function rs810VisualFacing(p){
   const target=Math.atan2(mouse.y-p.y,mouse.x-p.x);
@@ -5146,7 +5146,7 @@ update=function(dt){const out=rs810OldUpdate.apply(this,arguments);if(G?.running
 
 
 
-/* ===== V18.8.13 INPUT / AUDIO / AIM / PRESENCE POLISH ===== */
+/* ===== V18.8.14 INPUT / AUDIO / AIM / PRESENCE POLISH ===== */
 
 /* F2 FIX
    V18.8.11 had two F2 handlers: the later capture handler opened the admin panel,
@@ -5174,7 +5174,7 @@ rs810VisualFacing=function(p){
   return target;
 };
 
-/* TRUE TAB / APP AUDIO MUTE — V18.8.13
+/* TRUE TAB / APP AUDIO MUTE — V18.8.14
    Do NOT use the browser window blur event here. In an embedded game, ordinary
    pointer/focus changes can blur the iframe/window even though the tab is still
    visible. That caused clicks to cut the entire mix. Browser builds now mute only
@@ -5299,12 +5299,323 @@ v18PresencePayload=function(){
     if(G.paused||active==="pause")return{details:`PAUSED // WAVE ${G.wave} // ${biome}`,state:`${cls} // ${weapon}`,largeText:`${diff} PROTOCOL`,start:Math.floor(v18PresenceState.start/1000)};
     return{details:`WAVE ${G.wave} // ${biome}`,state:`${cls} // ${weapon}`,largeText:`${diff} // ${G.kills||0} KILLS`,start:Math.floor(v18PresenceState.start/1000)};
   }
-  if(active==="classSelect")return{details:"LOADOUT TERMINAL // CHOOSING OPERATIVE",state:"Preparing a new Rift deployment",largeText:"RIFTSHIFT // V18.8.13"};
+  if(active==="classSelect")return{details:"LOADOUT TERMINAL // CHOOSING OPERATIVE",state:"Preparing a new Rift deployment",largeText:"RIFTSHIFT // V18.8.14"};
   if(active==="gameover"&&G)return{details:`RUN COMPLETE // WAVE ${G.wave}`,state:`${G.kills} KILLS // ${Math.round(G.score).toLocaleString()} SCORE`,largeText:"RIFTSHIFT // RUN TELEMETRY",start:Math.floor(v18PresenceState.start/1000)};
-  if(active==="v17Hub")return{details:"SHIP TERMINAL // CONFIGURING RUN",state:"Reviewing protocols, arsenal and contracts",largeText:"RIFTSHIFT // V18.8.13"};
-  return{details:"SHIP TERMINAL // IDLE",state:"Preparing to enter the Rift",largeText:"RIFTSHIFT // V18.8.13"};
+  if(active==="v17Hub")return{details:"SHIP TERMINAL // CONFIGURING RUN",state:"Reviewing protocols, arsenal and contracts",largeText:"RIFTSHIFT // V18.8.14"};
+  return{details:"SHIP TERMINAL // IDLE",state:"Preparing to enter the Rift",largeText:"RIFTSHIFT // V18.8.14"};
 };
 try{$("discordPresenceBadge")?.classList.remove("on")}catch(_){}
+
+
+
+/* ===== V18.8.14 MARKSMAN + PLAYER MODEL REWORK ===== */
+(function rs814Install(){
+  /* --- New sniper / marksman class --- */
+  CLASS_DEFS.marksman={
+    name:"Marksman",role:"SNIPER",icon:"✦",
+    desc:"Slow, deliberate precision. The VLR-7 rewards holding position, lining up lanes, and deleting priority targets before they can close distance.",
+    stats:["BOLT RIFLE","28% CRIT","SETTLE BONUS"],weapon:"VLR-7 LONGSHOT",
+    p:{hp:86,maxHp:86,speed:252,fireRate:.66,damage:88,armor:.02,regen:0,dashMax:1.42,projectileSpeed:1480,crit:.28}
+  };
+  CLASS_LOADOUTS.marksman={primary:"VLR-7 Longshot",secondary:"Kestrel Pistol",melee:"Recon Knife",utility:"Spotter Beacon"};
+  CLASS_ABILITIES.marksman={name:"DEAD CALM",cost:60,desc:"For 5 seconds the rifle instantly settles, cycles faster, gains heavy critical chance, and punches through additional targets."};
+  CLASS_UPGRADES.marksman=[
+    {id:"mark_damage",icon:"◆",name:"MATCH CHAMBER",tag:"MARKSMAN",max:4},
+    {id:"mark_crit",icon:"✦",name:"GLASS OPTIC",tag:"MARKSMAN",max:4},
+    {id:"mark_reload",icon:"↻",name:"BOLT CYCLER",tag:"MARKSMAN",max:4},
+    {id:"mark_velocity",icon:"➤",name:"SABOT ROUND",tag:"MARKSMAN",max:3},
+    {id:"mark_settle",icon:"⌖",name:"STILLNESS PROTOCOL",tag:"MARKSMAN",max:4},
+    {id:"mark_pierce",icon:"↠",name:"TUNGSTEN CORE",tag:"MARKSMAN",max:3},
+    {id:"mark_execute",icon:"▼",name:"CLEAN FINISH",tag:"MARKSMAN",max:3},
+    {id:"mark_trace",icon:"◇",name:"SPOTTER TRACE",tag:"MARKSMAN",max:3},
+    {id:"mark_dash",icon:"↯",name:"REPOSITION",tag:"MARKSMAN",max:3},
+    {id:"mark_armor",icon:"⬡",name:"SCOUT PLATE",tag:"MARKSMAN",max:3},
+    {id:"mark_recovery",icon:"+",name:"FIELD BREATHER",tag:"MARKSMAN",max:3},
+    {id:"mark_scope",icon:"◎",name:"LONG GLASS",tag:"MARKSMAN",max:3}
+  ];
+  LEGENDARY_UPGRADES.marksman=[
+    {id:"legend_mark_oneshot",icon:"✹",name:"ONE-SHOT DOCTRINE",tag:"MARKSMAN",max:1,desc:"A fully settled first shot is guaranteed critical and gains a huge damage multiplier."},
+    {id:"legend_mark_echo",icon:"⇢",name:"GHOST ROUND",tag:"MARKSMAN",max:1,desc:"Each precision shot produces a delayed spectral follow-up round at reduced damage."}
+  ];
+  EVOLUTIONS.marksman=[
+    {id:"blackglass",icon:"◈",name:"BLACKGLASS LONGSHOT",desc:"Extreme critical damage and settle power at the cost of a heavier bolt cycle.",tag:"ASSASSINATION"},
+    {id:"riftspike",icon:"━",name:"RIFTSPIKE",desc:"High-velocity penetrator rounds gain massive pierce and punch through entire lanes.",tag:"PENETRATION"},
+    {id:"watchmaker",icon:"⌁",name:"WATCHMAKER",desc:"A faster precision platform that settles quickly and rewards constant repositioning.",tag:"TEMPO"}
+  ];
+  EVOLVED_LOADOUTS.blackglass="Blackglass Longshot";
+  EVOLVED_LOADOUTS.riftspike="Riftspike";
+  EVOLVED_LOADOUTS.watchmaker="Watchmaker";
+  KIT_BRANCHES.marksman={
+    secondary:[
+      {id:"mark_sec_heavy",name:"HIGH-CAL KESTREL",tag:"POWER",desc:"Kestrel rounds become slower, heavier penetrators with substantially more damage and pierce."},
+      {id:"mark_sec_duelist",name:"DUELIST KESTREL",tag:"TEMPO",desc:"Each trigger snaps off a quick second pistol round with a small accuracy offset."}
+    ],
+    melee:[
+      {id:"mark_melee_ranger",name:"RANGER BLADE",tag:"MOBILITY",desc:"Longer knife reach, a forward lunge, and partial Dash refund on every swing."},
+      {id:"mark_melee_expose",name:"EXPOSURE BLADE",tag:"DEBUFF",desc:"Knife hits expose targets, making them take substantially more incoming damage."}
+    ],
+    utility:[
+      {id:"mark_util_longwatch",name:"LONGWATCH BEACON",tag:"CONTROL",desc:"The Spotter Beacon covers a much wider radius and marks more enemies for longer."},
+      {id:"mark_util_killzone",name:"KILLZONE BEACON",tag:"DAMAGE",desc:"A tighter beacon radius applies a much stronger vulnerability to marked targets."}
+    ]
+  };
+  V17_ULTIMATES.marksman={name:"ZERO HORIZON",desc:"Every fully settled shot becomes a devastating critical penetrator and Ghost Rounds repeat at higher power."};
+
+  /* --- Dedicated class portrait --- */
+  const rs814PrevClassIconArt=classIconArt;
+  classIconArt=function(id){
+    if(id!=="marksman")return rs814PrevClassIconArt(id);
+    const accent="#9bd8ff";
+    return `<svg viewBox="0 0 220 150" aria-hidden="true"><defs><filter id="mkGlow"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs><rect width="220" height="150" rx="12" fill="#080f17"/><g opacity=".13" stroke="${accent}"><circle cx="110" cy="75" r="52"/><circle cx="110" cy="75" r="28"/><path d="M14 75H206M110 8V142"/></g><g transform="translate(10 42)"><path d="M5 33 28 20h25v31H28Z" fill="#202a34"/><rect x="49" y="18" width="74" height="31" rx="6" fill="#3d5263" stroke="${accent}" stroke-width="2"/><path d="M65 49 55 77h18l16-28" fill="#263642"/><rect x="118" y="26" width="72" height="13" rx="4" fill="#a8bfce"/><rect x="185" y="29" width="12" height="7" rx="2" fill="#e8f7ff"/><rect x="74" y="6" width="61" height="9" rx="4" fill="#17232d"/><rect x="87" y="2" width="34" height="16" rx="7" fill="#283b4a" stroke="#60849c"/><circle cx="104" cy="10" r="4" fill="${accent}" filter="url(#mkGlow)"/><path d="M136 22v22M148 22v22" stroke="#597285" stroke-width="2"/><path d="M159 25 170 16M159 40 170 49" stroke="#7f9aaa" stroke-width="2"/></g></svg>`;
+  };
+  renderClasses();
+
+  /* --- Audio identity --- */
+  const rs814PrevShootSfx=AudioSystem.prototype.shoot;
+  AudioSystem.prototype.shoot=function(cls,x){
+    if(cls!=="marksman")return rs814PrevShootSfx.call(this,cls,x);
+    this.start();const p=this.pan(x);this.noise(.035,.08,6800,p,"highpass",null,.12);this.tone(820,.035,"square",.075,190,p,null,.11);this.tone(112,.16,"triangle",.065,42,p,null,.24);this.tone(48,.38,"sine",.055,26,p,null,.44);setTimeout(()=>this.noise(.055,.018,2200,p,"bandpass",null,.12),58);
+  };
+  const rs814PrevAbilitySfx=AudioSystem.prototype.ability;
+  AudioSystem.prototype.ability=function(cls){
+    if(cls!=="marksman")return rs814PrevAbilitySfx.call(this,cls);
+    this.start();this.tone(420,.10,"sine",.05,920,0,null,.18);this.noise(.08,.022,5200,0,"highpass",null,.10);setTimeout(()=>this.tone(1260,.14,"triangle",.035,620,0,null,.26),70);
+  };
+
+  /* --- New-game class setup + alternate / experimental arsenals --- */
+  const rs814PrevExperimental=v17ApplyExperimentalArsenal;
+  v17ApplyExperimentalArsenal=function(){
+    rs814PrevExperimental();
+    if(G?.classId==="marksman"&&v17Config.weaponMode==="experimental"){
+      G.weaponName="S-0 NULL LANCE";const p=G.player;p.damage*=1.34;p.fireRate*=1.28;p.projectileSpeed*=1.28;p.pierce+=4;p.crit=clamp(p.crit+.10,0,.92);
+    }
+  };
+  const rs814PrevNewGame=newGame;
+  newGame=function(){
+    const r=rs814PrevNewGame.apply(this,arguments);
+    if(G?.classId==="marksman"){
+      const p=G.player;p.pierce=Math.max(p.pierce,2);p.maxEnergy=120;p.energy=p.maxEnergy;p.energyRegen=7.5;p.marksmanSettle=0;p.marksmanSettleRate=1;p.marksmanSettleBonus=0;p.marksmanFocusTime=0;p.marksmanFocusDamage=1;p.marksmanScopeBonus=0;p.meleeDamageMult=1.16;p.markPower=p.markPower||0;
+      if(selectedVariant){G.weaponName="VLR-11 REPEATER";p.fireRate*=.68;p.damage*=.72;p.crit=clamp(p.crit-.04,0,.9);p.projectileSpeed*=.94;}
+      renderLoadoutBar();updateHUD();
+    }
+    return r;
+  };
+
+  /* --- Upgrade descriptions/effects --- */
+  const rs814PrevUpgradeDescription=upgradeDescription;
+  upgradeDescription=function(id,next){
+    const p=G?.player,l=next;
+    const d={
+      mark_damage:`Sniper damage +${12+l*3}%.`,mark_crit:`Critical chance +8%.`,mark_reload:`Bolt cycle 14% faster.`,mark_velocity:`Projectile velocity +15% and +1 pierce.`,
+      mark_settle:`Settle speed +${18+l*7}% and stronger fully-settled damage.`,mark_pierce:`+2 additional piercing.`,mark_execute:`Deal +${12+l*8}% damage to targets below 35% HP.`,
+      mark_trace:`Critical hits expose targets for +${8+l*6}% incoming damage.`,mark_dash:`Dash recovers 12% faster and grants post-dash critical chance.`,mark_armor:`+14 max HP and +3% armor.`,
+      mark_recovery:`Heal 18 now and gain +0.25 HP/sec recovery.`,mark_scope:`Long Glass adds +${4+l*3}% crit and stronger settle precision.`
+    };
+    return d[id]||rs814PrevUpgradeDescription(id,next);
+  };
+  const rs814PrevApplyUpgrade=applyUpgrade;
+  applyUpgrade=function(id,rarity="common"){
+    const before=G?.upgradeLevels?.[id]||0;rs814PrevApplyUpgrade.apply(this,arguments);if(!G||G.classId!=="marksman")return;
+    const p=G.player,t=G.upgradeLevels?.[id]||0;if(t<=before)return;
+    if(id==="mark_damage")p.damage*=1.12+t*.03;
+    else if(id==="mark_crit")p.crit=clamp(p.crit+.08,0,.94);
+    else if(id==="mark_reload")p.fireRate*=.86;
+    else if(id==="mark_velocity"){p.projectileSpeed*=1.15;p.pierce+=1;}
+    else if(id==="mark_settle"){p.marksmanSettleRate=(p.marksmanSettleRate||1)*(1.14+t*.04);p.marksmanSettleBonus=(p.marksmanSettleBonus||0)+.045;}
+    else if(id==="mark_pierce")p.pierce+=2;
+    else if(id==="mark_execute")p.executeBonus=Math.max(p.executeBonus||0,.12+t*.08);
+    else if(id==="mark_trace")p.markPower=Math.max(p.markPower||0,.08+t*.06);
+    else if(id==="mark_dash"){p.dashMax=Math.max(.45,p.dashMax*.88);p.dashCritBonus=Math.max(p.dashCritBonus||0,.12+t*.06);p.dashCritDuration=Math.max(p.dashCritDuration||0,1.4+t*.2);}
+    else if(id==="mark_armor"){p.maxHp+=14;p.hp=clamp(p.hp+18,0,p.maxHp);p.armor+=.03;}
+    else if(id==="mark_recovery"){p.hp=clamp(p.hp+18,0,p.maxHp);p.regen+=.25;}
+    else if(id==="mark_scope"){p.crit=clamp(p.crit+.04+t*.03,0,.95);p.marksmanScopeBonus=(p.marksmanScopeBonus||0)+.04;}
+    else if(id==="legend_mark_oneshot")p.marksmanOneShot=true;
+    else if(id==="legend_mark_echo")p.marksmanEcho=true;
+  };
+
+  /* --- Kit branches --- */
+  const rs814PrevApplyKitBranch=applyKitBranch;
+  applyKitBranch=function(id){
+    rs814PrevApplyKitBranch.apply(this,arguments);if(!G||G.classId!=="marksman")return;const p=G.player;
+    if(id==="mark_sec_heavy"){p.secondaryDamageMult=1.48;p.secondaryPierce=2;p.secondaryCrit=.22;}
+    else if(id==="mark_sec_duelist"){p.secondaryTwin=true;p.secondaryDamageMult=.68;}
+    else if(id==="mark_melee_ranger"){p.meleeRangeMult=1.28;p.meleeLunge=32;p.meleeDashRefund=.42;}
+    else if(id==="mark_melee_expose")p.meleeVuln=.34;
+    else if(id==="mark_util_longwatch"){p.utilityWide=true;p.marksmanBeaconRadius=255;p.marksmanBeaconPower=.30;}
+    else if(id==="mark_util_killzone"){p.utilityKillbox=true;p.marksmanBeaconRadius=145;p.marksmanBeaconPower=.62;}
+  };
+
+  /* --- Class ability --- */
+  const rs814PrevAbility=activateClassAbility;
+  activateClassAbility=function(){
+    if(G?.classId!=="marksman")return rs814PrevAbility.apply(this,arguments);
+    const p=G.player,def=CLASS_ABILITIES.marksman;if(p.abilityCd>0)return;const cost=def.cost;if(p.energy<cost){toast(`NEED ${cost} ENERGY`);return;}
+    p.energy-=cost;p.abilityCd=.75;p.marksmanFocusTime=5;p.marksmanSettle=1;p.invuln=Math.max(p.invuln,.12);sfx.ability("marksman");
+    for(let i=0;i<22;i++){const a=i/22*TAU;particle(p.x,p.y,Math.cos(a)*rand(80,150),Math.sin(a)*rand(80,150),rand(1.2,2.8),"#9bd8ff",.45);}msg("DEAD CALM // SIGHTLINE LOCKED",1);updateHUD();
+  };
+
+  /* --- Marksman primary shot --- */
+  const rs814PrevPlayerShoot=playerShoot;
+  function rs814SpawnMarksmanRound(angle,muzzle,damage,crit,pierce,echo=false){
+    const p=G.player;G.bullets.push({x:muzzle.x,y:muzzle.y,vx:Math.cos(angle)*p.projectileSpeed,vy:Math.sin(angle)*p.projectileSpeed,r:echo?3.2:4.2,life:1.42,damage,pierce,bounce:p.bounce||0,crit,explosive:false,floor:p.floor,marksman:true,rail:false});
+  }
+  playerShoot=function(){
+    const p=G?.player,slot=p?.equippedSlot||1;if(!p||G.classId!=="marksman"||slot!==1||p.superWeapon)return rs814PrevPlayerShoot.apply(this,arguments);
+    if(p.fireCd>0)return;
+    const info=getWeaponShotInfo(1,"marksman"),settle=clamp(p.marksmanSettle||0,0,1),focused=(p.marksmanFocusTime||0)>0,full=settle>.94;
+    let dmg=p.damage*(1+settle*(.24+(p.marksmanSettleBonus||0)))*(focused?1.34:1)*(1+(p.marksmanScopeBonus||0));
+    let critChance=clamp(p.crit+settle*.14+(focused?.34:0)+(p.dashCritTime>0?(p.dashCritBonus||0):0),0,.98),crit=Math.random()<critChance;
+    if(p.marksmanOneShot&&full){crit=true;dmg*=1.52;}
+    if(G.evolution==="blackglass"&&full){dmg*=1.18;crit=true;}
+    const pierce=p.pierce+(focused?3:0)+(G.evolution==="riftspike"?3:0);
+    p.fireCd=p.fireRate*(focused?.76:1);p.shotCounter=(p.shotCounter||0)+1;rs814SpawnMarksmanRound(info.angle,info.muzzle,dmg,crit,pierce,false);
+    if(p.marksmanEcho){const a=info.angle,m={x:info.muzzle.x,y:info.muzzle.y};setTimeout(()=>{if(G?.running&&G.classId==="marksman")rs814SpawnMarksmanRound(a,m,dmg*(G.v17Ultimate?.62:.44),false,Math.max(1,Math.floor(pierce*.6)),true)},88);}
+    G.energyLines.push({x1:info.muzzle.x,y1:info.muzzle.y,x2:info.muzzle.x+Math.cos(info.angle)*155,y2:info.muzzle.y+Math.sin(info.angle)*155,life:.075,max:.075,width:2});
+    G.lastMuzzle={x:info.muzzle.x,y:info.muzzle.y,angle:info.angle,slot:1,cls:"marksman"};G.muzzleFlash=.12;G.weaponHeat=clamp((G.weaponHeat||0)+.22,0,1);G.weaponKick=Math.max(G.weaponKick,7.5);G.weaponAnim={slot:1,type:"primary",t:.28,max:.28,classId:"marksman"};G.shake=Math.max(G.shake,full?4.8:3.5);sfx.shoot("marksman",p.x);p.marksmanSettle=Math.max(0,settle-.38);renderLoadoutBar();
+  };
+
+  /* --- Secondary pistol --- */
+  const rs814PrevSecondary=useSecondary;
+  useSecondary=function(fromSlotFire=false){
+    if(G?.classId!=="marksman")return rs814PrevSecondary.apply(this,arguments);const p=G.player;if((p.secondaryCd||0)>0)return;setEquippedSlot(2,fromSlotFire?0:.58);
+    const info=getWeaponShotInfo(2,"marksman"),dm=p.secondaryDamageMult||1,pierce=p.secondaryPierce||0,crit=p.secondaryCrit||.12;
+    const fire=(off=0,mult=1)=>{const a=info.angle+off;kitBullet(a,.48*dm*mult,1.48,{pierce,crit:Math.random()<crit,r:3.8,flash:.085,kick:3.8,trace:p.secondaryTrace||0});};
+    fire();if(p.secondaryTwin)setTimeout(()=>{if(G?.running&&G.classId==="marksman")fire(rand(-.025,.025),.88)},70);
+    p.secondaryCd=.26;G.weaponAnim={slot:2,type:"secondary",t:.2,max:.2,classId:"marksman"};sfx.shoot("marksman",p.x);renderLoadoutBar();
+  };
+
+  /* --- Spotter Beacon utility --- */
+  const rs814PrevUtility=useUtility;
+  useUtility=function(fromSlotFire=false){
+    if(G?.classId!=="marksman")return rs814PrevUtility.apply(this,arguments);const p=G.player;if((p.utilityCd||0)>0)return;setEquippedSlot(4,fromSlotFire?0:.58);
+    const tx=clamp(mouse.x,45,W-45),ty=clamp(mouse.y,45,H-45),rad=p.marksmanBeaconRadius||(p.utilityWide?255:p.utilityKillbox?145:190),pow=p.marksmanBeaconPower||(p.utilityKillbox?.62:.34),dur=p.utilityWide?9:7;
+    rs810SpawnUtilityThrow("marksman",tx,ty,p.utilityKillbox?"killzone":p.utilityWide?"longwatch":"spotter");G.weaponAnim={slot:4,type:"utilityThrow",t:.42,max:.42,classId:"marksman"};
+    setTimeout(()=>{if(!G?.running||G.classId!=="marksman")return;let count=0;for(const e of G.enemies){if((e.floor??0)!==(p.floor??0))continue;if(Math.hypot(e.x-tx,e.y-ty)<=rad+e.r){e.vulnTime=Math.max(e.vulnTime||0,dur);e.vulnPower=Math.max(e.vulnPower||0,pow);G.energyLines.push({x1:tx,y1:ty,x2:e.x,y2:e.y,life:.22,max:.22,width:3});count++;}}G.blasts.push({x:tx,y:ty,radius:rad,life:.32,max:.32,floor:p.floor,color:"#9bd8ff"});msg(`SPOTTER BEACON // ${count} TARGET${count===1?"":"S"}`,.8);},300);
+    p.utilityCd=11.5;sfx.ability("marksman");renderLoadoutBar();
+  };
+
+  /* --- Marksman utility projectile visual --- */
+  const rs814PrevUtilityObject=rs810DrawUtilityObject;
+  rs810DrawUtilityObject=function(q,x,y,rot,scale=1){
+    if(q.cls!=="marksman")return rs814PrevUtilityObject(q,x,y,rot,scale);
+    X.save();X.translate(x,y);X.rotate(rot);X.scale(scale,scale);X.fillStyle="#172733";X.beginPath();X.arc(0,0,8,0,TAU);X.fill();X.strokeStyle="#9bd8ff";X.lineWidth=2;X.beginPath();X.arc(0,0,6,0,TAU);X.stroke();X.fillStyle="#dff7ff";X.fillRect(-2,-10,4,8);X.globalCompositeOperation="lighter";X.fillStyle="rgba(155,216,255,.72)";X.beginPath();X.arc(0,0,2.5,0,TAU);X.fill();X.restore();
+  };
+
+  /* --- Evolution effects --- */
+  const rs814PrevEvolution=applyEvolution;
+  applyEvolution=function(id){
+    const isMark=G?.classId==="marksman";rs814PrevEvolution.apply(this,arguments);if(!isMark||!G)return;const p=G.player;
+    if(id==="blackglass"){p.damage*=1.42;p.crit=clamp(p.crit+.18,0,.97);p.fireRate*=1.12;p.marksmanSettleBonus=(p.marksmanSettleBonus||0)+.14;}
+    else if(id==="riftspike"){p.damage*=1.20;p.pierce+=6;p.projectileSpeed*=1.22;}
+    else if(id==="watchmaker"){p.fireRate*=.72;p.dashMax*=.86;p.marksmanSettleRate=(p.marksmanSettleRate||1)*1.45;p.crit=clamp(p.crit+.08,0,.95);}
+  };
+
+  /* --- Ultimate handling --- */
+  const rs814PrevUltimate=v17ApplyUltimate;
+  v17ApplyUltimate=function(){
+    if(G?.classId!=="marksman")return rs814PrevUltimate.apply(this,arguments);if(!G||G.v17Ultimate)return;G.v17Ultimate=true;const p=G.player;p.damage*=1.30;p.crit=clamp(p.crit+.12,0,.98);p.pierce+=5;p.marksmanOneShot=true;p.marksmanEcho=true;p.marksmanSettleRate=(p.marksmanSettleRate||1)*1.4;p.marksmanSettleBonus=(p.marksmanSettleBonus||0)+.18;G.weaponName=`${G.weaponName} // ULTIMATE`;unlockAchievement("ultimate","BEYOND SPEC");$("v17Ultimate").classList.remove("show");G.choosing=false;G.paused=false;setMobileGameActive(true);G.last=performance.now();sfx.over();v17Speak("Zero Horizon ultimate evolution online");requestAnimationFrame(loop);
+  };
+
+  /* --- Player-model visual system: immediate body/weapon facing + clearer anatomy --- */
+  const rs814PrevColors=rs810ClassColors;
+  rs810ClassColors=function(cls){if(cls==="marksman")return["#dbeaf4","#34495a","#9bd8ff"];return rs814PrevColors(cls);};
+  rs810VisualFacing=function(p){const target=Math.atan2(mouse.y-p.y,mouse.x-p.x);p.rs810Facing=target;return target;};
+  rs810DrawArm=function(x1,y1,x2,y2,skin,armor,thick=5){
+    const dx=x2-x1,dy=y2-y1,len=Math.hypot(dx,dy)||1,nx=-dy/len,ny=dx/len,bend=Math.min(5.5,len*.18),elx=x1+dx*.54+nx*bend,ely=y1+dy*.54+ny*bend;
+    X.lineCap="round";X.lineJoin="round";X.strokeStyle="rgba(4,7,12,.68)";X.lineWidth=thick+3.2;X.beginPath();X.moveTo(x1,y1);X.lineTo(elx,ely);X.lineTo(x2,y2);X.stroke();
+    X.strokeStyle=armor;X.lineWidth=thick;X.beginPath();X.moveTo(x1,y1);X.lineTo(elx,ely);X.lineTo(x2,y2);X.stroke();
+    X.fillStyle="rgba(255,255,255,.08)";X.beginPath();X.arc(elx,ely,thick*.42,0,TAU);X.fill();X.fillStyle=skin;X.beginPath();X.arc(x2,y2,2.8,0,TAU);X.fill();
+  };
+  rs810DrawBody=function(cls,p,slot){
+    const [body,armor,accent]=rs810ClassColors(cls),move=rs810PlayerMotion(),step=Math.sin(G.time*(move?.01:10.5))*move,bob=Math.abs(Math.sin(G.time*(move?.01:10.5)))*move*.65;
+    X.save();X.translate(0,bob*.35);
+    // rear legs + boots
+    for(const s of [-1,1]){X.save();X.translate(-11,s*6);X.rotate(s*step*.12);X.fillStyle="#0c1219";roundedRect(-10,-4,15,8,3);X.fill();X.fillStyle="#222d38";roundedRect(-2,-4,10,8,3);X.fill();X.fillStyle="#111922";X.fillRect(-10,s>0?1:-3,6,2);X.restore();}
+    // pelvis / belt
+    X.fillStyle="#1c2631";roundedRect(-13,-9,16,18,6);X.fill();X.fillStyle="#0c1219";X.fillRect(-10,-8,4,16);X.fillStyle=accent;X.globalAlpha=.55;X.fillRect(-11,-1,12,2);X.globalAlpha=1;
+    // torso silhouette
+    X.fillStyle=body;X.beginPath();X.moveTo(15,0);X.lineTo(7,-11);X.lineTo(-5,-13);X.lineTo(-14,-9);X.lineTo(-17,-4);X.lineTo(-17,4);X.lineTo(-14,9);X.lineTo(-5,13);X.lineTo(7,11);X.closePath();X.fill();
+    // chest armor sections
+    X.fillStyle=armor;roundedRect(-10,-9,17,18,4);X.fill();X.fillStyle="rgba(7,12,18,.72)";roundedRect(-6,-6,11,12,3);X.fill();X.strokeStyle="rgba(255,255,255,.10)";X.lineWidth=1;X.beginPath();X.moveTo(-3,-6);X.lineTo(-3,6);X.moveTo(-6,0);X.lineTo(5,0);X.stroke();
+    // shoulder pads
+    X.fillStyle=armor;for(const s of [-1,1]){X.beginPath();X.ellipse(3,s*11,8,4.5,s*.16,0,TAU);X.fill();X.strokeStyle="rgba(255,255,255,.10)";X.stroke();}
+    // neck ring + head
+    X.fillStyle="#0b1118";X.beginPath();X.arc(7,0,9.2,0,TAU);X.fill();X.fillStyle=body;X.beginPath();X.arc(9,0,7,0,TAU);X.fill();
+    X.fillStyle="#131e28";X.beginPath();X.arc(10,0,5.7,0,TAU);X.fill();
+    // directional visor, physically points with body instead of floating
+    X.globalCompositeOperation="lighter";X.fillStyle=`rgba(${cls==="explosive"?"255,173,98":cls==="soldier"?"155,165,255":cls==="marksman"?"155,216,255":"112,236,255"},.72)`;roundedRect(11.5,-4.1,6.5,8.2,2.6);X.fill();X.globalCompositeOperation="source-over";
+    // backpack + antenna / class gear
+    X.fillStyle="#121b24";roundedRect(-20,-7,7,14,2.5);X.fill();X.strokeStyle="rgba(255,255,255,.09)";X.strokeRect(-19,-6,5,12);X.fillStyle=accent;X.fillRect(-19,-1,5,2);
+    if(cls==="marksman"){X.strokeStyle="#71889a";X.lineWidth=1.5;X.beginPath();X.moveTo(-17,-7);X.lineTo(-23,-15);X.stroke();X.fillStyle="#9bd8ff";X.beginPath();X.arc(-23,-15,1.8,0,TAU);X.fill();X.fillStyle="#263a49";roundedRect(-8,8,12,4,2);X.fill();}
+    else if(cls==="soldier"){X.fillStyle="#555d91";roundedRect(-8,8,13,4,2);X.fill();}
+    else if(cls==="explosive"){X.fillStyle="#8c5f34";X.beginPath();X.arc(-9,8,3,0,TAU);X.fill();}
+    else if(cls==="conduit"){X.strokeStyle="#70ecff";X.beginPath();X.arc(-6,0,7,0,TAU);X.stroke();}
+    X.restore();
+  };
+
+  /* --- Marksman weapon geometry / muzzle alignment --- */
+  const rs814PrevBaseRig=getBaseWeaponRig;
+  getBaseWeaponRig=function(slot=1,cls=G?.classId||"survivor"){
+    const r=rs814PrevBaseRig(slot,cls);if(cls!=="marksman")return r;
+    if(slot===1)Object.assign(r,{x:7,y:22,r:-.01,sc:.90});
+    else if(slot===2)Object.assign(r,{x:10,y:21,r:-.13,sc:.82});
+    else if(slot===3)Object.assign(r,{x:4,y:24,r:.70,sc:.81});
+    else Object.assign(r,{x:2,y:23,r:.10,sc:.78});return r;
+  };
+  const rs814PrevBodyRotation=getWeaponBodyRotation;
+  getWeaponBodyRotation=function(slot=1,cls=G?.classId||"survivor",targetX=mouse.x,targetY=mouse.y){
+    if(cls!=="marksman")return rs814PrevBodyRotation(slot,cls,targetX,targetY);const p=G?.player;if(!p)return 0;const rig=getBaseWeaponRig(slot,cls),tip=slot===1?86:slot===2?48:slot===4?42:58;let body=Math.atan2(targetY-p.y,targetX-p.x)-rig.r;for(let i=0;i<3;i++){const sh=rsRotate(rig.x,rig.y,body),bar=rsRotate(tip*rig.sc,0,body+rig.r),mx=p.x+sh.x+bar.x,my=p.y+sh.y+bar.y;body=Math.atan2(targetY-my,targetX-mx)-rig.r;}return body;
+  };
+  const rs814PrevMuzzle=getWeaponMuzzleWorld;
+  getWeaponMuzzleWorld=function(slot=1,cls=G?.classId||"survivor",targetX=mouse.x,targetY=mouse.y){
+    if(cls!=="marksman")return rs814PrevMuzzle(slot,cls,targetX,targetY);const p=G?.player;if(!p)return{x:0,y:0};const body=getWeaponBodyRotation(slot,cls,targetX,targetY),rig=getAnimatedWeaponRig(slot,cls),tip=slot===1?86:slot===2?48:slot===4?42:58,sh=rsRotate(rig.x,rig.y,body),bar=rsRotate(tip*rig.sc,0,body+rig.r);return{x:p.x+sh.x+bar.x,y:p.y+sh.y+bar.y,body,barrelAngle:body+rig.r};
+  };
+  const rs814PrevAnimatedRig=getAnimatedWeaponRig;
+  getAnimatedWeaponRig=function(slot=1,cls=G?.classId||"survivor"){
+    const r=rs814PrevAnimatedRig(slot,cls);if(cls!=="marksman")return r;if(slot===1){r.y=22;r.sc=.90;}return r;
+  };
+  const rs814PrevPhysical=drawPhysicalWeaponModel;
+  drawPhysicalWeaponModel=function(cls,p,evolved=false){
+    if(cls!=="marksman")return rs814PrevPhysical(cls,p,evolved);const slot=p.equippedSlot||1;X.save();
+    if(slot===1){
+      X.fillStyle="#17212a";roundedRect(-6,-6,34,12,4);X.fill();X.fillStyle="#334a5a";roundedRect(18,-7,32,14,4);X.fill();X.strokeStyle="#7897aa";X.lineWidth=1;X.strokeRect(22,-5,24,10);
+      X.fillStyle="#101820";X.beginPath();X.moveTo(-6,-5);X.lineTo(-21,-9);X.lineTo(-27,-3);X.lineTo(-10,4);X.closePath();X.fill();
+      X.fillStyle="#1d2b36";roundedRect(48,-4,30,8,3);X.fill();X.fillStyle="#9fb6c5";X.fillRect(76,-2,12,4);X.fillStyle="#dff6ff";X.fillRect(86,-1.5,6,3);
+      // scope
+      X.fillStyle="#0d141b";roundedRect(15,-15,42,8,4);X.fill();X.fillStyle="#324957";roundedRect(22,-17,25,12,5);X.fill();X.strokeStyle="#9bd8ff";X.lineWidth=1.5;X.beginPath();X.arc(44,-11,4,0,TAU);X.stroke();X.fillStyle="#9bd8ff";X.beginPath();X.arc(44,-11,1.7,0,TAU);X.fill();
+      X.strokeStyle="#526979";X.beginPath();X.moveTo(58,5);X.lineTo(65,14);X.moveTo(67,5);X.lineTo(72,14);X.stroke();
+      if(evolved){X.globalCompositeOperation="lighter";X.strokeStyle="rgba(155,216,255,.65)";X.beginPath();X.moveTo(26,8);X.lineTo(84,5);X.stroke();X.globalCompositeOperation="source-over";}
+    }else if(slot===2){
+      X.fillStyle="#18232d";roundedRect(0,-6,34,12,4);X.fill();X.fillStyle="#60798a";roundedRect(9,-8,30,7,3);X.fill();X.fillStyle="#cfe6f2";X.fillRect(37,-3,12,4);X.fillStyle="#0d141b";X.beginPath();X.moveTo(9,5);X.lineTo(18,6);X.lineTo(15,18);X.lineTo(6,16);X.closePath();X.fill();
+    }else if(slot===3){
+      X.fillStyle="#18222a";roundedRect(-4,-5,22,10,4);X.fill();X.fillStyle="#10151b";X.fillRect(13,-8,5,16);X.fillStyle="#cfe6ef";X.beginPath();X.moveTo(18,-4);X.lineTo(58,-2);X.lineTo(67,0);X.lineTo(58,2);X.lineTo(18,4);X.closePath();X.fill();X.strokeStyle="#9bd8ff";X.beginPath();X.moveTo(25,-2);X.lineTo(60,0);X.stroke();
+    }else{
+      X.fillStyle="#172733";X.beginPath();X.arc(21,0,11,0,TAU);X.fill();X.strokeStyle="#9bd8ff";X.lineWidth=2;X.beginPath();X.arc(21,0,7,0,TAU);X.stroke();X.fillStyle="#dff7ff";X.fillRect(18,-15,6,8);X.globalCompositeOperation="lighter";X.fillStyle="rgba(155,216,255,.7)";X.beginPath();X.arc(21,0,3,0,TAU);X.fill();
+    }
+    X.restore();
+  };
+
+  /* --- Marksman passive settle + reticle --- */
+  const rs814PrevUpdate=update;
+  update=function(dt){
+    const out=rs814PrevUpdate.apply(this,arguments);if(G?.running&&G.classId==="marksman"){
+      const p=G.player,m=rs810PlayerMotion(),focus=(p.marksmanFocusTime||0)>0;p.marksmanFocusTime=Math.max(0,(p.marksmanFocusTime||0)-dt);
+      const gain=(1.15*(p.marksmanSettleRate||1))*dt,loss=2.2*dt;p.marksmanSettle=focus?1:clamp((p.marksmanSettle||0)+(m<.08?gain:-loss),0,1);
+    }return out;
+  };
+  const rs814PrevCrosshair=drawCrosshair;
+  drawCrosshair=function(){
+    rs814PrevCrosshair();if(!G?.player||G.classId!=="marksman")return;const p=G.player,s=clamp(p.marksmanSettle||0,0,1),focus=(p.marksmanFocusTime||0)>0,c=focus?"#fff1b7":"#9bd8ff";X.save();X.translate(mouse.x,mouse.y);X.strokeStyle=c;X.globalAlpha=.25+.55*s;X.lineWidth=1.25;X.beginPath();X.arc(0,0,19-s*5,0,TAU);X.stroke();for(let i=0;i<4;i++){X.rotate(Math.PI/2);X.beginPath();X.moveTo(0,-26);X.lineTo(0,-20);X.stroke();}X.globalAlpha=.7;X.fillStyle=c;X.fillRect(-18,25,36*s,2);X.restore();
+  };
+  const rs814PrevHUD=updateHUD;
+  updateHUD=function(){rs814PrevHUD.apply(this,arguments);if(G?.classId==="marksman"){const p=G.player,s=Math.round((p.marksmanSettle||0)*100),f=(p.marksmanFocusTime||0)>0?" // DEAD CALM":"";$("abilityText").textContent=`Q • DEAD CALM // ${s}% STEADY${f}`;}};
+
+  /* Rich Presence gets the new class automatically; force the current version label. */
+  const rs814PrevPresence=v18PresencePayload;
+  v18PresencePayload=function(){const q=rs814PrevPresence();if(q&&typeof q.largeText==="string")q.largeText=q.largeText.replace(/V18\.8\.13/g,"V18.8.14");return q;};
+
+  renderClasses();
+})();
 
 </script>
 </body>
