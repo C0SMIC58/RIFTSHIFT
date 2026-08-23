@@ -33,9 +33,3 @@ Once the site is public, Google can crawl it because robots.txt and sitemap.xml 
 
 CUSTOM DOMAIN LATER
 Do not add a CNAME file until you actually own the domain. When you buy a domain, GitHub Pages can keep serving the same site under the custom domain.
-
-
-SCALE FIX UPDATE:
-- The Play page now uses a near-full-height game viewport instead of a forced 16:9 card.
-- A Fullscreen Test button is included.
-- The embedded game detects the website iframe and keeps class/menu/upgrade UI at readable scale instead of shrinking the class screen down aggressively.

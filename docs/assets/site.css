@@ -9,38 +9,25 @@ main{min-height:100vh}.wrap{width:min(1180px,calc(100% - 40px));margin:auto}.her
 @media(max-width:640px){:root{--header:62px}.wrap,.nav{width:min(100% - 26px,1180px)}.hero{min-height:710px}.hero-content{padding:70px 0}.hero p{font-size:16px}.rift-core{width:105vw;right:-55%;top:28%}.section{padding:78px 0}.g2,.g3,.g4{grid-template-columns:1fr}.feature-line{grid-template-columns:1fr 1fr}.feature-line div{border-bottom:1px solid var(--line)!important}.feature-line div:nth-child(even){border-right:0}.band{padding:30px 22px}.page-hero{padding:130px 0 60px}.update{grid-template-columns:1fr;gap:6px}.media-grid{grid-template-columns:1fr;grid-auto-rows:200px}.media-tile.big{grid-column:auto;grid-row:auto}.lore-btn{grid-template-columns:55px 1fr auto;gap:10px}.lore-body>div{padding-left:65px}.footer-grid{grid-template-columns:1fr}.footer-bottom{flex-direction:column;gap:8px}.browser-frame{aspect-ratio:9/10}.download-box{gap:20px}}
 
 
-/* RIFTSHIFT SITE V1.1 // BROWSER TEST SCALE FIX */
-.play-page .page-hero{padding-bottom:38px}
-.play-stage-section{padding:34px 0 72px}
-.play-wrap{width:min(1680px,calc(100% - 28px))}
-.play-page .browser-shell{padding:10px;background:#020406;border-color:rgba(102,231,255,.16)}
+/* RIFTSHIFT // OLD-STYLE WEBSITE - BROWSER GAME SCALE FIX ONLY */
+.play-page .play-wrap{width:min(1500px,calc(100% - 40px))}
 .play-page .browser-frame{
   aspect-ratio:auto;
   width:100%;
-  height:clamp(680px,78dvh,940px);
-  min-height:680px;
-  background:#020406;
-  box-shadow:inset 0 0 0 1px rgba(255,255,255,.015),0 30px 90px rgba(0,0,0,.42);
+  height:clamp(700px,80dvh,900px);
+  min-height:700px;
+  background:#030507;
 }
-.play-page .browser-frame iframe{width:100%;height:100%;display:block;background:#05070d}
+.play-page .browser-frame iframe{width:100%;height:100%;display:block;background:#05070a}
 .play-page .browser-frame:fullscreen,
-.play-page .browser-frame:-webkit-full-screen{width:100vw;height:100vh;min-height:100vh;border:0;background:#05070d}
+.play-page .browser-frame:-webkit-full-screen{width:100vw;height:100vh;min-height:100vh;border:0;background:#05070a}
 .play-page .browser-frame:fullscreen iframe,
 .play-page .browser-frame:-webkit-full-screen iframe{width:100vw;height:100vh}
-.play-page .browser-frame:fullscreen .launch-cover,
-.play-page .browser-frame:-webkit-full-screen .launch-cover{inset:0}
-@media(max-width:1100px){
-  .play-page .browser-frame{height:clamp(620px,76dvh,820px);min-height:620px}
+@media(max-width:900px){
+  .play-page .play-wrap{width:min(100% - 22px,1500px)}
+  .play-page .browser-frame{height:76dvh;min-height:600px}
 }
-@media(max-width:760px){
-  .play-page .page-hero{padding-bottom:28px}
-  .play-stage-section{padding-top:20px}
-  .play-wrap{width:min(100% - 14px,1680px)}
-  .play-page .browser-shell{padding:6px}
-  .play-page .browser-top{height:30px}
-  .play-page .browser-frame{aspect-ratio:auto;height:76dvh;min-height:560px;max-height:820px}
-  .play-page .launch-cover h2{font-size:clamp(30px,9vw,48px)!important}
-}
-@media(max-width:520px){
-  .play-page .browser-frame{height:74dvh;min-height:520px}
+@media(max-width:640px){
+  .play-page .play-wrap{width:min(100% - 12px,1500px)}
+  .play-page .browser-frame{aspect-ratio:auto;height:74dvh;min-height:520px}
 }

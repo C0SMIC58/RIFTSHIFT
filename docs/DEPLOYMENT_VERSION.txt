@@ -1,2 +1,4 @@
-RIFTSHIFT WEBSITE REPAIR 3
-GitHub Pages base: /RIFTSHIFT/
+RIFTSHIFT GITHUB PAGES
+Website style: ORIGINAL V1 restored
+Browser game: V18.8.9
+Website patch: OLD STYLE + SCALE FIX ONLY
