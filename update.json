@@ -1,8 +1,8 @@
 {
-  "version": "18.8.4",
+  "version": "18.8.5",
   "gameUrl": "https://raw.githubusercontent.com/C0SMIC58/RIFTSHIFT/main/RIFTSHIFT_LATEST.html",
-  "sha256": "50e3a07889388a9bdc24b5b7455cea3efb3f4be1e7eb4e14ec308266a434329c",
+  "sha256": "c0a77838667cb3793537b04d6401bacc100e93e820b3daa798f9e450c39d9462",
   "overhaul": false,
   "priority": "normal",
-  "notes": "Loadout branch update: 0.25s semi-auto sidearms, permanent Secondary/Melee/Utility branch choices, clearer side-mounted weapon rigs, persistent Ignition Pistol burn trails, and new enemy death sequences."
+  "notes": "Combat/world expansion: muzzle-aligned shots, melee VFX, roaming Behemoths, directional deaths, super weapons, moving/multi-level arenas, destructible structures, spreading fire, and improved menu flames."
 }
