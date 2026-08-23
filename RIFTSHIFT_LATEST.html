@@ -632,7 +632,7 @@ canvas{display:block}
 @media(max-width:850px){.v9Grid{grid-template-columns:1fr 1fr}.settingsGrid{grid-template-columns:1fr}.historyRow{grid-template-columns:1fr 1fr 1fr}.historyRow span:nth-child(n+4){display:none}}
 @media(max-width:850px){.classes{grid-template-columns:1fr 1fr}.classCard{min-height:340px}.upCards{grid-template-columns:1fr}.upCard{min-height:155px}.classTop{align-items:flex-start;flex-direction:column}}
 
-/* V18.8.3 // CLASS SELECT FIT PASS */
+/* V18.8.4 // CLASS SELECT FIT PASS */
 #classSelect{padding:10px;overflow:hidden}
 #classSelect .classShell{
   width:1480px;max-width:none;max-height:none;overflow:visible;
@@ -725,7 +725,7 @@ canvas{display:block}
         <div class="engineHandoffTop"><span>RIFTSHIFT // COMBAT OPERATING SYSTEM</span><span class="live">● RIFT LINK STABLE</span></div>
         <div class="engineHandoffFrame">
           <div class="engineHandoffPane">
-            <div class="engineHandoffCode">FIELD TERMINAL / RS-18.8.3</div>
+            <div class="engineHandoffCode">FIELD TERMINAL / RS-18.8.4</div>
             <h1 class="engineHandoffTitle"><span class="rift">RIFT</span><span class="shift">SHIFT</span></h1>
             <div class="engineHandoffSlash"></div>
             <div class="engineHandoffSub">RIFT LINK STABLE // MENU UPLINK READY</div>
@@ -773,14 +773,14 @@ canvas{display:block}
     <div class="menuTopRedux">
       <div class="menuTopLeft">
         <span class="menuKickerRedux">RIFTSHIFT // STRIKE DIRECTOR</span>
-        <span class="menuBuildChip">BUILD V18.8.3</span>
+        <span class="menuBuildChip">BUILD V18.8.4</span>
       </div>
       <div class="menuTopRight"><span class="menuPulse"></span> ORBITAL LINK GREEN</div>
     </div>
 
     <div class="menuHeroRedux">
       <div class="menuBrandRedux">
-        <div class="brandCode">FIELD TERMINAL / RS-18.8.3</div>
+        <div class="brandCode">FIELD TERMINAL / RS-18.8.4</div>
         <h1 class="brandMain"><span class="rift">RIFT</span><span class="shift">SHIFT</span></h1>
         <div class="brandSlash"></div>
         <p class="commandCopy">Drop into a collapsing warfront where every run rebuilds the battlefield, every class carries a full combat kit, and every wave pushes harder than the last. Build momentum, evolve your weapons, and survive the rupture long enough to turn the front line back on itself.</p>
@@ -838,7 +838,7 @@ canvas{display:block}
           <div class="stageStatBar">
             <div class="stageStat"><span>CLASS CORES</span><b>4</b></div>
             <div class="stageStat"><span>RUN SEEDS</span><b>∞</b></div>
-            <div class="stageStat"><span>BUILD</span><b>V18.8.3</b></div>
+            <div class="stageStat"><span>BUILD</span><b>V18.8.4</b></div>
           </div>
         </div>
 
@@ -926,6 +926,7 @@ canvas{display:block}
 
 <section id="armory" class="screen"><div class="v9Shell"><div class="v9Top"><div><div class="titleKicker">BETWEEN WAVES</div><h2>FIELD ARMORY</h2><p>Spend scrap on run upgrades. The Armory appears every three cleared waves.</p></div><div id="armoryScrap" class="v9Currency">0 SCRAP</div></div><div id="armoryGrid" class="v9Grid"></div><div class="classActions"><button id="armoryRerollBtn" class="secondary">REROLL STOCK // 18</button><button id="armoryContinueBtn" class="primary">CONTINUE RUN</button></div></div></section>
 <section id="evolution" class="screen"><div class="v9Shell"><div class="v9Top"><div><div class="titleKicker">WEAPON BREAKPOINT</div><h2>EVOLVE YOUR WEAPON</h2><p>Your class build has reached critical mass. Choose one evolution for the rest of the run.</p></div></div><div id="evolutionGrid" class="v9Grid"></div></div></section>
+<section id="kitBranch" class="screen"><div class="v9Shell"><div class="v9Top"><div><div class="titleKicker">LOADOUT BREAKPOINT</div><h2 id="kitBranchTitle">BRANCH YOUR LOADOUT</h2><p id="kitBranchSub">Choose one permanent branch. The other path locks for this run.</p></div></div><div id="kitBranchGrid" class="v9Grid"></div></div></section>
 <section id="settings" class="screen"><div class="v9Shell"><div class="v9Top"><div><div class="titleKicker">SYSTEM</div><h2>SETTINGS</h2><p>Reorganized controls, audio, video, HUD, and announcer options. Saved locally on this device.</p></div></div><div class="settingsGrid">
 <div class="settingsGroup"><h3>AUDIO MIX</h3><p>Control the full sound mix, menu score, combat feedback, and announcer level.</p><div class="innerGrid">
 <div class="settingRow"><label><span>MASTER VOLUME</span><span id="masterValue">100%</span></label><input id="masterSlider" type="range" min="0" max="100" value="100"></div>
@@ -1084,12 +1085,46 @@ const CLASS_LOADOUTS={
   cosmic:{primary:"Banana Accelerator",secondary:"Comet Popper",melee:"Star Wrench",utility:"Gremlin Gadget"}
 };
 const EVOLVED_LOADOUTS={bloodline:"Bloodline Repeater",scrapstorm:"Scrapstorm Volleygun",phantom:"Phantom Vector",railcaster:"Railcaster Mk II",deadeye:"Deadeye Longshot",stormline:"Stormline Array",aegis:"Aegis Breaker",fireteam:"Fireteam Platform",vanguard:"Vanguard Pulsecarbine",mortar:"Siegebreaker Mortar",clusterstorm:"Clusterstorm Howitzer",singularity:"Singularity Launcher",ion_spear:"Ion Spear",stormrail:"Stormrail Coilgun",tesla_spine:"Tesla Spine Array"};
+const KIT_BRANCHES={
+  survivor:{
+    secondary:[{id:"surv_sec_hollow",name:"HOLLOWPOINT RIFT-9",tag:"PRECISION",desc:"Rift-9 rounds hit much harder, gain pierce, and have a high critical chance."},{id:"surv_sec_twin",name:"TWIN-SLIDE RIFT-9",tag:"VOLUME",desc:"Every semi-auto trigger snaps off a paired follow-up round while keeping the 0.25s trigger cadence."}],
+    melee:[{id:"surv_melee_serrated",name:"BLOODLETTER SHIV",tag:"SUSTAIN",desc:"Longer reach and heavier cuts. Melee kills immediately restore health."},{id:"surv_melee_ghost",name:"GHOST SHIV",tag:"MOBILITY",desc:"Knife attacks lunge forward, grant a brief invulnerability window, and partially refund Dash."}],
+    utility:[{id:"surv_util_medic",name:"FIELD CHEM INJECTOR",tag:"SURVIVAL",desc:"Stim becomes a large emergency heal with a brief protection window."},{id:"surv_util_overstim",name:"OVERSTIM INJECTOR",tag:"AGGRESSION",desc:"Stim grants a stronger speed burst, Energy, and a large chunk of Overdrive."}]
+  },
+  rifleman:{
+    secondary:[{id:"rifle_sec_magnum",name:"AEGIS HAND CANNON",tag:"POWER",desc:"The Aegis Pistol becomes a heavy semi-auto hand cannon with extra damage and piercing."},{id:"rifle_sec_trace",name:"TRACE AEGIS",tag:"MARKING",desc:"Aegis shots gain high crit chance; critical hits place a vulnerability trace on targets."}],
+    melee:[{id:"rifle_melee_ap",name:"AP BREACH KNIFE",tag:"DEBUFF",desc:"Knife hits expose armor and make struck targets take increased incoming damage."},{id:"rifle_melee_snap",name:"SNAP-CUT KNIFE",tag:"TEMPO",desc:"Fast lunging cuts partially reset Dash and extend melee reach."}],
+    utility:[{id:"rifle_util_wide",name:"WIDEBAND BEACON",tag:"CONTROL",desc:"Target Beacon marks a much larger group for longer."},{id:"rifle_util_killbox",name:"KILLBOX BEACON",tag:"DAMAGE",desc:"Marks fewer targets, but the vulnerability is dramatically stronger."}]
+  },
+  soldier:{
+    secondary:[{id:"sold_sec_bigiron",name:"BIG IRON BULLDOG",tag:"POWER",desc:"The Bulldog Revolver gains huge stopping power and a strong critical chance."},{id:"sold_sec_fan",name:"FAN-HAMMER BULLDOG",tag:"BURST",desc:"Each semi-auto trigger fans three lighter revolver rounds in a tight spread."}],
+    melee:[{id:"sold_melee_arc",name:"ARC BATON",tag:"CONTROL",desc:"Baton strikes shock nearby enemies and apply a stronger slow."},{id:"sold_melee_breaker",name:"BREAKER BATON",tag:"IMPACT",desc:"Massive knockback, range, and melee damage for crowd displacement."}],
+    utility:[{id:"sold_util_cluster",name:"CLUSTER FRAG",tag:"ORDNANCE",desc:"The Frag Grenade splits into a ring of follow-up blasts."},{id:"sold_util_emp",name:"EMP FRAG",tag:"CONTROL",desc:"The grenade sacrifices some blast damage for a huge slowing EMP pulse."}]
+  },
+  explosive:{
+    secondary:[{id:"exp_sec_napalm",name:"NAPALM FEED",tag:"FLAME",desc:"Ignition Pistol flames leave a wider, longer-lived burning trail that cooks enemies standing in it."},{id:"exp_sec_pilot",name:"PILOT LIGHT",tag:"IGNITION",desc:"Ignition Pistol flames burn hotter on contact and lay denser fire along their path."}],
+    melee:[{id:"exp_melee_cleave",name:"BREACHER AXE",tag:"CLEAVE",desc:"The Demolition Axe gains a much wider swing arc and heavier raw impact."},{id:"exp_melee_charge",name:"CHARGE AXE",tag:"DEMOLITION",desc:"Enemies struck by the axe receive a delayed micro-charge detonation."}],
+    utility:[{id:"exp_util_shaped",name:"SHAPED BREACH",tag:"SIEGE",desc:"Breach Charge becomes one enormous concentrated detonation."},{id:"exp_util_web",name:"SATCHEL WEB",tag:"SATURATION",desc:"Breach Charge scatters a timed web of multiple smaller detonations."}]
+  },
+  conduit:{
+    secondary:[{id:"cond_sec_chain",name:"ARC CASCADE",tag:"CHAIN",desc:"Arc Sidearm shots jump into additional nearby enemies."},{id:"cond_sec_ion",name:"ION SIDEARM",tag:"PENETRATION",desc:"The Arc Sidearm becomes a harder-hitting, high-pierce semi-auto energy pistol."}],
+    melee:[{id:"cond_melee_reclaim",name:"RECLAIM BLADE",tag:"ENERGY",desc:"Conductor Blade hits restore Energy and gain extra reach."},{id:"cond_melee_arc",name:"ARC BLADE",tag:"CONTROL",desc:"Blade hits discharge an electrical shock into nearby enemies."}],
+    utility:[{id:"cond_util_surge",name:"SURGE CELL",tag:"POWER",desc:"Flux Cell restores more Energy, accelerates movement, and adds Overdrive charge."},{id:"cond_util_emp",name:"BLACKOUT CELL",tag:"CONTROL",desc:"Flux Cell emits a much larger EMP that heavily slows and damages enemies."}]
+  },
+  cosmic:{
+    secondary:[{id:"cos_sec_split",name:"COMET SPLITTER",tag:"CHAOS",desc:"Comet Popper shots split into extra bouncing projectiles."},{id:"cos_sec_nova",name:"NOVA POPPER",tag:"POWER",desc:"Comet shots hit much harder and create a tiny starburst on impact."}],
+    melee:[{id:"cos_melee_spin",name:"STAR WRENCH 360",tag:"CHAOS",desc:"Wrench swings use a huge arc and ridiculous knockback."},{id:"cos_melee_bonk",name:"ABSOLUTE BONK",tag:"POWER",desc:"Slower-looking but brutally strong melee impacts."}],
+    utility:[{id:"cos_util_confetti",name:"CONFETTI ENGINE",tag:"CHAOS",desc:"Gremlin Gadget fills the nearby arena with bouncing nonsense."},{id:"cos_util_warp",name:"WARP GADGET",tag:"MOBILITY",desc:"Gremlin Gadget grants a strong speed burst, Energy, and instant Dash recovery."}]
+  }
+};
+const KIT_BRANCH_MILESTONES={secondary:4,melee:8,utility:12};
+
 function secondaryFireMode(){const name=(CLASS_LOADOUTS[G?.classId||selectedClass||"survivor"]?.secondary||"").toLowerCase();return /pistol|revolver|sidearm|popper/.test(name)?"semi":"auto";}
 function getDisplayedPrimary(){if(!G)return CLASS_LOADOUTS[selectedClass||"survivor"]?.primary||"PRIMARY";return EVOLVED_LOADOUTS[G.evolution]||G.weaponName||CLASS_LOADOUTS[G.classId]?.primary||"PRIMARY"}
 function renderLoadoutBar(){
   const root=$("loadoutBar");if(!root)return;
   const cid=G?.classId||selectedClass||"survivor",load=CLASS_LOADOUTS[cid]||CLASS_LOADOUTS.survivor,primary=getDisplayedPrimary(),p=G?.player,selected=G?.player?.equippedSlot||1;
-  const slots=[{k:"1",t:"PRIMARY",n:primary,cd:0,max:1,c:"primarySlot"},{k:"2",t:"SECONDARY",n:load.secondary,cd:p?.secondaryCd||0,max:4,c:"secondarySlot"},{k:"3",t:"MELEE",n:load.melee,cd:p?.meleeCd||0,max:1.55,c:"meleeSlot"},{k:"4",t:"UTILITY",n:load.utility,cd:p?.utilityCd||0,max:13,c:"utilitySlot"}];
+  const slots=[{k:"1",t:"PRIMARY",n:primary,cd:0,max:1,c:"primarySlot"},{k:"2",t:"SECONDARY",n:load.secondary,cd:p?.secondaryCd||0,max:.25,c:"secondarySlot"},{k:"3",t:"MELEE",n:load.melee,cd:p?.meleeCd||0,max:1.55,c:"meleeSlot"},{k:"4",t:"UTILITY",n:load.utility,cd:p?.utilityCd||0,max:13,c:"utilitySlot"}];
   root.innerHTML=slots.map(q=>{const ready=q.cd<=.03,frac=clamp(q.cd/q.max,0,1),isSel=selected===Number(q.k);const state=!G?"READY":isSel?"EQUIPPED":ready?(q.k==="1"?"EQUIPPED":"READY"):q.cd.toFixed(1)+"s";return `<div class="loadoutSlot ${q.c} ${ready?"ready":"cooling"} ${isSel?"selected":""}" style="--cd:${frac}"><div class="slotKey">${q.k}</div><div><span class="slotType">${q.t}</span><span class="slotName">${q.n}</span></div><span class="slotState">${state}</span></div>`}).join("");
 }
 
@@ -1596,7 +1631,7 @@ function beginBoot(){
     },fade);
   });
 }
-const screens=["boot","menu","classSelect","hud","pause","upgrade","armory","evolution","settings","archive","admin","gameover"];
+const screens=["boot","menu","classSelect","hud","pause","upgrade","armory","evolution","kitBranch","settings","archive","admin","gameover"];
 function syncRuntimeUI(){const inHud=$("hud").classList.contains("active")&&!!G?.running;if($("v17Heat"))$("v17Heat").style.display=inHud?"block":"none";if($("ownerPanelBtn"))$("ownerPanelBtn").hidden=!ownerAuth||!$("menu").classList.contains("active");}
 function showOnly(name){screens.forEach(id=>$(id).classList.toggle("active",id===name));syncRuntimeUI()}
 function showHUD(){screens.forEach(id=>$(id).classList.remove("active"));$("hud").classList.add("active");syncRuntimeUI()}
@@ -2032,7 +2067,7 @@ function newGame(){
       dashArmorTime:0,dashArmorStrength:0,dashCritTime:0,dashCritBonus:0,executeBonus:0,railEvery:0,railDamage:1,markPower:0,grenadeEvery:0,aegisTime:0,aegisStrength:0,
       rallyHeal:0,shockKill:0,overDamage:0,stability:0,shrapnel:0,aftershock:0,proximity:0,implosion:0,doubleBlast:0,clusterCount:0,equippedSlot:1,slotHold:0
     },
-    bullets:[],enemyBullets:[],enemies:[],particles:[],orbs:[],texts:[],blasts:[],delayedBlasts:[],energyLines:[],railImpacts:[],spawnFx:[],gasSegments:[],drones:0,droneCd:0,upgradeLevels:{},maxedUpgradeIds:new Set(),scrap:0,rerolls:1,bossKills:0,objective:null,evolution:null,evolutionOffered:false,weaponName:def.weapon,armoryStock:[],armoryPurchased:new Set(),
+    bullets:[],enemyBullets:[],enemies:[],enemyDeaths:[],particles:[],orbs:[],texts:[],blasts:[],delayedBlasts:[],energyLines:[],railImpacts:[],spawnFx:[],gasSegments:[],kitBranches:{secondary:null,melee:null,utility:null},drones:0,droneCd:0,upgradeLevels:{},maxedUpgradeIds:new Set(),scrap:0,rerolls:1,bossKills:0,objective:null,evolution:null,evolutionOffered:false,weaponName:def.weapon,armoryStock:[],armoryPurchased:new Set(),
     wave:1,spawnTimer:.65,spawned:0,waveTarget:pendingChallenge?22:(pendingChaos?18:12),kills:0,score:0,combo:0,comboTimer:0,waveDamageTaken:0,railMuzzle:0,weaponKick:0,muzzleFlash:0,weaponHeat:0,phasePulse:0,bossIntro:null,bossHazards:[],enemyStrikes:[],specterClones:[],contract:null,contractOffer:null,arenaEvent:null,guaranteedEpic:0,miniboss:null,
     level:1,xp:0,xpNeed:50,boss:null,nextWaveDelay:0,map:null
   };
@@ -2104,29 +2139,54 @@ function kitBullet(angle,damageMult=1,speedMult=1,opts={}){
   const p=G.player;G.bullets.push({x:p.x+Math.cos(angle)*24,y:p.y+Math.sin(angle)*24,vx:Math.cos(angle)*p.projectileSpeed*speedMult,vy:Math.sin(angle)*p.projectileSpeed*speedMult,r:opts.r||4,life:opts.life||1.15,damage:p.damage*damageMult,pierce:opts.pierce??0,bounce:opts.bounce??0,crit:opts.crit??false,explosive:!!opts.explosive,radius:opts.radius||0,floor:p.floor,proximity:opts.proximity||0,kitShot:true});G.muzzleFlash=Math.max(G.muzzleFlash||0,opts.flash||.1);G.weaponKick=Math.max(G.weaponKick||0,opts.kick||4);G.weaponHeat=clamp((G.weaponHeat||0)+.12,0,1);
 }
 function useSecondary(fromSlotFire=false){
-  const p=G.player;if((p.secondaryCd||0)>0)return;const a=Math.atan2(mouse.y-p.y,mouse.x-p.x),id=G.classId;setEquippedSlot(2,fromSlotFire?0:.65);
-  if(id==="survivor"){[-.025,0,.025].forEach((o,i)=>setTimeout(()=>{if(G?.running)kitBullet(a+o,.72,1.25,{pierce:1,crit:i===1,flash:.09,kick:3})},i*46));p.secondaryCd=2.4;}
-  else if(id==="rifleman"){kitBullet(a,2.65,1.38,{pierce:5,crit:true,r:4.6,flash:.12,kick:8});p.secondaryCd=3.4;}
-  else if(id==="soldier"){for(let i=0;i<5;i++){const o=(i-2)*.028;setTimeout(()=>{if(G?.running)kitBullet(a+o,.62,1.12,{pierce:1,flash:.08,kick:3.5})},i*38)}p.secondaryCd=3.2;}
-  else if(id==="explosive"){G.bullets.push({x:p.x+Math.cos(a)*20,y:p.y+Math.sin(a)*20,vx:Math.cos(a)*p.projectileSpeed*.78,vy:Math.sin(a)*p.projectileSpeed*.78,r:5.2,life:1.55,damage:p.damage*.95,pierce:0,bounce:0,crit:false,explosive:false,floor:p.floor,gasTrail:true,gasTick:0,gasBurst:true});G.muzzleFlash=Math.max(G.muzzleFlash||0,.09);G.weaponKick=Math.max(G.weaponKick||0,5.5);p.secondaryCd=4;}
-  else if(id==="conduit"){kitBullet(a,1.18,1.45,{pierce:2,r:4.5,flash:.1,kick:5});const near=G.enemies.filter(e=>(e.floor??0)===(p.floor??0)&&dist(e,p)<320).sort((x,y)=>dist(x,p)-dist(y,p)).slice(0,3);near.forEach((e,i)=>{e.hp-=p.damage*(.28-i*.05);e.slow=Math.max(e.slow,1.1);G.energyLines.push({x1:p.x,y1:p.y,x2:e.x,y2:e.y,life:.16,max:.16,width:6});if(e.hp<=0){const j=G.enemies.indexOf(e);if(j>=0)killEnemy(e,j)}});p.secondaryCd=3.6;}
-  else{for(let i=0;i<7;i++)kitBullet(a+rand(-.18,.18),.5,1.12,{bounce:4,crit:Math.random()<.3,r:5,flash:.1,kick:4});p.secondaryCd=2.2;}
-  G.weaponAnim={slot:2,type:"secondary",t:.22,max:.22,classId:id};try{sfx.shoot(id,p.x)}catch(e){};msg(`${CLASS_LOADOUTS[id]?.secondary||"SECONDARY"} // FIRED`,.7);renderLoadoutBar();
+  const p=G.player;if((p.secondaryCd||0)>0)return;const a=Math.atan2(mouse.y-p.y,mouse.x-p.x),id=G.classId,dm=p.secondaryDamageMult||1,pc=p.secondaryPierce||0,crit=p.secondaryCrit||0;setEquippedSlot(2,fromSlotFire?0:.65);
+  const shot=(ang,mult=1,opts={})=>kitBullet(ang,mult*dm,opts.speed||1.35,{pierce:(opts.pierce||0)+pc,crit:opts.crit??(Math.random()<crit),r:opts.r||4.2,flash:.095,kick:4.8});
+  if(id==="survivor"){
+    shot(a,.82,{pierce:0});if(p.secondaryTwin)setTimeout(()=>{if(G?.running)shot(a+rand(-.018,.018),.82,{pierce:0})},70);
+  }else if(id==="rifleman"){
+    shot(a,1.05,{pierce:1,speed:1.5});
+  }else if(id==="soldier"){
+    shot(a,1.18,{speed:1.32});if(p.secondaryFan){[-.045,.045].forEach((o,i)=>setTimeout(()=>{if(G?.running)shot(a+o,1.0,{speed:1.28})},55+i*48));}
+  }else if(id==="explosive"){
+    const density=p.secondaryGasDensity||1,rad=18*(p.secondaryGasRadius||1),dur=2.15*(p.secondaryGasDuration||1);
+    G.bullets.push({x:p.x+Math.cos(a)*22,y:p.y+Math.sin(a)*22,vx:Math.cos(a)*p.projectileSpeed*.96,vy:Math.sin(a)*p.projectileSpeed*.96,r:5.4,life:1.18,damage:p.damage*.48*dm,pierce:0,bounce:0,crit:false,explosive:false,floor:p.floor,gasTrail:true,gasTick:0,gasDensity:density,gasRadius:rad,gasDuration:dur,flameDamage:p.damage*.12*(p.secondaryFlameDamage||1),gasBurst:true});G.muzzleFlash=Math.max(G.muzzleFlash||0,.11);G.weaponKick=Math.max(G.weaponKick||0,4.8);
+  }else if(id==="conduit"){
+    shot(a,.92,{pierce:1,speed:1.55});const count=p.secondaryChain||2,near=G.enemies.filter(e=>(e.floor??0)===(p.floor??0)&&dist(e,p)<300).sort((x,y)=>dist(x,p)-dist(y,p)).slice(0,count);near.forEach((e,i)=>{e.hp-=p.damage*(.14*dm-i*.015);e.slow=Math.max(e.slow,.75);G.energyLines.push({x1:p.x,y1:p.y,x2:e.x,y2:e.y,life:.13,max:.13,width:5});if(e.hp<=0){const j=G.enemies.indexOf(e);if(j>=0)killEnemy(e,j)}});
+  }else{
+    shot(a,1.0,{speed:1.4});if(p.secondarySplit){[-.12,.12].forEach(o=>kitBullet(a+o,.35,1.25,{bounce:3,r:3.5,flash:.04,kick:1}));}if(p.secondaryNova)G.delayedBlasts.push({t:.12,x:p.x+Math.cos(a)*120,y:p.y+Math.sin(a)*120,radius:38,damage:p.damage*.42,floor:p.floor});
+  }
+  p.secondaryCd=.25;G.weaponAnim={slot:2,type:"secondary",t:.22,max:.22,classId:id};try{sfx.shoot(id,p.x)}catch(e){};renderLoadoutBar();
 }
 function useMelee(fromSlotFire=false){
-  const p=G.player;if((p.meleeCd||0)>0)return;setEquippedSlot(3,fromSlotFire?0:.4);const a=Math.atan2(mouse.y-p.y,mouse.x-p.x),mult={survivor:1.55,rifleman:1.75,soldier:1.9,explosive:2.2,conduit:1.7,cosmic:2.5}[G.classId]||1.6,range=76;let hits=0;
-  for(let i=G.enemies.length-1;i>=0;i--){const e=G.enemies[i];if((e.floor??0)!==(p.floor??0))continue;const d=dist(e,p),ea=Math.atan2(e.y-p.y,e.x-p.x),diff=Math.abs(Math.atan2(Math.sin(ea-a),Math.cos(ea-a)));if(d<range+e.r&&diff<1.05){const dmg=p.damage*mult;e.hp-=dmg;e.hit=.15;e.slow=Math.max(e.slow,.38);e.vx=(e.vx||0)+Math.cos(a)*210;e.vy=(e.vy||0)+Math.sin(a)*210;floatText(e.x,e.y-e.r,Math.round(dmg),"#ffd8a6",15);for(let k=0;k<5;k++)particle(e.x,e.y,rand(-130,130),rand(-130,130),rand(1.5,3.5),"#ffc47e",.22);if(e.hp<=0)killEnemy(e,i);hits++;}}
-  p.meleeCd={survivor:1.15,rifleman:1.28,soldier:1.38,explosive:1.52,conduit:1.25,cosmic:.9}[G.classId]||1.3;G.weaponAnim={slot:3,type:"melee",t:.28,max:.28,classId:G.classId,hits};G.shake=Math.max(G.shake,hits?5:2);try{sfx.impact(p.x)}catch(e){};msg(`${CLASS_LOADOUTS[G.classId]?.melee||"MELEE"}${hits?` // ${hits} HIT`:""}`,.65);renderLoadoutBar();
+  const p=G.player;if((p.meleeCd||0)>0)return;setEquippedSlot(3,fromSlotFire?0:.4);const a=Math.atan2(mouse.y-p.y,mouse.x-p.x),base={survivor:1.55,rifleman:1.75,soldier:1.9,explosive:2.2,conduit:1.7,cosmic:2.5}[G.classId]||1.6,mult=base*(p.meleeDamageMult||1),range=76*(p.meleeRangeMult||1),arc=p.meleeArc||1.05,knock=210*(p.meleeKnock||1);let hits=0,kills=0;
+  if(p.meleeLunge){moveEntity(p,Math.cos(a)*p.meleeLunge,Math.sin(a)*p.meleeLunge);p.invuln=Math.max(p.invuln,p.meleeInvuln||.12);if(p.meleeDashRefund)p.dashCd=Math.max(0,p.dashCd-p.dashMax*p.meleeDashRefund);}
+  for(let i=G.enemies.length-1;i>=0;i--){const e=G.enemies[i];if((e.floor??0)!==(p.floor??0))continue;const d=dist(e,p),ea=Math.atan2(e.y-p.y,e.x-p.x),diff=Math.abs(Math.atan2(Math.sin(ea-a),Math.cos(ea-a)));if(d<range+e.r&&diff<arc){const dmg=p.damage*mult;e.hp-=dmg;e.hit=.15;e.slow=Math.max(e.slow,p.meleeShock?1.1:.38);e.vx=(e.vx||0)+Math.cos(a)*knock;e.vy=(e.vy||0)+Math.sin(a)*knock;if(p.meleeVuln){e.vulnTime=Math.max(e.vulnTime||0,3.2);e.vulnPower=Math.max(e.vulnPower||0,p.meleeVuln);}if(p.meleeEnergy)p.energy=clamp(p.energy+p.meleeEnergy,0,p.maxEnergy);if(p.meleeCharge)G.delayedBlasts.push({t:.18,x:e.x,y:e.y,radius:48,damage:p.damage*p.meleeCharge,floor:e.floor??0});if(p.meleeShock){for(const q of G.enemies){if(q!==e&&(q.floor??0)===(e.floor??0)&&dist(q,e)<82){q.hp-=p.damage*p.meleeShock;q.slow=Math.max(q.slow,1.15);G.energyLines.push({x1:e.x,y1:e.y,x2:q.x,y2:q.y,life:.12,max:.12,width:5});}}}floatText(e.x,e.y-e.r,Math.round(dmg),"#ffd8a6",15);for(let k=0;k<5;k++)particle(e.x,e.y,rand(-130,130),rand(-130,130),rand(1.5,3.5),"#ffc47e",.22);if(e.hp<=0){killEnemy(e,i);kills++;}hits++;}}
+  if(kills&&p.meleeKillHeal)p.hp=clamp(p.hp+kills*p.meleeKillHeal,0,p.maxHp);
+  p.meleeCd={survivor:1.05,rifleman:1.14,soldier:1.22,explosive:1.38,conduit:1.1,cosmic:.82}[G.classId]||1.2;G.weaponAnim={slot:3,type:"melee",t:.32,max:.32,classId:G.classId,hits};G.shake=Math.max(G.shake,hits?5:2);try{sfx.impact(p.x)}catch(e){};renderLoadoutBar();
 }
 function useUtility(fromSlotFire=false){
   const p=G.player;if((p.utilityCd||0)>0)return;setEquippedSlot(4,fromSlotFire?0:.5);const id=G.classId,tx=clamp(mouse.x,45,W-45),ty=clamp(mouse.y,45,H-45);
-  if(id==="survivor"){p.hp=clamp(p.hp+26,0,p.maxHp);p.stimTime=Math.max(p.stimTime,6);p.energy=clamp(p.energy+15,0,p.maxEnergy);for(let i=0;i<18;i++)particle(p.x,p.y,rand(-100,100),rand(-100,100),rand(2,5),"#65e49a",.45);p.utilityCd=12;}
-  else if(id==="rifleman"){const targets=G.enemies.filter(e=>(e.floor??0)===(p.floor??0)).sort((a,b)=>Math.hypot(a.x-tx,a.y-ty)-Math.hypot(b.x-tx,b.y-ty)).slice(0,6);targets.forEach(e=>{e.vulnTime=Math.max(e.vulnTime||0,6);e.vulnPower=Math.max(e.vulnPower||0,.32);G.energyLines.push({x1:tx,y1:ty,x2:e.x,y2:e.y,life:.28,max:.28,width:4})});p.utilityCd=13;msg(`TARGET BEACON // ${targets.length} MARKED`,.8);}
-  else if(id==="soldier"){G.delayedBlasts.push({t:.42,x:tx,y:ty,radius:82,damage:p.damage*1.55,floor:p.floor});p.utilityCd=10;}
-  else if(id==="explosive"){for(let i=0;i<4;i++){const aa=i/4*TAU,rr=i?44:0;G.delayedBlasts.push({t:.25+i*.08,x:tx+Math.cos(aa)*rr,y:ty+Math.sin(aa)*rr,radius:74,damage:p.damage*1.15,floor:p.floor})}p.utilityCd=12.5;}
-  else if(id==="conduit"){p.energy=clamp(p.energy+62,0,p.maxEnergy);for(let i=G.enemies.length-1;i>=0;i--){const e=G.enemies[i];if((e.floor??0)===(p.floor??0)&&dist(e,p)<230){e.slow=Math.max(e.slow,2.2);e.hp-=p.damage*.3;G.energyLines.push({x1:p.x,y1:p.y,x2:e.x,y2:e.y,life:.24,max:.24,width:7});if(e.hp<=0)killEnemy(e,i)}}p.utilityCd=11;}
-  else{for(let i=0;i<8;i++){const aa=i/8*TAU;G.delayedBlasts.push({t:.15+i*.04,x:p.x+Math.cos(aa)*90,y:p.y+Math.sin(aa)*90,radius:56,damage:p.damage*.72,floor:p.floor})}p.utilityCd=8;}
-  G.weaponAnim={slot:4,type:"utility",t:.22,max:.22,classId:id};G.flash=Math.max(G.flash,.08);try{sfx.ability(id)}catch(e){};if(id!=="rifleman")msg(`${CLASS_LOADOUTS[id]?.utility||"UTILITY"} // DEPLOYED`,.75);renderLoadoutBar();
+  if(id==="survivor"){
+    if(p.utilityMedic){p.hp=clamp(p.hp+52,0,p.maxHp);p.invuln=Math.max(p.invuln,.8);p.stimTime=Math.max(p.stimTime,4.5);}
+    else if(p.utilityOverstim){p.hp=clamp(p.hp+16,0,p.maxHp);p.energy=clamp(p.energy+42,0,p.maxEnergy);p.over=clamp(p.over+38,0,100);p.stimTime=Math.max(p.stimTime,8);}
+    else{p.hp=clamp(p.hp+26,0,p.maxHp);p.stimTime=Math.max(p.stimTime,6);p.energy=clamp(p.energy+15,0,p.maxEnergy);}for(let i=0;i<18;i++)particle(p.x,p.y,rand(-100,100),rand(-100,100),rand(2,5),"#65e49a",.45);p.utilityCd=12;
+  }else if(id==="rifleman"){
+    const count=p.utilityWide?10:p.utilityKillbox?4:6,power=p.utilityKillbox?.55:.32,dur=p.utilityWide?8:6,targets=G.enemies.filter(e=>(e.floor??0)===(p.floor??0)).sort((a,b)=>Math.hypot(a.x-tx,a.y-ty)-Math.hypot(b.x-tx,b.y-ty)).slice(0,count);targets.forEach(e=>{e.vulnTime=Math.max(e.vulnTime||0,dur);e.vulnPower=Math.max(e.vulnPower||0,power);G.energyLines.push({x1:tx,y1:ty,x2:e.x,y2:e.y,life:.28,max:.28,width:4})});p.utilityCd=13;msg(`TARGET BEACON // ${targets.length} MARKED`,.8);
+  }else if(id==="soldier"){
+    if(p.utilityCluster){G.delayedBlasts.push({t:.34,x:tx,y:ty,radius:70,damage:p.damage*1.15,floor:p.floor});for(let i=0;i<6;i++){const aa=i/6*TAU;G.delayedBlasts.push({t:.48+i*.025,x:tx+Math.cos(aa)*48,y:ty+Math.sin(aa)*48,radius:42,damage:p.damage*.62,floor:p.floor})}}
+    else if(p.utilityEMP){for(const e of G.enemies){if((e.floor??0)===(p.floor??0)&&Math.hypot(e.x-tx,e.y-ty)<150){e.slow=Math.max(e.slow,3.5);e.hp-=p.damage*.45;}}G.blasts.push({x:tx,y:ty,radius:150,life:.42,max:.42,floor:p.floor,color:"#8db8ff"});}
+    else G.delayedBlasts.push({t:.42,x:tx,y:ty,radius:82,damage:p.damage*1.55,floor:p.floor});p.utilityCd=10;
+  }else if(id==="explosive"){
+    if(p.utilityShaped)G.delayedBlasts.push({t:.32,x:tx,y:ty,radius:126,damage:p.damage*2.35,floor:p.floor});
+    else if(p.utilityWeb){for(let i=0;i<8;i++){const aa=i/8*TAU,rr=i?58:0;G.delayedBlasts.push({t:.18+i*.065,x:tx+Math.cos(aa)*rr,y:ty+Math.sin(aa)*rr,radius:58,damage:p.damage*.86,floor:p.floor})}}
+    else for(let i=0;i<4;i++){const aa=i/4*TAU,rr=i?44:0;G.delayedBlasts.push({t:.25+i*.08,x:tx+Math.cos(aa)*rr,y:ty+Math.sin(aa)*rr,radius:74,damage:p.damage*1.15,floor:p.floor})}p.utilityCd=12.5;
+  }else if(id==="conduit"){
+    const rad=p.utilityEMP?320:230,slow=p.utilityEMP?4.4:2.2,dmg=p.utilityEMP?.55:.3;p.energy=clamp(p.energy+(p.utilitySurge?88:62),0,p.maxEnergy);if(p.utilitySurge){p.over=clamp(p.over+25,0,100);p.fluxSpeedTime=Math.max(p.fluxSpeedTime,4);}for(let i=G.enemies.length-1;i>=0;i--){const e=G.enemies[i];if((e.floor??0)===(p.floor??0)&&dist(e,p)<rad){e.slow=Math.max(e.slow,slow);e.hp-=p.damage*dmg;G.energyLines.push({x1:p.x,y1:p.y,x2:e.x,y2:e.y,life:.24,max:.24,width:7});if(e.hp<=0)killEnemy(e,i)}}p.utilityCd=11;
+  }else{
+    if(p.utilityWarp){p.energy=clamp(p.energy+80,0,p.maxEnergy);p.dashCd=0;p.stimTime=Math.max(p.stimTime,5);}
+    else for(let i=0;i<(p.utilityConfetti?16:8);i++){const aa=i/(p.utilityConfetti?16:8)*TAU;G.delayedBlasts.push({t:.12+i*.035,x:p.x+Math.cos(aa)*rand(60,130),y:p.y+Math.sin(aa)*rand(60,130),radius:48,damage:p.damage*.6,floor:p.floor})}p.utilityCd=8;
+  }
+  G.weaponAnim={slot:4,type:"utility",t:.24,max:.24,classId:id};G.flash=Math.max(G.flash,.08);try{sfx.ability(id)}catch(e){};renderLoadoutBar();
 }
 function dash(){
   const p=G.player;if(p.dashCd>0)return;
@@ -2401,8 +2461,15 @@ function hurtPlayer(raw){
   if(p.hp<=0)gameOver();
 }
 function enemyExplosion(x,y,radius,damage,floor){G.blasts.push({x,y,radius,life:.35,max:.35,floor,color:"#ff705a"});sfx.explosion(x,radius);if((G.player.floor??0)===(floor??0)&&Math.hypot(G.player.x-x,G.player.y-y)<radius+G.player.r)hurtPlayer(damage)}
+function spawnEnemyDeath(e){
+  if(!G?.enemyDeaths)return;const boss=e.type==="boss",mini=e.type==="miniboss",mechanical=["turret","pylon","sniper","minelayer","shield"].includes(e.type),max=boss?1.35:mini?.92:.62,count=boss?18:mini?12:mechanical?9:7;
+  const parts=Array.from({length:count},(_,i)=>{const a=i/count*TAU+rand(-.35,.35),sp=rand(boss?100:55,boss?260:155);return{x:rand(-e.r*.35,e.r*.35),y:rand(-e.r*.35,e.r*.35),vx:Math.cos(a)*sp,vy:Math.sin(a)*sp,rot:rand(0,TAU),vr:rand(-7,7),size:rand(2,boss?8:5)}});
+  G.enemyDeaths.push({x:e.x,y:e.y-(e.elevation||0)*8,r:e.r,color:e.eliteColor||e.color,type:e.type,mechanical,boss,mini,life:max,max,rot:rand(-.2,.2),vr:rand(-1.5,1.5),parts,scorch:0});
+}
+function updateEnemyDeaths(dt){for(let i=G.enemyDeaths.length-1;i>=0;i--){const d=G.enemyDeaths[i];d.life-=dt;d.rot+=d.vr*dt;d.scorch=Math.min(1,d.scorch+dt*4);for(const q of d.parts){q.x+=q.vx*dt;q.y+=q.vy*dt;q.vx*=Math.pow(.14,dt);q.vy=q.vy*Math.pow(.22,dt)+170*dt;q.rot+=q.vr*dt}if(d.life<=0)G.enemyDeaths.splice(i,1);}}
+function drawEnemyDeaths(){for(const d of G.enemyDeaths||[]){const t=1-d.life/d.max,fade=clamp(d.life/(d.max*.45),0,1),flash=clamp(1-t/.14,0,1);X.save();X.translate(d.x,d.y);X.globalAlpha=.22*fade;X.fillStyle="#050608";X.beginPath();X.ellipse(0,d.r*.65,d.r*1.05,d.r*.32,0,0,TAU);X.fill();X.globalAlpha=fade;X.rotate(d.rot+t*.65);X.scale(1-.18*t,Math.max(.14,1-t*1.08));X.shadowColor=d.color;X.shadowBlur=18*(1-t);X.fillStyle=flash>.1?`rgba(255,255,255,${.45+.5*flash})`:d.color;if(d.mechanical){roundedRect(-d.r*.72,-d.r*.58,d.r*1.44,d.r*1.16,Math.max(4,d.r*.24));X.fill();X.strokeStyle="rgba(255,255,255,.25)";X.lineWidth=2;X.stroke()}else{X.beginPath();for(let k=0;k<8;k++){const a=k/8*TAU,rr=k%2?d.r*.72:d.r,xx=Math.cos(a)*rr,yy=Math.sin(a)*rr;k?X.lineTo(xx,yy):X.moveTo(xx,yy)}X.closePath();X.fill()}X.restore();X.save();X.translate(d.x,d.y);for(const q of d.parts){X.save();X.translate(q.x,q.y);X.rotate(q.rot);X.globalAlpha=fade*.82;X.fillStyle=q.size>5?"#e9f2ff":d.color;X.fillRect(-q.size*.7,-q.size*.35,q.size*1.4,q.size*.7);X.restore()}X.globalCompositeOperation="lighter";X.globalAlpha=fade*(1-t)*.7;X.strokeStyle=d.color;X.lineWidth=d.boss?5:2.5;X.beginPath();X.arc(0,0,d.r*(1+t*1.8),0,TAU);X.stroke();X.globalCompositeOperation="source-over";X.restore();}}
 function killEnemy(e,index){
-  G.enemies.splice(index,1);G.kills++;G.combo++;G.comboTimer=2.5;const mult=1+Math.min(G.combo,20)*.045,pts=Math.round(e.score*mult*(G.scoreMultiplier||1));G.score+=pts;
+  spawnEnemyDeath(e);G.enemies.splice(index,1);G.kills++;G.combo++;G.comboTimer=2.5;const mult=1+Math.min(G.combo,20)*.045,pts=Math.round(e.score*mult*(G.scoreMultiplier||1));G.score+=pts;
   const scrapBase=e.type==="boss"?80:e.type==="miniboss"?32:e.type==="pylon"||e.type==="turret"?8:e.eliteKind?10:e.type==="brute"?5:2;G.scrap+=Math.round(scrapBase*(G.scrapMultiplier||1));G.player.over=clamp(G.player.over+8*G.player.overMult,0,100);G.player.energy=clamp(G.player.energy+(e.type==="boss"?35:e.type==="miniboss"?26:e.eliteKind?16:9),0,G.player.maxEnergy);
   if(G.player.lifesteal>0)G.player.hp=clamp(G.player.hp+G.player.lifesteal,0,G.player.maxHp);if(G.player.lastStandLegend&&G.player.hp/G.player.maxHp<.25)G.player.hp=clamp(G.player.hp+5,0,G.player.maxHp);
   if(G.player.scroungeChance&&Math.random()<G.player.scroungeChance)G.player.hp=clamp(G.player.hp+(G.player.scroungeHeal||5),0,G.player.maxHp);
@@ -2669,6 +2736,7 @@ function applyUpgrade(id,rarity="common"){
   else if(id==="legend_cond_zero"){p.pierce+=6;p.zeroResistance=true;p.railEnergyGain=(p.railEnergyGain||0)+2.5;}
 
   applyRarityBonus(rarity);p.invuln=Math.max(p.invuln,.35);
+  if(maybeOfferKitBranch())return;
   if(maybeOfferEvolution())return;
   G.choosing=false;showHUD();G.last=performance.now();
   sfx.setMusic(G.boss?"boss":p.overActive>0?"overdrive":G.wave>=7?"danger":"combat");
@@ -2677,6 +2745,44 @@ function applyUpgrade(id,rarity="common"){
 }
 
 
+function nextKitBranchSlot(){
+  if(!G)return null;
+  for(const slot of ["secondary","melee","utility"]){if(G.level>=KIT_BRANCH_MILESTONES[slot]&&!G.kitBranches?.[slot])return slot;}
+  return null;
+}
+function maybeOfferKitBranch(){const slot=nextKitBranchSlot();if(!slot)return false;showKitBranch(slot);return true;}
+function showKitBranch(slot){
+  G.choosing=true;G.paused=true;G.pendingKitBranch=slot;showOnly("kitBranch");
+  const pretty={secondary:"SECONDARY",melee:"MELEE",utility:"UTILITY"}[slot],arr=KIT_BRANCHES[G.classId]?.[slot]||[];
+  $("kitBranchTitle").textContent=`${pretty} // CHOOSE A BRANCH`;
+  $("kitBranchSub").textContent=`This permanently changes your ${pretty.toLowerCase()} for this run. The other path locks.`;
+  $("kitBranchGrid").innerHTML=arr.map((b,i)=>`<div class="evoCard" data-kitbranch="${b.id}"><div class="evoIcon">${i?"◆":"◇"}</div><div class="evoName">${b.name}</div><div class="evoDesc">${b.desc}</div><div class="evoTag">${b.tag} // PERMANENT</div></div>`).join("");
+  document.querySelectorAll("[data-kitbranch]").forEach(c=>c.addEventListener("click",()=>applyKitBranch(c.dataset.kitbranch)));sfx.level();
+}
+function applyKitBranch(id){
+  const slot=G.pendingKitBranch,arr=KIT_BRANCHES[G.classId]?.[slot]||[],b=arr.find(x=>x.id===id);if(!slot||!b)return;
+  const p=G.player;G.kitBranches[slot]=id;G.pendingKitBranch=null;
+  if(id==="surv_sec_hollow"){p.secondaryDamageMult=1.55;p.secondaryPierce=1;p.secondaryCrit=.24;}else if(id==="surv_sec_twin"){p.secondaryTwin=true;p.secondaryDamageMult=.72;}
+  else if(id==="surv_melee_serrated"){p.meleeDamageMult=1.35;p.meleeRangeMult=1.18;p.meleeKillHeal=5;}else if(id==="surv_melee_ghost"){p.meleeLunge=34;p.meleeDashRefund=.42;p.meleeInvuln=.22;}
+  else if(id==="surv_util_medic"){p.utilityMedic=true;}else if(id==="surv_util_overstim"){p.utilityOverstim=true;}
+  else if(id==="rifle_sec_magnum"){p.secondaryDamageMult=1.65;p.secondaryPierce=2;}else if(id==="rifle_sec_trace"){p.secondaryCrit=.42;p.secondaryTrace=.28;}
+  else if(id==="rifle_melee_ap"){p.meleeVuln=.30;}else if(id==="rifle_melee_snap"){p.meleeLunge=28;p.meleeDashRefund=.5;p.meleeRangeMult=1.18;}
+  else if(id==="rifle_util_wide"){p.utilityWide=true;}else if(id==="rifle_util_killbox"){p.utilityKillbox=true;}
+  else if(id==="sold_sec_bigiron"){p.secondaryDamageMult=1.62;p.secondaryCrit=.28;}else if(id==="sold_sec_fan"){p.secondaryFan=true;p.secondaryDamageMult=.54;}
+  else if(id==="sold_melee_arc"){p.meleeShock=.34;}else if(id==="sold_melee_breaker"){p.meleeDamageMult=1.48;p.meleeRangeMult=1.22;p.meleeKnock=1.65;}
+  else if(id==="sold_util_cluster"){p.utilityCluster=true;}else if(id==="sold_util_emp"){p.utilityEMP=true;}
+  else if(id==="exp_sec_napalm"){p.secondaryGasRadius=1.45;p.secondaryGasDuration=1.65;p.secondaryFlameDamage=1.25;}else if(id==="exp_sec_pilot"){p.secondaryGasDensity=.55;p.secondaryFlameDamage=1.7;}
+  else if(id==="exp_melee_cleave"){p.meleeDamageMult=1.45;p.meleeRangeMult=1.35;p.meleeArc=1.38;}else if(id==="exp_melee_charge"){p.meleeCharge=.95;}
+  else if(id==="exp_util_shaped"){p.utilityShaped=true;}else if(id==="exp_util_web"){p.utilityWeb=true;}
+  else if(id==="cond_sec_chain"){p.secondaryChain=4;}else if(id==="cond_sec_ion"){p.secondaryDamageMult=1.55;p.secondaryPierce=3;}
+  else if(id==="cond_melee_reclaim"){p.meleeEnergy=14;p.meleeRangeMult=1.2;}else if(id==="cond_melee_arc"){p.meleeShock=.42;}
+  else if(id==="cond_util_surge"){p.utilitySurge=true;}else if(id==="cond_util_emp"){p.utilityEMP=true;}
+  else if(id==="cos_sec_split"){p.secondarySplit=true;}else if(id==="cos_sec_nova"){p.secondaryDamageMult=1.8;p.secondaryNova=true;}
+  else if(id==="cos_melee_spin"){p.meleeRangeMult=1.45;p.meleeArc=1.55;p.meleeKnock=1.8;}else if(id==="cos_melee_bonk"){p.meleeDamageMult=2.1;}
+  else if(id==="cos_util_confetti"){p.utilityConfetti=true;}else if(id==="cos_util_warp"){p.utilityWarp=true;}
+  renderLoadoutBar();msg(`${b.name} // BRANCH LOCKED`,1.3);
+  if(maybeOfferKitBranch())return;if(maybeOfferEvolution())return;G.choosing=false;G.paused=false;showHUD();G.last=performance.now();requestAnimationFrame(loop);
+}
 function classUpgradeTierCount(){return (CLASS_UPGRADES[G.classId]||[]).reduce((n,u)=>n+upgradeLevel(u.id),0)}
 function maybeOfferEvolution(){if(G.evolution||G.evolutionOffered||G.level<7||classUpgradeTierCount()<6)return false;G.evolutionOffered=true;showEvolution();return true}
 function showEvolution(){G.choosing=true;showOnly("evolution");const arr=EVOLUTIONS[G.classId]||[];$("evolutionGrid").innerHTML=arr.map(e=>`<div class="evoCard" data-evo="${e.id}"><div class="evoIcon">${e.icon}</div><div class="evoName">${e.name}</div><div class="evoDesc">${e.desc}</div><div class="evoTag">${e.tag}</div></div>`).join("");document.querySelectorAll(".evoCard").forEach(c=>c.addEventListener("click",()=>applyEvolution(c.dataset.evo)));sfx.level()}
@@ -2698,7 +2804,7 @@ function update(dt){
   const wasOver=p.overActive>0;p.overActive=Math.max(0,p.overActive-dt);
   if(wasOver&&p.overActive<=0)sfx.setMusic(G.boss?"boss":G.wave>=7?"danger":"combat");
 
-  updateObjective(dt);updateBossHazards(dt);
+  updateObjective(dt);updateBossHazards(dt);updateEnemyDeaths(dt);
   if(p.focus){p.focusTimer=Math.max(0,p.focusTimer-dt);if(p.focusTimer<=0)p.focusStack=0;}
   if(G.comboTimer>0){G.comboTimer-=dt;if(G.comboTimer<=0){G.combo=0;$("combo").style.opacity=0;}}
   if(p.regen>0&&G.time-(p.lastHit||0)>3&&!v17Config?.mutators?.includes?.("noheal"))p.hp=clamp(p.hp+p.regen*dt,0,p.maxHp);
@@ -2747,7 +2853,7 @@ function update(dt){
 
   for(let i=G.bullets.length-1;i>=0;i--){
     const b=G.bullets[i];b.x+=b.vx*dt;b.y+=b.vy*dt;b.life-=dt;
-    if(b.gasTrail){b.gasTick=(b.gasTick||0)-dt;if(b.gasTick<=0){b.gasTick=.04;G.gasSegments.push({x:b.x,y:b.y,r:18,life:2.4,max:2.4,floor:b.floor,ignited:false});for(let k=0;k<2;k++)particle(b.x,b.y,rand(-26,26),rand(-26,26),rand(3,5),"rgba(255,186,86,.55)",.22);}}
+    if(b.gasTrail){b.gasTick=(b.gasTick||0)-dt;if(b.gasTick<=0){b.gasTick=.04*(b.gasDensity||1);G.gasSegments.push({x:b.x,y:b.y,r:b.gasRadius||18,life:b.gasDuration||2.4,max:b.gasDuration||2.4,floor:b.floor,ignited:false,burning:true,burnDamage:b.flameDamage||G.player.damage*.1,burnTick:0});for(let k=0;k<2;k++)particle(b.x,b.y,rand(-26,26),rand(-26,26),rand(3,5),"rgba(255,186,86,.55)",.22);}}
     let hitWall=b.x<10||b.x>W-10||b.y<10||b.y>H-10||bulletObstacle(b),detonate=false,removed=false;
     if(!b.explosive&&hitObjectiveWithBullet(b)){G.bullets.splice(i,1);continue;}
     if(hitWall&&!b.explosive&&b.bounce>0){
@@ -2777,13 +2883,15 @@ function update(dt){
     if(removed)continue;
     if(detonate||b.life<=0){
       if(b.explosive)explode(b.x,b.y,b.radius,b.damage,p.cluster&&!b.clusterChild);
-      if(b.gasBurst){for(let n=0;n<5;n++){const aa=n/5*TAU+rand(-.2,.2),rr=n?rand(10,24):0;G.gasSegments.push({x:b.x+Math.cos(aa)*rr,y:b.y+Math.sin(aa)*rr,r:22,life:2.6,max:2.6,floor:b.floor,ignited:false});}}
+      if(b.gasBurst){for(let n=0;n<5;n++){const aa=n/5*TAU+rand(-.2,.2),rr=n?rand(10,24):0;G.gasSegments.push({x:b.x+Math.cos(aa)*rr,y:b.y+Math.sin(aa)*rr,r:(b.gasRadius||22)*1.08,life:(b.gasDuration||2.6),max:(b.gasDuration||2.6),floor:b.floor,ignited:false,burning:true,burnDamage:b.flameDamage||G.player.damage*.1,burnTick:0});}}
       G.bullets.splice(i,1);
     }
   }
 
   for(let i=G.gasSegments.length-1;i>=0;i--){
-    const g=G.gasSegments[i];g.life-=dt;g.r=Math.max(8,g.r-dt*1.5);if(g.life<=0)G.gasSegments.splice(i,1);
+    const g=G.gasSegments[i];g.life-=dt;g.r=Math.max(8,g.r-dt*.6);g.burnTick=(g.burnTick||0)-dt;
+    if(g.burning&&g.burnTick<=0){g.burnTick=.18;for(let j=G.enemies.length-1;j>=0;j--){const e=G.enemies[j];if((e.floor??0)!==(g.floor??0)||Math.hypot(e.x-g.x,e.y-g.y)>g.r+e.r)continue;e.hp-=g.burnDamage||G.player.damage*.1;e.hit=.05;e.slow=Math.max(e.slow,.18);for(let k=0;k<2;k++)particle(e.x,e.y,rand(-24,24),rand(-34,8),rand(1.5,3.2),"#ff9f57",.18);if(e.hp<=0)killEnemy(e,j);}}
+    if(g.life<=0)G.gasSegments.splice(i,1);
   }
   for(let i=G.enemyBullets.length-1;i>=0;i--){
     const b=G.enemyBullets[i];b.x+=b.vx*dt;b.y+=b.vy*dt;b.life-=dt;
@@ -3472,34 +3580,13 @@ function drawPlayerUpgradeVisuals(cls,p){
 
 function drawSideWeaponRig(cls,p,evolved=false){
   const slot=p.equippedSlot||1,anim=G.weaponAnim&&G.weaponAnim.slot===slot?G.weaponAnim:null;
-  const t=anim?1-anim.t/Math.max(.001,anim.max||.2):0;
-  const pulse=anim?(Math.sin(t*Math.PI)):0;
-  const rigs={
-    1:{x:28,y:-2,r:0,sc:.96},
-    2:{x:24,y:4,r:-.18,sc:.82},
-    3:{x:14,y:18,r:.82,sc:.82},
-    4:{x:20,y:12,r:.22,sc:.8}
-  };
+  const t=anim?1-anim.t/Math.max(.001,anim.max||.2):0,pulse=anim?Math.sin(t*Math.PI):0;
+  const rigs={1:{x:9,y:24,r:-.02,sc:.92},2:{x:11,y:22,r:-.16,sc:.82},3:{x:4,y:25,r:.72,sc:.8},4:{x:2,y:24,r:.12,sc:.78}};
   const rig={...(rigs[slot]||rigs[1])};
-  if(cls==="explosive"&&slot===1){rig.x=30;rig.y=1;rig.sc=1.05}
-  if(cls==="conduit"&&slot===1){rig.x=31;rig.y=-5;rig.sc=1.02}
-  if(cls==="rifleman"&&slot===2){rig.x=25;rig.y=1;rig.r=-.24;rig.sc=.84}
-  if(anim){
-    if(slot===1){rig.x-=8*pulse;rig.y+=2*pulse;rig.r-=.1*pulse;}
-    if(slot===2){rig.x-=10*pulse;rig.y+=3*pulse;rig.r-=.22*pulse;}
-    if(slot===3){rig.r=.98-1.55*pulse;rig.x+=10*pulse;rig.y-=12*Math.sin(t*Math.PI);rig.sc=.9+.08*pulse;}
-    if(slot===4){rig.x-=5*pulse;rig.y+=2*pulse;}
-  }
-  X.save();
-  X.translate(rig.x,rig.y);X.rotate(rig.r);X.scale(rig.sc,rig.sc);
-  drawPhysicalWeaponModel(cls,{...p,equippedSlot:slot},evolved);
-  if(anim&&slot===3){
-    X.globalCompositeOperation="lighter";
-    X.strokeStyle=cls==="explosive"?`rgba(255,176,96,${.34+.22*pulse})`:cls==="conduit"?`rgba(112,236,255,${.34+.22*pulse})`:`rgba(245,248,255,${.3+.18*pulse})`;
-    X.lineWidth=4;X.beginPath();X.arc(-4,0,46,-1.3,.85);X.stroke();
-    X.lineWidth=9;X.strokeStyle=cls==="explosive"?`rgba(255,114,56,${.12+.08*pulse})`:`rgba(255,255,255,${.08+.06*pulse})`;X.beginPath();X.arc(-4,0,49,-1.32,.87);X.stroke();
-    X.globalCompositeOperation="source-over";
-  }
+  if(cls==="explosive"&&slot===1){rig.x=7;rig.y=26;rig.sc=.98}if(cls==="conduit"&&slot===1){rig.x=7;rig.y=25;rig.sc=.96}if(cls==="rifleman"&&slot===1){rig.y=23;rig.sc=.9}
+  if(anim){if(slot===1){rig.x-=9*pulse;rig.y+=1.5*pulse;rig.r-=.08*pulse}if(slot===2){rig.x-=8*pulse;rig.y+=2*pulse;rig.r-=.2*pulse}if(slot===3){rig.r=.88-1.48*pulse;rig.x+=8*pulse;rig.y-=13*pulse;rig.sc=.86+.08*pulse}if(slot===4){rig.x-=4*pulse;rig.y+=2*pulse}}
+  X.save();X.translate(rig.x,rig.y);X.rotate(rig.r);X.scale(rig.sc,rig.sc);drawPhysicalWeaponModel(cls,{...p,equippedSlot:slot},evolved);
+  if(anim&&slot===3){X.globalCompositeOperation="lighter";X.strokeStyle=cls==="explosive"?`rgba(255,176,96,${.34+.22*pulse})`:cls==="conduit"?`rgba(112,236,255,${.34+.22*pulse})`:`rgba(245,248,255,${.3+.18*pulse})`;X.lineWidth=4;X.beginPath();X.arc(-4,0,46,-1.3,.85);X.stroke();X.lineWidth=9;X.strokeStyle=cls==="explosive"?`rgba(255,114,56,${.12+.08*pulse})`:`rgba(255,255,255,${.08+.06*pulse})`;X.beginPath();X.arc(-4,0,49,-1.32,.87);X.stroke();X.globalCompositeOperation="source-over"}
   X.restore();
 }
 
@@ -3580,7 +3667,7 @@ function drawGame(){
   for(const g of G.gasSegments||[]){const life=clamp(g.life/g.max,0,1);X.save();X.translate(g.x,g.y);X.globalCompositeOperation="screen";const outer=X.createRadialGradient(0,0,0,0,0,g.r*1.6);outer.addColorStop(0,`rgba(255,240,214,${.16*life})`);outer.addColorStop(.26,`rgba(255,196,106,${.18*life})`);outer.addColorStop(.66,`rgba(255,102,42,${.13*life})`);outer.addColorStop(1,'rgba(255,102,42,0)');X.fillStyle=outer;X.beginPath();X.arc(0,0,g.r*1.55,0,TAU);X.fill();for(let k=0;k<3;k++){const wob=G.time*5+k*1.8+g.x*.01,fw=g.r*(.34-k*.06),fh=g.r*(.92-k*.14);X.fillStyle=k===0?`rgba(255,136,60,${.34*life})`:k===1?`rgba(255,190,84,${.28*life})`:`rgba(255,243,203,${.22*life})`;X.beginPath();X.moveTo(Math.sin(wob)*3,fh*.2);X.quadraticCurveTo(-fw*.7,fh*.08,-fw*.2,-fh*.55);X.quadraticCurveTo(0,-fh*.95,fw*.18,-fh*.52);X.quadraticCurveTo(fw*.82,fh*.08,Math.sin(wob)*3,fh*.2);X.fill();}X.restore();}
   for(const b of G.bullets)drawBullet(b);
   for(const b of G.enemyBullets){X.shadowColor="#ff70b4";X.shadowBlur=8;X.fillStyle="#ff70b4";X.beginPath();X.arc(b.x,b.y,b.r,0,TAU);X.fill();X.shadowBlur=0;}drawBlasts();drawRailImpacts();for(const l of G.energyLines)drawSharpElectricLine(l);
-  for(const e of G.enemies)drawEnemy(e);drawEnvironmentalLighting(true);
+  drawEnemyDeaths();for(const e of G.enemies)drawEnemy(e);drawEnvironmentalLighting(true);
   if(G.drones>0)for(let i=0;i<G.drones;i++){const a=G.time*2.2+i/G.drones*TAU,x=G.player.x+Math.cos(a)*35,y=G.player.y+Math.sin(a)*35;X.save();X.translate(x,y);X.rotate(a);X.fillStyle="#bba4ff";X.beginPath();X.moveTo(9,0);X.lineTo(-6,-6);X.lineTo(-2,0);X.lineTo(-6,6);X.closePath();X.fill();X.restore();}
   drawPlayer();
   for(const q of G.particles){X.globalAlpha=clamp(q.life/q.max,0,1);X.fillStyle=q.c;X.beginPath();X.arc(q.x,q.y,q.r,0,TAU);X.fill();}X.globalAlpha=1;
@@ -4479,8 +4566,8 @@ for(const id of ["announcerSlider","announcerEngineSelect","announcerVoiceToggle
 /* startup */
 setTimeout(()=>{applyAudioSettings();v18Presence(true)},650);
 
-const APP_VERSION="18.8.3";
-const APP_VERSION_LABEL="18.8.3";
+const APP_VERSION="18.8.4";
+const APP_VERSION_LABEL="18.8.4";
 let pendingDesktopUpdate=null;
 
 function compareVersionStrings(a,b){
