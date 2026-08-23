@@ -1,11 +1,11 @@
 {
-  "version": "18.8.15",
+  "version": "18.8.16",
   "gameUrl": "https://raw.githubusercontent.com/C0SMIC58/RIFTSHIFT/main/RIFTSHIFT_LATEST.html",
-  "sha256": "250df08e939f766c3b25b55dcda58160b75d2b44ad47bf0f9c809f1489fc8f55",
+  "sha256": "63f89cfd479b0d80f972695a664011f3a3cf07787c8b8cf5fecd78b785c42f46",
   "iconUrl": "https://raw.githubusercontent.com/C0SMIC58/RIFTSHIFT/main/RIFTSHIFT_ICON.ico",
   "iconSha256": "d1493025ba3162b8511d26ac342611fe5e977e9308ebadb4658551fb79b1e314",
   "iconPngUrl": "https://raw.githubusercontent.com/C0SMIC58/RIFTSHIFT/main/RIFTSHIFT_ICON.png",
   "overhaul": false,
   "priority": "normal",
-  "notes": "V18.8.15 turns the Marksman VLR-7 into a supersonic anti-material rifle that pierces and breaks architecture with heavy directional debris and shockwave effects."
+  "notes": "V18.8.16 fixes held-item HUD switching and completely reworks every class Q ability for stronger, more distinct combat utility."
 }
