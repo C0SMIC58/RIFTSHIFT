@@ -264,7 +264,7 @@ canvas{display:block}
 @media(prefers-reduced-motion:reduce){.eg,.engineSlash,.engineCoreCircle,.enginePulseRing,.engineLogoStage,.engineWordmark,.engineBuild,.engineHandoff,.engineFooter,.engineSplash:before,.engineSplash:after{animation-duration:.01ms!important;animation-delay:0ms!important}}
 
 
-/* V18.8.9 intro cinematic refresh */
+/* V18.8.11 intro cinematic refresh */
 .bootCinematicFX{position:absolute;inset:0;pointer-events:none;z-index:1;overflow:hidden}
 .bootHorizon{position:absolute;left:-10%;right:-10%;top:50%;height:1px;background:linear-gradient(90deg,transparent,rgba(255,126,68,.18),rgba(255,226,175,.75),rgba(117,233,255,.34),transparent);box-shadow:0 0 26px rgba(255,126,68,.25);opacity:0;animation:bootHorizonLife 4.1s .25s ease both}
 .bootScanline{position:absolute;left:0;right:0;height:2px;top:16%;background:linear-gradient(90deg,transparent,rgba(117,233,255,.05),rgba(255,255,255,.35),rgba(255,126,68,.08),transparent);opacity:0;animation:bootScanSweep 2.6s .65s cubic-bezier(.2,.72,.2,1) both}
@@ -651,7 +651,7 @@ canvas{display:block}
 @media(max-width:850px){.v9Grid{grid-template-columns:1fr 1fr}.settingsGrid{grid-template-columns:1fr}.historyRow{grid-template-columns:1fr 1fr 1fr}.historyRow span:nth-child(n+4){display:none}}
 @media(max-width:850px){.classes{grid-template-columns:1fr 1fr}.classCard{min-height:340px}.upCards{grid-template-columns:1fr}.upCard{min-height:155px}.classTop{align-items:flex-start;flex-direction:column}}
 
-/* V18.8.9 // CLASS SELECT FIT PASS */
+/* V18.8.11 // CLASS SELECT FIT PASS */
 #classSelect{padding:10px;overflow:hidden}
 #classSelect .classShell{
   width:1480px;max-width:none;max-height:none;overflow:visible;
@@ -691,7 +691,7 @@ canvas{display:block}
 }
 
 
-/* V18.8.9 // boot warp handoff + admin exit reliability */
+/* V18.8.11 // boot warp handoff + admin exit reliability */
 #bootWarpFX{position:absolute;inset:-8%;z-index:90;pointer-events:none;opacity:0;overflow:hidden;mix-blend-mode:screen}
 #bootWarpFX:before,#bootWarpFX:after{content:"";position:absolute;inset:0;opacity:0}
 #bootWarpFX:before{background:repeating-linear-gradient(90deg,rgba(117,233,255,.0) 0 6%,rgba(117,233,255,.13) 7%,rgba(255,114,72,.10) 8%,rgba(0,0,0,0) 10% 17%);filter:blur(3px);transform:scaleX(1.08)}
@@ -711,7 +711,7 @@ canvas{display:block}
 </style>
 
 <style id="v1886-polish">
-/* V18.8.9: side-slot branches use the normal upgrade-card presentation */
+/* V18.8.11: side-slot branches use the normal upgrade-card presentation */
 #kitBranch{align-items:center;justify-content:center;background:rgba(4,6,10,.82);backdrop-filter:blur(8px);pointer-events:auto}
 #kitBranch .kitBranchBox{width:min(980px,92vw);max-height:88vh;overflow:auto;background:rgba(13,19,31,.98);border:1px solid rgba(255,255,255,.10);border-radius:20px;padding:24px;box-sizing:border-box;box-shadow:0 28px 80px rgba(0,0,0,.55)}
 #kitBranch .upTitle{margin-bottom:6px}
@@ -787,7 +787,7 @@ canvas{display:block}
         <div class="engineHandoffTop"><span>RIFTSHIFT // COMBAT OPERATING SYSTEM</span><span class="live">● RIFT LINK STABLE</span></div>
         <div class="engineHandoffFrame">
           <div class="engineHandoffPane">
-            <div class="engineHandoffCode">FIELD TERMINAL / RS-18.8.9</div>
+            <div class="engineHandoffCode">FIELD TERMINAL / RS-18.8.11</div>
             <h1 class="engineHandoffTitle"><span class="rift">RIFT</span><span class="shift">SHIFT</span></h1>
             <div class="engineHandoffSlash"></div>
             <div class="engineHandoffSub">RIFT LINK STABLE // MENU UPLINK READY</div>
@@ -836,14 +836,14 @@ canvas{display:block}
     <div class="menuTopRedux">
       <div class="menuTopLeft">
         <span class="menuKickerRedux">RIFTSHIFT // STRIKE DIRECTOR</span>
-        <span class="menuBuildChip">BUILD V18.8.9</span>
+        <span class="menuBuildChip">BUILD V18.8.11</span>
       </div>
       <div class="menuTopRight"><span class="menuPulse"></span> ORBITAL LINK GREEN</div>
     </div>
 
     <div class="menuHeroRedux">
       <div class="menuBrandRedux">
-        <div class="brandCode">FIELD TERMINAL / RS-18.8.9</div>
+        <div class="brandCode">FIELD TERMINAL / RS-18.8.11</div>
         <h1 class="brandMain"><span class="rift">RIFT</span><span class="shift">SHIFT</span></h1>
         <div class="brandSlash"></div>
         <p class="commandCopy">Drop into a collapsing warfront where every run rebuilds the battlefield, every class carries a full combat kit, and every wave pushes harder than the last. Build momentum, evolve your weapons, and survive the rupture long enough to turn the front line back on itself.</p>
@@ -901,7 +901,7 @@ canvas{display:block}
           <div class="stageStatBar">
             <div class="stageStat"><span>CLASS CORES</span><b>4</b></div>
             <div class="stageStat"><span>RUN SEEDS</span><b>∞</b></div>
-            <div class="stageStat"><span>BUILD</span><b>V18.8.9</b></div>
+            <div class="stageStat"><span>BUILD</span><b>V18.8.11</b></div>
           </div>
         </div>
 
@@ -3811,7 +3811,7 @@ function drawGame(){
   for(const b of G.enemyBullets){X.shadowColor="#ff70b4";X.shadowBlur=8;X.fillStyle="#ff70b4";X.beginPath();X.arc(b.x,b.y,b.r,0,TAU);X.fill();X.shadowBlur=0;}drawBlasts();drawRailImpacts();for(const l of G.energyLines)drawSharpElectricLine(l);
   drawEnemyDeaths();for(const e of G.enemies)drawEnemy(e);drawEnvironmentalLighting(true);
   if(G.drones>0)for(let i=0;i<G.drones;i++){const a=G.time*2.2+i/G.drones*TAU,x=G.player.x+Math.cos(a)*35,y=G.player.y+Math.sin(a)*35;X.save();X.translate(x,y);X.rotate(a);X.fillStyle="#bba4ff";X.beginPath();X.moveTo(9,0);X.lineTo(-6,-6);X.lineTo(-2,0);X.lineTo(-6,6);X.closePath();X.fill();X.restore();}
-  drawPlayer();drawWorldMuzzleFlash();
+  drawPlayer();drawWorldMuzzleFlash();rs810DrawUtilityThrows();
   for(const q of G.particles){X.globalAlpha=clamp(q.life/q.max,0,1);X.fillStyle=q.c;X.beginPath();X.arc(q.x,q.y,q.r,0,TAU);X.fill();}X.globalAlpha=1;
   X.textAlign="center";for(const f of G.texts){X.globalAlpha=clamp(f.life/f.max,0,1);X.fillStyle=f.c;X.font=`900 ${f.size}px Inter,Arial`;X.fillText(f.t,f.x,f.y);}X.globalAlpha=1;
   X.restore();drawPostProcessing();drawBossIntro();if(!G.bossIntro)drawCrosshair();
@@ -4708,8 +4708,8 @@ for(const id of ["announcerSlider","announcerEngineSelect","announcerVoiceToggle
 /* startup */
 setTimeout(()=>{applyAudioSettings();v18Presence(true)},650);
 
-const APP_VERSION="18.8.9";
-const APP_VERSION_LABEL="18.8.9";
+const APP_VERSION="18.8.11";
+const APP_VERSION_LABEL="18.8.11";
 let pendingDesktopUpdate=null;
 
 function compareVersionStrings(a,b){
@@ -4808,7 +4808,7 @@ $("armoryContinueBtn").addEventListener("click",continueFromArmory);
 $("armoryRerollBtn").addEventListener("click",armoryReroll);
 ["masterSlider","musicSlider","sfxSlider","shakeSlider","impactSlider","particleSlider","crosshairSlider","hudSlider","fpsSelect","damageToggle","enemyBarsToggle","hitmarkerToggle","vignetteToggle","flashToggle","reducedMotionToggle","pauseBlurToggle","mobileAimToggle","fullscreenToggle"].forEach(id=>$(id).addEventListener("input",handleSettingsInput));$("resetSettingsBtn").addEventListener("click",resetSettings);
 $("ownerLoginBtn").addEventListener("click",tryOwnerLogin);$("ownerKeyInput").addEventListener("keydown",e=>{if(e.key==="Enter")tryOwnerLogin()});$("adminCloseBtn").addEventListener("click",closeAdminPanel);$("adminLogoutBtn").addEventListener("click",lockOwnerMode);document.querySelectorAll("[data-admin]").forEach(b=>b.addEventListener("click",()=>adminAction(b.dataset.admin)));
-// V18.8.9 fail-safe admin exit wiring. This remains functional even if the panel is opened repeatedly with F2.
+// V18.8.11 fail-safe admin exit wiring. This remains functional even if the panel is opened repeatedly with F2.
 document.addEventListener("click",e=>{if(e.target?.id==="adminCloseBtn"){e.preventDefault();e.stopPropagation();closeAdminPanel();}},true);
 document.addEventListener("keydown",e=>{if(e.key==="Escape"&&$("admin")?.classList.contains("active")){e.preventDefault();e.stopImmediatePropagation();closeAdminPanel();}},true);
 $("classBackBtn").addEventListener("click",()=>returnMenu());
@@ -4841,7 +4841,7 @@ if("serviceWorker" in navigator && location.protocol.startsWith("http")){
 }
 
 
-/* ===== V18.8.9 CLEAN ENHANCEMENT PATCH ===== */
+/* ===== V18.8.11 CLEAN ENHANCEMENT PATCH ===== */
 function rsClamp01(v){return Math.max(0,Math.min(1,v));}
 function rsRotate(x,y,a){const c=Math.cos(a),s=Math.sin(a);return{x:x*c-y*s,y:x*s+y*c};}
 function getBaseWeaponRig(slot=1,cls=G?.classId||"survivor"){
@@ -4967,7 +4967,7 @@ const rsOldNextWave=nextWave;nextWave=function(...args){const out=rsOldNextWave.
 const rsOldUpdate=update;update=function(dt){if(G?.map?.obstacles){for(const o of G.map.obstacles){if(!o.moving)continue;o.moveClock=(o.moveClock||0)+dt*(o.moveRate||1);o.x=o.baseX+Math.sin(o.moveClock)*(o.ampX||0);o.y=o.baseY+Math.sin(o.moveClock*1.06+1.2)*(o.ampY||0);}}const out=rsOldUpdate.apply(this,arguments);if(G?.running){updateSuperPickups(dt);updateFireFields(dt);if(G.enemies.some(e=>e.type==="behemoth"&&dist(e,G.player)<120))G.shake=Math.max(G.shake,2.2);}return out;};
 const rsOldDrawGame=drawGame;drawGame=function(){rsOldDrawGame.apply(this,arguments);if(!G?.running)return;X.save();if(G.map?.motionMode){X.globalAlpha=.09;X.strokeStyle=G.map.theme.accent;X.lineWidth=2;const speed=(G.time*180)%80;for(let y=-80+speed;y<H+80;y+=80){X.beginPath();X.moveTo(0,y);X.lineTo(W,y-35);X.stroke();}X.globalAlpha=1;}drawFireFields();drawSuperPickups();X.restore();};
 
-/* V18.8.9 realistic menu inferno: broad wall fire, jagged turbulent edges, layered cores, embers, smoke. */
+/* V18.8.11 realistic menu inferno: broad wall fire, jagged turbulent edges, layered cores, embers, smoke. */
 (function initMenuFlameCanvas(){
   const canvas=document.getElementById("menuFlameCanvas");if(!canvas)return;
   const ctx=canvas.getContext("2d"),flames=[],embers=[],smoke=[];let cw=0,ch=0,dpr=1,last=performance.now();
@@ -4991,6 +4991,158 @@ const rsOldDrawGame=drawGame;drawGame=function(){rsOldDrawGame.apply(this,argume
   }
   resizeFlame();addEventListener("resize",resizeFlame);requestAnimationFrame(frame);
 })();
+
+
+
+/* ===== V18.8.11 PLAYER / MELEE / UTILITY PRESENTATION PATCH ===== */
+function rs810AngleDelta(a,b){return Math.atan2(Math.sin(a-b),Math.cos(a-b));}
+function rs810VisualFacing(p){
+  const target=Math.atan2(mouse.y-p.y,mouse.x-p.x);
+  if(!Number.isFinite(p.rs810Facing))p.rs810Facing=target;
+  const speed=(p.equippedSlot||1)===3?.34:.22;
+  p.rs810Facing+=rs810AngleDelta(target,p.rs810Facing)*speed;
+  return p.rs810Facing;
+}
+function rs810PlayerMotion(){
+  const x=(keys.KeyD?1:0)-(keys.KeyA?1:0)+(mobile?.moveX||0),y=(keys.KeyS?1:0)-(keys.KeyW?1:0)+(mobile?.moveY||0);
+  return Math.min(1,Math.hypot(x,y));
+}
+function rs810ClassColors(cls){return ({survivor:['#d9f7e6','#486354','#75e6a7'],rifleman:['#d8f4ff','#3c5966','#75e9ff'],soldier:['#e1e4ff','#4b507d','#9ba5ff'],explosive:['#ffdfbd','#644729','#ffad62'],conduit:['#d9fbff','#285565','#70ecff'],cosmic:['#fff6ca','#64551f','#ffe36b']}[cls]||['#e8eef8','#4a5664','#9fdcff']);}
+function rs810DrawArm(x1,y1,x2,y2,skin,armor,thick=5){
+  X.strokeStyle='rgba(4,7,12,.62)';X.lineWidth=thick+3;X.lineCap='round';X.beginPath();X.moveTo(x1,y1);X.lineTo(x2,y2);X.stroke();
+  X.strokeStyle=armor;X.lineWidth=thick;X.beginPath();X.moveTo(x1,y1);X.lineTo(x2,y2);X.stroke();
+  X.fillStyle=skin;X.beginPath();X.arc(x2,y2,2.7,0,TAU);X.fill();
+}
+function rs810DrawBody(cls,p,slot){
+  const [body,armor,accent]=rs810ClassColors(cls),move=rs810PlayerMotion(),step=Math.sin(G.time*(move?.01:9.5))*move;
+  // legs / boots, always attached to the same body rather than changing per weapon slot
+  X.fillStyle='#111821';
+  X.save();X.translate(-9,-6);X.rotate(step*.14);roundedRect(-10,-4,17,7,3);X.fill();X.restore();
+  X.save();X.translate(-9,6);X.rotate(-step*.14);roundedRect(-10,-3,17,7,3);X.fill();X.restore();
+  X.fillStyle='#283240';roundedRect(-17,-9,18,18,7);X.fill();
+  // torso armor
+  X.fillStyle=body;X.beginPath();X.moveTo(15,0);X.lineTo(3,-12);X.lineTo(-12,-10);X.lineTo(-17,-4);X.lineTo(-17,4);X.lineTo(-12,10);X.lineTo(3,12);X.closePath();X.fill();
+  X.fillStyle=armor;roundedRect(-10,-8,16,16,4);X.fill();
+  X.fillStyle='rgba(8,13,20,.68)';roundedRect(-7,-5,12,10,3);X.fill();
+  X.fillStyle=accent;X.fillRect(-8,-1,13,2);
+  // shoulder plates
+  X.fillStyle=armor;X.beginPath();X.ellipse(0,-11,7,4,.2,0,TAU);X.fill();X.beginPath();X.ellipse(0,11,7,4,-.2,0,TAU);X.fill();
+  // helmet / directional visor makes where the player is looking readable
+  X.fillStyle='#101720';X.beginPath();X.arc(8,0,8.5,0,TAU);X.fill();
+  X.fillStyle=body;X.beginPath();X.arc(8,0,6.4,0,TAU);X.fill();
+  const glow=.62+.22*Math.sin(G.time*7);
+  X.globalCompositeOperation='lighter';X.fillStyle=cls==='explosive'?`rgba(255,173,98,${glow})`:cls==='soldier'?`rgba(155,165,255,${glow})`:`rgba(112,236,255,${glow})`;roundedRect(9.5,-4,7,8,3);X.fill();X.globalCompositeOperation='source-over';
+  // rear backpack / utility rack
+  X.fillStyle='#141c26';roundedRect(-18,-7,7,14,3);X.fill();X.fillStyle=accent;X.fillRect(-18,-1,5,2);
+}
+
+// Keep firearms perfectly aligned to the same muzzle/aim math while allowing the body to turn smoothly.
+drawSideWeaponRig=function(cls,p,evolved=false){
+  const slot=p.equippedSlot||1,rig=getAnimatedWeaponRig(slot,cls),bodyFacing=Number.isFinite(p.rs810Facing)?p.rs810Facing:Math.atan2(mouse.y-p.y,mouse.x-p.x),anim=G.weaponAnim&&G.weaponAnim.slot===slot?G.weaponAnim:null;
+  if(slot===4&&anim?.type==='utilityThrow'){
+    const t=1-anim.t/Math.max(.001,anim.max||.42);if(t>.43)return;
+  }
+  X.save();
+  if(slot===1||slot===2){
+    const preciseBody=getWeaponBodyRotation(slot,cls),delta=rs810AngleDelta(preciseBody,bodyFacing);X.rotate(delta);X.translate(rig.x,rig.y);X.rotate(rig.r);X.scale(rig.sc,rig.sc);
+  }else{X.translate(rig.x,rig.y);X.rotate(rig.r);X.scale(rig.sc,rig.sc);}
+  drawPhysicalWeaponModel(cls,{...p,equippedSlot:slot},evolved);X.restore();
+};
+
+const rs810OldAnimatedWeaponRig=getAnimatedWeaponRig;
+getAnimatedWeaponRig=function(slot=1,cls=G?.classId||'survivor'){
+  const rig=rs810OldAnimatedWeaponRig(slot,cls),anim=G?.weaponAnim&&G.weaponAnim.slot===slot?G.weaponAnim:null;
+  if(slot===3&&anim?.type==='melee'){
+    const t=1-anim.t/Math.max(.001,anim.max||.38),wind=rsClamp01(t/.18),swing=rsClamp01((t-.12)/.62),recover=rsClamp01((t-.74)/.26),ease=1-Math.pow(1-swing,3);
+    rig.r=(-.72-.5*wind)+(2.02*ease)-.52*recover;rig.x=8+18*Math.sin(Math.min(1,t)*Math.PI);rig.y=18-14*Math.sin(Math.min(1,t)*Math.PI);rig.sc=.88+.09*Math.sin(Math.min(1,t)*Math.PI);
+  }
+  if(slot===4&&anim?.type==='utilityThrow'){
+    const t=1-anim.t/Math.max(.001,anim.max||.42),e=1-Math.pow(1-rsClamp01(t),3);rig.x=4+20*e;rig.y=19-11*Math.sin(t*Math.PI);rig.r=-.22+.78*e;rig.sc=.82;
+  }
+  return rig;
+};
+
+const rs810OldPhysicalWeapon=drawPhysicalWeaponModel;
+drawPhysicalWeaponModel=function(cls,p,evolved=false){
+  const slot=p.equippedSlot||1;if(slot!==4)return rs810OldPhysicalWeapon(cls,p,evolved);
+  const accent=rs810ClassColors(cls)[2];X.save();
+  if(cls==='survivor'){
+    X.rotate(-.12);X.fillStyle='#1c2830';roundedRect(5,-6,35,12,6);X.fill();X.fillStyle='#b9f4d0';roundedRect(13,-4,20,8,4);X.fill();X.fillStyle='#65e49a';X.fillRect(34,-2,11,4);X.fillStyle='#d9fff0';X.fillRect(6,-1,6,2);
+  }else if(cls==='rifleman'){
+    X.fillStyle='#182b35';X.beginPath();X.arc(22,0,13,0,TAU);X.fill();X.strokeStyle=accent;X.lineWidth=2;X.beginPath();X.arc(22,0,9,0,TAU);X.stroke();X.fillStyle='#dffaff';X.beginPath();X.moveTo(20,-5);X.lineTo(34,0);X.lineTo(20,5);X.closePath();X.fill();
+  }else if(cls==='soldier'){
+    // unmistakable fragmentation grenade silhouette
+    X.fillStyle='#344530';X.beginPath();X.arc(23,2,11,0,TAU);X.fill();X.strokeStyle='#6f815f';X.lineWidth=2;for(let i=-1;i<=1;i++){X.beginPath();X.moveTo(14,2+i*5);X.lineTo(32,2+i*5);X.stroke();}X.beginPath();X.moveTo(18,-7);X.lineTo(18,11);X.moveTo(28,-7);X.lineTo(28,11);X.stroke();X.fillStyle='#9aa598';roundedRect(18,-12,11,7,2);X.fill();X.strokeStyle='#c7d0c6';X.lineWidth=2;X.beginPath();X.arc(31,-9,6,-1.6,1.4);X.stroke();X.fillStyle=accent;X.fillRect(19,-13,8,2);
+  }else if(cls==='explosive'){
+    X.rotate(.08);X.fillStyle='#3b2b20';roundedRect(6,-10,42,20,5);X.fill();X.strokeStyle='#d49a5c';X.lineWidth=2;X.strokeRect(10,-7,34,14);X.fillStyle='#ffbf74';X.fillRect(16,-2,22,4);X.fillStyle='#8d382a';X.beginPath();X.arc(42,-7,3,0,TAU);X.fill();
+  }else if(cls==='conduit'){
+    X.fillStyle='#123342';roundedRect(7,-8,38,16,8);X.fill();X.strokeStyle=accent;X.lineWidth=2;for(let i=0;i<3;i++){X.beginPath();X.ellipse(16+i*10,0,3,8,0,0,TAU);X.stroke();}X.globalCompositeOperation='lighter';X.fillStyle='rgba(190,250,255,.72)';X.fillRect(39,-2,10,4);X.globalCompositeOperation='source-over';
+  }else{
+    X.fillStyle='#4b3d19';roundedRect(7,-9,38,18,6);X.fill();X.strokeStyle='#ffe36b';X.lineWidth=2;X.strokeRect(11,-6,30,12);X.fillStyle='#ff75d6';X.beginPath();X.arc(18,0,4,0,TAU);X.fill();X.fillStyle='#75e9ff';X.beginPath();X.arc(32,0,4,0,TAU);X.fill();
+  }
+  X.restore();
+};
+
+// A stable, detailed player model. Melee/utility no longer rotate or deform the entire character.
+drawPlayer=function(){
+  const p=G.player,cls=G.classId,evolved=!!G.evolution||!!G.v17Ultimate,slot=p.equippedSlot||1,bodyA=rs810VisualFacing(p),anim=G.weaponAnim&&G.weaponAnim.slot===slot?G.weaponAnim:null;
+  X.save();X.translate(p.x,p.y-(p.elevation||0)*8);X.rotate(bodyA);
+  if(p.dashTime>0&&!settings.reducedMotion){const da=Math.atan2(p.dashVY||0,p.dashVX||0)-bodyA;X.save();X.rotate(da);X.globalCompositeOperation='lighter';for(let i=1;i<=4;i++){X.globalAlpha=.16/i;X.fillStyle='#9eefff';X.beginPath();X.moveTo(-12-i*14,-9+i);X.lineTo(10-i*10,0);X.lineTo(-12-i*14,9-i);X.closePath();X.fill();}X.restore();X.globalAlpha=1;}
+  if(p.overActive>0){X.strokeStyle=`rgba(255,209,102,${.3+.18*Math.sin(G.time*14)})`;X.lineWidth=3;X.beginPath();X.arc(0,0,26+Math.sin(G.time*10)*3,0,TAU);X.stroke();}
+  X.shadowColor=G.chroma?`hsl(${(G.time*80)%360} 90% 68%)`:rs810ClassColors(cls)[2];X.shadowBlur=G.chroma?22:11;
+  rs810DrawBody(cls,p,slot);
+  const rig=getAnimatedWeaponRig(slot,cls),armTargetX=slot===1||slot===2?Math.min(18,rig.x+5):Math.min(22,rig.x),armTargetY=rig.y*.68;
+  const armor=rs810ClassColors(cls)[1],skin=rs810ClassColors(cls)[0];
+  if(slot===3){
+    // both arms stay attached during the melee swing instead of making the model look broken
+    const t=anim?.type==='melee'?1-anim.t/Math.max(.001,anim.max||.38):0,reach=anim?.type==='melee'?8+10*Math.sin(t*Math.PI):6;
+    rs810DrawArm(1,-9,rig.x*.54+reach,rig.y*.45-7,skin,armor,5.2);rs810DrawArm(1,9,rig.x*.42+reach*.6,rig.y*.42+7,skin,armor,5.2);
+  }else if(slot===4){
+    rs810DrawArm(1,-9,armTargetX,armTargetY-5,skin,armor,5);rs810DrawArm(1,9,armTargetX-3,armTargetY+6,skin,armor,5);
+  }else{
+    rs810DrawArm(1,-9,armTargetX+6,armTargetY-6,skin,armor,5);rs810DrawArm(1,9,armTargetX+1,armTargetY+7,skin,armor,5);
+  }
+  drawPlayerUpgradeVisuals(cls,p);drawSideWeaponRig(cls,p,evolved);drawWeaponActionFX(cls,p);drawMeleeSpecialVFX(cls,p);X.shadowColor='transparent';X.restore();
+};
+
+function rs810EnsureUtilityThrows(){if(G&&!G.utilityThrows)G.utilityThrows=[];}
+function rs810SpawnUtilityThrow(cls,tx,ty,variant='default'){
+  rs810EnsureUtilityThrows();const p=G.player,a=Math.atan2(ty-p.y,tx-p.x),sx=p.x+Math.cos(a)*19,sy=p.y+Math.sin(a)*19,flight=cls==='soldier'?.40:cls==='explosive'?.30:cls==='rifleman'?.28:.34;
+  G.utilityThrows.push({cls,variant,sx,sy,tx,ty,t:0,flight,spin:rand(-8,8),rot:rand(0,TAU),floor:p.floor});
+}
+function rs810UpdateUtilityThrows(dt){rs810EnsureUtilityThrows();for(let i=G.utilityThrows.length-1;i>=0;i--){const q=G.utilityThrows[i];q.t+=dt;if(q.t>=q.flight+.12)G.utilityThrows.splice(i,1);}}
+function rs810DrawUtilityObject(q,x,y,rot,scale=1){
+  X.save();X.translate(x,y);X.rotate(rot);X.scale(scale,scale);
+  if(q.cls==='soldier'){
+    const c=q.variant==='emp'?'#6f8cff':q.variant==='cluster'?'#d3a64f':'#647457';X.fillStyle=c;X.beginPath();X.arc(0,0,8,0,TAU);X.fill();X.strokeStyle='rgba(235,245,235,.45)';X.lineWidth=1.3;for(let i=-1;i<=1;i++){X.beginPath();X.moveTo(-6,i*3);X.lineTo(6,i*3);X.stroke();}X.fillStyle='#c3c8bd';roundedRect(-3,-12,7,6,2);X.fill();X.strokeStyle='#dbe0d6';X.beginPath();X.arc(7,-10,5,-1.5,1.4);X.stroke();
+  }else if(q.cls==='rifleman'){
+    X.fillStyle='#18323d';X.beginPath();X.arc(0,0,8,0,TAU);X.fill();X.strokeStyle='#75e9ff';X.lineWidth=2;X.beginPath();X.arc(0,0,5,0,TAU);X.stroke();X.fillStyle='#dffaff';X.fillRect(0,-2,9,4);
+  }else if(q.cls==='explosive'){
+    X.fillStyle='#493326';roundedRect(-10,-7,20,14,3);X.fill();X.strokeStyle='#ffad62';X.lineWidth=2;X.strokeRect(-7,-5,14,10);X.fillStyle='#ffcf84';X.beginPath();X.arc(6,-4,2.4,0,TAU);X.fill();
+  }else{
+    X.fillStyle='#47391a';roundedRect(-8,-8,16,16,4);X.fill();X.strokeStyle='#ffe36b';X.strokeRect(-5,-5,10,10);
+  }X.restore();
+}
+function rs810DrawUtilityThrows(){
+  rs810EnsureUtilityThrows();for(const q of G.utilityThrows){if((q.floor??0)!==(G.player.floor??0))continue;const u=rsClamp01(q.t/q.flight),ease=u<1?u:1,x=q.sx+(q.tx-q.sx)*ease,y=q.sy+(q.ty-q.sy)*ease,arc=Math.sin(ease*Math.PI)*44,rot=q.rot+q.spin*q.t;
+    X.save();X.globalAlpha=.20*(1-u*.45);X.fillStyle='#000';X.beginPath();X.ellipse(x,y,8+u*3,4+u*1.5,0,0,TAU);X.fill();X.restore();
+    rs810DrawUtilityObject(q,x,y-arc,rot,1+Math.sin(ease*Math.PI)*.12);
+    if(u<.94){X.save();X.globalAlpha=.18;X.strokeStyle=q.cls==='soldier'?'#dce7d2':q.cls==='explosive'?'#ffb16b':'#75e9ff';X.lineWidth=1.2;X.beginPath();for(let s=0;s<=12;s++){const t=s/12*Math.max(.08,u),px=q.sx+(q.tx-q.sx)*t,py=q.sy+(q.ty-q.sy)*t-Math.sin(t*Math.PI)*44;s?X.lineTo(px,py):X.moveTo(px,py);}X.stroke();X.restore();}
+  }
+}
+const rs810OldUseUtility=useUtility;
+useUtility=function(fromSlotFire=false){
+  const p=G?.player;if(!p)return;const before=p.utilityCd||0,cls=G.classId,tx=clamp(mouse.x,45,W-45),ty=clamp(mouse.y,45,H-45);rs810OldUseUtility.apply(this,arguments);
+  if((p.utilityCd||0)>before){
+    let thrown=false,variant='default';if(cls==='soldier'){thrown=true;variant=p.utilityCluster?'cluster':p.utilityEMP?'emp':'frag';}else if(cls==='rifleman'){thrown=true;variant=p.utilityKillbox?'killbox':p.utilityWide?'wide':'beacon';}else if(cls==='explosive'){thrown=true;variant=p.utilityShaped?'shaped':p.utilityWeb?'web':'breach';}else if(cls==='cosmic'&&!p.utilityWarp){thrown=true;variant='gadget';}
+    if(thrown){rs810SpawnUtilityThrow(cls,tx,ty,variant);G.weaponAnim={slot:4,type:'utilityThrow',t:.42,max:.42,classId:cls,variant};}
+  }
+};
+const rs810OldUseMelee=useMelee;
+useMelee=function(fromSlotFire=false){const p=G?.player;if(!p)return;const before=p.meleeCd||0;rs810OldUseMelee.apply(this,arguments);if((p.meleeCd||0)>before&&G.weaponAnim?.slot===3){G.weaponAnim.type='melee';G.weaponAnim.t=.38;G.weaponAnim.max=.38;}};
+
+const rs810OldUpdate=update;
+update=function(dt){const out=rs810OldUpdate.apply(this,arguments);if(G?.running)rs810UpdateUtilityThrows(dt);return out;};
 
 </script>
 </body>
